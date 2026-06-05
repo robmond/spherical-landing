@@ -1733,7 +1733,30 @@
 
       /* Service cards */
       .service-cards { grid-template-columns: 1fr }
-      .scard { min-height: 220px }
+      .scard {
+        aspect-ratio: unset;
+        min-height: unset;
+      }
+      .scard__overlay {
+        position: relative;
+        inset: unset;
+        padding: var(--space-xl) var(--space-lg);
+        justify-content: flex-start;
+      }
+      .scard__badge {
+        opacity: 1;
+        transform: none;
+      }
+      .scard__body {
+        opacity: 0.7;
+        transform: none;
+        max-height: unset;
+      }
+      .scard__cta {
+        opacity: 1;
+        transform: none;
+        margin-top: var(--space-md);
+      }
 
       /* Testimonial */
       .testimonial { padding: var(--space-lg) var(--space-md) }
