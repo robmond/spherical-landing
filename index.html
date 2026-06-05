@@ -380,6 +380,7 @@
     .navbar.navbar--at-top {
       background: transparent;
       backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       border-bottom-color: transparent;
     }
 
@@ -487,33 +488,38 @@
 
     .hero__logos-track {
       display: flex;
-      gap: 60px;
+      gap: 0;
       align-items: center;
       width: max-content;
       animation: marquee 30s linear infinite;
     }
 
+    .logo-item {
+      width: calc(100vw / 6);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
     .hero__logos-track img {
-      height: 38px;
+      max-height: 42px;
+      max-width: 140px;
       width: auto;
+      height: auto;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      /* Logos en blanco */
       opacity: 0.6;
       transition: opacity var(--dur-fast);
     }
 
+    .hero__logos-track img.logo-scale-07 { transform: scale(0.7); }
+    .hero__logos-track img.logo-scale-13 { transform: scale(1.3); }
+    .hero__logos-track img.logo-scale-14 { transform: scale(1.4); }
+
     .hero__logos-track img:hover {
       opacity: 1;
-    }
-
-    /* Logos de texto ancho necesitan más altura para tener el mismo peso visual */
-    .hero__logos-track img[alt="VTR"],
-    .hero__logos-track img[alt="Microsoft"],
-    .hero__logos-track img[alt="Larrán Vial"],
-    .hero__logos-track img[alt="Agrosuper"],
-    .hero__logos-track img[alt="Grupo Imagine"] {
-      height: 54px;
     }
 
     @keyframes marquee {
@@ -899,10 +905,16 @@
     }
 
     /* ═══ TESTIMONIALS ═══ */
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: var(--space-md)
+    /* ═══ TESTIMONIAL SLIDESHOW ═══ */
+    .testimonial-slider {
+      position: relative;
+      overflow: hidden;
+      margin-top: var(--space-xl);
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .testimonial {
@@ -910,7 +922,20 @@
       padding: var(--space-xl);
       display: flex;
       flex-direction: column;
-      gap: var(--space-md)
+      gap: var(--space-md);
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .testimonial__stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .testimonial__stars span {
+      color: #f59e0b;
+      font-size: 1.1rem;
     }
 
     .testimonial__quote {
@@ -928,15 +953,24 @@
     }
 
     .testimonial__avatar {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      border: 1px solid var(--glass-border);
+      border: 2px solid rgba(93,202,165,0.35);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1rem;
-      background: linear-gradient(135deg, var(--spherical-teal), var(--accent-violet))
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--spherical-teal), var(--accent-violet));
+      overflow: hidden;
+    }
+
+    .testimonial__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
     .testimonial__name {
@@ -947,6 +981,56 @@
     .testimonial__role {
       font-size: var(--text-xs);
       opacity: 0.5
+    }
+
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: var(--space-lg);
+    }
+
+    .testimonial-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .testimonial-dots button.active {
+      background: var(--spherical-teal);
+      transform: scale(1.3);
+    }
+
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .testimonial-nav button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .testimonial-nav button:hover {
+      background: rgba(93,202,165,0.15);
+      border-color: var(--spherical-teal);
     }
 
     /* ═══ DIFFERENTIATORS ═══ */
@@ -1051,6 +1135,93 @@
       margin-left: 24px
     }
 
+    /* ═══ FEATURED ARTICLE ═══ */
+    .featured-article {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(94, 231, 223, 0.2);
+      background: linear-gradient(135deg, rgba(93,202,165,0.08) 0%, rgba(180,144,245,0.08) 100%);
+      padding: var(--space-3xl) var(--space-2xl);
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.4s var(--ease-glass), border-color 0.4s, box-shadow 0.4s;
+      max-width: 820px;
+    }
+    .featured-article:hover {
+      transform: translateY(-6px);
+      border-color: rgba(93,202,165,0.45);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.35), 0 0 60px rgba(93,202,165,0.1);
+    }
+    .featured-article__bg {
+      position: absolute;
+      inset: 0;
+      background: var(--reflection-top);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .featured-article__orb {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,202,165,0.15), transparent 70%);
+      right: -100px;
+      top: -100px;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .featured-article:hover .featured-article__orb {
+      opacity: 1.5;
+    }
+    .featured-article__inner {
+      position: relative;
+      z-index: 1;
+    }
+    .featured-article__meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .featured-article__date {
+      font-size: var(--text-xs);
+      opacity: 0.45;
+      letter-spacing: 0.08em;
+    }
+    .featured-article__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: var(--space-lg);
+      background: linear-gradient(135deg, #fff 30%, var(--spherical-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .featured-article__excerpt {
+      font-size: var(--text-lg);
+      line-height: 1.75;
+      opacity: 0.65;
+      max-width: 600px;
+      margin-bottom: var(--space-xl);
+    }
+    .featured-article__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--spherical-teal);
+      letter-spacing: 0.04em;
+      transition: gap 0.3s var(--ease-liquid);
+    }
+    .featured-article:hover .featured-article__cta {
+      gap: var(--space-md);
+    }
+
     /* ═══ SERVICE HOVER CARDS ═══ */
     .service-cards {
       display: grid;
@@ -1063,24 +1234,54 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-xl);
-      background: #070707;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       cursor: pointer;
       aspect-ratio: 4/3;
       text-decoration: none;
       color: inherit;
+      transition: border-color 0.4s, box-shadow 0.4s;
     }
-    .scard img {
-      display: block;
-      width: calc(100% + 20px) !important;
-      max-width: calc(100% + 20px) !important;
-      height: 100%;
-      object-fit: cover;
-      transform: translate3d(-10px, 0px, 0px);
-      transition: opacity 0.4s, transform 0.4s;
-      backface-visibility: hidden;
+    .scard:hover {
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
     }
-    .scard:hover img {
-      transform: translate3d(0px, 0px, 0px);
+    /* Orb decorativo — teal para card 1 */
+    .scard:nth-child(1)::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,202,165,0.22) 0%, transparent 70%);
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .scard:nth-child(1):hover::before { opacity: 1.4; }
+    /* Orb decorativo — violet para card 2 */
+    .scard:nth-child(2)::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(180,144,245,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Patrón de puntos */
+    .scard::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
     }
     .scard__overlay {
       position: absolute;
@@ -1089,7 +1290,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.82) 100%);
+      z-index: 1;
     }
     .scard__badge {
       display: inline-flex;
@@ -1103,17 +1304,26 @@
       border: 1px solid rgba(255,255,255,0.3);
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(8px);
+      opacity: 0;
+      transform: translate3d(0, -8px, 0);
+      transition: opacity 0.4s, transform 0.4s;
     }
-    .scard__title {
+    .scard:hover .scard__badge {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    .scard__question {
       position: relative;
       overflow: hidden;
       padding-bottom: 12px;
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
       color: #fff;
-      line-height: 1.15;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-xs);
     }
-    .scard__title::after {
+    .scard__question::after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -1124,8 +1334,15 @@
       transform: translate3d(-101%, 0, 0);
       transition: transform 0.4s;
     }
-    .scard:hover .scard__title::after {
+    .scard:hover .scard__question::after {
       transform: translate3d(0, 0, 0);
+    }
+    .scard__title {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
     }
     .scard__body {
       padding-top: var(--space-sm);
@@ -1158,6 +1375,50 @@
     }
     @media (max-width: 680px) {
       .service-cards { grid-template-columns: 1fr; }
+    }
+
+    /* ═══ ALIANZAS ═══ */
+    .alianzas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .alianza-card {
+      display: flex;
+      flex-direction: column;
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .alianza-logo {
+      display: block;
+      height: 36px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+      margin-bottom: var(--space-lg);
+    }
+
+    .alianza-card__title {
+      font-size: var(--text-md);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+
+    .alianza-card__body {
+      font-size: var(--text-sm);
+      line-height: 1.7;
+      opacity: 0.65;
+    }
+
+    @media (max-width: 680px) {
+      .alianzas-grid { grid-template-columns: 1fr; }
     }
 
     /* ═══ CTA SECTION ═══ */
@@ -1341,8 +1602,8 @@
         grid-template-columns: 1fr
       }
 
-      .testimonial-grid {
-        grid-template-columns: 1fr
+      .testimonial {
+        padding: var(--space-lg);
       }
 
       .hero__title {
@@ -1732,10 +1993,10 @@
 
     <!-- ═══ NAVBAR ═══ -->
     <nav class="navbar navbar--at-top">
-      <a href="#" class="navbar__brand"><img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
+      <a href="index.html" class="navbar__brand"><img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
       <a href="#servicios" class="navbar__link">Servicios</a>
-      <a href="#como" class="navbar__link">Cómo trabajamos</a>
       <a href="#clientes" class="navbar__link">Clientes</a>
+      <a href="taller-ia-ejecutivo.html" class="navbar__link">Taller IA</a>
       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0SnRZranoG4i04izzBxi3LlSPK0uRi1-M7JTp24WHbxQK3P_iEsVd7lZY0AlEmI2yhMH5jmN7J"
         target="_blank" rel="noopener" class="navbar__cta">Conversemos</a>
     </nav>
@@ -1746,39 +2007,47 @@
         <source src="assets/video-fondo.mp4" type="video/mp4">
       </video>
       <h1 class="hero__title">Impulsando la nueva generación de empresas conectadas al futuro</h1>
-      <p class="hero__sub">Entramos a tu empresa. Entendemos tu realidad. Construimos lo que necesitas y nos quedamos hasta que tu equipo lo adopta.</p>
+      <p class="hero__sub">Integramos estrategia, digitalización e inteligencia artificial para transformar cómo operan las organizaciones.</p>
 
       <!-- Carrusel de Logos -->
       <div class="hero__logos">
         <div class="hero__logos-track">
           <!-- Logos originales -->
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Hoffmann-La_Roche_logo.svg" alt="Roche">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Codelco_logo.svg" alt="Codelco">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Komatsu_company_logos.svg" alt="Komatsu">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="DuocUC">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Banco_Santander_Logotipo.svg" alt="Banco Santander">
-          <img src="assets/logos/VTR_2011-1.png" alt="VTR">
-          <img src="assets/logos/Microsoft_logo_2012-1.png" alt="Microsoft">
-          <img src="assets/logos/everteclogo.png" alt="Evertec">
-          <img src="assets/logos/Larrain-Vial-1.png" alt="Larrán Vial">
-          <img src="assets/logos/agrosuper-1.png" alt="Agrosuper">
-          <img src="assets/logos/grupo-imagine-1.png" alt="Grupo Imagine">
-          <img src="assets/logos/Johnson_and_Johnson_Logo.svg.png" alt="Johnson & Johnson">
-          <img src="assets/logos/british-american-tobacco-logo-24008E435B-seeklogo-1.png" alt="British American Tobacco">
+          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche"></span>
+          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco"></span>
+          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC"></span>
+          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR"></span>
+          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec"></span>
+          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial"></span>
+          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine"></span>
+          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros"></span>
+          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander"></span>
+          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI"></span>
+          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13"></span>
+
+          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ"></span>
           <!-- Duplicado para efecto infinito -->
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Hoffmann-La_Roche_logo.svg" alt="Roche">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Codelco_logo.svg" alt="Codelco">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Komatsu_company_logos.svg" alt="Komatsu">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="DuocUC">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Banco_Santander_Logotipo.svg" alt="Banco Santander">
-          <img src="assets/logos/VTR_2011-1.png" alt="VTR">
-          <img src="assets/logos/Microsoft_logo_2012-1.png" alt="Microsoft">
-          <img src="assets/logos/everteclogo.png" alt="Evertec">
-          <img src="assets/logos/Larrain-Vial-1.png" alt="Larrán Vial">
-          <img src="assets/logos/agrosuper-1.png" alt="Agrosuper">
-          <img src="assets/logos/grupo-imagine-1.png" alt="Grupo Imagine">
-          <img src="assets/logos/Johnson_and_Johnson_Logo.svg.png" alt="Johnson & Johnson">
-          <img src="assets/logos/british-american-tobacco-logo-24008E435B-seeklogo-1.png" alt="British American Tobacco">
+          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche"></span>
+          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco"></span>
+          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC"></span>
+          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR"></span>
+          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec"></span>
+          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial"></span>
+          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine"></span>
+          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros"></span>
+          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander"></span>
+          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI"></span>
+          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13"></span>
+
+          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ"></span>
         </div>
       </div>
 
@@ -1787,32 +2056,30 @@
     <!-- ═══ DOS NIVELES ═══ -->
     <section class="section" id="servicios">
       <div class="container">
-        <p class="section__eyebrow animate-in d1">Cómo trabajamos</p>
+        <p class="section__eyebrow animate-in d1">Servicios</p>
         <h2 class="section__title animate-in d2">Nos adaptamos a la profundidad que tu empresa necesita</h2>
-        <p class="section__desc animate-in d3" style="margin-bottom:var(--space-xl)">Algunas empresas necesitan activar
-          su ecosistema digital. Otras necesitan transformar su operación con IA. Muchas empiezan por lo primero y
-          evolucionan hacia lo segundo.</p>
+        <p class="section__desc animate-in d3" style="margin-bottom:var(--space-xl)">Nuestros servicios son transversales a toda la organización — Desde el marketing hasta la operacion profunda, pasando por la cultura y la adopción del equipo. Por eso, en lugar de hablar de productos, partimos con dos preguntas:</p>
 
         <div class="service-cards">
 
           <!-- Card Ecosistemas Digitales -->
           <a href="ecosistemas-digitales.html" class="scard animate-in d4">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80" alt="Ecosistemas Digitales">
             <div class="scard__overlay">
-              <span class="scard__badge">Ecosistemas Digitales</span>
-              <h3 class="scard__title">Activamos tu presencia digital con IA integrada</h3>
-              <p class="scard__body">Web, campañas, CRM, chatbots y producción audiovisual. Todo funcionando en semanas, no meses.</p>
+              <span class="scard__badge">Marketing Digital</span>
+              <p class="scard__question">¿Cómo te ve el mundo?</p>
+              <h3 class="scard__title">Activamos tu presencia digital</h3>
+              <p class="scard__body">Web, campañas, CRM, chatbots y producción audiovisual. Todo funcionando en semanas.</p>
               <span class="scard__cta">Ver Ecosistemas Digitales →</span>
             </div>
           </a>
 
           <!-- Card IA Empresarial -->
-          <a href="ia-empresarial.html" class="scard animate-in d5">
-            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900&q=80" alt="IA Empresarial">
+          <a href="ia-empresarial-v2.html" class="scard animate-in d5">
             <div class="scard__overlay">
-              <span class="scard__badge" style="border-color:rgba(180,144,245,0.5);background:rgba(180,144,245,0.15);">IA Empresarial</span>
-              <h3 class="scard__title">Transformamos tu operación desde adentro</h3>
-              <p class="scard__body">Diagnóstico, arquitectura IA, implementación y acompañamiento. Nos quedamos hasta que tu equipo lo adopta.</p>
+              <span class="scard__badge" style="border-color:rgba(180,144,245,0.5);background:rgba(180,144,245,0.15);">Desarrollo Tecnológico</span>
+              <p class="scard__question">¿Cómo operas por dentro?</p>
+              <h3 class="scard__title">Transformamos tu operación</h3>
+              <p class="scard__body">Workshops y capacitación en IA, diagnóstico, implementación y acompañamiento. Nos quedamos hasta que tu equipo lo adopta.</p>
               <span class="scard__cta" style="color:var(--accent-violet);">Ver IA Empresarial →</span>
             </div>
           </a>
@@ -1821,34 +2088,18 @@
       </div>
     </section>
 
-    <!-- ═══ PROBLEMA ═══ -->
+
+    <!-- ═══ MODELO FRACCIONAL ═══ -->
     <section class="section">
       <div class="container">
-        <p class="section__eyebrow animate-in d1">El verdadero desafío</p>
-        <h2 class="section__title animate-in d2">La tecnología no es el problema. La adopción sí.</h2>
-        <p class="section__desc animate-in d3" style="margin-bottom:var(--space-xl)">Cada semana aparece una nueva
-          herramienta de IA que promete transformar tu empresa. Pero entre la promesa y el resultado hay una brecha que
-          la mayoría no logra cruzar.</p>
-        <div class="card-grid">
-          <div class="glass-card glass animate-in d4">
-            <div class="glass-card__icon">🛒</div>
-            <div class="glass-card__title">Se compra, no se implementa</div>
-            <div class="glass-card__body">Las empresas adquieren licencias y aprueban presupuestos. Pero nadie traduce
-              la tecnología a los procesos reales del equipo. El software queda instalado. Los hábitos quedan intactos.
-            </div>
-          </div>
-          <div class="glass-card glass animate-in d5">
-            <div class="glass-card__icon">📄</div>
-            <div class="glass-card__title">Se diagnostica, no se ejecuta</div>
-            <div class="glass-card__body">Las consultoras entregan informes brillantes de 80 páginas. El directorio los
-              aprueba. Y después nadie sabe cómo convertir las recomendaciones en acciones concretas.</div>
-          </div>
-          <div class="glass-card glass animate-in d6">
-            <div class="glass-card__icon">🔧</div>
-            <div class="glass-card__title">Se implementa, no se adopta</div>
-            <div class="glass-card__body">La agencia entrega el chatbot, la landing, la automatización. Funciona
-              técnicamente. Pero el equipo no confía en la herramienta y vuelve a hacer las cosas como antes.</div>
-          </div>
+        <p class="section__eyebrow animate-in d1">Por qué trabajamos así</p>
+        <h2 class="section__title animate-in d2">El futuro de las empresas es fraccional.</h2>
+        <p class="section__desc animate-in d3" style="max-width:700px;">Las empresas que mejor se adaptan no siempre son las más grandes — son las que tienen acceso al talento correcto en el momento correcto. El modelo fraccional permite exactamente eso: contar con un equipo senior especializado en marketing, tecnología e IA, sin los costos ni la rigidez de una estructura interna permanente.</p>
+        <blockquote class="animate-in d4" style="margin-top:var(--space-2xl);padding:var(--space-lg) var(--space-xl);border-left:3px solid var(--spherical-teal);background:rgba(93,202,165,0.06);border-radius:0 var(--radius-md) var(--radius-md) 0;max-width:680px;font-size:var(--text-lg);line-height:1.7;opacity:0.85;font-style:normal;">
+          "Podemos ejecutar un proyecto y entregarlo terminado, o convertirnos en tu área externa de largo plazo. Tú decides la profundidad."
+        </blockquote>
+        <div class="animate-in d5" style="margin-top:var(--space-xl);">
+          <a href="blog/el-fin-estructuras-pesadas-marketing-ventas.html" style="font-size:var(--text-sm);color:var(--spherical-teal);font-weight:500;letter-spacing:0.03em;transition:opacity var(--dur-fast);" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Conocer el modelo fraccional →</a>
         </div>
       </div>
     </section>
@@ -1878,24 +2129,24 @@
               🤝</div>
             <div class="glass-card__title">Acompañamiento en adopción</div>
             <div class="glass-card__body">Facilitamos workshops, capacitamos equipos y acompañamos la transición. No nos
-              vamos cuando se entrega el proyecto. Nos vamos cuando el equipo lo incorporó.</div>
+              vamos cuando se entrega el proyecto. Nos vamos cuando el equipo lo incorporó. Podemos entrar, ejecutar y salir con el proyecto entregado. O quedarnos como tu área externa de innovación. Ambas opciones son válidas — y tú decides cuál necesitas.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ DIAGNÓSTICO DE EFICIENCIA ═══ -->
+
+    <!-- ═══ TALLER EJECUTIVO ═══ -->
     <section class="section">
       <div class="container">
         <div class="diag-banner animate-in d1">
           <div class="diag-banner__content">
-            <span class="badge badge--aqua" style="margin-bottom:var(--space-md);display:inline-flex">Diagnóstico
-              gratuito</span>
-            <h2 class="diag-banner__title">¿Qué tan eficiente es tu empresa hoy?</h2>
-            <p class="diag-banner__desc">Antes de transformar, hay que entender dónde estás. Este diagnóstico rápido te
-              muestra en minutos dónde está el mayor potencial de mejora en tu operación. Sin costo, sin compromiso.</p>
-            <a href="https://robmond.github.io/diagnostico-eficiencia/" target="_blank" rel="noopener"
-              class="btn btn--primary btn--lg">Hacer el diagnóstico →</a>
+            <span class="badge badge--aqua" style="margin-bottom:var(--space-md);display:inline-flex">Taller ejecutivo gratuito</span>
+            <h2 class="diag-banner__title">¿Tu empresa está lista para integrar inteligencia artificial?</h2>
+            <p class="diag-banner__desc">Cada mes abrimos un cupo limitado para un taller ejecutivo gratuito de 60 minutos — diseñado para directivos que quieren entender cómo la IA puede transformar su operación, con ejemplos reales y sin tecnicismos.</p>
+            <p class="diag-banner__desc" style="margin-top:var(--space-sm)">No es para todo el mundo. Trabajamos con empresas que tienen equipos, procesos y la decisión de avanzar.</p>
+            <a href="taller-ia-ejecutivo.html" class="btn btn--primary btn--lg" style="margin-top:var(--space-md)">Postular al taller →</a>
+            <p style="margin-top:var(--space-sm);font-size:var(--text-xs);opacity:0.45;">Revisamos cada solicitud. Te contactamos en 48 horas si hay match.</p>
           </div>
           <div class="diag-banner__orb"></div>
         </div>
@@ -1905,138 +2156,94 @@
     <!-- ═══ CLIENTES ═══ -->
     <section class="section" id="clientes">
       <div class="container">
+        <p class="section__eyebrow animate-in d1">Nuestros clientes</p>
+        <h2 class="section__title animate-in d2">Lo que dicen quienes trabajaron con nosotros</h2>
 
+        <div class="testimonial-slider animate-in d3" style="max-width:680px;margin-inline:auto;">
+          <div class="testimonial-track" id="testimonialTrack">
 
-        <div class="testimonial-grid" style="margin-top:var(--space-xl)">
-          <div class="testimonial glass animate-in d4">
-            <div class="testimonial__quote">"Una solución diseñada a la medida de nuestras necesidades, que involucró
-              contenido, estrategia y una importante consultoría que mantenemos hasta el día de hoy."</div>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">AH</div>
-              <div>
-                <div class="testimonial__name">Angélica Hernández S.</div>
-                <div class="testimonial__role">Advocacy Patient Group, Roche</div>
+            <div class="testimonial glass">
+              <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div class="testimonial__quote">"Una solución diseñada a la medida de nuestras necesidades, que involucró contenido, estrategia y una importante consultoría que mantenemos hasta el día de hoy."</div>
+              <div class="testimonial__author">
+                <div class="testimonial__avatar"><img src="assets/Angelica.webp" alt="Angélica Hernández"></div>
+                <div>
+                  <div class="testimonial__name">Angélica Hernández S.</div>
+                  <div class="testimonial__role">Advocacy Patient Group, Roche</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="testimonial glass animate-in d5">
-            <div class="testimonial__quote">"Su capacidad para conectar con nuestros estudiantes, titulados y
-              colaboradores, además de fortalecer nuestro ecosistema de innovación y emprendimiento, es excepcional."
-            </div>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">AO</div>
-              <div>
-                <div class="testimonial__name">Andrea Órdenes</div>
-                <div class="testimonial__role">Jefa de Emprendimiento, DuocUC</div>
+
+            <div class="testimonial glass">
+              <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div class="testimonial__quote">"Su capacidad para conectar con nuestros estudiantes, titulados y colaboradores, además de fortalecer nuestro ecosistema de innovación y emprendimiento, es excepcional."</div>
+              <div class="testimonial__author">
+                <div class="testimonial__avatar"><img src="assets/img-duoca-andrea.jpg" alt="Andrea Órdenes"></div>
+                <div>
+                  <div class="testimonial__name">Andrea Órdenes</div>
+                  <div class="testimonial__role">Jefa de Emprendimiento, DuocUC</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="testimonial glass animate-in d6">
-            <div class="testimonial__quote">"Spherical fue una parte fundamental para el diseño e implementación en la
-              experiencia de gamificación de Codelco Andina. Una solución innovadora y de excelencia."</div>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">AA</div>
-              <div>
-                <div class="testimonial__name">Antonio Astorga</div>
-                <div class="testimonial__role">Área de RRHH, Codelco Andina</div>
+
+            <div class="testimonial glass">
+              <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div class="testimonial__quote">"Spherical fue una parte fundamental para el diseño e implementación en la experiencia de gamificación de Codelco Andina. Una solución innovadora y de excelencia."</div>
+              <div class="testimonial__author">
+                <div class="testimonial__avatar"><img src="assets/Antonio.webp" alt="Antonio Astorga"></div>
+                <div>
+                  <div class="testimonial__name">Antonio Astorga</div>
+                  <div class="testimonial__role">Área de RRHH, Codelco Andina</div>
+                </div>
               </div>
             </div>
+
+            <div class="testimonial glass">
+              <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <div class="testimonial__quote">"Desde el 2017 Spherical ha sido un gran aliado para emprendedores y empresas del ecosistema de Start-Up Chile provenientes de todo el mundo, quienes buscan proveedores con conocimiento de tendencias globales en innovación, imagen e interacción para atender sus necesidades."</div>
+              <div class="testimonial__author">
+                <div class="testimonial__avatar"><img src="assets/David.webp" alt="David Fernández"></div>
+                <div>
+                  <div class="testimonial__name">David Fernández</div>
+                  <div class="testimonial__role">Acceleration & Deputy Director, Start-Up Chile</div>
+                </div>
+              </div>
+            </div>
+
           </div>
+
+          <div class="testimonial-nav">
+            <button id="testimonialPrev" aria-label="Anterior">←</button>
+            <button id="testimonialNext" aria-label="Siguiente">→</button>
+          </div>
+          <div class="testimonial-dots" id="testimonialDots"></div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ DIFERENCIADORES ═══ -->
+
+
+    <!-- ═══ ALIANZAS ESTRATÉGICAS ═══ -->
     <section class="section">
       <div class="container">
-        <p class="section__eyebrow animate-in d1">Lo que nos hace diferentes</p>
-        <h2 class="section__title animate-in d2" style="max-width:600px">No somos una agencia. No somos una consultora.
-          Somos el puente entre ambas.</h2>
-        <div class="diff-grid" style="margin-top:var(--space-xl)">
-          <div class="diff-card glass animate-in d3">
-            <div class="diff-card__num">01</div>
-            <div class="diff-card__title">Ejecutamos, no solo diagnosticamos</div>
-            <div class="diff-card__desc">Entregamos herramientas funcionando, equipos capacitados y procesos
-              transformados.</div>
-          </div>
-          <div class="diff-card glass animate-in d4">
-            <div class="diff-card__num">02</div>
-            <div class="diff-card__title">IA integrada como estándar</div>
-            <div class="diff-card__desc">Cada solución tiene inteligencia artificial incorporada. No como un add-on.
-              Como la base.</div>
-          </div>
-          <div class="diff-card glass animate-in d5">
-            <div class="diff-card__num">03</div>
-            <div class="diff-card__title">Nos adaptamos a tu profundidad</div>
-            <div class="diff-card__desc">Desde una landing page hasta transformar cómo opera tu empresa. Sin imponer un
-              formato único.</div>
-          </div>
-          <div class="diff-card glass animate-in d3">
-            <div class="diff-card__num">04</div>
-            <div class="diff-card__title">Acompañamos la adopción</div>
-            <div class="diff-card__desc">Nos quedamos hasta que tu equipo incorpora las herramientas a su trabajo
-              diario.</div>
-          </div>
-          <div class="diff-card glass animate-in d4">
-            <div class="diff-card__num">05</div>
-            <div class="diff-card__title">Un equipo, no cinco proveedores</div>
-            <div class="diff-card__desc">Estrategia, tecnología, diseño, marketing, audiovisual y capacitación. Una sola
-              contratación.</div>
-          </div>
-          <div class="diff-card glass animate-in d5">
-            <div class="diff-card__num">06</div>
-            <div class="diff-card__title">Modelo asset-light</div>
-            <div class="diff-card__desc">Usamos las mejores herramientas del mercado. Implementación rápida, menor
-              costo, mayor flexibilidad.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <p class="section__eyebrow animate-in d1">Alianzas estratégicas</p>
+        <h2 class="section__title animate-in d2">Una red que amplifica lo que podemos hacer por tu empresa.</h2>
+        <p class="section__desc animate-in d3" style="max-width:680px;">Trabajamos con socios seleccionados que nos permiten ir más lejos — en alcance, en credibilidad y en beneficios concretos para cada organización.</p>
 
-    <!-- ═══ CÓMO EMPEZAR ═══ -->
-    <section class="section" id="como">
-      <div class="container">
-        <p class="section__eyebrow animate-in d1" style="text-align:center">Tu primer paso</p>
-        <h2 class="section__title animate-in d2" style="text-align:center;max-width:600px;margin-inline:auto">No importa
-          dónde estés hoy. Lo que importa es hacia dónde quieres ir.</h2>
-        <div style="margin-top:var(--space-2xl)">
-          <div class="stepper">
-            <div class="step animate-in d3">
-              <div class="step__node">1</div>
-              <div class="step__content">
-                <div class="step__title">Conversar</div>
-                <div class="step__desc">Una sesión exploratoria de 45 minutos donde escuchamos tu realidad, tus desafíos
-                  y tus prioridades. Sin costo. Sin compromiso.</div>
-              </div>
-            </div>
-            <div class="step__connector"></div>
-            <div class="step animate-in d4">
-              <div class="step__node">2</div>
-              <div class="step__content">
-                <div class="step__title">Activar</div>
-                <div class="step__desc">Ponemos en marcha una primera solución concreta: un ecosistema digital en 5
-                  días, un diagnóstico o un workshop de sensibilización en IA.</div>
-              </div>
-            </div>
-            <div class="step__connector"></div>
-            <div class="step animate-in d5">
-              <div class="step__node">3</div>
-              <div class="step__content">
-                <div class="step__title">Transformar</div>
-                <div class="step__desc">Diseñamos e implementamos la solución completa: arquitectura de IA,
-                  automatización, herramientas ejecutivas y acompañamiento.</div>
-              </div>
-            </div>
-            <div class="step__connector"></div>
-            <div class="step animate-in d6">
-              <div class="step__node">4</div>
-              <div class="step__content">
-                <div class="step__title">Evolucionar</div>
-                <div class="step__desc">Nos convertimos en tu partner tecnológico permanente. Medimos impacto,
-                  optimizamos y te guiamos en cada siguiente paso.</div>
-              </div>
-            </div>
+        <div class="alianzas-grid animate-in d4">
+
+          <div class="alianza-card">
+            <a href="https://exem.cl/" target="_blank" rel="noopener"><img src="assets/logos/exemlogo1.png" alt="OTEC Exem" class="alianza-logo"></a>
+            <h3 class="alianza-card__title">Capacitación con beneficio tributario</h3>
+            <p class="alianza-card__body">A través de nuestra alianza con OTEC Exem, las empresas pueden acceder a nuestros programas de capacitación en IA usando su franquicia tributaria SENCE — sin costo neto para la organización.</p>
           </div>
+
+          <div class="alianza-card">
+            <a href="https://grupozenit.cl/" target="_blank" rel="noopener"><img src="assets/logos/logo-header-original.svg" alt="Grupo Zenit" class="alianza-logo"></a>
+            <h3 class="alianza-card__title">Innovación con respaldo ecosistémico</h3>
+            <p class="alianza-card__body">Grupo Zenit lleva más de una década acelerando empresas y desarrollando ecosistemas de innovación en Chile y Latinoamérica. Juntos combinamos estrategia de IA con gestión de innovación organizacional.</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -2044,12 +2251,10 @@
     <!-- ═══ CTA FINAL ═══ -->
     <section class="cta-section" id="contacto">
       <div class="container">
-        <h2 class="cta-section__title animate-in d1">¿Listo para dar el primer paso?</h2>
-        <p class="cta-section__sub animate-in d2">45 minutos. Sin costo. Sin compromiso. Solo una conversación honesta
-          sobre dónde está tu empresa y hacia dónde puede ir.</p>
+        <h2 class="cta-section__title animate-in d1">¿Por dónde empezamos?</h2>
+        <p class="cta-section__sub animate-in d2">Una conversación de 45 minutos. Sin costo. Sin compromiso.</p>
         <div class="animate-in d3" style="display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap">
-          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0SnRZranoG4i04izzBxi3LlSPK0uRi1-M7JTp24WHbxQK3P_iEsVd7lZY0AlEmI2yhMH5jmN7J"
-            target="_blank" rel="noopener" class="btn btn--primary btn--lg">Agenda una sesión exploratoria</a>
+          <a href="#" id="ctaContacto" class="btn btn--primary btn--lg">Escríbenos →</a>
         </div>
       </div>
     </section>
@@ -2159,47 +2364,84 @@
         });
       });
 
-      // --- Navbar transparent-at-top logic ---
+      // --- Navbar: transparente en hero, visible al hacer scroll ---
       const navbar = document.querySelector(".navbar");
-      const updateNavbarTop = () => {
-        if (window.scrollY < 10) {
+      const updateNavbar = () => {
+        if (window.scrollY < 80) {
           navbar.classList.add("navbar--at-top");
+          navbar.classList.remove("navbar--hidden");
         } else {
           navbar.classList.remove("navbar--at-top");
+          navbar.classList.remove("navbar--hidden");
         }
       };
-      window.addEventListener("scroll", updateNavbarTop, { passive: true });
-      updateNavbarTop();
-
-      // --- Navbar auto-hide logic ---
-      let scrollTimeout;
-
-      const hideNavbar = () => {
-        if (!navbar.matches(":hover")) {
-          navbar.classList.add("navbar--hidden");
-        }
-      };
-
-      const showNavbar = () => {
-        navbar.classList.remove("navbar--hidden");
-      };
-
-      const resetScrollTimeout = () => {
-        showNavbar();
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(hideNavbar, 1200); // Hide after 1.2s of inactivity
-      };
-
-      window.addEventListener("scroll", resetScrollTimeout);
-      navbar.addEventListener("mouseenter", showNavbar);
-      navbar.addEventListener("mouseleave", () => {
-        scrollTimeout = setTimeout(hideNavbar, 1200);
-      });
-
-      // Initial hide
-      scrollTimeout = setTimeout(hideNavbar, 2000);
+      window.addEventListener("scroll", updateNavbar, { passive: true });
+      updateNavbar();
     });
 
+  <script>
+    // mailto anti-scraping: construido en JS, no en HTML
+    (function() {
+      var dest = 'info' + '@' + 'spherical.cl';
+      var href = 'mailto:' + dest;
+      var ids = ['ctaContacto', 'tallerCTA'];
+      ids.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = href;
+          });
+        }
+      });
+    })();
+  </script>
+  <!-- Testimonial Slideshow -->
+  <script>
+    (function () {
+      const track = document.getElementById('testimonialTrack');
+      const dotsContainer = document.getElementById('testimonialDots');
+      const prevBtn = document.getElementById('testimonialPrev');
+      const nextBtn = document.getElementById('testimonialNext');
+      if (!track) return;
+
+      const slides = track.querySelectorAll('.testimonial');
+      const total = slides.length;
+      let current = 0;
+      let autoTimer;
+
+      // Build dots
+      slides.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.setAttribute('aria-label', 'Ir a testimonio ' + (i + 1));
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+        dotsContainer.appendChild(dot);
+      });
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dotsContainer.querySelectorAll('button').forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); resetAuto(); });
+
+      function startAuto() {
+        autoTimer = setInterval(function () { goTo(current + 1); }, 5000);
+      }
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+      }
+
+      startAuto();
+    })();
+  </script>
   <!-- Maslead WhatsApp Widget -->
   <script src="https://maslead.cl/widget.js" data-token="cmnp5pcwn00023aua5ndyl891"></script>
 </body>

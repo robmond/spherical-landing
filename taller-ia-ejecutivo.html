@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Ejecutivo de IA — Spherical</title>
+  <meta name="description" content="Un taller ejecutivo de 60 minutos para directivos que quieren entender cómo la IA puede transformar su empresa — con ejemplos reales, sin tecnicismos.">
+  <meta property="og:title" content="Taller Ejecutivo de IA — Spherical">
+  <meta property="og:description" content="Un taller ejecutivo de 60 minutos para directivos que quieren entender cómo la IA puede transformar su empresa.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ═══ DESIGN TOKENS ═══ */
+  :root {
+    --glass-white: rgba(255, 255, 255, 0.12);
+    --glass-white-md: rgba(255, 255, 255, 0.2);
+    --glass-white-lg: rgba(255, 255, 255, 0.3);
+    --glass-dark: rgba(0, 0, 0, 0.18);
+    --glass-dark-md: rgba(0, 0, 0, 0.28);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --glass-border-subtle: rgba(255, 255, 255, 0.12);
+    --glass-border-bright: rgba(255, 255, 255, 0.5);
+    --blur-sm: blur(8px);
+    --blur-md: blur(18px);
+    --blur-lg: blur(32px);
+    --blur-xl: blur(60px);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 40px rgba(94, 231, 223, 0.35);
+    --reflection-top: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%);
+    --reflection-inner: inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+    --accent-aqua: #5ee7df;
+    --accent-violet: #b490f5;
+    --accent-rose: #f7a8c4;
+    --accent-amber: #ffd27f;
+    --accent-lime: #a8f08a;
+    --spherical-teal: #5DCAA5;
+    --spherical-teal-bright: #7EEDC5;
+    --color-bg: #0b0e1a;
+    --color-surface: rgba(255, 255, 255, 0.04);
+    --color-text: #ffffff;
+    --color-text-muted: rgba(255, 255, 255, 0.55);
+    --color-text-subtle: rgba(255, 255, 255, 0.35);
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    --text-2xs: 0.68rem;
+    --text-xs: 0.75rem;
+    --text-sm: 0.82rem;
+    --text-md: 0.9rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.8rem;
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+    --radius-full: 9999px;
+    --ease-glass: cubic-bezier(0.22, 0.68, 0, 1.2);
+    --ease-liquid: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --dur-fast: 180ms;
+    --dur-mid: 360ms;
+    --dur-slow: 600ms;
+    --font-display: "Italiana", serif;
+    --font-body: "DM Sans", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased }
+  body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--color-text);
+    background: var(--color-bg);
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background .36s ease, color .36s ease;
+  }
+  a { color: inherit; text-decoration: none }
+
+  @media(prefers-reduced-motion:reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important }
+    .scene__blob { animation: none !important }
+  }
+
+  /* ═══ ANIMATED BACKGROUND ═══ */
+  .scene {
+    position: fixed; inset: 0; z-index: 0;
+    overflow: hidden; pointer-events: none;
+  }
+  .scene__blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.5;
+    animation: blob-drift var(--dur, 18s) ease-in-out infinite alternate;
+  }
+  .scene__blob--1 { width:700px;height:700px;background:radial-gradient(circle,#5DCAA5,#3b82f6);top:-200px;left:-150px;--dur:22s }
+  .scene__blob--2 { width:600px;height:600px;background:radial-gradient(circle,#b490f5,#ec4899);bottom:-200px;right:-100px;--dur:17s;animation-delay:-8s }
+  .scene__blob--3 { width:400px;height:400px;background:radial-gradient(circle,#5ee7df,#5DCAA5);top:40%;left:50%;--dur:25s;animation-delay:-13s }
+  .scene__blob--4 { width:500px;height:500px;background:radial-gradient(circle,#ffd27f,#f7a8c4);top:70%;left:10%;--dur:20s;animation-delay:-5s;opacity:0.3 }
+
+  @keyframes blob-drift {
+    0%   { transform:translate(0,0) scale(1) }
+    33%  { transform:translate(60px,-40px) scale(1.08) }
+    66%  { transform:translate(-40px,60px) scale(0.94) }
+    100% { transform:translate(30px,30px) scale(1.04) }
+  }
+
+  /* ═══ GLASS UTILITIES ═══ */
+  .glass {
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+    background: var(--glass-white);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    position: relative; overflow: hidden;
+  }
+  .glass::before {
+    content:""; position:absolute; inset:0;
+    background:var(--reflection-top);
+    pointer-events:none; border-radius:inherit; z-index:1;
+  }
+
+  /* ═══ LAYOUT ═══ */
+  .page { position: relative; z-index: 10 }
+  .container { width: min(1100px, 92vw); margin-inline: auto }
+  .section { padding: var(--space-4xl) 0 }
+  .section__eyebrow {
+    font-size: var(--text-2xs); letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-aqua);
+    margin-bottom: var(--space-sm);
+  }
+  .section__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.15; margin-bottom: var(--space-md);
+  }
+  .section__desc {
+    font-size: var(--text-base); line-height: 1.7;
+    opacity: 0.65; max-width: 640px;
+  }
+
+  /* ═══ ANIMATIONS ═══ */
+  @keyframes cascade-in {
+    0%   { opacity:0; transform:translateY(24px) scale(0.97); filter:blur(8px) }
+    100% { opacity:1; transform:translateY(0) scale(1); filter:blur(0) }
+  }
+  @keyframes float {
+    0%,100% { transform:translateY(0) }
+    50% { transform:translateY(-12px) }
+  }
+  @keyframes edge-glow {
+    0%,100% { box-shadow:0 0 0 0 rgba(93,202,165,0) }
+    50% { box-shadow:0 0 30px 6px rgba(93,202,165,0.35) }
+  }
+  @keyframes shimmer {
+    0%   { background-position:-200% center }
+    100% { background-position:200% center }
+  }
+  @keyframes progress-fill {
+    from { width: 0 }
+    to   { width: var(--fill-width) }
+  }
+  .animate-in { animation: cascade-in var(--dur-slow) var(--ease-glass) both }
+  .d1 { animation-delay:.1s } .d2 { animation-delay:.2s }
+  .d3 { animation-delay:.3s } .d4 { animation-delay:.4s }
+  .d5 { animation-delay:.5s } .d6 { animation-delay:.6s }
+  .d7 { animation-delay:.7s }
+
+  /* ═══ NAVBAR ═══ */
+  .navbar {
+    position:fixed; top:0; left:0; width:100%; z-index:100;
+    padding: var(--space-sm) 5%;
+    display:flex; align-items:center; gap:12px;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter:none;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    transition: transform .4s var(--ease-smooth), opacity .4s var(--ease-smooth), background .5s ease, backdrop-filter .5s ease, border-color .5s ease;
+  }
+  .navbar.navbar--at-top { background:rgba(0,0,0,0.45); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom-color:rgba(255,255,255,0.06) }
+  .navbar.navbar--hidden { transform:translateY(-100%) !important; opacity:0 !important; visibility:hidden !important }
+  .navbar__brand { font-family:var(--font-display); font-size:1.2rem; padding:8px 20px; letter-spacing:.02em; margin-right:auto }
+  .navbar__link { padding:9px 20px; border-radius:var(--radius-full); font-size:var(--text-sm); font-weight:400; opacity:.65; cursor:pointer; transition:background var(--dur-fast),opacity var(--dur-fast),transform var(--dur-fast) var(--ease-liquid) }
+  .navbar__link:hover { opacity:1; transform:translateY(-1px); background:var(--glass-white) }
+  .navbar__cta {
+    display:inline-flex; align-items:center; gap:var(--space-xs);
+    padding:9px 22px; border-radius:var(--radius-full); border:none; cursor:pointer;
+    font-family:var(--font-body); font-size:var(--text-sm); font-weight:500; letter-spacing:.04em;
+    color:#fff;
+    background:linear-gradient(135deg,rgba(93,202,165,0.5) 0%,rgba(59,130,246,0.5) 100%);
+    border:1px solid rgba(93,202,165,0.45);
+    box-shadow:0 4px 24px rgba(93,202,165,0.3),var(--reflection-inner);
+    transition:transform var(--dur-fast) var(--ease-liquid),box-shadow var(--dur-fast);
+    position:relative; overflow:hidden;
+  }
+  .navbar__cta::before { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--reflection-top); pointer-events:none }
+  .navbar__cta:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(93,202,165,0.5),var(--reflection-inner) }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    gap: var(--space-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__img-bg {
+    position: absolute; top:0; left:0;
+    width:100%; height:100%;
+    object-fit: cover; z-index: -1;
+    opacity: 0.22;
+  }
+  .hero__img-overlay {
+    position: absolute; inset:0; z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(11,14,26,0.35) 0%,
+      rgba(11,14,26,0.55) 60%,
+      rgba(11,14,26,0.95) 100%
+    );
+  }
+  .hero__kicker {
+    font-size: var(--text-xs); letter-spacing:.2em;
+    text-transform:uppercase; opacity:.55;
+    animation:cascade-in .7s var(--ease-glass) .1s both;
+    position:relative; z-index:2;
+  }
+  .hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    line-height: 1.05; letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 20%, var(--spherical-teal) 55%, var(--accent-violet) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: cascade-in .8s var(--ease-glass) .2s both;
+    max-width: 960px; position:relative; z-index:2;
+  }
+  .hero__sub {
+    max-width: 580px; line-height:1.7; opacity:.88;
+    font-size: var(--text-xl); font-weight:400;
+    animation:cascade-in .8s var(--ease-glass) .3s both;
+    position:relative; z-index:2;
+  }
+  .hero__cta {
+    display:flex; gap:var(--space-sm); flex-wrap:wrap;
+    justify-content:center;
+    animation:cascade-in .8s var(--ease-glass) .4s both;
+    position:relative; z-index:2;
+  }
+  .hero__microcopy {
+    font-size:var(--text-xs); opacity:.42;
+    letter-spacing:.05em;
+    animation:cascade-in .8s var(--ease-glass) .55s both;
+    position:relative; z-index:2;
+  }
+
+  /* ═══ BUTTONS ═══ */
+  .btn {
+    display:inline-flex; align-items:center; gap:var(--space-xs);
+    padding:var(--space-sm) var(--space-lg);
+    border-radius:var(--radius-full); border:none; cursor:pointer;
+    font-family:var(--font-body); font-size:var(--text-sm); font-weight:500;
+    letter-spacing:.04em; color:var(--color-text); text-decoration:none;
+    transition:transform var(--dur-fast) var(--ease-liquid),box-shadow var(--dur-fast),background var(--dur-fast);
+    position:relative; overflow:hidden;
+  }
+  .btn::before { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--reflection-top); pointer-events:none }
+  .btn:active { transform:scale(0.96) }
+  .btn--primary {
+    background:linear-gradient(135deg,rgba(93,202,165,0.5) 0%,rgba(59,130,246,0.5) 100%);
+    border:1px solid rgba(93,202,165,0.45);
+    box-shadow:0 4px 24px rgba(93,202,165,0.3),var(--reflection-inner);
+  }
+  .btn--primary:hover {
+    background:linear-gradient(135deg,rgba(93,202,165,0.7) 0%,rgba(59,130,246,0.7) 100%);
+    box-shadow:0 8px 36px rgba(93,202,165,0.5),var(--reflection-inner);
+    transform:translateY(-2px);
+  }
+  .btn--ghost {
+    background:var(--glass-white); border:1px solid var(--glass-border);
+    box-shadow:var(--shadow-glass);
+  }
+  .btn--ghost:hover { background:var(--glass-white-md); transform:translateY(-2px) }
+  .btn--lg { padding:var(--space-md) var(--space-xl); font-size:var(--text-base) }
+
+  /* ═══ GLASS CARD ═══ */
+  .glass-card {
+    border-radius:var(--radius-xl); padding:var(--space-xl);
+    transition:transform var(--dur-mid) var(--ease-glass),box-shadow var(--dur-mid) var(--ease-glass),background var(--dur-mid);
+  }
+  .glass-card:hover { transform:translateY(-6px) scale(1.01); box-shadow:var(--shadow-float); background:var(--glass-white-md) }
+  .glass-card::after {
+    content:""; position:absolute; inset:-1px; border-radius:inherit;
+    background:linear-gradient(135deg,rgba(255,255,255,0.22) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0.08) 100%);
+    opacity:0; transition:opacity var(--dur-mid); pointer-events:none; z-index:2;
+  }
+  .glass-card:hover::after { opacity:1 }
+
+  /* ═══ CTA SECTION ═══ */
+  .cta-section { text-align:center; padding:var(--space-4xl) 0 }
+  .cta-section__title {
+    font-family:var(--font-display);
+    font-size:clamp(2rem,5vw,3.5rem);
+    line-height:1.1; margin-bottom:var(--space-md);
+    background:linear-gradient(135deg,#fff 20%,var(--spherical-teal) 60%,var(--accent-violet) 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }
+  .cta-section__sub {
+    font-size:var(--text-base); opacity:.55; margin-bottom:var(--space-xl);
+    max-width:500px; margin-inline:auto; line-height:1.7;
+  }
+
+  /* ═══ FOOTER ═══ */
+  .footer { border-top:1px solid var(--glass-border-subtle); padding:var(--space-2xl) 0 var(--space-xl) }
+  .footer__inner { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:var(--space-xl) }
+  .footer__brand { font-family:var(--font-display); font-size:1.3rem; margin-bottom:var(--space-sm) }
+  .footer__tagline { font-size:var(--text-sm); opacity:.4; line-height:1.6 }
+  .footer__heading { font-size:var(--text-xs); letter-spacing:.1em; text-transform:uppercase; opacity:.4; margin-bottom:var(--space-md) }
+  .footer__links { list-style:none; display:flex; flex-direction:column; gap:var(--space-xs) }
+  .footer__links a { font-size:var(--text-sm); opacity:.6; transition:opacity var(--dur-fast) }
+  .footer__links a:hover { opacity:1 }
+  .footer__copy { text-align:center; font-size:var(--text-xs); opacity:.3; margin-top:var(--space-2xl); padding-top:var(--space-lg); border-top:1px solid var(--glass-border-subtle) }
+
+  /* ═══ DIVIDER ═══ */
+  .divider { height:1px; background:linear-gradient(90deg,transparent,var(--glass-border-subtle),transparent); margin:var(--space-xl) 0 }
+
+  /* ═══ PARA QUIÉN — PROFILE CARDS ═══ */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
+  }
+  .profile-card {
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl) var(--space-lg);
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: var(--space-md);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+    background: var(--glass-white);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    position: relative; overflow: hidden;
+    transition: transform var(--dur-mid) var(--ease-glass), box-shadow var(--dur-mid);
+  }
+  .profile-card::before { content:""; position:absolute; inset:0; background:var(--reflection-top); pointer-events:none; border-radius:inherit; z-index:1 }
+  .profile-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-float) }
+  .profile-card__icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(93,202,165,0.2), rgba(180,144,245,0.2));
+    border: 1px solid rgba(93,202,165,0.3);
+    box-shadow: 0 0 20px rgba(93,202,165,0.15);
+    flex-shrink: 0; position: relative; z-index: 2;
+  }
+  .profile-card__title {
+    font-family: var(--font-display);
+    font-size: 1.15rem; line-height: 1.2;
+    position: relative; z-index: 2;
+  }
+  .profile-card__pain {
+    font-size: var(--text-sm); line-height: 1.65;
+    opacity: .65; position: relative; z-index: 2;
+  }
+  .profile-card__tag {
+    display: inline-flex; align-items: center;
+    padding: 4px 14px; border-radius: var(--radius-full);
+    font-size: var(--text-2xs); font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    background: rgba(93,202,165,0.15); border: 1px solid rgba(93,202,165,0.3);
+    color: var(--spherical-teal); position: relative; z-index: 2;
+  }
+
+  /* ═══ INTRO LIST ═══ */
+  .intro-list {
+    list-style: none; display: flex; flex-direction: column; gap: var(--space-md);
+    margin: var(--space-xl) 0;
+  }
+  .intro-list li {
+    display: flex; gap: var(--space-md); align-items: flex-start;
+    font-size: var(--text-base); line-height: 1.65; opacity: .78;
+  }
+  .intro-list li::before {
+    content: "→"; color: var(--spherical-teal); font-weight: 500;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .callout-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    line-height: 1.3;
+    background: linear-gradient(135deg, var(--spherical-teal), var(--accent-violet));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg) var(--space-xl);
+    border-left: 3px solid rgba(93,202,165,0.5);
+    backdrop-filter: var(--blur-sm);
+    background-color: rgba(93,202,165,0.06);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  /* ═══ TIMELINE ═══ */
+  .timeline {
+    position: relative;
+    margin-top: var(--space-2xl);
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 28px; top: 28px;
+    width: 2px; bottom: 28px;
+    background: linear-gradient(180deg, var(--spherical-teal), var(--accent-violet), rgba(255,255,255,0.1));
+    border-radius: 2px;
+  }
+  .tl-item {
+    display: flex; gap: var(--space-xl); align-items: flex-start;
+    padding-bottom: var(--space-2xl); position: relative;
+  }
+  .tl-item:last-child { padding-bottom: 0 }
+  .tl-node {
+    width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 1.3rem;
+    backdrop-filter: var(--blur-sm); -webkit-backdrop-filter: var(--blur-sm);
+    border: 1px solid rgba(93,202,165,0.4);
+    background: linear-gradient(135deg, rgba(93,202,165,0.18), rgba(180,144,245,0.1));
+    box-shadow: 0 0 16px rgba(93,202,165,0.2);
+    position: relative; z-index: 2;
+    transition: all var(--dur-mid);
+    color: var(--spherical-teal);
+  }
+  .tl-item:hover .tl-node {
+    background: linear-gradient(135deg, rgba(93,202,165,0.35), rgba(180,144,245,0.25));
+    box-shadow: 0 0 28px rgba(93,202,165,0.4);
+    transform: scale(1.1);
+  }
+  .tl-body {
+    flex: 1;
+    backdrop-filter: var(--blur-md); -webkit-backdrop-filter: var(--blur-md);
+    background: var(--glass-white); border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    border-radius: var(--radius-xl); padding: var(--space-xl);
+    position: relative; overflow: hidden;
+    transition: transform var(--dur-mid) var(--ease-glass), box-shadow var(--dur-mid);
+  }
+  .tl-body::before { content:""; position:absolute; inset:0; background:var(--reflection-top); pointer-events:none; border-radius:inherit; z-index:1 }
+  .tl-item:hover .tl-body { transform: translateX(4px); box-shadow: var(--shadow-float) }
+  .tl-meta {
+    display: flex; align-items: center; gap: var(--space-sm);
+    margin-bottom: var(--space-sm); position: relative; z-index: 2;
+  }
+  .tl-duration {
+    display: inline-flex; align-items: center;
+    padding: 3px 12px; border-radius: var(--radius-full);
+    font-size: var(--text-2xs); font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    background: rgba(93,202,165,0.12); border: 1px solid rgba(93,202,165,0.25);
+    color: var(--spherical-teal);
+  }
+  .tl-title {
+    font-weight: 500; font-size: var(--text-base);
+    position: relative; z-index: 2; margin-bottom: var(--space-xs);
+  }
+  .tl-subtitle {
+    font-size: var(--text-xs); opacity: .5; font-style: italic;
+    letter-spacing: .04em; position: relative; z-index: 2;
+    margin-bottom: var(--space-sm);
+  }
+  .tl-desc {
+    font-size: var(--text-sm); line-height: 1.7; opacity: .68;
+    position: relative; z-index: 2;
+  }
+
+  /* ═══ COMPARISON TABLE ═══ */
+  .compare-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md); margin-top: var(--space-2xl);
+  }
+  .compare-col {
+    border-radius: var(--radius-xl); padding: var(--space-xl);
+    display: flex; flex-direction: column; gap: var(--space-md);
+    backdrop-filter: var(--blur-md); -webkit-backdrop-filter: var(--blur-md);
+    background: var(--glass-white); border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    position: relative; overflow: hidden;
+    transition: transform var(--dur-mid) var(--ease-glass);
+  }
+  .compare-col::before { content:""; position:absolute; inset:0; background:var(--reflection-top); pointer-events:none; border-radius:inherit; z-index:1 }
+  .compare-col:hover { transform: translateY(-4px) }
+  .compare-col--featured {
+    background: linear-gradient(135deg, rgba(93,202,165,0.2) 0%, rgba(180,144,245,0.15) 100%);
+    border-color: rgba(93,202,165,0.45);
+    box-shadow: 0 8px 40px rgba(93,202,165,0.2), var(--shadow-glass);
+  }
+  .compare-col__header {
+    font-family: var(--font-display); font-size: 1.4rem; line-height: 1.1;
+    position: relative; z-index: 2;
+  }
+  .compare-col--featured .compare-col__header {
+    background: linear-gradient(135deg, var(--spherical-teal), var(--accent-aqua));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .compare-col__badge {
+    display: inline-flex; padding: 4px 14px; border-radius: var(--radius-full);
+    font-size: var(--text-2xs); font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    background: rgba(93,202,165,0.15); border: 1px solid rgba(93,202,165,0.3);
+    color: var(--spherical-teal); align-self: flex-start;
+    position: relative; z-index: 2;
+  }
+  .compare-col__desc {
+    font-size: var(--text-sm); line-height: 1.7; opacity: .7;
+    position: relative; z-index: 2;
+  }
+  .compare-col--muted .compare-col__header { opacity: .55 }
+  .compare-col--muted { opacity: .75 }
+
+  /* ═══ FORMAT PILLS ═══ */
+  .format-pills {
+    display: flex; flex-wrap: wrap; gap: var(--space-md);
+    justify-content: center; margin-top: var(--space-2xl);
+  }
+  .format-pill {
+    display: flex; align-items: center; gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-full);
+    backdrop-filter: var(--blur-md); -webkit-backdrop-filter: var(--blur-md);
+    background: var(--glass-white); border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    font-size: var(--text-base); font-weight: 500;
+    position: relative; overflow: hidden;
+    transition: transform var(--dur-mid) var(--ease-glass), box-shadow var(--dur-mid);
+  }
+  .format-pill::before { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--reflection-top); pointer-events:none }
+  .format-pill:hover { transform: translateY(-3px) scale(1.03); box-shadow: var(--shadow-float) }
+  .format-pill__icon { font-size: 1.4rem; flex-shrink: 0 }
+  .format-pill__label { line-height: 1.2 }
+
+  /* ═══ STAT BAR ═══ */
+  .stat-bar-row {
+    display: flex; align-items: center; gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+  .stat-bar-label { font-size: var(--text-sm); min-width: 180px; opacity: .75 }
+  .stat-bar-track {
+    flex: 1; height: 6px; border-radius: 3px;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+  .stat-bar-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--spherical-teal), var(--accent-aqua));
+    width: var(--fill-width);
+    transition: width 1.2s var(--ease-smooth);
+  }
+
+  /* ═══ HIGHLIGHT QUOTE ═══ */
+  .highlight-quote {
+    backdrop-filter: var(--blur-lg); -webkit-backdrop-filter: var(--blur-lg);
+    background: linear-gradient(135deg, rgba(93,202,165,0.1), rgba(180,144,245,0.08));
+    border: 1px solid rgba(93,202,165,0.25);
+    border-radius: var(--radius-2xl); padding: var(--space-2xl) var(--space-3xl);
+    text-align: center; position: relative; overflow: hidden;
+    margin-top: var(--space-3xl);
+  }
+  .highlight-quote::before { content:""; position:absolute; inset:0; background:var(--reflection-top); pointer-events:none; border-radius:inherit; z-index:1 }
+  .highlight-quote__text {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    line-height: 1.4;
+    background: linear-gradient(135deg, #fff 30%, var(--spherical-teal) 70%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    position: relative; z-index: 2;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media(max-width:900px) {
+    .profile-grid { grid-template-columns: 1fr }
+    .compare-grid { grid-template-columns: 1fr }
+    .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg) }
+    .navbar__link { display:none }
+    .timeline::before { left: 24px }
+    .tl-node { width: 48px; height: 48px; font-size: 1.1rem }
+  }
+  @media(max-width:640px) {
+    .hero__title { font-size: 2.6rem }
+    .format-pills { flex-direction: column; align-items: center }
+    .footer__inner { grid-template-columns: 1fr }
+    .navbar__brand { font-size: 1rem; padding: 8px 14px }
+    .tl-item { flex-direction: column }
+    .timeline::before { display: none }
+    .stat-bar-label { min-width: 130px; font-size: var(--text-xs) }
+    .highlight-quote { padding: var(--space-xl) var(--space-lg) }
+    .callout-text { padding: var(--space-md) var(--space-lg) }
+  }
+  @media(min-width:641px) and (max-width:900px) {
+    .profile-grid { grid-template-columns: repeat(3,1fr) }
+  }
+
+  /* ═══ LIGHT THEME ═══ */
+  [data-theme="light"] {
+    --glass-white: rgba(255,255,255,0.62);
+    --glass-white-md: rgba(255,255,255,0.78);
+    --glass-white-lg: rgba(255,255,255,0.9);
+    --glass-dark: rgba(0,0,0,0.06);
+    --glass-dark-md: rgba(15,23,42,0.08);
+    --glass-border: rgba(15,23,42,0.14);
+    --glass-border-subtle: rgba(15,23,42,0.09);
+    --glass-border-bright: rgba(15,23,42,0.22);
+    --shadow-glass: 0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9);
+    --shadow-float: 0 20px 60px rgba(0,0,0,0.16), 0 4px 16px rgba(0,0,0,0.08);
+    --color-bg: #e8f0fa;
+    --color-surface: rgba(255,255,255,0.55);
+    --color-text: #0f172a;
+    --color-text-muted: rgba(15,23,42,0.58);
+    --color-text-subtle: rgba(15,23,42,0.38);
+    --reflection-top: linear-gradient(135deg,rgba(255,255,255,0.65) 0%,rgba(255,255,255,0) 50%);
+    --reflection-inner: inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -1px 1px rgba(0,0,0,0.04);
+    --accent-aqua: #0891b2;
+    --accent-violet: #6d28d9;
+    --accent-rose: #be185d;
+    --accent-amber: #b45309;
+    --spherical-teal: #0a8a6a;
+    --spherical-teal-bright: #0d9e7a;
+  }
+  [data-theme="light"] .scene__blob { opacity:.25 }
+  [data-theme="light"] .hero__title {
+    background: linear-gradient(135deg,#0f172a 20%,#0a8a6a 55%,#6d28d9 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }
+  [data-theme="light"] .cta-section__title {
+    background: linear-gradient(135deg,#0f172a 20%,#0a8a6a 60%,#6d28d9 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }
+  [data-theme="light"] .section__eyebrow { color:#0891b2 }
+  [data-theme="light"] .hero__sub,
+  [data-theme="light"] .section__desc,
+  [data-theme="light"] .cta-section__sub { color:rgba(15,23,42,0.6); opacity:1 }
+  [data-theme="light"] .footer__links a { color:rgba(15,23,42,0.6) }
+  [data-theme="light"] .footer__copy { color:rgba(15,23,42,0.3) }
+  [data-theme="light"] .divider { background:linear-gradient(90deg,transparent,rgba(15,23,42,0.14),transparent) }
+  [data-theme="light"] .btn--primary {
+    background:linear-gradient(135deg,rgba(10,138,106,0.55) 0%,rgba(37,99,235,0.55) 100%);
+    border-color:rgba(10,138,106,0.5); color:#fff;
+  }
+  [data-theme="light"] .btn--ghost { background:rgba(255,255,255,0.65); border-color:rgba(15,23,42,0.18); color:#0f172a }
+  [data-theme="light"] .navbar__cta { background:linear-gradient(135deg,rgba(10,138,106,0.55) 0%,rgba(37,99,235,0.55) 100%); border-color:rgba(10,138,106,0.5); color:#fff }
+  [data-theme="light"] .navbar__link { color:#0f172a }
+  [data-theme="light"] .footer__brand img { filter:brightness(0.2) }
+  [data-theme="light"] .highlight-quote__text {
+    background: linear-gradient(135deg,#0f172a 30%,#0a8a6a 70%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }
+
+  /* ═══ THEME TOGGLE ═══ */
+  .theme-toggle {
+    position:fixed; top:var(--space-md); right:var(--space-md); z-index:800;
+    width:48px; height:48px; border-radius:50%; border:none; cursor:pointer;
+    font-size:1.2rem; display:flex; align-items:center; justify-content:center;
+    transition:transform var(--dur-fast) var(--ease-liquid),box-shadow var(--dur-fast);
+  }
+  .theme-toggle:hover { transform:scale(1.1) rotate(15deg) }
+  .theme-toggle .icon-dark { display:block }
+  .theme-toggle .icon-light { display:none }
+  [data-theme="light"] .theme-toggle .icon-dark { display:none }
+  [data-theme="light"] .theme-toggle .icon-light { display:block }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="scene" aria-hidden="true">
+    <div class="scene__blob scene__blob--1"></div>
+    <div class="scene__blob scene__blob--2"></div>
+    <div class="scene__blob scene__blob--3"></div>
+    <div class="scene__blob scene__blob--4"></div>
+  </div>
+
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle glass" id="themeToggle" aria-label="Cambiar tema">
+    <span class="icon-dark">🌙</span>
+    <span class="icon-light">☀️</span>
+  </button>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar navbar--at-top">
+    <a href="index.html" class="navbar__brand">
+      <img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;">
+    </a>
+    <a href="index.html" class="navbar__link">← Inicio</a>
+    <a href="#para-quien" class="navbar__link">Para quién</a>
+    <a href="#programa" class="navbar__link">Programa</a>
+    <a href="#formato" class="navbar__link">Formato</a>
+    <a href="#contacto" class="navbar__cta js-mailto">Postular al taller</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <img
+      class="hero__img-bg"
+      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=80&fit=crop"
+      alt="Sala de reuniones ejecutiva moderna"
+    >
+    <div class="hero__img-overlay"></div>
+
+    <span class="hero__kicker">Taller ejecutivo gratuito · Spherical</span>
+    <h1 class="hero__title">Inteligencia Artificial<br>para el trabajo.</h1>
+    <p class="hero__sub">Un taller ejecutivo de 60 minutos para directivos que quieren entender cómo la IA puede transformar su empresa — con ejemplos reales, sin tecnicismos y sin perder el tiempo.</p>
+    <div class="hero__cta">
+      <a href="#" class="btn btn--primary btn--lg js-mailto">Postular al taller →</a>
+    </div>
+    <p class="hero__microcopy">Cupos limitados por edición. Revisamos cada solicitud.</p>
+  </section>
+
+  <!-- ═══ PARA QUIÉN ═══ -->
+  <section class="section" id="para-quien">
+    <div class="container">
+      <p class="section__eyebrow animate-in d1">Para quién es esto</p>
+      <h2 class="section__title animate-in d2">No es un webinar. No es una demo. Es una conversación ejecutiva.</h2>
+      <p class="section__desc animate-in d3">Este taller está diseñado para CEOs, gerentes generales y directivos que:</p>
+
+      <ul class="intro-list animate-in d3" style="margin-top:var(--space-lg);">
+        <li>Escuchan hablar de IA todos los días pero no saben por dónde empezar</li>
+        <li>Tienen equipos que usan herramientas de IA de forma individual pero sin impacto real en la organización</li>
+        <li>Quieren tomar decisiones informadas antes de invertir en tecnología</li>
+      </ul>
+
+      <div class="callout-text animate-in d4">
+        No es para equipos técnicos. Es para quienes toman las decisiones.
+      </div>
+
+      <div class="profile-grid" style="margin-top:var(--space-3xl);">
+        <!-- CEO -->
+        <div class="profile-card animate-in d3">
+          <div class="profile-card__icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="10" r="5" stroke="#5DCAA5" stroke-width="1.8" fill="none"/>
+              <path d="M6 27c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#5DCAA5" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <circle cx="26" cy="8" r="3" fill="rgba(93,202,165,0.3)" stroke="#5DCAA5" stroke-width="1.2"/>
+              <path d="M24 11.5c1.5.5 3 1.8 3 3.5" stroke="#5DCAA5" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <span class="profile-card__tag">CEO / Gerente General</span>
+          <div class="profile-card__title">«Todos hablan de IA pero nadie me muestra cómo aplicarla en mi empresa»</div>
+          <p class="profile-card__pain">Necesita una visión clara y accionable, no teoría. Quiere saber qué decisiones tomar esta semana.</p>
+        </div>
+        <!-- Gerente de Área -->
+        <div class="profile-card animate-in d4">
+          <div class="profile-card__icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="10" height="10" rx="2" stroke="#b490f5" stroke-width="1.8" fill="none"/>
+              <rect x="18" y="8" width="10" height="10" rx="2" stroke="#b490f5" stroke-width="1.8" fill="none"/>
+              <rect x="11" y="20" width="10" height="8" rx="2" stroke="#b490f5" stroke-width="1.8" fill="none"/>
+              <path d="M9 18v2M23 18v2M16 18v2" stroke="#b490f5" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="profile-card__tag" style="background:rgba(180,144,245,0.15);border-color:rgba(180,144,245,0.3);color:var(--accent-violet);">Gerente de Área</span>
+          <div class="profile-card__title">«Mi equipo usa ChatGPT de forma aislada, pero no hay cambio real en los resultados»</div>
+          <p class="profile-card__pain">Intuye que hay valor, pero falta un marco y una estrategia para hacerlo funcionar a escala.</p>
+        </div>
+        <!-- Director de Innovación -->
+        <div class="profile-card animate-in d5">
+          <div class="profile-card__icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="13" r="6" stroke="#ffd27f" stroke-width="1.8" fill="none"/>
+              <path d="M13 19.5l-1.5 5.5h9l-1.5-5.5" stroke="#ffd27f" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+              <path d="M13.5 25h5" stroke="#ffd27f" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M16 7V4M22 9l2-2M10 9l-2-2" stroke="#ffd27f" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="profile-card__tag" style="background:rgba(255,210,127,0.15);border-color:rgba(255,210,127,0.3);color:var(--accent-amber);">Director de Innovación</span>
+          <div class="profile-card__title">«Presenté tres iniciativas de IA. Las tres están paradas esperando aprobación»</div>
+          <p class="profile-card__pain">Necesita alinear a la dirección, hablar su lenguaje y mostrar valor concreto antes de pedir más presupuesto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ QUÉ VAS A ENTENDER ═══ -->
+  <section class="section" id="programa">
+    <div class="container">
+      <p class="section__eyebrow animate-in d1">Qué vas a entender</p>
+      <h2 class="section__title animate-in d2">En 60 minutos, tu empresa no será la misma.</h2>
+      <p class="section__desc animate-in d3">Seis bloques diseñados para llevarte de la confusión a la claridad estratégica — sin teoría innecesaria.</p>
+
+      <div class="timeline" style="margin-top:var(--space-3xl);">
+
+        <!-- Bloque 1 -->
+        <div class="tl-item animate-in d2">
+          <div class="tl-node">1</div>
+          <div class="tl-body">
+            <div class="tl-meta">
+              <span class="tl-duration">5 min</span>
+              <span style="font-size:var(--text-2xs);opacity:.4;letter-spacing:.08em;text-transform:uppercase;">Apertura</span>
+            </div>
+            <div class="tl-title">Por qué la IA no es una moda.</div>
+            <div class="tl-subtitle">El cambio estructural que está ocurriendo</div>
+            <div class="tl-desc">El cambio que está ocurriendo no es tecnológico — es estructural. Las empresas que no lo entienden hoy van a pagarlo mañana.</div>
+          </div>
+        </div>
+
+        <!-- Bloque 2 -->
+        <div class="tl-item animate-in d3">
+          <div class="tl-node">2</div>
+          <div class="tl-body">
+            <div class="tl-meta">
+              <span class="tl-duration">10 min</span>
+              <span style="font-size:var(--text-2xs);opacity:.4;letter-spacing:.08em;text-transform:uppercase;">De qué hablamos cuando hablamos de IA</span>
+            </div>
+            <div class="tl-title">Sin jerga, sin hype.</div>
+            <div class="tl-subtitle">Qué puede y qué no puede hacer</div>
+            <div class="tl-desc">Qué es la IA en términos prácticos, qué puede y qué no puede hacer, y por qué la mayoría de las implementaciones fracasan antes de empezar.</div>
+          </div>
+        </div>
+
+        <!-- Bloque 3 -->
+        <div class="tl-item animate-in d4">
+          <div class="tl-node" style="background:linear-gradient(135deg,rgba(94,231,223,0.25),rgba(93,202,165,0.2));border-color:rgba(94,231,223,0.5);box-shadow:0 0 20px rgba(94,231,223,0.3);">3</div>
+          <div class="tl-body" style="border-color:rgba(94,231,223,0.25);">
+            <div class="tl-meta">
+              <span class="tl-duration" style="background:rgba(94,231,223,0.12);border-color:rgba(94,231,223,0.25);color:var(--accent-aqua);">15 min</span>
+              <span style="font-size:var(--text-2xs);opacity:.4;letter-spacing:.08em;text-transform:uppercase;">Demostración en vivo</span>
+            </div>
+            <div class="tl-title">Casos aplicados a tu industria.</div>
+            <div class="tl-subtitle">Ejemplos reales — al menos uno en vivo</div>
+            <div class="tl-desc">Ejemplos reales de cómo empresas como la tuya están usando IA hoy — en operaciones, marketing, RRHH o ventas. Al menos uno en vivo.</div>
+          </div>
+        </div>
+
+        <!-- Bloque 4 -->
+        <div class="tl-item animate-in d5">
+          <div class="tl-node">4</div>
+          <div class="tl-body">
+            <div class="tl-meta">
+              <span class="tl-duration">10 min</span>
+              <span style="font-size:var(--text-2xs);opacity:.4;letter-spacing:.08em;text-transform:uppercase;">Reflexión guiada</span>
+            </div>
+            <div class="tl-title">¿Dónde está tu mayor oportunidad?</div>
+            <div class="tl-subtitle">Las preguntas que cambian la conversación</div>
+            <div class="tl-desc">Dos preguntas que cambian la conversación: ¿dónde pierde más tiempo tu equipo? ¿Qué harías con un 20% más de capacidad?</div>
+          </div>
+        </div>
+
+        <!-- Bloque 5 -->
+        <div class="tl-item animate-in d6">
+          <div class="tl-node" style="background:linear-gradient(135deg,rgba(180,144,245,0.2),rgba(247,168,196,0.15));border-color:rgba(180,144,245,0.45);box-shadow:0 0 20px rgba(180,144,245,0.25);">5</div>
+          <div class="tl-body" style="border-color:rgba(180,144,245,0.2);">
+            <div class="tl-meta">
+              <span class="tl-duration" style="background:rgba(180,144,245,0.12);border-color:rgba(180,144,245,0.25);color:var(--accent-violet);">15 min</span>
+              <span style="font-size:var(--text-2xs);opacity:.4;letter-spacing:.08em;text-transform:uppercase;">Marco de acción</span>
+            </div>
+            <div class="tl-title">Los tres pasos que puedes dar esta semana.</div>
+            <div class="tl-subtitle">Bajo costo, alto impacto</div>
+            <div class="tl-desc">Tres acciones concretas, de bajo costo y alto impacto, que cualquier empresa puede ejecutar hoy.</div>
+          </div>
+        </div>
+
+        <!-- Bloque 6 -->
+        <div class="tl-item animate-in d7">
+          <div class="tl-node">6</div>
+          <div class="tl-body">
+            <div class="tl-meta">
+              <span class="tl-duration">5 min</span>
+              <span style="font-size:var(--text-2xs);opacity:.4;letter-spacing:.08em;text-transform:uppercase;">Cierre</span>
+            </div>
+            <div class="tl-title">Qué sigue.</div>
+            <div class="tl-subtitle">Para quienes quieren ir más lejos</div>
+            <div class="tl-desc">Para las empresas que quieren ir más lejos, una invitación a explorar cómo se vería esto en su operación específica.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ POR QUÉ SPHERICAL ═══ -->
+  <section class="section">
+    <div class="container">
+      <p class="section__eyebrow animate-in d1">Por qué Spherical</p>
+      <h2 class="section__title animate-in d2">No enseñamos IA desde un manual. La implementamos todos los días.</h2>
+      <p class="section__desc animate-in d3">Spherical lleva más de una década ayudando a empresas medianas y grandes a transformarse digitalmente. Hoy nos especializamos en hacer que la inteligencia artificial funcione dentro de las organizaciones — no solo en los informes.</p>
+
+      <div class="compare-grid" style="margin-top:var(--space-3xl);">
+
+        <!-- Consultoras -->
+        <div class="compare-col compare-col--muted animate-in d3">
+          <div class="compare-col__header">Las consultoras</div>
+          <p class="compare-col__desc">Diagnostican pero no ejecutan. Entregan un informe y se van.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-sm);position:relative;z-index:2;">
+            <li style="font-size:var(--text-sm);opacity:.6;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:#ef4444;">✗</span>
+              Diagnóstico sin acompañamiento
+            </li>
+            <li style="font-size:var(--text-sm);opacity:.6;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:#ef4444;">✗</span>
+              Entregable = presentación PowerPoint
+            </li>
+            <li style="font-size:var(--text-sm);opacity:.6;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:#ef4444;">✗</span>
+              El cliente ejecuta solo (o no ejecuta)
+            </li>
+          </ul>
+        </div>
+
+        <!-- Vendors -->
+        <div class="compare-col compare-col--muted animate-in d4">
+          <div class="compare-col__header">Los vendors</div>
+          <p class="compare-col__desc">Venden tecnología sin acompañamiento. La herramienta llega y nadie la usa.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-sm);position:relative;z-index:2;">
+            <li style="font-size:var(--text-sm);opacity:.6;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:#ef4444;">✗</span>
+              Tecnología sin contexto organizacional
+            </li>
+            <li style="font-size:var(--text-sm);opacity:.6;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:#ef4444;">✗</span>
+              Adopción del 5% en 12 meses
+            </li>
+            <li style="font-size:var(--text-sm);opacity:.6;padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:#ef4444;">✗</span>
+              Soporte técnico, no transformación
+            </li>
+          </ul>
+        </div>
+
+        <!-- Spherical (destacado) -->
+        <div class="compare-col compare-col--featured animate-in d5">
+          <span class="compare-col__badge">✦ Spherical</span>
+          <div class="compare-col__header">Diagnostica, ejecuta y acompaña.</div>
+          <p class="compare-col__desc">Se queda hasta que el cambio es real. Medimos resultados, no entregables.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-sm);position:relative;z-index:2;">
+            <li style="font-size:var(--text-sm);padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--spherical-teal);">✓</span>
+              Integración real en el equipo
+            </li>
+            <li style="font-size:var(--text-sm);padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--spherical-teal);">✓</span>
+              Implementación + acompañamiento
+            </li>
+            <li style="font-size:var(--text-sm);padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--spherical-teal);">✓</span>
+              KPIs reales, no métricas de vanidad
+            </li>
+            <li style="font-size:var(--text-sm);padding-left:20px;position:relative;">
+              <span style="position:absolute;left:0;color:var(--spherical-teal);">✓</span>
+              +10 años transformando empresas en Chile
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ FORMATO ═══ -->
+  <section class="section" id="formato">
+    <div class="container" style="text-align:center;">
+      <p class="section__eyebrow animate-in d1" style="text-align:center;">Formato</p>
+      <h2 class="section__title animate-in d2" style="text-align:center;">Un espacio diseñado para directivos, no para técnicos.</h2>
+
+      <div class="format-pills animate-in d3">
+        <div class="format-pill">
+          <span class="format-pill__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="#5DCAA5" stroke-width="1.8" fill="none"/>
+              <path d="M12 7v5l3 3" stroke="#5DCAA5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="format-pill__label">60 minutos</span>
+        </div>
+        <div class="format-pill">
+          <span class="format-pill__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#5DCAA5" stroke-width="1.8" fill="none"/>
+              <circle cx="12" cy="9" r="2.5" stroke="#5DCAA5" stroke-width="1.5" fill="none"/>
+            </svg>
+          </span>
+          <span class="format-pill__label">Presencial o remoto</span>
+        </div>
+        <div class="format-pill">
+          <span class="format-pill__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#5DCAA5" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <circle cx="9" cy="7" r="4" stroke="#5DCAA5" stroke-width="1.8" fill="none"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#5DCAA5" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+          <span class="format-pill__label">Máx. 15 participantes</span>
+        </div>
+        <div class="format-pill" style="background:linear-gradient(135deg,rgba(93,202,165,0.15),rgba(94,231,223,0.1));border-color:rgba(93,202,165,0.35);">
+          <span class="format-pill__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6L9 17l-5-5" stroke="#5DCAA5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="format-pill__label" style="color:var(--spherical-teal);font-weight:600;">Sin costo</span>
+        </div>
+      </div>
+
+      <p class="animate-in d4" style="margin-top:var(--space-2xl);font-size:var(--text-base);opacity:.65;max-width:560px;margin-inline:auto;line-height:1.7;">
+        Cada edición se adapta a la industria y realidad del equipo participante.
+      </p>
+      <p class="animate-in d5" style="margin-top:var(--space-md);font-size:var(--text-xs);opacity:.35;max-width:520px;margin-inline:auto;line-height:1.65;">
+        Este taller puede ser gestionado como actividad de capacitación formal a través de OTEC, con beneficio tributario para tu empresa.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ CTA FINAL ═══ -->
+  <section class="cta-section" id="contacto">
+    <div class="container">
+      <h2 class="cta-section__title animate-in d1">¿Tu empresa califica?</h2>
+      <p class="cta-section__sub animate-in d2">
+        Trabajamos con empresas que tienen equipos, procesos y la decisión de avanzar. Si ese es tu caso, escríbenos.
+      </p>
+      <div class="animate-in d3" style="display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-md);">
+        <a href="#" class="btn btn--primary btn--lg js-mailto">Postular →</a>
+      </div>
+      <p class="animate-in d4" style="font-size:var(--text-xs);opacity:.38;letter-spacing:.05em;">
+        Revisamos cada solicitud. Te contactamos en 48 horas si hay match.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">
+            <img src="assets/logo-spherical.svg" alt="Spherical" style="height:24px;width:auto;">
+          </div>
+          <p class="footer__tagline">Impulsando la nueva generación de empresas conectadas al futuro.<br>Santiago, Chile.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Servicios</div>
+          <ul class="footer__links">
+            <li><a href="ecosistemas-digitales.html">Ecosistemas Digitales</a></li>
+            <li><a href="ia-empresarial.html">IA Empresarial</a></li>
+            <li><a href="#">MIDE™</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Empresa</div>
+          <ul class="footer__links">
+            <li><a href="index.html#clientes">Clientes</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Contacto</div>
+          <ul class="footer__links">
+            <li><a class="js-mailto-text">info@spherical.cl</a></li>
+            <li><a href="https://spherical.cl">www.spherical.cl</a></li>
+            <li><a>Apoquindo 2930, Piso 2</a></li>
+            <li><a>Las Condes, Santiago</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">&copy; 2026 Spherical. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</div><!-- .page -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // --- Scroll animations ---
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.style.animationPlayState = 'running';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-in').forEach(function (el) {
+    el.style.animationPlayState = 'paused';
+    obs.observe(el);
+  });
+
+  // --- Smooth scroll ---
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // --- Mailto obfuscation ---
+  var emailParts = ['info', '@', 'spherical', '.', 'cl'];
+  var email = emailParts.join('');
+  var mailtoHref = 'mailto:' + email + '?subject=Postulación%20Taller%20Ejecutivo%20IA';
+  document.querySelectorAll('.js-mailto').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = mailtoHref;
+    });
+  });
+  document.querySelectorAll('.js-mailto-text').forEach(function (el) {
+    el.textContent = email;
+    el.href = mailtoHref;
+  });
+
+  // --- Navbar transparent-at-top ---
+  const navbar = document.querySelector('.navbar');
+  const updateNavbarTop = () => {
+    if (window.scrollY < 10) { navbar.classList.add('navbar--at-top'); }
+    else { navbar.classList.remove('navbar--at-top'); }
+  };
+  window.addEventListener('scroll', updateNavbarTop, { passive: true });
+  updateNavbarTop();
+
+  // --- Navbar auto-hide ---
+  let scrollTimeout;
+  const hideNavbar = () => { if (!navbar.matches(':hover')) { navbar.classList.add('navbar--hidden'); } };
+  const showNavbar = () => { navbar.classList.remove('navbar--hidden'); };
+  const resetScrollTimeout = () => {
+    showNavbar();
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(hideNavbar, 1200);
+  };
+  window.addEventListener('scroll', resetScrollTimeout);
+  navbar.addEventListener('mouseenter', showNavbar);
+  navbar.addEventListener('mouseleave', () => { scrollTimeout = setTimeout(hideNavbar, 1200); });
+  scrollTimeout = setTimeout(hideNavbar, 2000);
+
+  // --- Theme toggle ---
+  const themeToggle = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('spherical-theme');
+  if (saved) { document.documentElement.setAttribute('data-theme', saved); }
+  themeToggle.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('spherical-theme', next);
+  });
+
+});
+</script>
+
+<script src="https://maslead.cl/widget.js" data-token="cmnp5pcwn00023aua5ndyl891"></script>
+</body>
+</html>

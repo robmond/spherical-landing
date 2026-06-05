@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
@@ -378,9 +378,10 @@
     }
 
     .navbar.navbar--at-top {
-      background: transparent;
-      backdrop-filter: none;
-      border-bottom-color: transparent;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: rgba(255, 255, 255, 0.06);
     }
 
     .navbar.navbar--hidden {
@@ -1270,12 +1271,14 @@
     [data-theme="light"] .scene__blob {
       opacity: 0.25
     }
+    [data-theme="light"] .hero__video-bg {
+      opacity: 1;
+    }
 
     [data-theme="light"] .hero__title {
-      background: linear-gradient(135deg, #0f172a 20%, #0a8a6a 55%, #6d28d9 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
+      background: none;
+      -webkit-text-fill-color: #ffffff;
+      color: #ffffff;
     }
 
     [data-theme="light"] .stats__num {
@@ -1320,7 +1323,14 @@
       opacity: 1
     }
 
-    [data-theme="light"] .hero__sub,
+    [data-theme="light"] .hero__sub {
+      color: rgba(255, 255, 255, 0.85);
+      opacity: 1
+    }
+    [data-theme="light"] .hero__kicker {
+      color: rgba(255, 255, 255, 0.55);
+      opacity: 1
+    }
     [data-theme="light"] .section__desc,
     [data-theme="light"] .cta-section__sub {
       color: rgba(15, 23, 42, 0.6);
@@ -1384,11 +1394,11 @@
     }
 
     [data-theme="light"] .navbar__link {
-      color: #0f172a
+      color: #ffffff;
+      opacity: 0.75;
     }
-
-    [data-theme=\"light\"] .navbar__brand img {
-      filter: brightness(0) !important;
+    [data-theme="light"] .navbar__link:hover {
+      opacity: 1;
     }
 
     [data-theme="light"] .footer__brand img {
@@ -1597,60 +1607,94 @@
       }
     }
 
-    /* ═══ TIMELINE ═══ */
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
-      margin-top: var(--space-xl);
+    /* ═══ STEPPER HORIZONTAL ═══ */
+    .stepper-h {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
       position: relative;
+      margin-top: var(--space-2xl);
+      max-width: 820px;
+      margin-inline: auto;
     }
-    .timeline::before {
-      content: '';
+    .stepper-h::before {
+      content: "";
       position: absolute;
-      top: 24px;
-      left: calc(12.5% + 16px);
-      right: calc(12.5% + 16px);
+      top: 23px;
+      left: calc(12.5% + 4px);
+      right: calc(12.5% + 4px);
       height: 1px;
       background: linear-gradient(to right, var(--spherical-teal), var(--accent-violet));
       opacity: 0.3;
+      z-index: 0;
     }
-    .timeline__step {
+    .stepper-h__step {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: var(--space-xl) var(--space-md);
-      border-radius: var(--radius-xl);
-      background: var(--glass-white);
-      border: 1px solid var(--glass-border-subtle);
+      flex: 1;
       position: relative;
+      z-index: 1;
+      padding: 0 var(--space-sm);
     }
-    .timeline__num {
+    .stepper-h__node {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(93,202,165,0.45);
+      background: rgba(93,202,165,0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: var(--font-display);
-      font-size: 2rem;
-      background: linear-gradient(135deg, var(--spherical-teal), var(--accent-aqua));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: 1.15rem;
+      color: var(--spherical-teal);
       margin-bottom: var(--space-md);
+      transition: background var(--dur-mid), box-shadow var(--dur-mid);
+      flex-shrink: 0;
     }
-    .timeline__title {
-      font-weight: 500;
-      font-size: var(--text-base);
-      margin-bottom: var(--space-xs);
+    .stepper-h__step:hover .stepper-h__node {
+      background: rgba(93,202,165,0.18);
+      box-shadow: 0 0 22px rgba(93,202,165,0.28);
     }
-    .timeline__desc {
+    .stepper-h__title {
       font-size: var(--text-sm);
-      opacity: 0.65;
-      line-height: 1.65;
+      font-weight: 500;
+      line-height: 1.45;
+      max-width: 130px;
+      color: var(--text-primary);
     }
-    @media (max-width: 768px) {
-      .timeline { grid-template-columns: 1fr 1fr; }
-      .timeline::before { display: none; }
-    }
-    @media (max-width: 480px) {
-      .timeline { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .stepper-h {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        max-width: 360px;
+      }
+      .stepper-h::before { display: none; }
+      .stepper-h__step {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-md) 0;
+        flex: none;
+        width: 100%;
+      }
+      .stepper-h__step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 23px;
+        top: calc(48px + var(--space-md));
+        width: 1px;
+        height: var(--space-md);
+        background: rgba(93,202,165,0.35);
+      }
+      .stepper-h__node { margin-bottom: 0; flex-shrink: 0; }
+      .stepper-h__title { max-width: none; }
     }
 
     /* ═══ METRICS ═══ */
@@ -1700,10 +1744,11 @@
 
     <!-- ═══ NAVBAR ═══ -->
     <nav class="navbar navbar--at-top">
-      <a href="#" class="navbar__brand"><img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
+      <a href="index.html" class="navbar__brand"><img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
+      <a href="index.html" class="navbar__link">← Inicio</a>
       <a href="#servicios" class="navbar__link">Servicios</a>
-      <a href="#como" class="navbar__link">Cómo trabajamos</a>
       <a href="#clientes" class="navbar__link">Clientes</a>
+      <a href="taller-ia-ejecutivo.html" class="navbar__link">Taller IA</a>
       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0SnRZranoG4i04izzBxi3LlSPK0uRi1-M7JTp24WHbxQK3P_iEsVd7lZY0AlEmI2yhMH5jmN7J"
         target="_blank" rel="noopener" class="navbar__cta">Conversemos</a>
     </nav>
@@ -1711,14 +1756,14 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero">
       <video class="hero__video-bg" autoplay loop muted playsinline>
-        <source src="assets/video-fondo.mp4" type="video/mp4">
+        <source src="assets/565829_Sci_Fi_Blocks_Transform_Glowing_By_Finn_Moeller_Artlist_HD.mp4" type="video/mp4">
       </video>
       <span class="hero__kicker">IA Empresarial</span>
-      <h1 class="hero__title">Tu empresa ya sabe que necesita IA. El problema es cómo hacerlo funcionar de verdad.</h1>
-      <p class="hero__sub">Nos integramos a tu operación, diagnosticamos, construimos e implementamos. Y nos quedamos hasta que tu equipo lo adopta.</p>
+      <h1 class="hero__title">¿Quieres transformar cómo opera tu empresa?</h1>
+      <p class="hero__sub">Integramos tecnología, optimizamos procesos y acompañamos a tu equipo. Nos quedamos hasta que el cambio es real.</p>
       <div class="hero__cta">
         <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0SnRZranoG4i04izzBxi3LlSPK0uRi1-M7JTp24WHbxQK3P_iEsVd7lZY0AlEmI2yhMH5jmN7J"
-          target="_blank" rel="noopener" class="btn btn--primary btn--lg">Agenda una sesión exploratoria</a>
+          target="_blank" rel="noopener" class="btn btn--primary btn--lg">Agenda una sesión exploratoria →</a>
         <a href="https://robmond.github.io/diagnostico-eficiencia/"
           target="_blank" rel="noopener" class="btn btn--ghost btn--lg">Hacer el diagnóstico gratuito →</a>
       </div>
@@ -1755,91 +1800,28 @@
       <div class="container">
         <p class="section__eyebrow animate-in d1">Nuestro proceso</p>
         <h2 class="section__title animate-in d2">Cuatro etapas. Un solo objetivo: que tu empresa opere diferente.</h2>
-        <div class="timeline">
-          <div class="timeline__step glass animate-in d3">
-            <div class="timeline__num">01</div>
-            <div class="timeline__title">Diagnóstico de madurez digital</div>
-            <div class="timeline__desc">Evaluamos dónde está tu empresa hoy: procesos, datos, herramientas y capacidades del equipo.</div>
-          </div>
-          <div class="timeline__step glass animate-in d4">
-            <div class="timeline__num">02</div>
-            <div class="timeline__title">Diseño de arquitectura IA</div>
-            <div class="timeline__desc">Diseñamos el mapa de soluciones que resuelven los problemas reales de tu operación.</div>
-          </div>
-          <div class="timeline__step glass animate-in d5">
-            <div class="timeline__num">03</div>
-            <div class="timeline__title">Implementación y puesta en marcha</div>
-            <div class="timeline__desc">Construimos, configuramos e instalamos. Probamos con el equipo real, ajustamos hasta que funciona.</div>
-          </div>
-          <div class="timeline__step glass animate-in d6">
-            <div class="timeline__num">04</div>
-            <div class="timeline__title">Acompañamiento hasta la adopción real</div>
-            <div class="timeline__desc">Nos quedamos hasta que los hábitos cambian. No cuando el proyecto se entrega.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="stepper-h animate-in d3">
 
-    <!-- ═══ CASO CONCRETO ═══ -->
-    <section class="section">
-      <div class="container">
-        <p class="section__eyebrow animate-in d1">Caso real</p>
-        <h2 class="section__title animate-in d2">De conversación a estrategia en 75 minutos</h2>
-        <p class="section__desc animate-in d3" style="margin-bottom:var(--space-xl)">Chromatech es líder en la industria manufacturera en Chile. El desafío: diseñar la hoja de ruta de transformación digital IA para uno de sus directivos clave. Sin documentos previos. Solo una reunión.</p>
-        <div class="metrics-grid">
-          <div class="metric-card glass animate-in d4">
-            <div class="metric__value">40 páginas</div>
-            <div class="metric__label">Reporte estratégico entregado</div>
+          <div class="stepper-h__step">
+            <div class="stepper-h__node">01</div>
+            <div class="stepper-h__title">Diagnóstico de madurez digital</div>
           </div>
-          <div class="metric-card glass animate-in d5">
-            <div class="metric__value">75 min</div>
-            <div class="metric__label">Proceso total de inicio a fin</div>
-          </div>
-          <div class="metric-card glass animate-in d6">
-            <div class="metric__value">1 reunión</div>
-            <div class="metric__label">Solo una sesión exploratoria</div>
-          </div>
-        </div>
-        <p class="animate-in d3" style="text-align:center;opacity:0.7;font-size:var(--text-base);line-height:1.7;">Sin plantillas. Sin datos previos. Solo una conversación y el proceso Spherical.</p>
-      </div>
-    </section>
 
-    <!-- ═══ QUÉ INCLUYE ═══ -->
-    <section class="section" id="servicios">
-      <div class="container">
-        <p class="section__eyebrow animate-in d1">Nivel 2 — IA Empresarial</p>
-        <h2 class="section__title animate-in d2">Qué incluye una intervención Spherical</h2>
-        <div class="card-grid animate-in d3" style="grid-template-columns:1fr 1fr;max-width:800px;margin-inline:auto;margin-top:var(--space-xl);">
-          <div class="glass-card glass">
-            <div class="glass-card__icon">🗺️</div>
-            <div class="glass-card__title">Diagnóstico y blueprint</div>
-            <div class="glass-card__body">Evaluamos tu madurez digital y diseñamos la arquitectura de IA adaptada a tu realidad operacional.</div>
+          <div class="stepper-h__step">
+            <div class="stepper-h__node">02</div>
+            <div class="stepper-h__title">Diseño de arquitectura IA</div>
           </div>
-          <div class="glass-card glass">
-            <div class="glass-card__icon">⚙️</div>
-            <div class="glass-card__title">Implementación de ecosistema IA</div>
-            <div class="glass-card__body">Construimos e instalamos las soluciones. No entregamos un repositorio: entregamos un sistema funcionando.</div>
+
+          <div class="stepper-h__step">
+            <div class="stepper-h__node">03</div>
+            <div class="stepper-h__title">Implementación y puesta en marcha</div>
           </div>
-          <div class="glass-card glass">
-            <div class="glass-card__icon">🤖</div>
-            <div class="glass-card__title">Automatización profunda por área</div>
-            <div class="glass-card__body">Identificamos los procesos de mayor impacto y los automatizamos con IA integrada al flujo real.</div>
+
+          <div class="stepper-h__step">
+            <div class="stepper-h__node">04</div>
+            <div class="stepper-h__title">Acompañamiento hasta la adopción real</div>
           </div>
-          <div class="glass-card glass">
-            <div class="glass-card__icon">🎓</div>
-            <div class="glass-card__title">Workshops y programas de adopción</div>
-            <div class="glass-card__body">Capacitamos al equipo, facilitamos el cambio de hábitos y acompañamos la transición organizacional.</div>
-          </div>
-          <div class="glass-card glass">
-            <div class="glass-card__icon">📅</div>
-            <div class="glass-card__title">Acompañamiento estratégico mensual</div>
-            <div class="glass-card__body">Seguimos contigo después de la implementación. Ajustamos, iteramos y medimos resultados.</div>
-          </div>
-          <div class="glass-card glass">
-            <div class="glass-card__icon">🏆</div>
-            <div class="glass-card__title">MIDE™ — Gestión de innovación fraccional</div>
-            <div class="glass-card__body">Nuestro modelo propietario de gestión de innovación dentro de la organización, disponible de forma fraccional.</div>
-          </div>
+
         </div>
       </div>
     </section>
@@ -1888,10 +1870,10 @@
       <div class="container">
         <p class="section__eyebrow animate-in d1" style="text-align:center;">Quién está detrás</p>
         <div class="glass animate-in d2" style="max-width:600px;margin-inline:auto;padding:var(--space-2xl);border-radius:var(--radius-2xl);text-align:center;">
-          <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--spherical-teal),var(--accent-violet));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2rem;margin-inline:auto;margin-bottom:var(--space-lg);">RM</div>
+          <img src="assets/roberto-mondaca..jpeg" alt="Roberto Mondaca" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-inline:auto;margin-bottom:var(--space-lg);border:2px solid rgba(93,202,165,0.4);box-shadow:0 0 20px rgba(93,202,165,0.2);">
           <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-xs);">Roberto Mondaca</h3>
           <p style="opacity:0.55;font-size:var(--text-sm);margin-bottom:var(--space-lg);">Fundador, Spherical</p>
-          <p style="opacity:0.75;line-height:1.8;font-size:var(--text-base);">Llevo casi una década ayudando a empresas a transformarse digitalmente. Hoy me dedico a que la IA realmente funcione dentro de las organizaciones, no solo en los informes.</p>
+          <p style="opacity:0.75;line-height:1.8;font-size:var(--text-base);">Llevo casi una década ayudando a empresas a transformarse digitalmente. Hoy me dedico a que las persones adopten tecnologías para optimizar procesos.</p>
         </div>
       </div>
     </section>
@@ -2055,6 +2037,7 @@
 
       // Initial hide
       scrollTimeout = setTimeout(hideNavbar, 2000);
+
     });
   </script>
 
