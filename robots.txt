@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://spherical.cl/sitemap.xml

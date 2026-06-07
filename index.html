@@ -4,9 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Spherical — Inteligencia Aplicada para Empresas</title>
-  <meta name="description"
-    content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Desde ecosistemas digitales hasta transformación organizacional con IA.">
+  <title>Spherical — Implementación de IA y Transformación Digital para Empresas en Chile</title>
+  <meta name="description" content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Diagnóstico, implementación y acompañamiento. Más de 30 organizaciones en Chile y Latinoamérica.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://spherical.cl/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spherical.cl/">
+  <meta property="og:title" content="Spherical — Implementación de IA y Transformación Digital para Empresas en Chile">
+  <meta property="og:description" content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Diagnóstico, implementación y acompañamiento. Más de 30 organizaciones en Chile y Latinoamérica.">
+  <meta property="og:image" content="https://spherical.cl/assets/og-image.jpg">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Spherical">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Spherical — Implementación de IA y Transformación Digital para Empresas en Chile">
+  <meta name="twitter:description" content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Diagnóstico, implementación y acompañamiento.">
+  <meta name="twitter:image" content="https://spherical.cl/assets/og-image.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"
@@ -1423,6 +1441,46 @@
       .alianzas-grid { grid-template-columns: 1fr; }
     }
 
+    /* ═══ FAQ ═══ */
+    .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .faq-item {
+      border-radius: var(--radius-xl);
+      padding: 0;
+      overflow: hidden;
+      transition: box-shadow var(--dur-mid);
+    }
+    .faq-item[open] { box-shadow: var(--shadow-glass); }
+    .faq-q {
+      list-style: none;
+      cursor: pointer;
+      padding: var(--space-lg) var(--space-xl);
+      font-size: var(--text-md);
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      user-select: none;
+      transition: color var(--dur-fast);
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after {
+      content: "+";
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--spherical-teal);
+      flex-shrink: 0;
+      transition: transform var(--dur-fast) var(--ease-liquid);
+    }
+    .faq-item[open] .faq-q::after { transform: rotate(45deg); }
+    .faq-item[open] .faq-q { color: var(--spherical-teal); }
+    .faq-a {
+      padding: 0 var(--space-xl) var(--space-lg);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+      opacity: 0.72;
+    }
+
     /* ═══ CTA SECTION ═══ */
     .cta-section {
       text-align: center;
@@ -2138,6 +2196,103 @@
       }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://spherical.cl/#organization",
+        "name": "Spherical",
+        "url": "https://spherical.cl",
+        "logo": "https://spherical.cl/assets/logo-spherical.svg",
+        "description": "Firma de innovación fraccional especializada en implementación de inteligencia artificial y transformación digital para empresas en Chile y Latinoamérica.",
+        "email": "info@spherical.cl",
+        "foundingDate": "2015",
+        "areaServed": ["Chile", "Latinoamérica"],
+        "sameAs": [
+          "https://www.linkedin.com/company/spherical-cl"
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://spherical.cl/#localbusiness",
+        "name": "Spherical",
+        "image": "https://spherical.cl/assets/logo-spherical.svg",
+        "url": "https://spherical.cl",
+        "email": "info@spherical.cl",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Apoquindo 2930, Piso 2",
+          "addressLocality": "Las Condes",
+          "addressRegion": "Región Metropolitana",
+          "addressCountry": "CL"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -33.4175,
+          "longitude": -70.6048
+        },
+        "priceRange": "$$"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://spherical.cl/#webpage",
+        "url": "https://spherical.cl",
+        "name": "Spherical — Implementación de IA y Transformación Digital para Empresas en Chile",
+        "description": "Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia.",
+        "isPartOf": { "@id": "https://spherical.cl/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://spherical.cl/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Por dónde se empieza a implementar IA en una empresa mediana?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El primer paso es siempre un diagnóstico de madurez. Evaluamos procesos, datos, herramientas y capacidades del equipo para identificar dónde la IA genera mayor impacto con menor fricción. Sin ese mapa, cualquier implementación corre el riesgo de no ser adoptada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo toma una implementación real de IA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Depende del alcance. Una primera intervención puntual puede estar funcionando en 4 a 6 semanas. Una transformación organizacional completa toma entre 3 y 6 meses, incluyendo el acompañamiento hasta la adopción real del equipo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito tener mis datos organizados antes de empezar con IA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No necesariamente. Parte de nuestro trabajo es ayudarte a estructurar la información disponible. Lo que sí necesitas es claridad sobre qué problema de negocio quieres resolver — la tecnología y los datos son medios, no el punto de partida."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué diferencia a Spherical de una consultora tradicional?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Las consultoras diagnostican y se van. Nosotros nos quedamos hasta que el cambio es real. Diseñamos, implementamos y acompañamos la adopción — no entregamos un informe, entregamos una operación transformada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta implementar IA en una empresa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trabajamos con un modelo fraccional — accedes a un equipo senior sin el costo de tenerlo en planilla. El primer paso es una sesión exploratoria gratuita de 45 minutos donde entendemos tu situación y podemos darte una estimación real."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -2404,6 +2559,42 @@
             <h3 class="alianza-card__title">Innovación con respaldo ecosistémico</h3>
             <p class="alianza-card__body">Grupo Zenit lleva más de una década acelerando empresas y desarrollando ecosistemas de innovación en Chile y Latinoamérica. Juntos combinamos estrategia de IA con gestión de innovación organizacional.</p>
           </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section" id="faq">
+      <div class="container" style="max-width:780px;">
+        <p class="section__eyebrow animate-in d1">Preguntas frecuentes</p>
+        <h2 class="section__title animate-in d2">Lo que los directivos suelen preguntarnos</h2>
+        <div class="faq-list animate-in d3" style="margin-top:var(--space-2xl);">
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Por dónde se empieza a implementar IA en una empresa mediana?</summary>
+            <p class="faq-a">El primer paso es siempre un diagnóstico de madurez. Evaluamos procesos, datos, herramientas y capacidades del equipo para identificar dónde la IA genera mayor impacto con menor fricción. Sin ese mapa, cualquier implementación corre el riesgo de no ser adoptada.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Cuánto tiempo toma una implementación real de IA?</summary>
+            <p class="faq-a">Depende del alcance. Una primera intervención puntual — automatización de un proceso o implementación de un agente conversacional — puede estar funcionando en 4 a 6 semanas. Una transformación organizacional completa toma entre 3 y 6 meses, incluyendo el acompañamiento hasta la adopción real del equipo.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Necesito tener mis datos organizados antes de empezar?</summary>
+            <p class="faq-a">No necesariamente. Parte de nuestro trabajo es ayudarte a estructurar la información disponible. Lo que sí necesitas es claridad sobre qué problema de negocio quieres resolver — la tecnología y los datos son medios, no el punto de partida.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Qué diferencia a Spherical de una consultora tradicional?</summary>
+            <p class="faq-a">Las consultoras diagnostican y se van. Nosotros nos quedamos hasta que el cambio es real. Diseñamos, implementamos y acompañamos la adopción — no entregamos un informe, entregamos una operación transformada. Y trabajamos con el equipo real de tu empresa, no en paralelo a él.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Cuánto cuesta implementar IA en una empresa?</summary>
+            <p class="faq-a">No existe un precio estándar porque cada empresa tiene una realidad distinta. Lo que sí podemos decir es que trabajamos con un modelo fraccional — accedes a un equipo senior sin el costo de tenerlo en planilla. El primer paso es una sesión exploratoria gratuita de 45 minutos donde entendemos tu situación y podemos darte una estimación real.</p>
+          </details>
 
         </div>
       </div>
