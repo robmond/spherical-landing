@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1363,6 +1363,22 @@
     }
 
     /* ═══ LIGHT THEME ═══ */
+    /* Hero siempre oscuro aunque el resto de la página esté en modo claro */
+    [data-theme="light"] .hero {
+      background: #0b0e1a;
+      color: #ffffff;
+    }
+    [data-theme="light"] .hero__title {
+      -webkit-text-fill-color: transparent !important;
+    }
+    [data-theme="light"] .hero__kicker,
+    [data-theme="light"] .hero__sub { color: rgba(255,255,255,0.85) !important; }
+    [data-theme="light"] .navbar {
+      color: #ffffff;
+    }
+    [data-theme="light"] .navbar__link { color: rgba(255,255,255,0.75); }
+    [data-theme="light"] .navbar__link:hover { color: #ffffff; }
+
     [data-theme="light"] {
       --glass-white: rgba(255, 255, 255, 0.62);
       --glass-white-md: rgba(255, 255, 255, 0.78);
@@ -1940,7 +1956,7 @@
     </video>
     <span class="hero__kicker">Ecosistemas Digitales</span>
     <h1 class="hero__title">Tu empresa merece verse como lo que quiere llegar a ser.</h1>
-    <p class="hero__sub">Construimos el ecosistema digital que proyecta innovación, tecnología y futuro — con IA integrada en cada pieza.</p>
+    <p class="hero__sub">Construimos el ecosistema digital que tu empresa necesita.</p>
     <div class="hero__cta" style="display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap;">
       <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0SnRZranoG4i04izzBxi3LlSPK0uRi1-M7JTp24WHbxQK3P_iEsVd7lZY0AlEmI2yhMH5jmN7J"
          target="_blank" rel="noopener" class="btn btn--primary btn--lg">Conversemos</a>
@@ -2207,16 +2223,15 @@
           <div>
             <div class="footer__heading">Servicios</div>
             <ul class="footer__links">
-              <li><a href="#servicios">Ecosistemas Digitales</a></li>
-              <li><a href="#servicios">IA Empresarial</a></li>
-              <li><a href="#">MIDE™</a></li>
+              <li><a href="ecosistemas-digitales.html">Ecosistemas Digitales</a></li>
+              <li><a href="ia-empresarial-v2.html">Desarrollo Tecnológico</a></li>
             </ul>
           </div>
           <div>
             <div class="footer__heading">Empresa</div>
             <ul class="footer__links">
               <li><a href="#clientes">Clientes</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="https://robmond.github.io/spherical-landing/blog/index.html">Blog</a></li>
               <li><a href="#contacto">Contacto</a></li>
             </ul>
           </div>

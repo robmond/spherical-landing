@@ -1254,10 +1254,11 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-xl);
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.15);
       cursor: pointer;
       aspect-ratio: 4/3;
       text-decoration: none;
@@ -2250,7 +2251,7 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "¿Por dónde se empieza a implementar IA en una empresa mediana?",
+            "name": "¿Por dónde se empieza a implementar IA en una empresa?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "El primer paso es siempre un diagnóstico de madurez. Evaluamos procesos, datos, herramientas y capacidades del equipo para identificar dónde la IA genera mayor impacto con menor fricción. Sin ese mapa, cualquier implementación corre el riesgo de no ser adoptada."
@@ -2572,7 +2573,7 @@
         <div class="faq-list animate-in d3" style="margin-top:var(--space-2xl);">
 
           <details class="faq-item glass">
-            <summary class="faq-q">¿Por dónde se empieza a implementar IA en una empresa mediana?</summary>
+            <summary class="faq-q">¿Por dónde se empieza a implementar IA en una empresa?</summary>
             <p class="faq-a">El primer paso es siempre un diagnóstico de madurez. Evaluamos procesos, datos, herramientas y capacidades del equipo para identificar dónde la IA genera mayor impacto con menor fricción. Sin ese mapa, cualquier implementación corre el riesgo de no ser adoptada.</p>
           </details>
 
@@ -2723,16 +2724,15 @@
           <div>
             <div class="footer__heading">Servicios</div>
             <ul class="footer__links">
-              <li><a href="#servicios">Ecosistemas Digitales</a></li>
-              <li><a href="#servicios">IA Empresarial</a></li>
-              <li><a href="#">MIDE™</a></li>
+              <li><a href="ecosistemas-digitales.html">Ecosistemas Digitales</a></li>
+              <li><a href="ia-empresarial-v2.html">Desarrollo Tecnológico</a></li>
             </ul>
           </div>
           <div>
             <div class="footer__heading">Empresa</div>
             <ul class="footer__links">
               <li><a href="#clientes">Clientes</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="https://robmond.github.io/spherical-landing/blog/index.html">Blog</a></li>
               <li><a href="#contacto">Contacto</a></li>
             </ul>
           </div>
@@ -2946,6 +2946,19 @@
         });
       });
     })();
+  </script>
+
+  <!-- FAQ accordion: solo una abierta a la vez -->
+  <script>
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      item.addEventListener('toggle', function() {
+        if (item.open) {
+          document.querySelectorAll('.faq-item').forEach(function(other) {
+            if (other !== item && other.open) other.removeAttribute('open');
+          });
+        }
+      });
+    });
   </script>
 
   <script src="https://maslead.cl/widget.js" data-token="cmnp5pcwn00023aua5ndyl891"></script>
