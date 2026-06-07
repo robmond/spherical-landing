@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
   <title>Spherical — Implementación de IA y Transformación Digital para Empresas en Chile</title>
   <meta name="description" content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Diagnóstico, implementación y acompañamiento. Más de 30 organizaciones en Chile y Latinoamérica.">
 
@@ -32,6 +33,7 @@
   <style>
     /* ═══ DESIGN TOKENS (adapted from Liquid Glass UI Kit for Spherical) ═══ */
     :root {
+      color-scheme: dark;
       --glass-white: rgba(255, 255, 255, 0.12);
       --glass-white-md: rgba(255, 255, 255, 0.2);
       --glass-white-lg: rgba(255, 255, 255, 0.3);
@@ -1254,11 +1256,11 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-xl);
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.18);
+      background: var(--glass-white);
+      border: 1px solid var(--glass-border);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.15);
+      box-shadow: var(--shadow-glass);
       cursor: pointer;
       aspect-ratio: 4/3;
       text-decoration: none;
@@ -2314,7 +2316,7 @@
       <a href="#servicios" class="navbar__link">Servicios</a>
       <a href="#clientes" class="navbar__link">Clientes</a>
       <a href="taller-ia-ejecutivo.html" class="navbar__link">Taller IA</a>
-      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0SnRZranoG4i04izzBxi3LlSPK0uRi1-M7JTp24WHbxQK3P_iEsVd7lZY0AlEmI2yhMH5jmN7J"
+      <a href="#contacto"
         target="_blank" rel="noopener" class="navbar__cta">Conversemos</a>
     </nav>
 
