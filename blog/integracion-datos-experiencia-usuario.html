@@ -120,7 +120,7 @@
     .animate-in { animation: cascade-in var(--dur-slow) var(--ease-glass) both }
     .d1 { animation-delay:.1s } .d2 { animation-delay:.2s } .d3 { animation-delay:.3s } .d4 { animation-delay:.4s } .d5 { animation-delay:.5s }
 
-    .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: var(--space-sm) 5%; display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.92); backdrop-filter: none; border-bottom: 1px solid rgba(255,255,255,0.06); transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease; }
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: var(--space-sm) 5%; display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.92); backdrop-filter: blur(24px) saturate(160%); border-bottom: 1px solid rgba(255,255,255,0.06); transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease; }
     .navbar.navbar--at-top { background: transparent; border-bottom-color: transparent }
     .navbar.navbar--hidden { transform:translateY(-100%) !important; opacity:0 !important; visibility:hidden !important }
     .navbar__brand { font-family:var(--font-display); font-size:1.2rem; padding:8px 20px; margin-right:auto }
