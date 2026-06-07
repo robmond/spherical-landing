@@ -7,6 +7,7 @@
   <meta name="description" content="Ecosistemas Digitales — Spherical. Construimos el ecosistema digital que proyecta innovación, tecnología y futuro con IA integrada en cada pieza.">
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
   
   <meta name="description"
     content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Desde ecosistemas digitales hasta transformación organizacional con IA.">
@@ -17,6 +18,7 @@
 <style>
     /* ═══ DESIGN TOKENS (adapted from Liquid Glass UI Kit for Spherical) ═══ */
     :root {
+      color-scheme: dark light;
       --glass-white: rgba(255, 255, 255, 0.12);
       --glass-white-md: rgba(255, 255, 255, 0.2);
       --glass-white-lg: rgba(255, 255, 255, 0.3);
@@ -467,14 +469,25 @@
 
     .hero__video-bg {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
-      z-index: -1;
-      opacity: 0.6;
-      /* Oscurece un poco para que el texto sea legible */
+      z-index: 0;
+      opacity: 0.65;
+    }
+    /* Overlay oscuro sobre el video para legibilidad */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* Todo el contenido del hero por encima del video y overlay */
+    .hero > *:not(.hero__video-bg) {
+      position: relative;
+      z-index: 2;
     }
 
     .hero__logos {
@@ -1364,20 +1377,57 @@
 
     /* ═══ LIGHT THEME ═══ */
     /* Hero siempre oscuro aunque el resto de la página esté en modo claro */
-    [data-theme="light"] .hero {
-      background: #0b0e1a;
-      color: #ffffff;
-    }
+    /* ── Hero: siempre oscuro con video visible ── */
+    [data-theme="light"] .hero { color: #ffffff; }
+    [data-theme="light"] .hero__kicker { color: rgba(255,255,255,0.7) !important; opacity: 1; }
     [data-theme="light"] .hero__title {
+      background: linear-gradient(135deg, #fff 20%, #7EEDC5 55%, #b490f5 100%);
+      -webkit-background-clip: text;
       -webkit-text-fill-color: transparent !important;
+      background-clip: text;
     }
-    [data-theme="light"] .hero__kicker,
-    [data-theme="light"] .hero__sub { color: rgba(255,255,255,0.85) !important; }
-    [data-theme="light"] .navbar {
-      color: #ffffff;
+    [data-theme="light"] .hero__sub { color: rgba(255,255,255,0.88) !important; opacity: 1; }
+    [data-theme="light"] .hero .btn--ghost { color: #ffffff; border-color: rgba(255,255,255,0.4); }
+
+    /* ── Logos del hero: grises en fondo oscuro del hero ── */
+    [data-theme="light"] .hero__logos-track img {
+      filter: brightness(0) invert(1);
+      opacity: 0.55;
     }
+
+    /* ── Navbar: texto blanco sobre hero oscuro ── */
+    [data-theme="light"] .navbar { color: #ffffff; }
     [data-theme="light"] .navbar__link { color: rgba(255,255,255,0.75); }
     [data-theme="light"] .navbar__link:hover { color: #ffffff; }
+
+    /* ── Formulario: adaptado a fondo claro ── */
+    [data-theme="light"] .contact-form.glass {
+      background: rgba(255,255,255,0.75);
+      border-color: rgba(0,0,0,0.1);
+    }
+    [data-theme="light"] .form-field label { color: rgba(15,23,42,0.65); opacity: 1; }
+    [data-theme="light"] .form-field input,
+    [data-theme="light"] .form-field select,
+    [data-theme="light"] .form-field textarea {
+      background: rgba(255,255,255,0.9);
+      border-color: rgba(0,0,0,0.15);
+      color: #0f172a;
+    }
+    [data-theme="light"] .form-field select option { background: #fff; color: #0f172a; }
+    [data-theme="light"] .form-field input::placeholder,
+    [data-theme="light"] .form-field textarea::placeholder { color: rgba(15,23,42,0.35); opacity: 1; }
+    [data-theme="light"] .form-field input:focus,
+    [data-theme="light"] .form-field select:focus,
+    [data-theme="light"] .form-field textarea:focus {
+      border-color: rgba(10,138,106,0.6);
+      background: rgba(10,138,106,0.05);
+    }
+    [data-theme="light"] .form-submit__micro { color: rgba(15,23,42,0.45); }
+    [data-theme="light"] .form-success {
+      background: rgba(10,138,106,0.08);
+      border-color: rgba(10,138,106,0.3);
+      color: #0f172a;
+    }
 
     [data-theme="light"] {
       --glass-white: rgba(255, 255, 255, 0.62);
@@ -1964,7 +2014,7 @@
     </div>
   </section>
 
-  <!-- ═══ EL PROBLEMA ═══ -->
+  <!-- ═══ LO QUE CONSTRUIMOS INTRO ═══ -->
   <section class="section">
     <div class="container">
       <div class="problema-split">
@@ -1973,19 +2023,17 @@
         <div class="problema-split__img animate-in d1">
           <img
             src="assets/89d58d08-fc8a-4e46-9264-78a49de5313c--swinston-sans-by-yasir-ekinci.gif"
-            alt="Identidad visual y presencia digital"
+            alt="Ecosistema digital Spherical"
           >
         </div>
 
         <!-- Texto derecha -->
         <div class="problema-split__text">
-          <p class="section__eyebrow animate-in d2">El problema</p>
-          <div class="animate-in d3">
+          <p class="section__eyebrow animate-in d2">Lo que construimos</p>
+          <h2 class="section__title animate-in d3">Tu canal digital debería ser tu mejor vendedor.</h2>
+          <div class="animate-in d4">
             <p class="problema-text">
-              Tu producto es bueno. Tu servicio es serio.<br>
-              Pero <strong>tu presencia digital no lo refleja.</strong><br><br>
-              En un mercado donde la primera impresión es digital,<br>
-              verse del pasado cuesta clientes reales.
+              Construimos ecosistemas que generan demanda, convierten prospectos y retienen clientes — con IA integrada para optimizar cada etapa del funnel en tiempo real.
             </p>
           </div>
         </div>
