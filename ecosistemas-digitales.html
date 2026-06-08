@@ -505,6 +505,7 @@
 
     .hero__logos-track {
       display: flex;
+      flex-wrap: nowrap;
       gap: 0;
       align-items: center;
       width: max-content;
@@ -513,6 +514,7 @@
 
     .logo-item {
       width: calc(100vw / 6);
+      min-width: 110px;
       height: 52px;
       display: flex;
       align-items: center;
@@ -1376,15 +1378,9 @@
         padding: 8px 14px
       }
 
-      /* Fix logos marquee en mobile */
-      .logo-item {
-        min-width: 110px;
-        width: 110px;
-      }
-
-      .hero__logos-track {
-        flex-wrap: nowrap;
-      }
+      /* Fix logos marquee en mobile — igual que index.html */
+      .logo-item { width: calc(100vw / 3); min-width: 88px; }
+      .hero__logos-track img { max-height: 26px; max-width: 78px; }
     }
 
     /* ═══ LIGHT THEME ═══ */
