@@ -218,12 +218,6 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 36px rgba(93,202,165,0.5),var(--reflection-inner);
     }
-    @media (max-width: 600px) {
-      .navbar__link { display: none }
-      .navbar__cta  { display: none }
-      .navbar__hamburger { display: flex }
-    }
-
     /* ═══ HAMBURGER BUTTON ═══ */
     .navbar__hamburger {
       display: none;
@@ -298,6 +292,11 @@
       text-decoration: none;
     }
 
+    @media (max-width: 600px) {
+      .navbar__link { display: none }
+      .navbar__cta  { display: none }
+      .navbar__hamburger { display: flex }
+    }
     /* ═══ HERO ═══ */
     .hero {
       min-height: 100vh;

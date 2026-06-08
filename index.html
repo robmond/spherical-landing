@@ -1729,32 +1729,6 @@
     }
 
 
-    /* ═══ RESPONSIVE ═══ */
-    @media(max-width:900px) {
-
-      .level-grid,
-      .product-features {
-        grid-template-columns: 1fr
-      }
-
-      .diff-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .footer__inner {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg)
-      }
-
-      .navbar__link { display: none }
-      .navbar__cta  { display: none }
-      .navbar__hamburger { display: flex }
-    }
-
     /* ═══ HAMBURGER BUTTON ═══ */
     .navbar__hamburger {
       display: none;
@@ -1829,7 +1803,31 @@
       text-decoration: none;
     }
 
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:900px) {
 
+      .level-grid,
+      .product-features {
+        grid-template-columns: 1fr
+      }
+
+      .diff-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg)
+      }
+
+      .navbar__link { display: none }
+      .navbar__cta  { display: none }
+      .navbar__hamburger { display: flex }
+    }
     @media(max-width:640px) {
       /* Layout grids */
       .stats        { grid-template-columns: 1fr 1fr }
@@ -2888,6 +2886,7 @@
         });
       }
     });
+  </script>
 
   <script>
     // mailto anti-scraping: construido en JS, no en HTML
