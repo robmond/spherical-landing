@@ -376,7 +376,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      background: rgba(11,14,26,0.72);
+      background: rgba(11,14,26,0.88);
       backdrop-filter: blur(24px) saturate(160%);
       -webkit-backdrop-filter: blur(24px) saturate(160%);
       border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -410,7 +410,7 @@
       border-radius: var(--radius-full);
       font-size: var(--text-sm);
       font-weight: 400;
-      opacity: 0.65;
+      color: rgba(255,255,255,0.9);
       cursor: pointer;
       transition: background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid)
     }
@@ -1375,6 +1375,16 @@
         font-size: 1rem;
         padding: 8px 14px
       }
+
+      /* Fix logos marquee en mobile */
+      .logo-item {
+        min-width: 110px;
+        width: 110px;
+      }
+
+      .hero__logos-track {
+        flex-wrap: nowrap;
+      }
     }
 
     /* ═══ LIGHT THEME ═══ */
@@ -2009,7 +2019,7 @@
     </video>
     <span class="hero__kicker">Ecosistemas Digitales</span>
     <h1 class="hero__title">Tu empresa merece verse como lo que quiere llegar a ser.</h1>
-    <p class="hero__sub">Construimos el ecosistema digital que tu empresa necesita.</p>
+    <p class="hero__sub">Construimos el ecosistema digital que convierte visitas en clientes.</p>
     <div class="hero__cta" style="display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap;">
       <a href="#contacto"
          target="_blank" rel="noopener" class="btn btn--primary btn--lg">Conversemos</a>
@@ -2101,7 +2111,7 @@
     <div class="container">
       <div class="producto-block animate-in d1">
         <div class="producto-block__eyebrow">⚡ Producto estrella</div>
-        <h2 class="producto-block__title">Ecosistema IA en 5 días</h2>
+        <h2 class="producto-block__title">Activamos el ecosistema de marketing en 5 días</h2>
         <p class="producto-block__desc">Landing optimizada + campaña activa + CRM conectado + agente conversacional inteligente. Todo funcionando en una semana.</p>
         <p class="producto-block__detail">Setup único + mensualidad &nbsp;·&nbsp; Sin contratos largos.</p>
         <a href="#contacto"
@@ -2236,24 +2246,24 @@
   <section class="section">
     <div class="container">
       <p class="section__eyebrow animate-in d1">Lectura recomendada</p>
-      <h2 class="section__title animate-in d2">Artículos sobre Ecosistemas Digitales</h2>
+      <h2 class="section__title animate-in d2">Artículos sobre Marketing Digital</h2>
       <div class="card-grid animate-in d3" style="margin-top:var(--space-xl);">
         <a href="blog/que-significa-growth-partner.html" style="text-decoration:none;color:inherit;" class="glass-card glass">
           <div class="glass-card__label">Estrategia Digital</div>
           <div class="glass-card__title">¿Qué significa ser un Growth Partner?</div>
-          <div class="glass-card__body">Cómo un Growth Partner integra marketing, producto y automatización en tu empresa.</div>
+          <div class="glass-card__body">Cómo un Growth Partner integra marketing, producto y automatización para hacer crecer tu empresa más rápido.</div>
           <div style="margin-top:var(--space-md);font-size:var(--text-sm);color:var(--spherical-teal);font-weight:500;">Leer →</div>
         </a>
-        <a href="blog/conectapacientes-salud-roche.html" style="text-decoration:none;color:inherit;" class="glass-card glass">
-          <div class="glass-card__label">Caso Real</div>
-          <div class="glass-card__title">Transformando la salud con Conectapacientes.cl</div>
-          <div class="glass-card__body">Cómo construimos una plataforma de salud con Roche para conectar pacientes en Chile.</div>
+        <a href="blog/el-fin-estructuras-pesadas-marketing-ventas.html" style="text-decoration:none;color:inherit;" class="glass-card glass">
+          <div class="glass-card__label">Marketing & Ventas</div>
+          <div class="glass-card__title">El fin de las estructuras pesadas en marketing y ventas</div>
+          <div class="glass-card__body">Por qué los equipos de marketing tradicionales están siendo reemplazados por ecosistemas ágiles e inteligentes.</div>
           <div style="margin-top:var(--space-md);font-size:var(--text-sm);color:var(--spherical-teal);font-weight:500;">Leer →</div>
         </a>
-        <a href="blog/low-code-startups.html" style="text-decoration:none;color:inherit;" class="glass-card glass">
-          <div class="glass-card__label">Tecnología</div>
-          <div class="glass-card__title">La importancia del desarrollo Low-Code para startups</div>
-          <div class="glass-card__body">Por qué el Low-Code permite lanzar productos digitales en días, no meses.</div>
+        <a href="blog/ia-creacion-contenido-equipos.html" style="text-decoration:none;color:inherit;" class="glass-card glass">
+          <div class="glass-card__label">IA & Contenido</div>
+          <div class="glass-card__title">Cómo la IA facilita la creación de contenido para equipos de marketing</div>
+          <div class="glass-card__body">Herramientas y flujos de trabajo con IA generativa que multiplican la producción de contenido sin aumentar el equipo.</div>
           <div style="margin-top:var(--space-md);font-size:var(--text-sm);color:var(--spherical-teal);font-weight:500;">Leer →</div>
         </a>
       </div>
