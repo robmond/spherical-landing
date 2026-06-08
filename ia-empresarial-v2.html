@@ -220,6 +220,82 @@
     }
     @media (max-width: 600px) {
       .navbar__link { display: none }
+      .navbar__cta  { display: none }
+      .navbar__hamburger { display: flex }
+    }
+
+    /* ═══ HAMBURGER BUTTON ═══ */
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: auto;
+    }
+    .navbar__hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ═══ MOBILE NAV MENU ═══ */
+    .nav-mobile {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.96);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 5% 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 98;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .nav-mobile.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .nav-mobile__link {
+      display: block;
+      padding: 14px 8px;
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      font-weight: 400;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-mobile__link:hover { color: #fff; }
+    .nav-mobile__cta {
+      display: block;
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(93,202,165,0.55), rgba(59,130,246,0.55));
+      border: 1px solid rgba(93,202,165,0.45);
+      border-radius: 50px;
+      color: #fff;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
     }
 
     /* ═══ HERO ═══ */
@@ -829,7 +905,16 @@
       <a href="#incluye" class="navbar__link">Qué incluye</a>
       <a href="#proceso" class="navbar__link">Proceso</a>
       <a href="#contacto" class="navbar__cta">Contacto</a>
+      <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="#incluye" class="nav-mobile__link">Qué incluye</a>
+      <a href="#proceso" class="nav-mobile__link">Proceso</a>
+      <a href="#contacto" class="nav-mobile__cta">Contacto</a>
+    </div>
 
     <!-- ═══ HERO ═══ -->
     <section class="hero">
@@ -1269,6 +1354,22 @@
       };
       window.addEventListener('scroll', update, { passive: true });
       update();
+
+      // --- Hamburger menu ---
+      const hamburger = document.getElementById('navHamburger');
+      const navMobile = document.getElementById('navMobile');
+      if (hamburger && navMobile) {
+        hamburger.addEventListener('click', () => {
+          const isOpen = navMobile.classList.toggle('open');
+          hamburger.classList.toggle('open', isOpen);
+        });
+        navMobile.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            navMobile.classList.remove('open');
+            hamburger.classList.remove('open');
+          });
+        });
+      }
     })();
   </script>
 
