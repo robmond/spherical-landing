@@ -406,12 +406,6 @@
       border-bottom-color: transparent;
     }
 
-    .navbar.navbar--hidden {
-      transform: translateY(-100%) !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-    }
-
     .navbar__brand {
       font-family: var(--font-display);
       font-size: 1.2rem;
@@ -2787,10 +2781,8 @@
       const updateNavbar = () => {
         if (window.scrollY < 80) {
           navbar.classList.add("navbar--at-top");
-          navbar.classList.remove("navbar--hidden");
         } else {
           navbar.classList.remove("navbar--at-top");
-          navbar.classList.remove("navbar--hidden");
         }
       };
       window.addEventListener("scroll", updateNavbar, { passive: true });

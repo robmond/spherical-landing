@@ -391,12 +391,6 @@
       border-bottom-color: transparent;
     }
 
-    .navbar.navbar--hidden {
-      transform: translateY(-100%) !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-    }
-
     .navbar__brand {
       font-family: var(--font-display);
       font-size: 1.2rem;
@@ -2335,45 +2329,17 @@
         });
       });
 
-      // --- Navbar transparent-at-top logic ---
+      // --- Navbar: transparente en hero, negro al hacer scroll ---
       const navbar = document.querySelector(".navbar");
-      const updateNavbarTop = () => {
+      const updateNavbar = () => {
         if (window.scrollY < 80) {
           navbar.classList.add("navbar--at-top");
         } else {
           navbar.classList.remove("navbar--at-top");
         }
       };
-      window.addEventListener("scroll", updateNavbarTop, { passive: true });
-      updateNavbarTop();
-
-      // --- Navbar auto-hide logic ---
-      let scrollTimeout;
-
-      const hideNavbar = () => {
-        if (!navbar.matches(":hover")) {
-          navbar.classList.add("navbar--hidden");
-        }
-      };
-
-      const showNavbar = () => {
-        navbar.classList.remove("navbar--hidden");
-      };
-
-      const resetScrollTimeout = () => {
-        showNavbar();
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(hideNavbar, 1200); // Hide after 1.2s of inactivity
-      };
-
-      window.addEventListener("scroll", resetScrollTimeout);
-      navbar.addEventListener("mouseenter", showNavbar);
-      navbar.addEventListener("mouseleave", () => {
-        scrollTimeout = setTimeout(hideNavbar, 1200);
-      });
-
-      // Initial hide
-      scrollTimeout = setTimeout(hideNavbar, 2000);
+      window.addEventListener("scroll", updateNavbar, { passive: true });
+      updateNavbar();
     });
 
 
