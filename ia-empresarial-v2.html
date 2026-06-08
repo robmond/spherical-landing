@@ -381,11 +381,13 @@
     }
     .cred-logos-track {
       display: flex;
+      flex-wrap: nowrap;
       width: max-content;
       animation: marquee 28s linear infinite;
     }
     .cred-logo-item {
       width: calc(min(1100px, 92vw) / 5);
+      min-width: 110px;
       height: 48px;
       display: flex;
       align-items: center;
@@ -779,7 +781,8 @@
       .incluye-grid { grid-template-columns: 1fr 1fr }
       .cred-bar__stats { gap: var(--space-xl) }
       .cred-divider { display: none }
-      .cred-logo-item { width: calc(92vw / 5) }
+      .cred-logo-item { width: calc(92vw / 3); min-width: 88px; }
+      .cred-logo-item img { max-height: 24px; max-width: 72px; }
       .footer__inner { flex-direction: column; text-align: center }
       .footer__info { text-align: center }
     }
@@ -834,7 +837,7 @@
       <div class="hero__blob hero__blob--a"></div>
       <div class="hero__blob hero__blob--b"></div>
       <div class="hero__blob hero__blob--c"></div>
-      <p class="hero__kicker animate-in d1">IMPLEMENTACIÓN DE INTELIGENCIA ARTIFICIAL PARA EMPRESAS</p>
+      <p class="hero__kicker animate-in d1">DESARROLLO TECNOLÓGICO</p>
       <h1 class="hero__title animate-in d2">Tu empresa ya decidió que necesita IA. El problema es hacerlo funcionar de verdad.</h1>
       <p class="hero__sub animate-in d3">Diagnóstico, implementación y acompañamiento. Nos integramos a tu operación y nos quedamos hasta que el cambio es real — no hasta que el proyecto se entrega.</p>
       <div class="hero__cta">
