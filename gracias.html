@@ -339,32 +339,59 @@
 
     /* ═══ FOOTER ═══ */
     .footer {
-      padding: var(--space-2xl) 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: var(--space-2xl) 0 var(--space-xl)
     }
     .footer__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-lg);
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: var(--space-xl)
     }
-    .footer__logo img { height: 28px; width: auto; opacity: 0.7 }
-    .footer__info {
+    .footer__brand {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.3rem;
+      margin-bottom: var(--space-sm)
+    }
+    .footer__tagline {
+      font-size: var(--text-sm);
+      opacity: 0.4;
+      line-height: 1.6
+    }
+    .footer__heading {
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.4;
+      margin-bottom: var(--space-md)
+    }
+    .footer__links {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: var(--text-xs);
-      opacity: 0.4;
-      text-align: right;
+      gap: var(--space-xs)
     }
-    .footer__info a { opacity: 0.8; transition: opacity var(--dur-fast) }
-    .footer__info a:hover { opacity: 1 }
+    .footer__links a {
+      font-size: var(--text-sm);
+      opacity: 0.6;
+      transition: opacity var(--dur-fast)
+    }
+    .footer__links a:hover { opacity: 1 }
+    .footer__copy {
+      text-align: center;
+      font-size: var(--text-xs);
+      opacity: 0.3;
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(255,255,255,0.12)
+    }
 
     @media (max-width: 640px) {
       .thanks-card { padding: var(--space-2xl) var(--space-lg) }
-      .footer__inner { flex-direction: column; text-align: center }
-      .footer__info { text-align: center }
+      .footer__inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer__inner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -443,15 +470,40 @@
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
-          <a href="index.html">
-            <img src="assets/logo-spherical.svg" alt="Spherical" style="height:28px;width:auto;opacity:0.65;">
-          </a>
-          <div class="footer__info">
-            <a href="mailto:info@spherical.cl">info@spherical.cl</a>
-            <a href="https://robmond.github.io/spherical-landing/" target="_blank" rel="noopener">www.spherical.cl</a>
-            <span>© 2026 Spherical. Todos los derechos reservados.</span>
+          <div>
+            <div class="footer__brand">
+              <img src="assets/logo-spherical.svg" alt="Spherical" style="height:24px;width:auto;">
+            </div>
+            <p class="footer__tagline">Impulsando la nueva generación de empresas conectadas al futuro.
+              Santiago, Chile.
+            </p>
+          </div>
+          <div>
+            <div class="footer__heading">Servicios</div>
+            <ul class="footer__links">
+              <li><a href="ecosistemas-digitales.html">Ecosistemas Digitales</a></li>
+              <li><a href="ia-empresarial-v2.html">Desarrollo Tecnológico</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Empresa</div>
+            <ul class="footer__links">
+              <li><a href="index.html#clientes">Clientes</a></li>
+              <li><a href="https://robmond.github.io/spherical-landing/blog/index.html">Blog</a></li>
+              <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contacto</div>
+            <ul class="footer__links">
+              <li><a href="mailto:info@spherical.cl">info@spherical.cl</a></li>
+              <li><a href="https://robmond.github.io/spherical-landing/">www.spherical.cl</a></li>
+              <li><a>Apoquindo 2930, Piso 2</a></li>
+              <li><a>Las Condes, Santiago</a></li>
+            </ul>
           </div>
         </div>
+        <p class="footer__copy">&copy; 2026 Spherical. Todos los derechos reservados.</p>
       </div>
     </footer>
 
