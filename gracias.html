@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Solicitud recibida · Spherical</title>
+  <meta name="description" content="Tu solicitud fue recibida. Un ejecutivo de Spherical te contactará pronto.">
+
+  <!-- Google tag (gtag.js) — Reemplaza G-XXXXXXXXXX con tu Measurement ID de GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+
+    // Evento de conversión — se dispara al cargar esta página
+    gtag('event', 'generate_lead', {
+      event_category: 'Lead',
+      event_label: 'Formulario IA Empresarial',
+      value: 1
+    });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══ DESIGN TOKENS ═══ */
+    :root {
+      --glass-white: rgba(255,255,255,0.12);
+      --glass-white-md: rgba(255,255,255,0.2);
+      --glass-border: rgba(255,255,255,0.25);
+      --glass-border-subtle: rgba(255,255,255,0.12);
+      --glass-bg: rgba(255,255,255,0.06);
+      --blur-md: blur(18px);
+      --shadow-glass: 0 8px 32px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.3);
+      --shadow-float: 0 20px 60px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.2);
+      --reflection-top: linear-gradient(135deg,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 50%);
+      --reflection-inner: inset 0 1px 1px rgba(255,255,255,0.45),inset 0 -1px 1px rgba(0,0,0,0.1);
+      --accent-aqua: #5ee7df;
+      --accent-violet: #b490f5;
+      --spherical-teal: #5DCAA5;
+      --spherical-teal-bright: #7EEDC5;
+      --color-bg: #0b0e1a;
+      --color-text: #ffffff;
+      --color-text-muted: rgba(255,255,255,0.55);
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --text-2xs: 0.68rem;
+      --text-xs: 0.75rem;
+      --text-sm: 0.82rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.3rem;
+      --text-2xl: 1.6rem;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --radius-full: 9999px;
+      --ease-glass: cubic-bezier(0.22,0.68,0,1.2);
+      --ease-liquid: cubic-bezier(0.34,1.56,0.64,1);
+      --dur-fast: 180ms;
+      --dur-mid: 360ms;
+      --dur-slow: 600ms;
+      --font-display: "Italiana", serif;
+      --font-body: "DM Sans", sans-serif;
+    }
+
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased }
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important }
+    }
+
+    /* ═══ ANIMATED BACKGROUND ═══ */
+    .scene {
+      position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+    }
+    .scene__blob {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.45;
+      animation: blob-drift var(--dur,18s) ease-in-out infinite alternate;
+    }
+    .scene__blob--1 { width:700px;height:700px;background:radial-gradient(circle,#26f1ff,#0055cc);top:-200px;left:-150px;--dur:22s }
+    .scene__blob--2 { width:600px;height:600px;background:radial-gradient(circle,#ff61fa,#9900cc);bottom:-200px;right:-100px;--dur:17s;animation-delay:-8s }
+    .scene__blob--3 { width:420px;height:420px;background:radial-gradient(circle,#26f1ff,#ff61fa);top:40%;left:50%;--dur:25s;animation-delay:-13s }
+
+    @keyframes blob-drift {
+      0% { transform:translate(0,0) scale(1) }
+      33% { transform:translate(60px,-40px) scale(1.08) }
+      66% { transform:translate(-40px,60px) scale(0.94) }
+      100% { transform:translate(30px,30px) scale(1.04) }
+    }
+
+    /* ═══ GLASS UTILITIES ═══ */
+    .glass {
+      backdrop-filter: var(--blur-md);
+      -webkit-backdrop-filter: var(--blur-md);
+      background: var(--glass-white);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-glass);
+      position: relative;
+      overflow: hidden;
+    }
+    .glass::before {
+      content:""; position:absolute; inset:0;
+      background:var(--reflection-top);
+      pointer-events:none; border-radius:inherit; z-index:1;
+    }
+
+    /* ═══ LAYOUT ═══ */
+    .page { position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; }
+    .container { width: min(1100px,92vw); margin-inline: auto }
+
+    /* ═══ ANIMATIONS ═══ */
+    @keyframes cascade-in {
+      0% { opacity:0; transform:translateY(24px) scale(0.97); filter:blur(8px) }
+      100% { opacity:1; transform:translateY(0) scale(1); filter:blur(0) }
+    }
+    .animate-in { animation: cascade-in var(--dur-slow) var(--ease-glass) both }
+    .d1 { animation-delay:0.1s } .d2 { animation-delay:0.25s } .d3 { animation-delay:0.4s }
+    .d4 { animation-delay:0.55s } .d5 { animation-delay:0.7s }
+
+    /* ═══ NAVBAR ═══ */
+    .navbar {
+      position: fixed; top:0; left:0; width:100%; z-index:100;
+      padding: var(--space-sm) 5%;
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .navbar__brand {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      padding: 8px 20px;
+      letter-spacing: 0.02em;
+      margin-right: auto;
+    }
+    .navbar__link {
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      cursor: pointer;
+      transition: background var(--dur-fast), opacity var(--dur-fast);
+    }
+    .navbar__link:hover {
+      background: var(--glass-white);
+    }
+
+    /* ═══ MAIN CONTENT ═══ */
+    .thanks-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+    .thanks-card {
+      max-width: 680px;
+      width: 100%;
+      border-radius: var(--radius-2xl);
+      padding: var(--space-4xl) var(--space-3xl);
+      text-align: center;
+    }
+
+    /* Check icon animado */
+    .thanks-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(93,202,165,0.12);
+      border: 1px solid rgba(93,202,165,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-xl);
+      animation: cascade-in 0.7s var(--ease-glass) 0.05s both;
+    }
+    .thanks-icon svg {
+      width: 38px; height: 38px;
+      stroke: var(--spherical-teal);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .thanks-eyebrow {
+      font-size: var(--text-2xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--spherical-teal);
+      margin-bottom: var(--space-sm);
+      animation: cascade-in 0.7s var(--ease-glass) 0.1s both;
+    }
+    .thanks-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: var(--space-md);
+      background: linear-gradient(135deg,#fff 20%,var(--spherical-teal) 60%,var(--accent-violet) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: cascade-in 0.8s var(--ease-glass) 0.2s both;
+    }
+    .thanks-sub {
+      font-size: var(--text-lg);
+      line-height: 1.75;
+      opacity: 0.7;
+      max-width: 520px;
+      margin: 0 auto var(--space-3xl);
+      animation: cascade-in 0.8s var(--ease-glass) 0.3s both;
+    }
+
+    /* Pasos */
+    .thanks-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-3xl);
+      text-align: left;
+      animation: cascade-in 0.8s var(--ease-glass) 0.4s both;
+    }
+    .thanks-step {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .thanks-step__num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(93,202,165,0.4);
+      background: rgba(93,202,165,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--spherical-teal);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .thanks-step__text {
+      font-size: var(--text-sm);
+      line-height: 1.6;
+      opacity: 0.75;
+    }
+    .thanks-step__text strong {
+      display: block;
+      font-weight: 500;
+      opacity: 1;
+      color: #fff;
+      margin-bottom: 2px;
+      font-size: var(--text-base);
+    }
+
+    /* Divider */
+    .thanks-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin: 0 auto var(--space-xl);
+      animation: cascade-in 0.6s var(--ease-glass) 0.5s both;
+    }
+
+    /* Contacto urgente */
+    .thanks-contact {
+      font-size: var(--text-sm);
+      opacity: 0.5;
+      margin-bottom: var(--space-xl);
+      animation: cascade-in 0.7s var(--ease-glass) 0.55s both;
+    }
+    .thanks-contact a {
+      color: var(--spherical-teal);
+      opacity: 1;
+      transition: opacity var(--dur-fast);
+    }
+    .thanks-contact a:hover { opacity: 0.8; }
+
+    /* Botón volver */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-full); border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500;
+      letter-spacing: 0.04em; color: var(--color-text); text-decoration: none;
+      transition: transform var(--dur-fast) var(--ease-liquid),box-shadow var(--dur-fast);
+      position: relative; overflow: hidden;
+      animation: cascade-in 0.8s var(--ease-glass) 0.6s both;
+    }
+    .btn::before {
+      content:""; position:absolute; inset:0; border-radius:inherit;
+      background:var(--reflection-top); pointer-events:none;
+    }
+    .btn:active { transform: scale(0.96) }
+    .btn--ghost {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .btn--ghost:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* ═══ FOOTER ═══ */
+    .footer {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    .footer__logo img { height: 28px; width: auto; opacity: 0.7 }
+    .footer__info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: var(--text-xs);
+      opacity: 0.4;
+      text-align: right;
+    }
+    .footer__info a { opacity: 0.8; transition: opacity var(--dur-fast) }
+    .footer__info a:hover { opacity: 1 }
+
+    @media (max-width: 640px) {
+      .thanks-card { padding: var(--space-2xl) var(--space-lg) }
+      .footer__inner { flex-direction: column; text-align: center }
+      .footer__info { text-align: center }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scene">
+    <div class="scene__blob scene__blob--1"></div>
+    <div class="scene__blob scene__blob--2"></div>
+    <div class="scene__blob scene__blob--3"></div>
+  </div>
+
+  <div class="page">
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;">
+      </a>
+      <a href="index.html" class="navbar__link">← Inicio</a>
+    </nav>
+
+    <!-- ═══ CONTENIDO PRINCIPAL ═══ -->
+    <section class="thanks-section">
+      <div class="thanks-card glass">
+
+        <div class="thanks-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+
+        <p class="thanks-eyebrow">Solicitud recibida</p>
+
+        <h1 class="thanks-title">El equipo de Spherical<br>fue notificado</h1>
+
+        <p class="thanks-sub">
+          Un ejecutivo de Spherical te contactará en menos de 48 horas para coordinar los primeros pasos.
+        </p>
+
+        <div class="thanks-steps">
+          <div class="thanks-step">
+            <div class="thanks-step__num">1</div>
+            <div class="thanks-step__text">
+              <strong>Revisamos los detalles que nos enviaste</strong>
+              Analizamos tu situación para preparar una conversación útil desde el primer minuto.
+            </div>
+          </div>
+          <div class="thanks-step">
+            <div class="thanks-step__num">2</div>
+            <div class="thanks-step__text">
+              <strong>Te contactamos para coordinar una llamada inicial</strong>
+              Un ejecutivo de Spherical se pondrá en contacto contigo en menos de 48 horas.
+            </div>
+          </div>
+          <div class="thanks-step">
+            <div class="thanks-step__num">3</div>
+            <div class="thanks-step__text">
+              <strong>Definimos juntos el alcance y comenzamos</strong>
+              En la llamada alineamos objetivos, tiempos y próximos pasos concretos.
+            </div>
+          </div>
+        </div>
+
+        <div class="thanks-divider"></div>
+
+        <p class="thanks-contact">
+          ¿Tienes urgencia? Escríbenos directamente a
+          <a href="mailto:info@spherical.cl">info@spherical.cl</a>
+        </p>
+
+        <a href="index.html" class="btn btn--ghost">← Volver al inicio</a>
+
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <a href="index.html">
+            <img src="assets/logo-spherical.svg" alt="Spherical" style="height:28px;width:auto;opacity:0.65;">
+          </a>
+          <div class="footer__info">
+            <a href="mailto:info@spherical.cl">info@spherical.cl</a>
+            <a href="https://www.spherical.cl" target="_blank" rel="noopener">www.spherical.cl</a>
+            <span>© 2026 Spherical. Todos los derechos reservados.</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

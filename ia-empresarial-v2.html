@@ -5,6 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Implementación de IA para empresas · Spherical</title>
+  <!-- Google tag (gtag.js) — Reemplaza G-XXXXXXXXXX con tu Measurement ID de GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <meta name="description" content="Diagnóstico, implementación y acompañamiento en IA empresarial. Nos integramos a tu operación y nos quedamos hasta que el cambio es real.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1230,14 +1238,14 @@
     <section class="cta-final" id="contacto">
       <div class="container">
         <h2 class="cta-final__title animate-in d1">¿Tu empresa está lista para operar diferente?</h2>
-        <p class="cta-final__desc animate-in d2">Cuéntanos brevemente tu situación. Revisamos cada solicitud y te contactamos en 48 horas si hay match.</p>
+        <p class="cta-final__desc animate-in d2">Cuéntanos sobre tu empresa. Un ejecutivo de Spherical te contactará en menos de 48 horas para coordinar los primeros pasos.</p>
 
         <div class="animate-in d3">
           <!-- Mensaje de éxito (oculto hasta envío) -->
           <div class="form-success" id="formSuccess">
             <div class="form-success__icon">✅</div>
             <h3 class="form-success__title">¡Solicitud recibida!</h3>
-            <p class="form-success__desc">Revisaremos tu caso y te contactaremos en menos de 48 horas.<br>Si tienes urgencia, escríbenos directamente a <strong>info@spherical.cl</strong></p>
+            <p class="form-success__desc">Un ejecutivo de Spherical te contactará en menos de 48 horas para coordinar los primeros pasos.<br>Si tienes urgencia, escríbenos directamente a <strong>info@spherical.cl</strong></p>
           </div>
 
           <form class="contact-form glass" id="contactForm" style="padding:var(--space-2xl);border-radius:var(--radius-2xl);" novalidate>
@@ -1455,13 +1463,29 @@
           body: JSON.stringify(data)
         })
         .then(function () {
-          form.style.display = 'none';
-          success.style.display = 'block';
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              event_category: 'Lead',
+              event_label: 'Formulario IA Empresarial',
+              value: 1
+            });
+          }
+          setTimeout(function() {
+            window.location.href = './gracias.html';
+          }, 400);
         })
         .catch(function () {
-          // no-cors siempre llega aquí como éxito opaco — mostramos confirmación igual
-          form.style.display = 'none';
-          success.style.display = 'block';
+          // no-cors siempre resuelve como opaco — tratamos como éxito
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              event_category: 'Lead',
+              event_label: 'Formulario IA Empresarial',
+              value: 1
+            });
+          }
+          setTimeout(function() {
+            window.location.href = './gracias.html';
+          }, 400);
         });
       });
     })();
