@@ -277,6 +277,66 @@
     }
     .navbar__dropdown-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
 
+  
+    /* ═══ NAV MOBILE ═══ */
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(11,14,26,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 5%;
+      z-index: 99;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile__link {
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      transition: background 0.15s;
+    }
+    .nav-mobile__link:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .nav-mobile__cta {
+      margin-top: 4px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--spherical-teal, #5DCAA5);
+      border: 1px solid rgba(93,202,165,0.35);
+      background: rgba(93,202,165,0.08);
+      text-align: center;
+      transition: background 0.15s;
+    }
+    .nav-mobile__cta:hover { background: rgba(93,202,165,0.15); }
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .navbar__hamburger span {
+      display: block; height: 2px; border-radius: 2px;
+      background: rgba(255,255,255,0.85);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media(max-width:900px) {
+      .navbar__link { display: none; }
+      .navbar__dropdown { display: none; }
+      .navbar__cta  { display: none; }
+      .navbar__hamburger { display: flex; }
+    }
+
   </style>
 </head>
 <body>
