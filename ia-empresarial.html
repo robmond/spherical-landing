@@ -1794,6 +1794,43 @@
     }
     @media(max-width:900px) { .blog-img-grid { grid-template-columns: repeat(2,1fr); } }
     @media(max-width:600px) { .blog-img-grid { grid-template-columns: 1fr; } }
+  
+    /* ═══ NAVBAR DROPDOWN ═══ */
+    .navbar__dropdown { position: relative; display: flex; align-items: center; }
+    .navbar__dropdown-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 400;
+      color: rgba(255,255,255,0.9); letter-spacing: inherit;
+      padding: 9px 20px; border-radius: var(--radius-full);
+      display: flex; align-items: center; gap: 5px;
+      transition: background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid);
+    }
+    .navbar__dropdown-btn:hover { background: var(--glass-white); }
+    .navbar__chevron { font-size: 0.7em; opacity: 0.7; transition: transform 0.2s ease; display: inline-block; }
+    .navbar__dropdown:hover .navbar__chevron { transform: rotate(180deg); }
+    .navbar__dropdown-menu {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(11,14,26,0.96);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 14px; padding: 8px; min-width: 210px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 200;
+    }
+    .navbar__dropdown:hover .navbar__dropdown-menu {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .navbar__dropdown-item {
+      display: block; padding: 11px 16px; border-radius: 8px;
+      font-size: var(--text-sm); color: rgba(255,255,255,0.85);
+      transition: background 0.15s, color 0.15s;
+    }
+    .navbar__dropdown-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
   </style>
 </head>
 
@@ -1810,14 +1847,28 @@
   <div class="page">
 
     <!-- ═══ NAVBAR ═══ -->
-    <nav class="navbar navbar--at-top">
+        <nav class="navbar navbar--at-top">
       <a href="https://robmond.github.io/spherical-landing/" class="navbar__brand"><img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
-      <a href="index.html" class="navbar__link">← Inicio</a>
-      <a href="#servicios" class="navbar__link">Servicios</a>
-      <a href="#clientes" class="navbar__link">Clientes</a>
-      <a href="#contacto"
-        target="_blank" rel="noopener" class="navbar__cta">Conversemos</a>
+      <div class="navbar__dropdown">
+        <button class="navbar__dropdown-btn">Servicios <span class="navbar__chevron">▾</span></button>
+        <div class="navbar__dropdown-menu">
+          <a href="ecosistemas-digitales.html" class="navbar__dropdown-item">Growth Marketing</a>
+          <a href="ia-empresarial-v2.html" class="navbar__dropdown-item">IA Empresarial</a>
+        </div>
+      </div>
+      <a href="blog/index.html" class="navbar__link">Blog</a>
+      <a href="#contacto" class="navbar__cta">Conversemos</a>
+      <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="ecosistemas-digitales.html" class="nav-mobile__link">Growth Marketing</a>
+      <a href="ia-empresarial-v2.html" class="nav-mobile__link">IA Empresarial</a>
+      <a href="blog/index.html" class="nav-mobile__link">Blog</a>
+      <a href="#contacto" class="nav-mobile__cta">Conversemos</a>
+    </div>
 
     <!-- ═══ HERO ═══ -->
     <section class="hero">
