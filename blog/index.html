@@ -1617,73 +1617,110 @@
   
 
     /* ═══ BLOG INDEX ═══ */
-    .blog-article-card {
-      border-radius: var(--radius-xl);
-      padding: var(--space-xl);
-      transition: transform var(--dur-mid) var(--ease-glass), box-shadow var(--dur-mid) var(--ease-glass), background var(--dur-mid);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-      text-decoration: none;
-      color: inherit;
-    }
-    .blog-article-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-float);
-      background: var(--glass-white-md);
-    }
-    .blog-card-cat {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      font-size: var(--text-2xs);
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(93, 202, 165, 0.15);
-      border: 1px solid rgba(93, 202, 165, 0.35);
-      color: var(--spherical-teal);
-      align-self: flex-start;
-    }
-    .blog-card-date {
-      font-size: var(--text-xs);
-      opacity: 0.45;
-      letter-spacing: 0.04em;
-    }
-    .blog-card-title {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(1.15rem, 2vw, 1.45rem);
-      line-height: 1.2;
-    }
-    .blog-card-excerpt {
-      font-size: var(--text-sm);
-      line-height: 1.65;
-      opacity: 0.72;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .blog-card-cta {
-      margin-top: auto;
-      font-size: var(--text-sm);
-      color: var(--spherical-teal);
-      font-weight: 500;
-      padding-top: var(--space-sm);
-    }
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-md);
     }
-    @media(max-width:900px) {
-      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    @media(max-width:900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width:600px) { .blog-grid { grid-template-columns: 1fr; } }
+
+    .blog-article-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      height: 320px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      transition: transform 400ms var(--ease-glass), box-shadow 400ms var(--ease-glass), border-color 400ms;
     }
-    @media(max-width:600px) {
-      .blog-grid { grid-template-columns: 1fr; }
+    .blog-article-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 28px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(93,202,165,0.45);
+      border-color: rgba(93,202,165,0.4);
+    }
+
+    /* imagen de fondo — escala suave en hover */
+    .blog-card-img {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 600ms var(--ease-glass);
+    }
+    .blog-article-card:hover .blog-card-img {
+      transform: scale(1.07);
+    }
+
+    /* overlay doble: oscuro base + brillo teal en hover */
+    .blog-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(11,14,26,0.92) 0%,
+        rgba(11,14,26,0.55) 45%,
+        rgba(11,14,26,0.15) 100%
+      );
+      transition: background 400ms;
+      z-index: 1;
+    }
+    .blog-article-card:hover .blog-card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(11,14,26,0.96) 0%,
+        rgba(11,14,26,0.6) 40%,
+        rgba(93,202,165,0.08) 100%
+      );
+    }
+
+    /* reflection top igual que .glass */
+    .blog-article-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 40%);
+      pointer-events: none;
+      border-radius: inherit;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 400ms;
+    }
+    .blog-article-card:hover::before { opacity: 1; }
+
+    /* título posicionado al fondo */
+    .blog-card-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: var(--space-xl);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      transform: translateY(4px);
+      transition: transform 400ms var(--ease-glass);
+    }
+    .blog-article-card:hover .blog-card-title {
+      transform: translateY(0);
+    }
+
+    /* flecha sutil que aparece en hover */
+    .blog-card-title::after {
+      content: " →";
+      color: var(--spherical-teal);
+      opacity: 0;
+      transition: opacity 300ms 80ms;
+    }
+    .blog-article-card:hover .blog-card-title::after {
+      opacity: 1;
     }
   </style>
 </head>
@@ -1721,76 +1758,67 @@
     <section class="section" style="padding-top:0;">
       <div class="container">
         <div class="blog-grid animate-in d1">
-            <a href="el-fin-estructuras-pesadas-marketing-ventas.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Marketing & IA</span>
-              <span class="blog-card-date">27 feb 2026</span>
-              <div class="blog-card-title">El fin de las estructuras pesadas en marketing y ventas</div>
-              <div class="blog-card-excerpt">La IA y los modelos adaptativos están reemplazando las estructuras rígidas. El futuro pertenece a las organizaciones que se adaptan rápido.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="que-significa-growth-partner.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Estrategia Digital</span>
-              <span class="blog-card-date">3 jun 2025</span>
-              <div class="blog-card-title">¿Qué significa ser un Growth Partner y por qué es el modelo ideal hoy?</div>
-              <div class="blog-card-excerpt">Un Growth Partner va más allá de una agencia: integra marketing, producto y automatización como extensión estratégica de tu empresa.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="caso-grupo-imagine.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Caso Real</span>
-              <span class="blog-card-date">17 feb 2025</span>
-              <div class="blog-card-title">Caso de Éxito: Colaboración entre Spherical y el Grupo Imagine</div>
-              <div class="blog-card-excerpt">Cómo ayudamos a Grupo Imagine a clarificar su propuesta de valor y establecer una presencia digital coherente.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="integracion-datos-experiencia-usuario.html" class="blog-article-card glass">
-              <span class="blog-card-cat">UX & Datos</span>
-              <span class="blog-card-date">4 feb 2025</span>
-              <div class="blog-card-title">Integración de Datos en la Experiencia de Usuario</div>
-              <div class="blog-card-excerpt">La alianza entre Spherical y Binnario establece una nueva era en diseño UX donde los datos guían cada decisión.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="diseno-servicios-transbank.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Caso Real</span>
-              <span class="blog-card-date">4 feb 2025</span>
-              <div class="blog-card-title">Diseño de Servicios Transbank: Optimizando la Red de Vendedores Externos</div>
-              <div class="blog-card-excerpt">Cómo aplicamos service design para optimizar la red de distribución externa de Transbank.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="conectapacientes-salud-roche.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Caso Real</span>
-              <span class="blog-card-date">4 feb 2025</span>
-              <div class="blog-card-title">Transformando la Atención en Salud con Conectapacientes.cl</div>
-              <div class="blog-card-excerpt">Cómo construimos con Roche una plataforma integral de salud con arquitectura de microservicios.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="mentoria-innovacion-uc.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Innovación</span>
-              <span class="blog-card-date">4 feb 2025</span>
-              <div class="blog-card-title">Mentoreando la Innovación: Colaboración con la Universidad Católica</div>
-              <div class="blog-card-excerpt">Cómo Spherical capacitó a emprendedores en la UC para construir MVPs usando UX Design y Low/No Code.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="ia-creacion-contenido-equipos.html" class="blog-article-card glass">
-              <span class="blog-card-cat">IA & Aprendizaje</span>
-              <span class="blog-card-date">30 jul 2024</span>
-              <div class="blog-card-title">Cómo la IA Facilita la Creación de Contenido para Equipos de Trabajo</div>
-              <div class="blog-card-excerpt">La IA transforma el diseño de experiencias de aprendizaje, personalizando el proceso a cada usuario y organización.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="elearning-komatsu.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Caso Real</span>
-              <span class="blog-card-date">3 may 2023</span>
-              <div class="blog-card-title">Spherical y Komatsu: e-Learning para la Industria con IA</div>
-              <div class="blog-card-excerpt">Cómo construimos un sistema de capacitación SSOMA para Komatsu combinando e-learning, audiovisual e IA.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
-            <a href="low-code-startups.html" class="blog-article-card glass">
-              <span class="blog-card-cat">Tecnología</span>
-              <span class="blog-card-date">3 abr 2023</span>
-              <div class="blog-card-title">La Importancia del Desarrollo Low-Code para Startups</div>
-              <div class="blog-card-excerpt">Por qué el Low-Code permite lanzar productos digitales en días, no meses, reduciendo costos de validación.</div>
-              <div class="blog-card-cta">Leer más →</div>
-            </a>
+
+          <a href="el-fin-estructuras-pesadas-marketing-ventas.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">El fin de las estructuras pesadas en marketing y ventas</div>
+          </a>
+
+          <a href="que-significa-growth-partner.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">¿Qué significa ser un Growth Partner y por qué es el modelo ideal hoy?</div>
+          </a>
+
+          <a href="caso-grupo-imagine.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">Caso de Éxito: Colaboración entre Spherical y el Grupo Imagine</div>
+          </a>
+
+          <a href="integracion-datos-experiencia-usuario.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">Integración de Datos en la Experiencia de Usuario</div>
+          </a>
+
+          <a href="diseno-servicios-transbank.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">Diseño de Servicios Transbank: Optimizando la Red de Vendedores Externos</div>
+          </a>
+
+          <a href="conectapacientes-salud-roche.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">Transformando la Atención en Salud con Conectapacientes.cl</div>
+          </a>
+
+          <a href="mentoria-innovacion-uc.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">Mentoreando la Innovación: Colaboración con la Universidad Católica</div>
+          </a>
+
+          <a href="ia-creacion-contenido-equipos.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">Cómo la IA Facilita la Creación de Contenido para Equipos de Trabajo</div>
+          </a>
+
+          <a href="elearning-komatsu.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">Spherical y Komatsu: e-Learning para la Industria con IA</div>
+          </a>
+
+          <a href="low-code-startups.html" class="blog-article-card">
+            <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&q=80&fit=crop&auto=format')"></div>
+            <div class="blog-card-overlay"></div>
+            <div class="blog-card-title">La Importancia del Desarrollo Low-Code para Startups</div>
+          </a>
+
         </div>
       </div>
     </section>
