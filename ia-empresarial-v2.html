@@ -538,6 +538,65 @@
       color: var(--spherical-teal);
     }
 
+    /* ═══ COSTO INACCIÓN ═══ */
+    .cost-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-2xl);
+    }
+    .cost-stat {
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl) var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .cost-stat__num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 20%, var(--spherical-teal) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cost-stat__desc {
+      font-size: var(--text-sm);
+      line-height: 1.65;
+      opacity: 0.75;
+      flex: 1;
+    }
+    .cost-stat__source {
+      font-size: var(--text-2xs);
+      opacity: 0.3;
+      letter-spacing: 0.04em;
+      margin-top: var(--space-xs);
+    }
+    .cost-remate {
+      margin-top: var(--space-2xl);
+      padding: var(--space-xl) var(--space-2xl);
+      border-radius: var(--radius-xl);
+      background: rgba(93,202,165,0.06);
+      border-left: 3px solid var(--spherical-teal);
+      font-size: var(--text-lg);
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+
+    /* ═══ FALLA REMATE ═══ */
+    .falla-remate {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.35;
+      max-width: 760px;
+      margin-inline: auto;
+      opacity: 0.9;
+    }
+    .falla-remate strong { color: var(--spherical-teal); }
+
     /* ═══ QUÉ INCLUYE ═══ */
     .incluye-grid {
       display: grid;
@@ -1029,30 +1088,42 @@
       </div>
     </div>
 
-    <!-- ═══ EL PROBLEMA ═══ -->
+    <!-- ═══ COSTO INACCIÓN ═══ -->
     <section class="section">
       <div class="container">
+        <p class="section__eyebrow animate-in d1">El costo de la inacción</p>
+        <h2 class="section__title animate-in d2">Cada mes sin cambiar tiene un precio. Y se acumula.</h2>
+        <p class="section__desc animate-in d3">No adoptar nuevas herramientas no es una decisión neutral — es una decisión de perder productividad, capacidad y posición competitiva de forma silenciosa y sostenida.</p>
+
+        <div class="cost-grid">
+          <div class="cost-stat glass animate-in d3">
+            <div class="cost-stat__num">36 días</div>
+            <p class="cost-stat__desc">El tiempo promedio que pierde un empleado al año por frustraciones con herramientas tecnológicas inadecuadas.</p>
+            <p class="cost-stat__source">WalkMe, State of Digital Adoption 2025</p>
+          </div>
+          <div class="cost-stat glass animate-in d4">
+            <div class="cost-stat__num">75%</div>
+            <p class="cost-stat__desc">De los trabajadores no puede usar IA eficientemente — aunque sus empresas ya están invirtiendo en ella.</p>
+            <p class="cost-stat__source">WalkMe, State of Digital Adoption 2025</p>
+          </div>
+          <div class="cost-stat glass animate-in d5">
+            <div class="cost-stat__num">40%</div>
+            <p class="cost-stat__desc">De los CEOs globales cree que su empresa no sobrevivirá la próxima década si no redefine su camino frente a la IA.</p>
+            <p class="cost-stat__source">PwC Global CEO Survey</p>
+          </div>
+        </div>
+
+        <div class="cost-remate animate-in d6">
+          El problema no es la tecnología. Es que nadie acompañó la adopción. Las herramientas llegaron — la capacitación, el cambio de hábitos y la integración real, no.
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ EL PROBLEMA ═══ -->
+    <section class="section">
+      <div class="container" style="text-align:center;">
         <p class="section__eyebrow animate-in d1">Por qué la mayoría falla</p>
-        <h2 class="section__title animate-in d2">Tres actores distintos. Tres problemas distintos. Uno solo que los resuelve todos.</h2>
-
-        <div class="card-grid-3">
-          <div class="problem-card glass animate-in d3">
-            <h3 class="problem-card__title">Las consultoras diagnostican pero no ejecutan</h3>
-            <p class="problem-card__body">Te dan un informe de 80 páginas y se van. Tu equipo queda solo frente a la implementación. Nada cambia.</p>
-          </div>
-          <div class="problem-card glass animate-in d4">
-            <h3 class="problem-card__title">Las agencias ejecutan pero no entienden el negocio</h3>
-            <p class="problem-card__body">Construyen lo que les pides, no lo que necesitas. Sin contexto estratégico, la ejecución pierde el norte.</p>
-          </div>
-          <div class="problem-card glass animate-in d5">
-            <h3 class="problem-card__title">Los vendors venden tecnología sin acompañamiento</h3>
-            <p class="problem-card__body">La herramienta llega, se instala, y nadie la usa. El equipo no adoptó, la inversión se fue.</p>
-          </div>
-        </div>
-
-        <div class="problem-remate animate-in d6">
-          <strong>Spherical hace las tres cosas.</strong> Y se queda hasta que funciona.
-        </div>
+        <p class="falla-remate animate-in d2">Las consultoras diagnostican. Los vendors instalan. Nadie se queda hasta que el equipo adopta. <strong>Spherical sí.</strong></p>
       </div>
     </section>
 
