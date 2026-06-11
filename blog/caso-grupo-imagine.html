@@ -512,6 +512,14 @@
       grid-template-columns: 1fr 1fr;
       gap: var(--space-md);
     }
+    
+    .related-card__img {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-md);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
     .related-card {
       border: 1px solid var(--glass-border-subtle);
       border-radius: var(--radius-lg);
@@ -526,7 +534,7 @@
     }
     .related-card__badge { margin-bottom: var(--space-sm) }
     .related-card__title {
-      font-family: var(--font-display);
+      font-family:var(--font-body);font-weight:700;
       font-weight: 900;
       font-size: var(--text-xl);
       line-height: 1.2;
@@ -794,13 +802,15 @@
             <h2 class="related-section__title" style="-webkit-text-fill-color:unset;background:none;color:inherit;">Artículos relacionados</h2>
             <div class="related-grid">
               <a href="que-significa-growth-partner.html" class="related-card">
-                <div class="related-card__badge"><span class="badge badge--violet">Estrategia Digital</span></div>
+              <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80&fit=crop&auto=format')"></div>
+              <div class="related-card__badge"><span class="badge badge--violet">Estrategia Digital</span></div>
                 <div class="related-card__title">¿Qué significa ser un Growth Partner?</div>
                 <div class="related-card__excerpt">Un Growth Partner va más allá de una agencia: integra marketing, producto y automatización.</div>
                 <span class="related-card__link">Leer artículo →</span>
               </a>
               <a href="diseno-servicios-transbank.html" class="related-card">
-                <div class="related-card__badge"><span class="badge badge--aqua">Caso Real</span></div>
+              <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80&fit=crop&auto=format')"></div>
+              <div class="related-card__badge"><span class="badge badge--aqua">Caso Real</span></div>
                 <div class="related-card__title">Diseño de Servicios Transbank</div>
                 <div class="related-card__excerpt">Cómo aplicamos metodología de diseño de servicios para optimizar la red de distribución externa de Transbank.</div>
                 <span class="related-card__link">Leer artículo →</span>

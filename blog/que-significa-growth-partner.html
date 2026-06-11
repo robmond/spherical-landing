@@ -512,6 +512,14 @@
       grid-template-columns: 1fr 1fr;
       gap: var(--space-md);
     }
+    
+    .related-card__img {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-md);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
     .related-card {
       border: 1px solid var(--glass-border-subtle);
       border-radius: var(--radius-lg);
@@ -526,7 +534,7 @@
     }
     .related-card__badge { margin-bottom: var(--space-sm) }
     .related-card__title {
-      font-family: var(--font-display);
+      font-family:var(--font-body);font-weight:700;
       font-weight: 900;
       font-size: var(--text-xl);
       line-height: 1.2;
@@ -802,13 +810,15 @@
             <h2 class="related-section__title" style="-webkit-text-fill-color:unset;background:none;color:inherit;">Artículos relacionados</h2>
             <div class="related-grid">
               <a href="el-fin-estructuras-pesadas-marketing-ventas.html" class="related-card">
-                <div class="related-card__badge"><span class="badge badge--aqua">Marketing &amp; IA</span></div>
+              <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80&fit=crop&auto=format')"></div>
+              <div class="related-card__badge"><span class="badge badge--aqua">Marketing &amp; IA</span></div>
                 <div class="related-card__title">El fin de las estructuras pesadas en marketing y ventas</div>
                 <div class="related-card__excerpt">La IA y los modelos adaptativos están reemplazando las estructuras rígidas.</div>
                 <span class="related-card__link">Leer artículo →</span>
               </a>
               <a href="integracion-datos-experiencia-usuario.html" class="related-card">
-                <div class="related-card__badge"><span class="badge badge--aqua">UX &amp; Datos</span></div>
+              <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop&auto=format')"></div>
+              <div class="related-card__badge"><span class="badge badge--aqua">UX &amp; Datos</span></div>
                 <div class="related-card__title">Integración de Datos en la Experiencia de Usuario</div>
                 <div class="related-card__excerpt">La alianza entre Spherical y Binnario integra ciencia de datos al diseño UX.</div>
                 <span class="related-card__link">Leer artículo →</span>

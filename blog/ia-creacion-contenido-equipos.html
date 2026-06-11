@@ -119,10 +119,18 @@
     .related-section__eyebrow { font-size:var(--text-2xs); letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-aqua); margin-bottom:var(--space-sm); }
     .related-section__title { font-family:var(--font-display); font-size:var(--text-2xl); margin-bottom:var(--space-lg); }
     .related-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-md); }
+    
+    .related-card__img {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-md);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
     .related-card { border:1px solid var(--glass-border-subtle); border-radius:var(--radius-lg); padding:var(--space-lg); transition:transform var(--dur-mid) var(--ease-glass), border-color var(--dur-mid); background:rgba(255,255,255,0.03); }
     .related-card:hover { transform:translateY(-4px); border-color:rgba(93,202,165,0.3); background:rgba(93,202,165,0.05); }
     .related-card__badge { margin-bottom:var(--space-sm) }
-    .related-card__title { font-family:var(--font-display); font-size:var(--text-xl); line-height:1.2; margin-bottom:var(--space-xs); }
+    .related-card__title { font-family:var(--font-body);font-weight:700; font-size:var(--text-xl); line-height:1.2; margin-bottom:var(--space-xs); }
     .related-card__excerpt { font-size:var(--text-sm); opacity:0.55; line-height:1.6 }
     .related-card__link { display:inline-flex; align-items:center; gap:4px; margin-top:var(--space-sm); font-size:var(--text-sm); color:var(--spherical-teal); font-weight:500; }
     .btn { display:inline-flex; align-items:center; gap:var(--space-xs); padding:var(--space-sm) var(--space-lg); border-radius:var(--radius-full); border:none; cursor:pointer; font-family:var(--font-body); font-size:var(--text-sm); font-weight:500; letter-spacing:0.04em; color:var(--color-text); text-decoration:none; transition:transform var(--dur-fast) var(--ease-liquid), box-shadow var(--dur-fast), background var(--dur-fast); position:relative; overflow:hidden }
@@ -353,13 +361,15 @@
             <h2 class="related-section__title" style="-webkit-text-fill-color:unset;background:none;color:inherit;">Artículos relacionados</h2>
             <div class="related-grid">
               <a href="elearning-komatsu.html" class="related-card">
-                <div class="related-card__badge"><span class="badge badge--aqua">Caso Real</span></div>
+              <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=600&q=80&fit=crop&auto=format')"></div>
+              <div class="related-card__badge"><span class="badge badge--aqua">Caso Real</span></div>
                 <div class="related-card__title">Spherical y Komatsu: e-Learning para la Industria con IA</div>
                 <div class="related-card__excerpt">Cómo desarrollamos un sistema de capacitación SSOMA para Komatsu combinando diseño instruccional, producción audiovisual e inteligencia artificial.</div>
                 <span class="related-card__link">Leer artículo →</span>
               </a>
               <a href="la-tecnologia-no-es-el-problema.html" class="related-card">
-                <div class="related-card__badge"><span class="badge badge--violet">Transformación Digital</span></div>
+              <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80&fit=crop&auto=format')"></div>
+              <div class="related-card__badge"><span class="badge badge--violet">Transformación Digital</span></div>
                 <div class="related-card__title">La tecnología no es el problema</div>
                 <div class="related-card__excerpt">Por qué la mayoría de las transformaciones digitales fallan antes de ver resultados, y qué hacer diferente desde el primer día.</div>
                 <span class="related-card__link">Leer artículo →</span>
