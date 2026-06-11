@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Ver la oportunidad no es la ventaja. Saber qué hacer con ella, sí. | Blog Spherical</title>
+  <meta name="description" content="Las empresas que convierten señales de mercado en productos que escalan no lo hacen por intuición. Lo hacen porque tienen el marco correcto para decidir qué construir, cuándo entrar y cómo estructurar la conversación comercial.">
+  <meta name='keywords' content='Estrategia Comercial, Go-to-Market, Innovación, Producto, SafeTime'>
+  <meta property="og:title" content="Ver la oportunidad no es la ventaja. Saber qué hacer con ella, sí. | Blog Spherical">
+  <meta property="og:description" content="Las empresas que convierten señales de mercado en productos que escalan no lo hacen por intuición. Lo hacen porque tienen el marco correcto para decidir qué construir, cuándo entrar y cómo estructurar la conversación comercial.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Spherical">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
+  <style>
+    :root {
+      --glass-white: rgba(255,255,255,0.12); --glass-white-md: rgba(255,255,255,0.2); --glass-white-lg: rgba(255,255,255,0.3);
+      --glass-dark: rgba(0,0,0,0.18); --glass-dark-md: rgba(0,0,0,0.28);
+      --glass-border: rgba(255,255,255,0.25); --glass-border-subtle: rgba(255,255,255,0.12); --glass-border-bright: rgba(255,255,255,0.5);
+      --blur-sm: blur(8px); --blur-md: blur(18px); --blur-lg: blur(32px); --blur-xl: blur(60px);
+      --shadow-glass: 0 8px 32px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.3);
+      --shadow-float: 0 20px 60px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.2);
+      --shadow-glow: 0 0 40px rgba(94,231,223,0.35);
+      --reflection-top: linear-gradient(135deg,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 50%);
+      --reflection-inner: inset 0 1px 1px rgba(255,255,255,0.45), inset 0 -1px 1px rgba(0,0,0,0.1);
+      --accent-aqua: #5ee7df; --accent-violet: #b490f5; --accent-rose: #f7a8c4; --accent-amber: #ffd27f; --accent-lime: #a8f08a;
+      --spherical-teal: #5DCAA5; --spherical-teal-bright: #7EEDC5;
+      --color-bg: #0b0e1a; --color-surface: rgba(255,255,255,0.04);
+      --color-text: #ffffff; --color-text-muted: rgba(255,255,255,0.55); --color-text-subtle: rgba(255,255,255,0.35);
+      --space-2xs:4px; --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px; --space-3xl:64px; --space-4xl:96px;
+      --text-2xs:0.68rem; --text-xs:0.75rem; --text-sm:0.82rem; --text-md:0.9rem; --text-base:1rem; --text-lg:1.125rem; --text-xl:1.3rem; --text-2xl:1.6rem; --text-3xl:2rem; --text-4xl:2.8rem;
+      --radius-xs:6px; --radius-sm:10px; --radius-md:14px; --radius-lg:20px; --radius-xl:24px; --radius-2xl:32px; --radius-full:9999px;
+      --ease-glass: cubic-bezier(0.22,0.68,0,1.2); --ease-liquid: cubic-bezier(0.34,1.56,0.64,1); --ease-smooth: cubic-bezier(0.4,0,0.2,1);
+      --dur-fast:180ms; --dur-mid:360ms; --dur-slow:600ms;
+      --font-display: "Italiana", serif; --font-body: "DM Sans", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased }
+    body { font-family: var(--font-body); font-weight: 300; color: var(--color-text); background: var(--color-bg); overflow-x: hidden; min-height: 100vh; }
+    a { color: inherit; text-decoration: none }
+    @media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important } .scene__blob { animation:none !important } }
+    .scene { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none }
+    .scene__blob { position:absolute; border-radius:50%; filter:blur(80px); opacity:0.5; animation:blob-drift var(--dur,18s) ease-in-out infinite alternate }
+    .scene__blob--1 { width:700px;height:700px;background:radial-gradient(circle,#5DCAA5,#3b82f6);top:-200px;left:-150px;--dur:22s }
+    .scene__blob--2 { width:600px;height:600px;background:radial-gradient(circle,#b490f5,#ec4899);bottom:-200px;right:-100px;--dur:17s;animation-delay:-8s }
+    .scene__blob--3 { width:400px;height:400px;background:radial-gradient(circle,#5ee7df,#5DCAA5);top:40%;left:50%;--dur:25s;animation-delay:-13s }
+    .scene__blob--4 { width:500px;height:500px;background:radial-gradient(circle,#ffd27f,#f7a8c4);top:70%;left:10%;--dur:20s;animation-delay:-5s;opacity:0.3 }
+    @keyframes blob-drift { 0% { transform:translate(0,0) scale(1) } 33% { transform:translate(60px,-40px) scale(1.08) } 66% { transform:translate(-40px,60px) scale(0.94) } 100% { transform:translate(30px,30px) scale(1.04) } }
+    .page { position:relative; z-index:10 }
+    .container { width:min(1100px,92vw); margin-inline:auto }
+    @keyframes cascade-in { 0% { opacity:0; transform:translateY(24px) scale(0.97); filter:blur(8px) } 100% { opacity:1; transform:translateY(0) scale(1); filter:blur(0) } }
+    .animate-in { animation:cascade-in var(--dur-slow) var(--ease-glass) both }
+    .d1 { animation-delay:.1s } .d2 { animation-delay:.2s } .d3 { animation-delay:.3s } .d4 { animation-delay:.4s } .d5 { animation-delay:.5s }
+    .navbar { position:fixed; top:0; left:0; width:100%; z-index:100; padding:var(--space-sm) 5%; display:flex; align-items:center; gap:12px; background:rgba(0,0,0,0.92); backdrop-filter:none; border-bottom:1px solid rgba(255,255,255,0.06); transition:transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease; }
+    .navbar.navbar--at-top { background:transparent; border-bottom-color:transparent }
+    .navbar.navbar--hidden { transform:translateY(-100%) !important; opacity:0 !important; visibility:hidden !important }
+    .navbar__brand { font-family:var(--font-display); font-size:1.2rem; padding:8px 20px; margin-right:auto }
+    .navbar__link { padding:9px 20px; border-radius:var(--radius-full); font-size:var(--text-sm); font-weight:400; color: rgba(255,255,255,0.9); cursor:pointer; transition:background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid) }
+    .navbar__link:hover { opacity:1; transform:translateY(-1px); background:var(--glass-white) }
+    .navbar__cta { display:inline-flex; align-items:center; gap:var(--space-xs); padding:9px 22px; border-radius:var(--radius-full); border:none; cursor:pointer; font-family:var(--font-body); font-size:var(--text-sm); font-weight:500; letter-spacing:0.04em; color:#fff; background:linear-gradient(135deg,rgba(93,202,165,0.5),rgba(59,130,246,0.5)); border:1px solid rgba(93,202,165,0.45); box-shadow:0 4px 24px rgba(93,202,165,0.3); transition:transform var(--dur-fast) var(--ease-liquid), box-shadow var(--dur-fast); position:relative; overflow:hidden }
+    .navbar__cta::before { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--reflection-top); pointer-events:none }
+    .navbar__cta:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(93,202,165,0.5) }
+    .badge { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border-radius:var(--radius-full); font-size:var(--text-2xs); font-weight:500; letter-spacing:0.08em; text-transform:uppercase }
+    .badge--aqua { background:rgba(93,202,165,0.2); border:1px solid rgba(93,202,165,0.4); color:var(--spherical-teal) }
+    .badge--violet { background:rgba(180,144,245,0.2); border:1px solid rgba(180,144,245,0.4); color:var(--accent-violet) }
+    .badge--rose { background:rgba(247,168,196,0.2); border:1px solid rgba(247,168,196,0.4); color:var(--accent-rose) }
+    .badge--amber { background:rgba(255,210,127,0.2); border:1px solid rgba(255,210,127,0.4); color:var(--accent-amber) }
+    .article-hero { min-height:52vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:120px 24px 56px; gap:var(--space-md); }
+    .article-hero__meta { display:flex; align-items:center; gap:var(--space-sm); flex-wrap:wrap; justify-content:center; }
+    .article-hero__date { opacity:0.45; font-size:var(--text-sm) }
+    .article-hero__reading { opacity:0.35; font-size:var(--text-sm); display:flex; align-items:center; gap:4px }
+    .article-hero__title { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.6rem); line-height:1.08; letter-spacing:-0.02em; background:linear-gradient(135deg,#fff 20%,var(--spherical-teal) 55%,var(--accent-violet) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; max-width:820px; }
+    .article-hero__bajada { max-width:620px; line-height:1.75; opacity:0.75; font-size:var(--text-xl); font-weight:400; }
+    .article-hero__author { display:flex; align-items:center; gap:var(--space-sm); font-size:var(--text-sm); opacity:0.5; }
+    .article-hero__author-dot { width:4px; height:4px; border-radius:50%; background:currentColor }
+    .breadcrumb { display:flex; align-items:center; gap:6px; font-size:var(--text-xs); opacity:0.45; flex-wrap:wrap; }
+    .breadcrumb a { transition:opacity var(--dur-fast) }
+    .breadcrumb a:hover { opacity:1 }
+    .breadcrumb__sep { opacity:0.35 }
+    .article-layout { display:grid; grid-template-columns:1fr 280px; gap:48px; align-items:start; padding:var(--space-3xl) 0 var(--space-4xl); }
+    .article-body { font-size:var(--text-lg); line-height:1.85; min-width:0; }
+    .article-body h2 { font-family:var(--font-display); font-size:var(--text-3xl); line-height:1.15; margin:2.5rem 0 1rem; background:linear-gradient(135deg,#fff 30%,var(--spherical-teal) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .article-body p { margin-bottom:1.25rem; opacity:0.85 }
+    .article-body ul { margin:1rem 0 1.5rem 1rem; opacity:0.85; }
+    .article-body ul li { margin-bottom:var(--space-sm); list-style:none; padding-left:var(--space-md); position:relative; line-height:1.7; }
+    .article-body ul li::before { content:'→'; position:absolute; left:0; color:var(--spherical-teal) }
+    .pull-quote { border-left:3px solid var(--spherical-teal); padding:1.25rem 1.5rem; margin:2rem 0; background:rgba(93,202,165,0.06); border-radius:0 var(--radius-md) var(--radius-md) 0; }
+    .pull-quote p { font-size:var(--text-xl); font-style:italic; line-height:1.6; opacity:0.9; margin:0; }
+    .pull-quote p::before { content:'\201C'; color:var(--spherical-teal); margin-right:2px }
+    .pull-quote p::after { content:'\201D'; color:var(--spherical-teal); margin-left:2px }
+    .article-back { margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--glass-border-subtle); }
+    .article-back a { color:var(--spherical-teal); font-weight:500; font-size:var(--text-sm); transition:opacity var(--dur-fast); }
+    .article-back a:hover { opacity:0.7 }
+    .article-sidebar { position:sticky; top:80px; display:flex; flex-direction:column; gap:1.5rem; }
+    .toc { border:1px solid var(--glass-border-subtle); border-radius:var(--radius-lg); overflow:hidden; }
+    .toc__header { padding:14px 18px; font-size:var(--text-xs); letter-spacing:0.12em; text-transform:uppercase; opacity:0.45; border-bottom:1px solid var(--glass-border-subtle); background:rgba(255,255,255,0.03); }
+    .toc__list { list-style:none; padding:8px 0 }
+    .toc__item a { display:block; padding:7px 18px; font-size:var(--text-sm); opacity:0.5; line-height:1.4; transition:opacity var(--dur-fast), color var(--dur-fast), padding-left var(--dur-fast); border-left:2px solid transparent; }
+    .toc__item a:hover { opacity:0.9 }
+    .toc__item--active a { opacity:1; color:var(--spherical-teal); padding-left:22px; border-left-color:var(--spherical-teal); }
+    .toc-toggle { display:none; width:100%; padding:12px 16px; background:rgba(255,255,255,0.06); border:1px solid var(--glass-border-subtle); border-radius:var(--radius-md); color:var(--color-text); font-family:var(--font-body); font-size:var(--text-sm); cursor:pointer; text-align:left; align-items:center; justify-content:space-between; gap:var(--space-xs); }
+    .toc-toggle__icon { transition:transform 0.25s }
+    .toc-toggle.open .toc-toggle__icon { transform:rotate(180deg) }
+    .author-card { border:1px solid var(--glass-border-subtle); border-radius:var(--radius-lg); padding:18px; display:flex; gap:12px; align-items:flex-start; }
+    .author-card__avatar { width:44px; height:44px; border-radius: 50%; overflow: hidden; background:linear-gradient(135deg,var(--spherical-teal),var(--accent-violet)); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+    .author-card__name { font-weight:500; font-size:var(--text-sm); margin-bottom:2px }
+    .author-card__role { font-size:var(--text-xs); opacity:0.45; line-height:1.4 }
+    .share-block { display:flex; flex-direction:column; gap:8px; }
+    .share-block__label { font-size:var(--text-xs); letter-spacing:0.1em; text-transform:uppercase; opacity:0.35; }
+    .share-block__btns { display:flex; gap:8px; flex-wrap:wrap }
+    .share-btn { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:500; border:1px solid var(--glass-border-subtle); background:rgba(255,255,255,0.05); cursor:pointer; transition:background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid); font-family:var(--font-body); color:var(--color-text); }
+    .share-btn:hover { background:rgba(255,255,255,0.12); transform:translateY(-1px) }
+    .share-btn--copy.copied { color:var(--spherical-teal); border-color:rgba(93,202,165,0.4) }
+    .related-section { border-top:1px solid var(--glass-border-subtle); padding-top:2.5rem; margin-top:2.5rem; }
+    .related-section__eyebrow { font-size:var(--text-2xs); letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-aqua); margin-bottom:var(--space-sm); }
+    .related-section__title { font-family:var(--font-display); font-size:var(--text-2xl); margin-bottom:var(--space-lg); }
+    .related-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-md); }
+    .related-card { border:1px solid var(--glass-border-subtle); border-radius:var(--radius-lg); padding:var(--space-lg); transition:transform var(--dur-mid) var(--ease-glass), border-color var(--dur-mid); background:rgba(255,255,255,0.03); }
+    .related-card:hover { transform:translateY(-4px); border-color:rgba(93,202,165,0.3); background:rgba(93,202,165,0.05); }
+    .related-card__badge { margin-bottom:var(--space-sm) }
+    .related-card__title { font-family:var(--font-display); font-size:var(--text-xl); line-height:1.2; margin-bottom:var(--space-xs); }
+    .related-card__excerpt { font-size:var(--text-sm); opacity:0.55; line-height:1.6 }
+    .related-card__link { display:inline-flex; align-items:center; gap:4px; margin-top:var(--space-sm); font-size:var(--text-sm); color:var(--spherical-teal); font-weight:500; }
+    .btn { display:inline-flex; align-items:center; gap:var(--space-xs); padding:var(--space-sm) var(--space-lg); border-radius:var(--radius-full); border:none; cursor:pointer; font-family:var(--font-body); font-size:var(--text-sm); font-weight:500; letter-spacing:0.04em; color:var(--color-text); text-decoration:none; transition:transform var(--dur-fast) var(--ease-liquid), box-shadow var(--dur-fast), background var(--dur-fast); position:relative; overflow:hidden }
+    .btn::before { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--reflection-top); pointer-events:none }
+    .btn--primary { background:linear-gradient(135deg,rgba(93,202,165,0.5),rgba(59,130,246,0.5)); border:1px solid rgba(93,202,165,0.45); box-shadow:0 4px 24px rgba(93,202,165,0.3) }
+    .btn--primary:hover { background:linear-gradient(135deg,rgba(93,202,165,0.7),rgba(59,130,246,0.7)); box-shadow:0 8px 36px rgba(93,202,165,0.5); transform:translateY(-2px) }
+    .btn--lg { padding:var(--space-md) var(--space-xl); font-size:var(--text-base) }
+    .footer { border-top:1px solid var(--glass-border-subtle); padding:var(--space-2xl) 0 var(--space-xl) }
+    .footer__inner { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:var(--space-xl) }
+    .footer__brand { font-family:var(--font-display); font-size:1.3rem; margin-bottom:var(--space-sm) }
+    .footer__tagline { font-size:var(--text-sm); opacity:0.4; line-height:1.6 }
+    .footer__heading { font-size:var(--text-xs); letter-spacing:0.1em; text-transform:uppercase; opacity:0.4; margin-bottom:var(--space-md) }
+    .footer__links { list-style:none; display:flex; flex-direction:column; gap:var(--space-xs) }
+    .footer__links a { font-size:var(--text-sm); opacity:0.6; transition:opacity var(--dur-fast) }
+    .footer__links a:hover { opacity:1 }
+    .footer__copy { text-align:center; font-size:var(--text-xs); opacity:0.3; margin-top:var(--space-2xl); padding-top:var(--space-lg); border-top:1px solid var(--glass-border-subtle) }
+    @media(max-width:900px) {
+      .article-layout { grid-template-columns:1fr }
+      .article-sidebar { position:static; flex-direction:row; flex-wrap:wrap }
+      .toc { display:none }
+      .toc.toc--open { display:block; width:100%; order:3 }
+      .toc-toggle { display:flex; order:2 }
+      .author-card { flex:1; min-width:200px }
+      .share-block { flex:1; min-width:140px }
+      .related-grid { grid-template-columns:1fr }
+      .footer__inner { grid-template-columns:1fr 1fr; gap:var(--space-lg) }
+      .navbar__link { display:none }
+    }
+    @media(max-width:640px) {
+      .article-layout { padding:var(--space-xl) 0 var(--space-3xl) }
+      .article-sidebar { flex-direction:column }
+      .footer__inner { grid-template-columns:1fr }
+      .navbar__brand { font-size:1rem; padding:8px 14px }
+    }
+
+    /* ═══ NAVBAR DROPDOWN ═══ */
+    .navbar__dropdown { position: relative; display: flex; align-items: center; }
+    .navbar__dropdown-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 400;
+      color: rgba(255,255,255,0.9); letter-spacing: inherit;
+      padding: 9px 20px; border-radius: var(--radius-full);
+      display: flex; align-items: center; gap: 5px;
+      transition: background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid);
+    }
+    .navbar__dropdown-btn:hover { background: var(--glass-white); }
+    .navbar__chevron { font-size: 0.7em; opacity: 0.7; transition: transform 0.2s ease; display: inline-block; }
+    .navbar__dropdown:hover .navbar__chevron { transform: rotate(180deg); }
+    .navbar__dropdown-menu {
+      position: absolute; top: 100%; left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: rgba(11,14,26,0.96);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 14px; padding: 8px; padding-top: 14px; min-width: 210px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s ease 0.12s, transform 0.2s ease 0.12s;
+      z-index: 200;
+    }
+    .navbar__dropdown:hover .navbar__dropdown-menu {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+      transition: opacity 0.15s ease 0s, transform 0.15s ease 0s;
+    }
+    .navbar__dropdown-item {
+      display: block; padding: 11px 16px; border-radius: 8px;
+      font-size: var(--text-sm); color: rgba(255,255,255,0.85);
+      transition: background 0.15s, color 0.15s;
+    }
+    .navbar__dropdown-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+    /* ═══ NAV MOBILE ═══ */
+    .nav-mobile {
+      display: none; flex-direction: column; gap: 4px;
+      position: fixed; top: 60px; left: 0; right: 0;
+      background: rgba(11,14,26,0.97);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 5%; z-index: 99;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile__link { padding: 12px 16px; border-radius: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.85); transition: background 0.15s; }
+    .nav-mobile__link:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .nav-mobile__cta { margin-top: 4px; padding: 12px 16px; border-radius: 10px; font-size: 0.95rem; font-weight: 500; color: var(--spherical-teal, #5DCAA5); border: 1px solid rgba(93,202,165,0.35); background: rgba(93,202,165,0.08); text-align: center; transition: background 0.15s; }
+    .nav-mobile__cta:hover { background: rgba(93,202,165,0.15); }
+    .navbar__hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .navbar__hamburger span { display: block; height: 2px; border-radius: 2px; background: rgba(255,255,255,0.85); transition: transform 0.3s, opacity 0.3s; }
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media(max-width:900px) {
+      .navbar__link { display: none; }
+      .navbar__dropdown { display: none; }
+      .navbar__cta { display: none; }
+      .navbar__hamburger { display: flex; }
+    }
+    @media(max-width:640px) {
+      .footer__inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene">
+    <div class="scene__blob scene__blob--1"></div>
+    <div class="scene__blob scene__blob--2"></div>
+    <div class="scene__blob scene__blob--3"></div>
+    <div class="scene__blob scene__blob--4"></div>
+  </div>
+
+  <div class="page">
+
+    <nav class="navbar navbar--at-top">
+      <a href="https://robmond.github.io/spherical-landing/" class="navbar__brand"><img src="../assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
+      <div class="navbar__dropdown">
+        <button class="navbar__dropdown-btn">Servicios <span class="navbar__chevron">▾</span></button>
+        <div class="navbar__dropdown-menu">
+          <a href="../ecosistemas-digitales.html" class="navbar__dropdown-item">Growth Marketing</a>
+          <a href="../ia-empresarial-v2.html" class="navbar__dropdown-item">IA Empresarial</a>
+        </div>
+      </div>
+      <a href="index.html" class="navbar__link">Blog</a>
+      <a href="https://robmond.github.io/spherical-landing/#contacto" class="navbar__cta">Conversemos</a>
+      <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="../ecosistemas-digitales.html" class="nav-mobile__link">Growth Marketing</a>
+      <a href="../ia-empresarial-v2.html" class="nav-mobile__link">IA Empresarial</a>
+      <a href="index.html" class="nav-mobile__link">Blog</a>
+      <a href="https://robmond.github.io/spherical-landing/#contacto" class="nav-mobile__cta">Conversemos</a>
+    </div>
+
+    <section class="article-hero">
+      <nav class="breadcrumb animate-in d1">
+        <a href="../index.html">Inicio</a>
+        <span class="breadcrumb__sep">/</span>
+        <a href="index.html">Blog</a>
+        <span class="breadcrumb__sep">/</span>
+        <span>Estrategia Comercial</span>
+      </nav>
+      <div class="article-hero__meta animate-in d2">
+        <span class="badge badge--aqua">Estrategia Comercial</span>
+        <span class="article-hero__date">11 de junio, 2026</span>
+        <span class="article-hero__reading">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="reading-time-text">Calculando...</span>
+        </span>
+      </div>
+      <h1 class="article-hero__title animate-in d3">Ver la oportunidad no es la ventaja. Saber qué hacer con ella, sí.</h1>
+      <p class="article-hero__bajada animate-in d4">Las empresas que convierten señales de mercado en productos que escalan no lo hacen por intuición. Lo hacen porque tienen el marco correcto para decidir qué construir, cuándo entrar y cómo estructurar la conversación comercial antes de que la ventana se cierre.</p>
+      <div class="article-hero__author animate-in d5">
+        <span>Roberto Mondaca</span>
+        <span class="article-hero__author-dot"></span>
+        <span>CEO, Spherical</span>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="article-layout">
+
+        <main class="article-body" id="article-content">
+
+          <p>La mayoría de los proyectos de innovación no fracasan por falta de ideas. Fracasan en el espacio entre reconocer una oportunidad y ejecutar el siguiente paso correcto.</p>
+          <p>Ese espacio es más complejo de lo que parece. Un cambio regulatorio, un segmento mal servido por los incumbentes, un comportamiento del comprador que está cambiando: estas señales son visibles para muchos equipos al mismo tiempo. La diferencia no está en quién las detecta primero. Está en quién construye la respuesta correcta con suficiente velocidad y rigor.</p>
+
+          <h2 id="el-error-mas-comun">El error más común no es construir mal. Es construir lo incorrecto.</h2>
+          <p>Cuando un equipo identifica una oportunidad real, la respuesta típica es moverse rápido hacia el producto. El problema es que esa velocidad, sin el diagnóstico previo correcto, produce soluciones técnicamente sólidas que no cierran.</p>
+          <p>Los síntomas son reconocibles: un roadmap que crece por acumulación de features en lugar de por lógica de adopción del cliente; una propuesta de valor que describe capacidades en lugar de resolver un problema específico del comprador; un ciclo de venta que se extiende porque nadie en la organización del cliente tiene urgencia suficiente para mover el presupuesto.</p>
+          <p>La causa subyacente es casi siempre la misma: el equipo respondió a la señal de mercado desde la perspectiva de lo que podían construir, no desde la perspectiva de lo que el comprador necesitaba justificar internamente para comprar.</p>
+
+          <h2 id="diagnostico-de-la-senal">El diagnóstico de la señal determina todo lo que viene después</h2>
+          <p>Antes de definir qué construir, hay una pregunta más importante: por qué existe la oportunidad y qué tan estructural es.</p>
+          <p>Una regulación nueva crea urgencia, pero no toda urgencia se convierte en presupuesto con la misma velocidad en todas las organizaciones. Un segmento mal servido puede serlo porque los incumbentes no han llegado, o porque la economía del segmento no justifica el costo de servirlo bien. La diferencia entre los dos escenarios cambia completamente el modelo de entrada, el pricing y con quién se tiene la primera conversación.</p>
+
+          <div class="pull-quote">
+            <p>Este diagnóstico no es un ejercicio académico. Es la decisión que determina si el equipo construye el producto correcto para el comprador correcto en el momento correcto.</p>
+          </div>
+
+          <h2 id="arquitectura-del-producto">La arquitectura del producto debe seguir la lógica de adopción, no la lógica técnica</h2>
+          <p>Una vez definida la señal, el trabajo de producto no empieza por las funcionalidades. Empieza por mapear cómo se toma la decisión de compra en la organización del cliente: quién usa el sistema, quién aprueba el presupuesto, quién pierde algo si el proyecto fracasa, y qué evidencia necesita cada uno de esos actores para moverse.</p>
+          <p>Este mapeo tiene consecuencias directas sobre qué construir primero. En contextos B2B, especialmente en empresas medianas, la velocidad de adopción no la determina el usuario final — la determina el sponsor interno que necesita justificar la inversión ante su dirección. Un producto que no le facilita esa justificación, independientemente de su calidad técnica, enfrenta ciclos de venta largos e impredecibles.</p>
+
+          <h2 id="encuadre-comercial">El encuadre comercial no es posterior al producto. Es parte del producto.</h2>
+          <p>Uno de los patrones más costosos que observamos es separar el desarrollo de producto de la estrategia comercial como si fueran etapas secuenciales. En la práctica, las decisiones de qué construir y cómo estructurar la propuesta de valor son interdependientes desde el inicio.</p>
+          <p>Cuando se trabajan en paralelo, el resultado es un producto que llega al mercado con el encuadre correcto: la propuesta describe el problema del comprador con suficiente precisión como para generar reconocimiento inmediato, el pricing refleja la lógica económica del cliente en lugar de un cálculo de costos internos, y la secuencia de entrada al mercado prioriza los segmentos donde la urgencia y la disposición a pagar están alineadas.</p>
+          <p>Cuando se separan, el equipo de producto entrega algo técnicamente completo que el equipo comercial no sabe cómo vender — porque nadie hizo la pregunta correcta en el momento correcto.</p>
+
+          <h2 id="caso-safetime">Un caso: SafeTime</h2>
+          <p>SafeTime es una plataforma chilena de gestión de seguridad laboral. La señal de mercado era clara: la entrada en vigencia del DS44 y la Ley Karin creaba una obligación de cumplimiento para miles de empresas que los sistemas existentes no estaban equipados para resolver con suficiente especificidad.</p>
+          <p>El equipo técnico era sólido y la hipótesis de producto era correcta. El trabajo fue darle estructura al resto.</p>
+          <p>Junto al equipo trabajamos el diagnóstico por segmento — empresa privada versus municipalidad tienen lógicas de compra y urgencias distintas —, la arquitectura de precios por dotación en lugar de por usuario de plataforma, la secuencia de entrada al mercado priorizando los segmentos con mayor urgencia regulatoria, y el encuadre del canal prevencionista como distribuidor B2B en lugar de como usuario final.</p>
+          <p>También construimos los materiales que permiten que el founder llegue a la reunión con el cliente correcto y tenga la conversación correcta: no una demostración de capacidades, sino una conversación sobre una decisión.</p>
+          <p>El resultado no fue solo un producto más completo. Fue un equipo con claridad sobre exactamente cuál era el siguiente paso y por qué.</p>
+
+          <h2 id="la-ventana-importa">La ventana importa más de lo que parece</h2>
+          <p>Las señales de mercado estructurales — regulación nueva, comportamiento del comprador en transición, incumbentes lentos — no son permanentes. Generan ventanas de entrada que se estrechan a medida que otros actores responden y el mercado se educa.</p>
+          <p>Las empresas que mejor aprovechan esas ventanas no son necesariamente las que tienen el mejor producto en el momento del lanzamiento. Son las que tienen la mayor claridad sobre a quién le están resolviendo qué problema, con qué urgencia, y a qué costo de adopción para el comprador.</p>
+          <p>Esa claridad no surge de forma espontánea. Se construye con el marco correcto, en el momento correcto.</p>
+
+          <div class="pull-quote">
+            <p>Spherical es una firma de innovación fractional. Trabajamos con founders y equipos directivos en estrategia comercial, desarrollo de producto y go-to-market.</p>
+          </div>
+
+          <div class="related-section">
+            <p class="related-section__eyebrow">Ver también</p>
+            <h2 class="related-section__title" style="-webkit-text-fill-color:unset;background:none;color:inherit;">Artículos relacionados</h2>
+            <div class="related-grid">
+              <a href="el-fin-estructuras-pesadas-marketing-ventas.html" class="related-card">
+                <div class="related-card__badge"><span class="badge badge--aqua">Estrategia</span></div>
+                <div class="related-card__title">El fin de las estructuras pesadas en Marketing y Ventas</div>
+                <div class="related-card__excerpt">Por qué las empresas que siguen operando con estructuras de marketing y ventas del siglo XX están pagando un costo que ya no pueden permitirse.</div>
+                <span class="related-card__link">Leer artículo →</span>
+              </a>
+              <a href="que-significa-growth-partner.html" class="related-card">
+                <div class="related-card__badge"><span class="badge badge--violet">Perspectiva</span></div>
+                <div class="related-card__title">Qué significa ser un Growth Partner</div>
+                <div class="related-card__excerpt">La diferencia entre un proveedor de servicios y un socio de crecimiento no está en el contrato. Está en cómo se toman las decisiones.</div>
+                <span class="related-card__link">Leer artículo →</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="article-back">
+            <a href="index.html">← Volver al Blog</a>
+          </div>
+
+        </main>
+
+        <aside class="article-sidebar">
+
+          <button class="toc-toggle" id="tocToggle" aria-expanded="false">
+            <span>Contenido del artículo</span>
+            <svg class="toc-toggle__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+
+          <nav class="toc" id="toc" aria-label="Tabla de contenidos">
+            <div class="toc__header">En este artículo</div>
+            <ul class="toc__list" id="tocList"></ul>
+          </nav>
+
+          <div class="author-card">
+            <div class="author-card__avatar"><img src="../assets/roberto-mondaca..jpeg" alt="Roberto Mondaca" style="width:100%;height:100%;object-fit:cover;object-position:center top;" loading="lazy"></div>
+            <div>
+              <div class="author-card__name">Roberto Mondaca</div>
+              <div class="author-card__role">CEO, Spherical</div>
+            </div>
+          </div>
+
+          <div class="share-block">
+            <div class="share-block__label">Compartir</div>
+            <div class="share-block__btns">
+              <button class="share-btn share-btn--copy" id="copyLinkBtn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Copiar enlace
+              </button>
+              <a class="share-btn" id="shareLinkedIn" href="#" target="_blank" rel="noopener">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div>
+            <div class="footer__brand">
+              <img src="../assets/logo-spherical.svg" alt="Spherical" style="height:24px;width:auto;" loading="lazy">
+            </div>
+            <p class="footer__tagline">Impulsando la nueva generación de empresas conectadas al futuro. Santiago, Chile.</p>
+          </div>
+          <div>
+            <div class="footer__heading">Servicios</div>
+            <ul class="footer__links">
+              <li><a href="../ecosistemas-digitales.html">Growth Marketing</a></li>
+              <li><a href="../ia-empresarial-v2.html">IA Empresarial</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Empresa</div>
+            <ul class="footer__links">
+              <li><a href="index.html">Blog</a></li>
+              <li><a href="mailto:info@spherical.cl">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contacto</div>
+            <ul class="footer__links">
+              <li><a href="mailto:info@spherical.cl">info@spherical.cl</a></li>
+              <li><a href="https://spherical.cl">www.spherical.cl</a></li>
+              <li><span>Apoquindo 2930, Piso 2</span></li>
+              <li><span>Las Condes, Santiago</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__copy">&copy; 2026 Spherical. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+  </div><!-- .page -->
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-in').forEach(function (el) {
+      el.style.animationPlayState = 'paused'; obs.observe(el);
+    });
+    const navbar = document.querySelector('.navbar');
+    const updateNavbarTop = () => { if (window.scrollY < 10) navbar.classList.add('navbar--at-top'); else navbar.classList.remove('navbar--at-top'); };
+    window.addEventListener('scroll', updateNavbarTop, { passive: true });
+    updateNavbarTop();
+    let scrollTimeout;
+    const hideNavbar = () => { if (!navbar.matches(':hover')) navbar.classList.add('navbar--hidden'); };
+    const showNavbar = () => { navbar.classList.remove('navbar--hidden'); };
+    const resetScrollTimeout = () => { showNavbar(); clearTimeout(scrollTimeout); scrollTimeout = setTimeout(hideNavbar, 1200); };
+    window.addEventListener('scroll', resetScrollTimeout);
+    navbar.addEventListener('mouseenter', showNavbar);
+    navbar.addEventListener('mouseleave', () => { scrollTimeout = setTimeout(hideNavbar, 1200); });
+    scrollTimeout = setTimeout(hideNavbar, 2000);
+    const articleContent = document.getElementById('article-content');
+    if (articleContent) {
+      const words = articleContent.innerText.trim().split(/\s+/).length;
+      const minutes = Math.max(1, Math.round(words / 200));
+      const el = document.querySelector('.reading-time-text');
+      if (el) el.textContent = minutes + ' min de lectura';
+    }
+    const headings = document.querySelectorAll('#article-content h2');
+    const tocList = document.getElementById('tocList');
+    if (tocList && headings.length) {
+      headings.forEach(function (h, i) {
+        if (!h.id) h.id = 'section-' + (i + 1);
+        const li = document.createElement('li');
+        li.className = 'toc__item';
+        li.dataset.id = h.id;
+        li.innerHTML = '<a href="#' + h.id + '">' + h.textContent + '</a>';
+        tocList.appendChild(li);
+      });
+      const tocObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          const id = entry.target.id;
+          const tocItem = tocList.querySelector('[data-id="' + id + '"]');
+          if (!tocItem) return;
+          if (entry.isIntersecting) {
+            tocList.querySelectorAll('.toc__item').forEach(function (i) { i.classList.remove('toc__item--active'); });
+            tocItem.classList.add('toc__item--active');
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' });
+      headings.forEach(function (h) { tocObs.observe(h); });
+    }
+    const tocToggle = document.getElementById('tocToggle');
+    const toc = document.getElementById('toc');
+    if (tocToggle && toc) {
+      tocToggle.addEventListener('click', function () {
+        const open = toc.classList.toggle('toc--open');
+        tocToggle.classList.toggle('open', open);
+        tocToggle.setAttribute('aria-expanded', open);
+      });
+    }
+    const copyBtn = document.getElementById('copyLinkBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        navigator.clipboard.writeText(window.location.href).then(function () {
+          copyBtn.classList.add('copied');
+          const prev = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!';
+          setTimeout(function () { copyBtn.classList.remove('copied'); copyBtn.innerHTML = prev; }, 2200);
+        });
+      });
+    }
+    const liBtn = document.getElementById('shareLinkedIn');
+    if (liBtn) liBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+    const hamBtn = document.getElementById('navHamburger');
+    const navMobile = document.getElementById('navMobile');
+    if (hamBtn && navMobile) {
+      hamBtn.addEventListener('click', function () {
+        const open = navMobile.classList.toggle('open');
+        hamBtn.classList.toggle('open', open);
+        hamBtn.setAttribute('aria-expanded', open);
+      });
+    }
+  });
+  </script>
+
+</body>
+</html>

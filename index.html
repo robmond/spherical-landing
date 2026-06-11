@@ -1509,6 +1509,91 @@
       .alianzas-grid { grid-template-columns: 1fr; }
     }
 
+    /* ═══ CASO DE CLIENTE BANNER ═══ */
+    .caso-banner {
+      position: relative;
+      height: 520px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: var(--space-xl);
+    }
+    .caso-banner__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .caso-banner__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.2) 100%);
+      z-index: 1;
+    }
+    .caso-banner__content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-2xl) var(--space-2xl);
+      max-width: 560px;
+    }
+    .caso-banner__badge {
+      display: inline-block;
+      background: rgba(93,202,165,0.2);
+      border: 1px solid rgba(93,202,165,0.5);
+      color: #5DCAA5;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: var(--space-md);
+      width: fit-content;
+    }
+    .caso-banner__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+    .caso-banner__desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      margin-bottom: var(--space-lg);
+    }
+    .caso-banner__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #5DCAA5;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+    .caso-banner__link:hover { gap: 10px; }
+    @media (max-width: 640px) {
+      .caso-banner {
+        height: 360px;
+      }
+      .caso-banner__overlay {
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 100%);
+      }
+      .caso-banner__content {
+        justify-content: flex-end;
+        padding: var(--space-xl) var(--space-lg);
+        max-width: 100%;
+      }
+    }
+
     /* ═══ FAQ ═══ */
     .faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
     .faq-item {
@@ -2741,6 +2826,23 @@
             <p class="alianza-card__body">Grupo Zenit lleva más de una década acelerando empresas y desarrollando ecosistemas de innovación en Chile y Latinoamérica. Juntos combinamos estrategia de IA con gestión de innovación organizacional.</p>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CASO DE CLIENTE ═══ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">Cómo ayudamos a nuestros clientes</p>
+        <div class="caso-banner animate-in d2">
+          <img src="assets/Gemini_Generated_Image_htiniphtiniphtin.png" alt="Caso Safetime" class="caso-banner__img" loading="lazy">
+          <div class="caso-banner__overlay"></div>
+          <div class="caso-banner__content">
+            <span class="caso-banner__badge">Caso de cliente · Safetime</span>
+            <h2 class="caso-banner__title">Convertimos las grandes oportunidades del mercado en los próximos pasos de nuestros clientes.</h2>
+            <p class="caso-banner__desc">Trazabilidad de reportes de incidentes para el cumplimiento normativo.</p>
+            <a href="blog/safetime-oportunidad-mercado.html" class="caso-banner__link">Leer caso completo <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
     </section>
