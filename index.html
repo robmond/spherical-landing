@@ -29,8 +29,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
   <style>
     /* ═══ DESIGN TOKENS (adapted from Liquid Glass UI Kit for Spherical) ═══ */
     :root {
@@ -399,7 +400,7 @@
       -webkit-backdrop-filter: blur(24px) saturate(160%);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       color: #ffffff;
-      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease;
+      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease;
     }
 
     .navbar.navbar--at-top {
@@ -2516,7 +2517,7 @@
 
     <!-- ═══ HERO ═══ -->
     <section class="hero">
-      <video class="hero__video-bg" autoplay loop muted playsinline>
+      <video preload="metadata" class="hero__video-bg" autoplay loop muted playsinline>
         <source src="assets/video-fondo.mp4" type="video/mp4">
       </video>
       <h1 class="hero__title">Impulsando la nueva generación de empresas conectadas al futuro</h1>
@@ -2526,41 +2527,41 @@
       <div class="hero__logos">
         <div class="hero__logos-track">
           <!-- Logos originales -->
-          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche"></span>
-          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco"></span>
-          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC"></span>
-          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR"></span>
-          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec"></span>
-          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial"></span>
-          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine"></span>
-          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros"></span>
-          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander"></span>
-          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI"></span>
-          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13" loading="lazy"></span>
 
-          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ"></span>
+          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ" loading="lazy"></span>
           <!-- Duplicado para efecto infinito -->
-          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche"></span>
-          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco"></span>
-          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC"></span>
-          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR"></span>
-          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec"></span>
-          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial"></span>
-          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine"></span>
-          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros"></span>
-          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander"></span>
-          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI"></span>
-          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13"></span>
+          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13" loading="lazy"></span>
 
-          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ"></span>
+          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ" loading="lazy"></span>
         </div>
       </div>
 
@@ -2662,7 +2663,7 @@
               <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
               <div class="testimonial__quote">"Una solución diseñada a la medida de nuestras necesidades, que involucró contenido, estrategia y una importante consultoría que mantenemos hasta el día de hoy."</div>
               <div class="testimonial__author">
-                <div class="testimonial__avatar"><img src="assets/Angelica.webp" alt="Angélica Hernández"></div>
+                <div class="testimonial__avatar"><img src="assets/Angelica.webp" alt="Angélica Hernández" loading="lazy"></div>
                 <div>
                   <div class="testimonial__name">Angélica Hernández S.</div>
                   <div class="testimonial__role">Advocacy Patient Group, Roche</div>
@@ -2674,7 +2675,7 @@
               <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
               <div class="testimonial__quote">"Su capacidad para conectar con nuestros estudiantes, titulados y colaboradores, además de fortalecer nuestro ecosistema de innovación y emprendimiento, es excepcional."</div>
               <div class="testimonial__author">
-                <div class="testimonial__avatar"><img src="assets/img-duoca-andrea.jpg" alt="Andrea Órdenes"></div>
+                <div class="testimonial__avatar"><img src="assets/img-duoca-andrea.jpg" alt="Andrea Órdenes" loading="lazy"></div>
                 <div>
                   <div class="testimonial__name">Andrea Órdenes</div>
                   <div class="testimonial__role">Jefa de Emprendimiento, DuocUC</div>
@@ -2686,7 +2687,7 @@
               <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
               <div class="testimonial__quote">"Spherical fue una parte fundamental para el diseño e implementación en la experiencia de gamificación de Codelco Andina. Una solución innovadora y de excelencia."</div>
               <div class="testimonial__author">
-                <div class="testimonial__avatar"><img src="assets/Antonio.webp" alt="Antonio Astorga"></div>
+                <div class="testimonial__avatar"><img src="assets/Antonio.webp" alt="Antonio Astorga" loading="lazy"></div>
                 <div>
                   <div class="testimonial__name">Antonio Astorga</div>
                   <div class="testimonial__role">Área de RRHH, Codelco Andina</div>
@@ -2698,7 +2699,7 @@
               <div class="testimonial__stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
               <div class="testimonial__quote">"Desde el 2017 Spherical ha sido un gran aliado para emprendedores y empresas del ecosistema de Start-Up Chile provenientes de todo el mundo, quienes buscan proveedores con conocimiento de tendencias globales en innovación, imagen e interacción para atender sus necesidades."</div>
               <div class="testimonial__author">
-                <div class="testimonial__avatar"><img src="assets/David.webp" alt="David Fernández"></div>
+                <div class="testimonial__avatar"><img src="assets/David.webp" alt="David Fernández" loading="lazy"></div>
                 <div>
                   <div class="testimonial__name">David Fernández</div>
                   <div class="testimonial__role">Acceleration & Deputy Director, Start-Up Chile</div>
@@ -2729,13 +2730,13 @@
         <div class="alianzas-grid animate-in d4">
 
           <div class="alianza-card">
-            <a href="https://exem.cl/" target="_blank" rel="noopener"><img src="assets/logos/exemlogo1.png" alt="OTEC Exem" class="alianza-logo"></a>
+            <a href="https://exem.cl/" target="_blank" rel="noopener"><img src="assets/logos/exemlogo1.png" alt="OTEC Exem" class="alianza-logo" loading="lazy"></a>
             <h3 class="alianza-card__title">Capacitación con beneficio tributario</h3>
             <p class="alianza-card__body">A través de nuestra alianza con OTEC Exem, las empresas pueden acceder a nuestros programas de capacitación en IA usando su franquicia tributaria SENCE — sin costo neto para la organización.</p>
           </div>
 
           <div class="alianza-card">
-            <a href="https://grupozenit.cl/" target="_blank" rel="noopener"><img src="assets/logos/logo-header-original.svg" alt="Grupo Zenit" class="alianza-logo"></a>
+            <a href="https://grupozenit.cl/" target="_blank" rel="noopener"><img src="assets/logos/logo-header-original.svg" alt="Grupo Zenit" class="alianza-logo" loading="lazy"></a>
             <h3 class="alianza-card__title">Innovación con respaldo ecosistémico</h3>
             <p class="alianza-card__body">Grupo Zenit lleva más de una década acelerando empresas y desarrollando ecosistemas de innovación en Chile y Latinoamérica. Juntos combinamos estrategia de IA con gestión de innovación organizacional.</p>
           </div>

@@ -13,7 +13,9 @@
   <meta property="og:site_name" content="Spherical">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
   <style>
 
     /* ═══ DESIGN TOKENS (adapted from Liquid Glass UI Kit for Spherical) ═══ */
@@ -381,7 +383,7 @@
       -webkit-backdrop-filter: blur(24px) saturate(160%);
       border-bottom: 1px solid rgba(255,255,255,0.1);
       color: #ffffff;
-      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease;
+      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease;
     }
 
     .navbar.navbar--at-top {

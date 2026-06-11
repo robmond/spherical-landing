@@ -11,8 +11,9 @@
     content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Desde ecosistemas digitales hasta transformación organizacional con IA.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
   <style>
     /* ═══ DESIGN TOKENS (adapted from Liquid Glass UI Kit for Spherical) ═══ */
     :root {
@@ -380,7 +381,7 @@
       -webkit-backdrop-filter: blur(24px) saturate(160%);
       border-bottom: 1px solid rgba(255,255,255,0.1);
       color: #ffffff;
-      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease;
+      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease;
     }
 
     .navbar.navbar--at-top {
@@ -1878,7 +1879,7 @@
 
     <!-- ═══ HERO ═══ -->
     <section class="hero">
-      <video class="hero__video-bg" autoplay loop muted playsinline>
+      <video preload="metadata" class="hero__video-bg" autoplay loop muted playsinline>
         <source src="assets/565829_Sci_Fi_Blocks_Transform_Glowing_By_Finn_Moeller_Artlist_HD.mp4" type="video/mp4">
       </video>
       <span class="hero__kicker">IA Empresarial</span>
@@ -1993,7 +1994,7 @@
       <div class="container">
         <p class="section__eyebrow animate-in d1" style="text-align:center;">Quién está detrás</p>
         <div class="glass animate-in d2" style="max-width:600px;margin-inline:auto;padding:var(--space-2xl);border-radius:var(--radius-2xl);text-align:center;">
-          <img src="assets/roberto-mondaca..jpeg" alt="Roberto Mondaca" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-inline:auto;margin-bottom:var(--space-lg);border:2px solid rgba(93,202,165,0.4);box-shadow:0 0 20px rgba(93,202,165,0.2);">
+          <img src="assets/roberto-mondaca..jpeg" alt="Roberto Mondaca" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-inline:auto;margin-bottom:var(--space-lg);border:2px solid rgba(93,202,165,0.4);box-shadow:0 0 20px rgba(93,202,165,0.2);" loading="lazy">
           <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-xs);">Roberto Mondaca</h3>
           <p style="opacity:0.55;font-size:var(--text-sm);margin-bottom:var(--space-lg);">Fundador, Spherical</p>
           <p style="opacity:0.75;line-height:1.8;font-size:var(--text-base);">Llevo casi una década ayudando a empresas a transformarse digitalmente. Hoy me dedico a que las persones adopten tecnologías para optimizar procesos.</p>

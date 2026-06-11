@@ -14,8 +14,9 @@
     content="Spherical integra inteligencia artificial a tu operación, tus equipos y tu estrategia. Desde ecosistemas digitales hasta transformación organizacional con IA.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
 <style>
     /* ═══ DESIGN TOKENS (adapted from Liquid Glass UI Kit for Spherical) ═══ */
     :root {
@@ -383,7 +384,7 @@
       -webkit-backdrop-filter: blur(24px) saturate(160%);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       color: #ffffff;
-      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease;
+      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease;
     }
 
     .navbar.navbar--at-top {
@@ -2211,7 +2212,7 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <video class="hero__video-bg" autoplay loop muted playsinline>
+    <video preload="metadata" class="hero__video-bg" autoplay loop muted playsinline>
       <source src="assets/558751_Seoul_City_Streets_Hyperlapse_By_Wind_Collective_Artlist_HD.mp4" type="video/mp4">
     </video>
     <span class="hero__kicker">Ecosistemas Digitales</span>
@@ -2233,7 +2234,7 @@
         <div class="problema-split__img animate-in d1">
           <img
             src="assets/89d58d08-fc8a-4e46-9264-78a49de5313c--swinston-sans-by-yasir-ekinci.gif"
-            alt="Ecosistema digital Spherical"
+            alt="Ecosistema digital Spherical" loading="lazy"
           >
         </div>
 
@@ -2261,7 +2262,7 @@
 
         <!-- Card 1 -->
         <a class="card animate-in d3" href="#">
-          <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800" alt="Identidad digital">
+          <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800" alt="Identidad digital" loading="lazy">
           <div class="card-desc">
             <div class="card-title">Identidad digital</div>
             <div class="card-content">Web corporativa, landing pages y UX/UI diseñados para proyectar innovación. Tu frente digital construido para impresionar y convertir.</div>
@@ -2271,7 +2272,7 @@
 
         <!-- Card 2 -->
         <a class="card animate-in d4" href="#">
-          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800" alt="Contenido que impacta">
+          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800" alt="Contenido que impacta" loading="lazy">
           <div class="card-desc">
             <div class="card-title">Contenido que impacta</div>
             <div class="card-content">Videos corporativos, animaciones y producción audiovisual con estética Silicon Valley. Desde After Effects hasta contenido con IA generativa.</div>
@@ -2281,7 +2282,7 @@
 
         <!-- Card 3 -->
         <a class="card animate-in d5" href="#">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Crecimiento inteligente">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Crecimiento inteligente" loading="lazy">
           <div class="card-desc">
             <div class="card-title">Crecimiento inteligente</div>
             <div class="card-content">Campañas digitales, funnels de conversión, CRM y automatización de leads. Marketing que usa datos e IA para crecer más rápido.</div>
@@ -2291,7 +2292,7 @@
 
         <!-- Card 4 -->
         <a class="card animate-in d6" href="#">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" alt="Capacitación y cultura">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" alt="Capacitación y cultura" loading="lazy">
           <div class="card-desc">
             <div class="card-title">Capacitación y cultura</div>
             <div class="card-content">E-learning, gamificación y plataformas LMS. Para empresas que necesitan transformar también a su gente, no solo su tecnología.</div>
@@ -2327,39 +2328,39 @@
       <div class="hero__logos" style="position:relative;animation:none;">
         <div class="hero__logos-track">
           <!-- Logos originales -->
-          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche"></span>
-          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco"></span>
-          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC"></span>
-          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR"></span>
-          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec"></span>
-          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial"></span>
-          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine"></span>
-          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros"></span>
-          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander"></span>
-          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI"></span>
-          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ"></span>
+          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ" loading="lazy"></span>
           <!-- Duplicado para efecto infinito -->
-          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche"></span>
-          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco"></span>
-          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC"></span>
-          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR"></span>
-          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec"></span>
-          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial"></span>
-          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine"></span>
-          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros"></span>
-          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander"></span>
-          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI"></span>
-          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13"></span>
-          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ"></span>
+          <span class="logo-item"><img src="assets/logos/roche.png" alt="Roche" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/codelco1.png" alt="Codelco" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/duoc1.png" alt="DuocUC" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/VTR_2011-11.png" alt="VTR" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Microsoft_logo_(2012).png" alt="Microsoft" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/everteclogo1.png" alt="Evertec" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Larrain-Vial-.png" alt="LarrainVial" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Logo_Start-Up_Chile_by_Corfo-01.png" alt="Start-Up Chile" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Imagine1.png" alt="Grupo Imagine" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Johnson_and_Johnson_Logo.png" alt="Johnson & Johnson" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/1280px-HDI_Seguros1.png" alt="HDI Seguros" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Banco_Santander_Logotipo.svg 1.png" alt="Banco Santander" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Bci_Logotype.svg1.png" alt="BCI" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/Komatsu-Logo.png" alt="Komatsu" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/agrosuper1.png" alt="Agrosuper" class="logo-scale-13" loading="lazy"></span>
+          <span class="logo-item"><img src="assets/logos/zeroq.png" alt="ZeroQ" loading="lazy"></span>
         </div>
       </div>
     </div>
