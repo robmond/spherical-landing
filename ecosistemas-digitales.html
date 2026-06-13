@@ -1976,6 +1976,16 @@
     }
     .navbar__dropdown-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
 
+    /* ═══ TRIPTYCH "POR QUÉ AHORA" ═══ */
+    .triptych { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); margin-top: var(--space-2xl); }
+    .triptych__item { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .triptych__num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1; }
+    .triptych__num--01 { color: var(--accent-aqua); }
+    .triptych__num--02 { color: var(--accent-violet); }
+    .triptych__num--03 { color: var(--spherical-teal); }
+    .triptych__title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: #fff; line-height: 1.3; }
+    .triptych__body { font-size: var(--text-base); opacity: 0.7; line-height: 1.7; }
+    @media (max-width: 768px) { .triptych { grid-template-columns: 1fr; } }
   </style>
 <style>
 /* ═══ HOVER CARDS ═══ */
@@ -2216,12 +2226,37 @@
       <source src="assets/558751_Seoul_City_Streets_Hyperlapse_By_Wind_Collective_Artlist_HD.mp4" type="video/mp4">
     </video>
     <span class="hero__kicker">Ecosistemas Digitales</span>
-    <h1 class="hero__title">Tu empresa merece verse como lo que quiere llegar a ser.</h1>
-    <p class="hero__sub">Construimos el ecosistema digital que convierte visitas en clientes.</p>
+    <h1 class="hero__title">El ecosistema digital es la infraestructura que define cómo el mercado evalúa, compara y elige a una empresa.</h1>
+    <p class="hero__sub">Operamos como el área de innovación digital de su empresa — marca, contenido, growth y automatización integrados en un solo sistema, con inteligencia artificial aplicada en cada etapa.</p>
     <div class="hero__cta" style="display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap;">
       <a href="#contacto"
          target="_blank" rel="noopener" class="btn btn--primary btn--lg">Conversemos</a>
       <a href="#producto" class="btn btn--ghost btn--lg">Ver el producto de entrada →</a>
+    </div>
+  </section>
+
+  <!-- ═══ POR QUÉ AHORA ═══ -->
+  <section class="section">
+    <div class="container">
+      <p class="section__eyebrow animate-in d1">La ventaja competitiva cambió de lugar</p>
+      <h2 class="section__title animate-in d2">Tres movimientos están redefiniendo qué empresas capturan la próxima década.</h2>
+      <div class="triptych">
+        <div class="triptych__item animate-in d3">
+          <div class="triptych__num triptych__num--01">01</div>
+          <div class="triptych__title">El acceso al conocimiento se democratizó.</div>
+          <p class="triptych__body">La investigación, las metodologías y los benchmarks que antes diferenciaban a las consultoras de primer nivel están disponibles hoy para cualquier equipo con las herramientas correctas.</p>
+        </div>
+        <div class="triptych__item animate-in d4">
+          <div class="triptych__num triptych__num--02">02</div>
+          <div class="triptych__title">La ejecución es la nueva ventaja competitiva.</div>
+          <p class="triptych__body">Las empresas que capturan esta etapa son las que cuentan con un equipo capaz de convertir ese conocimiento en una hoja de ruta concreta y ejecutarla con velocidad.</p>
+        </div>
+        <div class="triptych__item animate-in d5">
+          <div class="triptych__num triptych__num--03">03</div>
+          <div class="triptych__title">La brecha de adopción digital es la oportunidad de la década.</div>
+          <p class="triptych__body">Mientras la curva de lo posible avanza cada trimestre, gran parte de las empresas en Chile y Latinoamérica opera con la misma infraestructura digital de hace diez años.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2240,11 +2275,11 @@
 
         <!-- Texto derecha -->
         <div class="problema-split__text">
-          <p class="section__eyebrow animate-in d2">Lo que construimos</p>
-          <h2 class="section__title animate-in d3">Tu canal digital debería ser tu mejor vendedor.</h2>
+          <p class="section__eyebrow animate-in d2">El modelo</p>
+          <h2 class="section__title animate-in d3">Un equipo de innovación digital, operando dentro de su empresa.</h2>
           <div class="animate-in d4">
             <p class="problema-text">
-              Construimos ecosistemas que generan demanda, convierten prospectos y retienen clientes — con IA integrada para optimizar cada etapa del funnel en tiempo real.
+              Operamos como el área de innovación digital de su empresa — marca, contenido, growth, automatización y cultura — con la velocidad, el costo y la integración de IA de un equipo externo especializado.
             </p>
           </div>
         </div>
@@ -2308,9 +2343,9 @@
   <section class="section" id="producto">
     <div class="container">
       <div class="producto-block animate-in d1">
-        <div class="producto-block__eyebrow">⚡ Producto estrella</div>
-        <h2 class="producto-block__title">Activamos el ecosistema de marketing en 5 días</h2>
-        <p class="producto-block__desc">Landing optimizada + campaña activa + CRM conectado + agente conversacional inteligente. Todo funcionando en una semana.</p>
+        <div class="producto-block__eyebrow">⚡ Punto de entrada</div>
+        <h2 class="producto-block__title">De cero a infraestructura completa, en cinco días</h2>
+        <p class="producto-block__desc">Landing optimizada, campaña activa, CRM conectado y agente conversacional, operando en conjunto desde el día cinco. Es la base sobre la que se construye el resto del ecosistema.</p>
         <p class="producto-block__detail">Setup único + mensualidad &nbsp;·&nbsp; Sin contratos largos.</p>
         <a href="#contacto"
            target="_blank" rel="noopener" class="btn btn--primary btn--lg">Quiero saber más</a>
