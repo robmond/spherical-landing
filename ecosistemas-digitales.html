@@ -2184,6 +2184,8 @@
     @media(max-width:640px) {
       .footer__inner { grid-template-columns: 1fr; }
     }
+    /* ═══ HONEYPOT (anti-spam) ═══ */
+    .hp-field { position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden; opacity:0; pointer-events:none; }
 </style>
 </head>
 <body>
@@ -2462,7 +2464,11 @@
             <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu situación actual..."></textarea>
           </div>
 
-          <div class="form-submit">
+                      <div class="hp-field" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+<div class="form-submit">
             <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
               <span id="submitText">Solicitar sesión exploratoria →</span>
               <span id="submitLoading" style="display:none;">Enviando...</span>
@@ -2636,8 +2642,24 @@
         if (el) el.addEventListener('change', function(){ validateField(el, el.value.trim()); });
       });
 
-      form.addEventListener('submit', function (e) {
+            var _formLoadTime = Date.now();
+
+form.addEventListener('submit', function (e) {
         e.preventDefault();
+
+        // ── Anti-spam: silent fake success ──────────────────────────────
+        function _silentPass() {
+          setTimeout(function() { window.location.href = './gracias.html'; }, 400);
+        }
+        // 1) Honeypot
+        if (form.website && form.website.value !== '') { _silentPass(); return; }
+        // 2) Tiempo mínimo (< 3 s → bot)
+        if (Date.now() - _formLoadTime < 3000) { _silentPass(); return; }
+        // 3) Contenido sospechoso en campos de texto libre
+        var _suspiciousRe = /https?:\/\/|www\.|<[^>]+>/i;
+        var _textFields = [form.nombre.value, form.empresa.value, (form.mensaje ? form.mensaje.value : '')];
+        if (_textFields.some(function(v){ return _suspiciousRe.test(v); })) { _silentPass(); return; }
+        // ────────────────────────────────────────────────────────────────
 
         var nombre  = form.nombre.value.trim();
         var empresa = form.empresa.value.trim();
