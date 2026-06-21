@@ -1576,12 +1576,45 @@
         }
       }
 
+      function validateEmail(el, value) {
+        var existing = el.parentNode.querySelector('.field-error-msg');
+        var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        var isPhone = (value.replace(/\D/g, '').length >= 8);
+        if (!value) {
+          el.classList.add('field-error');
+          if (!existing) {
+            var msg = document.createElement('span');
+            msg.className = 'field-error-msg';
+            msg.innerHTML = '⚠ Este campo es obligatorio';
+            el.parentNode.appendChild(msg);
+          }
+          return false;
+        } else if (!isEmail && !isPhone) {
+          el.classList.add('field-error');
+          if (existing) existing.remove();
+          var msg = document.createElement('span');
+          msg.className = 'field-error-msg';
+          msg.innerHTML = '⚠ Ingresa un email o WhatsApp válido';
+          el.parentNode.appendChild(msg);
+          return false;
+        } else {
+          el.classList.remove('field-error');
+          if (existing) existing.remove();
+          return true;
+        }
+      }
+
       // Limpiar error al escribir
-      ['nombre','empresa','email','tamano','desafio'].forEach(function(name) {
+      ['nombre','empresa','tamano','desafio'].forEach(function(name) {
         var el = form[name];
         if (el) el.addEventListener('input', function() { validateField(el, el.value.trim()); });
         if (el) el.addEventListener('change', function() { validateField(el, el.value.trim()); });
       });
+      var emailEl = form['email'];
+      if (emailEl) {
+        emailEl.addEventListener('input',  function() { validateEmail(emailEl, emailEl.value.trim()); });
+        emailEl.addEventListener('change', function() { validateEmail(emailEl, emailEl.value.trim()); });
+      }
 
             var _formLoadTime = Date.now();
 
@@ -1613,7 +1646,7 @@ form.addEventListener('submit', function (e) {
         valid = validateField(form.empresa, empresa) && valid;
         valid = validateField(form.tamano,  tamano)  && valid;
         valid = validateField(form.desafio, desafio) && valid;
-        valid = validateField(form.email,   email)   && valid;
+        valid = validateEmail(form.email,   email)   && valid;
 
         if (!valid) {
           form.querySelector('.field-error').scrollIntoView({ behavior: 'smooth', block: 'center' });
