@@ -198,10 +198,13 @@
     .faq-section { margin-top:3rem; padding-top:2rem; border-top:1px solid var(--glass-border-subtle); }
     .faq-section__eyebrow { font-size:var(--text-2xs); letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-aqua); margin-bottom:var(--space-md); }
     .faq-section__title { font-family:var(--font-body); font-weight:700; font-size:var(--text-2xl); margin-bottom:var(--space-xl); }
-    .faq-item { border-bottom:1px solid var(--glass-border-subtle); padding:var(--space-lg) 0; }
+    .faq-item { border-bottom:1px solid var(--glass-border-subtle); }
     .faq-item:last-child { border-bottom:none; }
-    .faq-item__q { font-weight:600; font-size:var(--text-base); margin-bottom:var(--space-sm); color:#fff; }
-    .faq-item__a { font-size:var(--text-base); opacity:0.7; line-height:1.75; }
+    .faq-item__btn { width:100%; display:flex; align-items:center; justify-content:space-between; gap:var(--space-md); padding:var(--space-lg) 0; background:none; border:none; cursor:pointer; text-align:left; font-family:var(--font-body); font-size:var(--text-base); font-weight:600; color:#fff; }
+    .faq-item__icon { flex-shrink:0; width:20px; height:20px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; font-size:0.8rem; transition:transform 0.25s, background 0.25s; }
+    .faq-item__btn[aria-expanded="true"] .faq-item__icon { transform:rotate(45deg); background:var(--spherical-teal); border-color:var(--spherical-teal); }
+    .faq-item__body { overflow:hidden; max-height:0; transition:max-height 0.35s ease; }
+    .faq-item__a { font-size:var(--text-base); opacity:0.7; line-height:1.75; padding-bottom:var(--space-lg); }
     .article-back { margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--glass-border-subtle); }
     .article-back a { color:var(--spherical-teal); font-weight:500; font-size:var(--text-sm); transition:opacity var(--dur-fast); }
     .article-back a:hover { opacity:0.7 }
@@ -448,25 +451,35 @@
             <h2 id="faq-heading" class="faq-section__title">Sobre el AI Innovation Sprint</h2>
 
             <div class="faq-item">
-              <p class="faq-item__q">¿Qué es el AI Innovation Sprint de Spherical?</p>
-              <p class="faq-item__a">El AI Innovation Sprint es una metodología de tres fases desarrollada por Spherical para que equipos sin formación técnica puedan construir soluciones de inteligencia artificial a sus propios problemas de trabajo. Incluye preparación previa, un sprint presencial de un día con mentores especializados, e implementación y acompañamiento continuo a cargo del equipo de Spherical.</p>
+              <button class="faq-item__btn" aria-expanded="false">¿Qué es el AI Innovation Sprint de Spherical? <span class="faq-item__icon">+</span></button>
+              <div class="faq-item__body"><p class="faq-item__a">El AI Innovation Sprint es una metodología de tres fases desarrollada por Spherical para que equipos sin formación técnica puedan construir soluciones de inteligencia artificial a sus propios problemas de trabajo. Incluye preparación previa, un sprint presencial de un día con mentores especializados, e implementación y acompañamiento continuo a cargo del equipo de Spherical.</p></div>
             </div>
 
             <div class="faq-item">
-              <p class="faq-item__q">¿Necesita el equipo formación técnica para participar?</p>
-              <p class="faq-item__a">No. El programa está diseñado para personas que conocen el problema desde adentro, sin importar su perfil técnico. Los mentores de Spherical acompañan la parte técnica. El criterio de selección es conocer el proceso, no saber programar.</p>
+              <button class="faq-item__btn" aria-expanded="false">¿Necesita el equipo formación técnica para participar? <span class="faq-item__icon">+</span></button>
+              <div class="faq-item__body"><p class="faq-item__a">No. El programa está diseñado para personas que conocen el problema desde adentro, sin importar su perfil técnico. Los mentores de Spherical acompañan la parte técnica. El criterio de selección es conocer el proceso, no saber programar.</p></div>
             </div>
 
             <div class="faq-item">
-              <p class="faq-item__q">¿Cuánto tarda en ver resultados una empresa que implementa el AI Innovation Sprint?</p>
-              <p class="faq-item__a">Al cierre del sprint presencial (un día), los participantes presentan prototipos funcionales, artefactos o mapas de solución. Los de mayor potencial pasan a implementación: un equipo de Spherical se hace cargo del desarrollo, cumpliendo los protocolos de TI de la organización, y asume el soporte, mantenimiento y mejora continua de la solución.</p>
+              <button class="faq-item__btn" aria-expanded="false">¿Cuánto tarda en ver resultados una empresa que implementa el AI Innovation Sprint? <span class="faq-item__icon">+</span></button>
+              <div class="faq-item__body"><p class="faq-item__a">Al cierre del sprint presencial (un día), los participantes presentan prototipos funcionales, artefactos o mapas de solución. Los de mayor potencial pasan a implementación: un equipo de Spherical se hace cargo del desarrollo, cumpliendo los protocolos de TI de la organización, y asume el soporte, mantenimiento y mejora continua de la solución.</p></div>
             </div>
 
             <div class="faq-item">
-              <p class="faq-item__q">¿Cuál es la diferencia entre el AI Innovation Sprint y una consultoría tradicional de tecnología?</p>
-              <p class="faq-item__a">En una consultoría tradicional, los expertos externos diagnostican y proponen soluciones. En el AI Innovation Sprint, las personas que viven el problema construyen la solución, acompañadas por expertos. Esto genera adopción real desde el primer día porque la solución fue diseñada por quienes la van a usar.</p>
+              <button class="faq-item__btn" aria-expanded="false">¿Cuál es la diferencia entre el AI Innovation Sprint y una consultoría tradicional de tecnología? <span class="faq-item__icon">+</span></button>
+              <div class="faq-item__body"><p class="faq-item__a">En una consultoría tradicional, los expertos externos diagnostican y proponen soluciones. En el AI Innovation Sprint, las personas que viven el problema construyen la solución, acompañadas por expertos. Esto genera adopción real desde el primer día porque la solución fue diseñada por quienes la van a usar.</p></div>
             </div>
           </section>
+          <script>
+          document.querySelectorAll('.faq-item__btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var expanded = btn.getAttribute('aria-expanded') === 'true';
+              var body = btn.nextElementSibling;
+              btn.setAttribute('aria-expanded', !expanded);
+              body.style.maxHeight = expanded ? '0' : body.scrollHeight + 'px';
+            });
+          });
+          </script>
 
           <div class="pull-quote" style="margin-top:2.5rem;">
             <p>Spherical es una firma de innovación y tecnología con base en Santiago de Chile. Trabaja con empresas medianas y grandes de distintas industrias en la adopción e implementación de inteligencia artificial aplicada a procesos de negocio.</p>

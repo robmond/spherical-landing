@@ -1423,41 +1423,60 @@
     </section>
 
     <!-- ═══ FAQ ═══ -->
+    <style>
+      .faq-acc { border-bottom:1px solid rgba(255,255,255,0.1); }
+      .faq-acc:first-child { border-top:1px solid rgba(255,255,255,0.1); }
+      .faq-acc__btn { width:100%; display:flex; align-items:center; justify-content:space-between; gap:var(--space-md); padding:var(--space-xl) 0; background:none; border:none; cursor:pointer; text-align:left; font-family:var(--font-body); font-size:var(--text-lg); font-weight:600; color:#fff; }
+      .faq-acc__icon { flex-shrink:0; width:22px; height:22px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; font-size:0.85rem; transition:transform 0.25s, background 0.25s; }
+      .faq-acc__btn[aria-expanded="true"] .faq-acc__icon { transform:rotate(45deg); background:var(--spherical-teal); border-color:var(--spherical-teal); }
+      .faq-acc__body { overflow:hidden; max-height:0; transition:max-height 0.35s ease; }
+      .faq-acc__body p { padding-bottom:var(--space-xl); opacity:0.7; line-height:1.75; font-size:var(--text-base); }
+    </style>
     <section class="section">
       <div class="container" style="max-width:760px;">
         <p class="section__eyebrow animate-in d1" style="text-align:center;">Preguntas frecuentes</p>
         <h2 class="section__title animate-in d2" style="text-align:center;margin-bottom:var(--space-2xl);">Lo que nos preguntan antes de empezar</h2>
 
-        <div class="animate-in d3" style="display:flex;flex-direction:column;gap:0;">
+        <div class="animate-in d3">
 
-          <div style="border-bottom:1px solid rgba(255,255,255,0.1);padding:var(--space-xl) 0;">
-            <h3 style="font-family:var(--font-body);font-weight:600;font-size:var(--text-lg);color:#fff;margin-bottom:var(--space-sm);">¿Qué servicios de IA empresarial ofrece Spherical?</h3>
-            <p style="opacity:0.7;line-height:1.75;">Diseñamos y ejecutamos soluciones de inteligencia artificial a la medida de cada empresa. Trabajamos en hackathons de innovación interna (AI Innovation Sprint), desarrollo de productos tecnológicos, facilitación de procesos de innovación, y también como área de innovación fraccional — integrándose al largo plazo a la operación del cliente para gestionar y escalar iniciativas de IA.</p>
+          <div class="faq-acc">
+            <button class="faq-acc__btn" aria-expanded="false">¿Qué servicios de IA empresarial ofrece Spherical? <span class="faq-acc__icon">+</span></button>
+            <div class="faq-acc__body"><p>Diseñamos y ejecutamos soluciones de inteligencia artificial a la medida de cada empresa. Trabajamos en hackathons de innovación interna (AI Innovation Sprint), desarrollo de productos tecnológicos, facilitación de procesos de innovación, y también como área de innovación fraccional — integrándose al largo plazo a la operación del cliente para gestionar y escalar iniciativas de IA.</p></div>
           </div>
 
-          <div style="border-bottom:1px solid rgba(255,255,255,0.1);padding:var(--space-xl) 0;">
-            <h3 style="font-family:var(--font-body);font-weight:600;font-size:var(--text-lg);color:#fff;margin-bottom:var(--space-sm);">¿Cuánto tiempo toma ver resultados?</h3>
-            <p style="opacity:0.7;line-height:1.75;">Depende del caso, pero nuestra metodología está diseñada para entregar resultados concretos en el menor tiempo posible. Trabajamos con lógica de productos mínimos viables y priorizamos los problemas de mayor impacto primero. Gracias a las tecnologías disponibles hoy, algunos resultados pueden lograrse en pocas horas. Para iniciativas de mayor alcance, nos integramos de forma fraccional a largo plazo a la operación de la empresa.</p>
+          <div class="faq-acc">
+            <button class="faq-acc__btn" aria-expanded="false">¿Cuánto tiempo toma ver resultados? <span class="faq-acc__icon">+</span></button>
+            <div class="faq-acc__body"><p>Depende del caso, pero nuestra metodología está diseñada para entregar resultados concretos en el menor tiempo posible. Trabajamos con lógica de productos mínimos viables y priorizamos los problemas de mayor impacto primero. Gracias a las tecnologías disponibles hoy, algunos resultados pueden lograrse en pocas horas. Para iniciativas de mayor alcance, nos integramos de forma fraccional a largo plazo a la operación de la empresa.</p></div>
           </div>
 
-          <div style="border-bottom:1px solid rgba(255,255,255,0.1);padding:var(--space-xl) 0;">
-            <h3 style="font-family:var(--font-body);font-weight:600;font-size:var(--text-lg);color:#fff;margin-bottom:var(--space-sm);">¿Necesitamos un equipo técnico interno para trabajar con Spherical?</h3>
-            <p style="opacity:0.7;line-height:1.75;">No. Spherical es especialista en desarrollo de productos tecnológicos y aporta el equipo técnico a las soluciones que cada cliente necesita. No se requiere tener ingenieros o desarrolladores internos para iniciar ni para escalar. Nuestro equipo se encarga del desarrollo, cumplimiento de protocolos de TI, implementación, soporte y mejora continua.</p>
+          <div class="faq-acc">
+            <button class="faq-acc__btn" aria-expanded="false">¿Necesitamos un equipo técnico interno para trabajar con Spherical? <span class="faq-acc__icon">+</span></button>
+            <div class="faq-acc__body"><p>No. Spherical es especialista en desarrollo de productos tecnológicos y aporta el equipo técnico a las soluciones que cada cliente necesita. No se requiere tener ingenieros o desarrolladores internos para iniciar ni para escalar. Nuestro equipo se encarga del desarrollo, cumplimiento de protocolos de TI, implementación, soporte y mejora continua.</p></div>
           </div>
 
-          <div style="border-bottom:1px solid rgba(255,255,255,0.1);padding:var(--space-xl) 0;">
-            <h3 style="font-family:var(--font-body);font-weight:600;font-size:var(--text-lg);color:#fff;margin-bottom:var(--space-sm);">¿En qué industrias ha trabajado Spherical?</h3>
-            <p style="opacity:0.7;line-height:1.75;">Hemos trabajado en educación, construcción, farmacéutica, minería, telecomunicaciones, entre muchas otras. Nuestra metodología es adaptable a cualquier sector donde existan procesos internos susceptibles de optimizarse con inteligencia artificial.</p>
+          <div class="faq-acc">
+            <button class="faq-acc__btn" aria-expanded="false">¿En qué industrias ha trabajado Spherical? <span class="faq-acc__icon">+</span></button>
+            <div class="faq-acc__body"><p>Hemos trabajado en educación, construcción, farmacéutica, minería, telecomunicaciones, entre muchas otras. Nuestra metodología es adaptable a cualquier sector donde existan procesos internos susceptibles de optimizarse con inteligencia artificial.</p></div>
           </div>
 
-          <div style="padding:var(--space-xl) 0;">
-            <h3 style="font-family:var(--font-body);font-weight:600;font-size:var(--text-lg);color:#fff;margin-bottom:var(--space-sm);">¿Qué es el AI Innovation Sprint?</h3>
-            <p style="opacity:0.7;line-height:1.75;">Es una metodología propia de Spherical para que los equipos internos de una empresa — sin formación técnica — puedan identificar y construir soluciones de inteligencia artificial a sus propios problemas de trabajo. Se realiza en formato de jornada presencial con mentores de Spherical, utilizando Claude Code como herramienta principal. Al cierre, los participantes presentan prototipos funcionales, artefactos o mapas de solución que el equipo de Spherical lleva a implementación real.</p>
+          <div class="faq-acc">
+            <button class="faq-acc__btn" aria-expanded="false">¿Qué es el AI Innovation Sprint? <span class="faq-acc__icon">+</span></button>
+            <div class="faq-acc__body"><p>Es una metodología propia de Spherical para que los equipos internos de una empresa — sin formación técnica — puedan identificar y construir soluciones de inteligencia artificial a sus propios problemas de trabajo. Se realiza en formato de jornada presencial con mentores de Spherical, utilizando Claude Code como herramienta principal. Al cierre, los participantes presentan prototipos funcionales, artefactos o mapas de solución que el equipo de Spherical lleva a implementación real.</p></div>
           </div>
 
         </div>
       </div>
     </section>
+    <script>
+    document.querySelectorAll('.faq-acc__btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var body = btn.nextElementSibling;
+        btn.setAttribute('aria-expanded', !expanded);
+        body.style.maxHeight = expanded ? '0' : body.scrollHeight + 'px';
+      });
+    });
+    </script>
 
     <!-- ═══ CTA FINAL ═══ -->
     <section class="cta-final" id="contacto">
