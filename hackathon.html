@@ -6,21 +6,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="color-scheme" content="dark">
-  <title>Hackathon Corporativo de IA — Spherical</title>
-  <meta name="description" content="Un programa de hackathon corporativo de IA: de la idea al prototipo funcional en un día, con continuidad real post-hackathon. Configura tu caso y obtén un rango de inversión.">
+  <title>AI Innovation Sprint — Spherical</title>
+  <meta name="description" content="AI Innovation Sprint: el hackathon corporativo de IA de Spherical — de la idea al prototipo funcional en un día, con continuidad real post-hackathon. Configura tu caso y obtén un rango de inversión.">
 
   <link rel="canonical" href="https://spherical.cl/hackathon.html">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://spherical.cl/hackathon.html">
-  <meta property="og:title" content="Hackathon Corporativo de IA — Spherical">
-  <meta property="og:description" content="De la idea al prototipo funcional en un día. Un programa para que los equipos de tu empresa construyan herramientas de IA propias, con continuidad real post-hackathon.">
+  <meta property="og:title" content="AI Innovation Sprint — Spherical">
+  <meta property="og:description" content="De la idea al prototipo funcional en un día. El AI Innovation Sprint de Spherical: un hackathon corporativo con continuidad real post-hackathon.">
   <meta property="og:image" content="https://spherical.cl/assets/og-image.jpg">
   <meta property="og:locale" content="es_CL">
   <meta property="og:site_name" content="Spherical">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hackathon Corporativo de IA — Spherical">
+  <meta name="twitter:title" content="AI Innovation Sprint — Spherical">
   <meta name="twitter:description" content="De la idea al prototipo funcional en un día. Configura tu caso y obtén un rango de inversión personalizado.">
   <meta name="twitter:image" content="https://spherical.cl/assets/og-image.jpg">
 
@@ -541,7 +541,7 @@
 
     <!-- ═══ HERO ═══ -->
     <section class="hero">
-      <p class="hero__kicker animate-in d1">Programa corporativo de IA</p>
+      <p class="hero__kicker animate-in d1">AI Innovation Sprint · Spherical</p>
       <h1 class="hero__title animate-in d2">De la idea al prototipo funcional — en un día.</h1>
       <p class="hero__sub animate-in d3">Un programa diseñado para que los equipos de tu empresa construyan herramientas de IA propias, con acompañamiento experto y continuidad real post-hackathon.</p>
       <div class="hero__cta animate-in d4">
@@ -647,6 +647,17 @@
               <button type="button" class="pill" data-value="31+">31 o más proyectos</button>
             </div>
             <p class="edu-text" id="eduProyectos" hidden></p>
+
+            <!-- Sub-pregunta: modalidad — afecta el precio del programa -->
+            <div class="sub-question" id="subModalidad" hidden>
+              <p class="sub-question__label">¿En qué modalidad?</p>
+              <div class="pill-group" id="pillsModalidad">
+                <button type="button" class="pill" data-value="remoto">Remoto</button>
+                <button type="button" class="pill" data-value="presencial-scl">Presencial en Santiago</button>
+                <button type="button" class="pill" data-value="presencial-otra">Presencial fuera de Santiago</button>
+              </div>
+              <p class="edu-text" id="eduModalidad" hidden>La modalidad remota reduce costos de logística y traslado. Presencial fuera de Santiago incluye viáticos y coordinación de facilitadores en terreno.</p>
+            </div>
           </div>
 
           <!-- Paso 2 — Continuidad -->
@@ -658,8 +669,8 @@
               <button type="button" class="pill" data-value="no">Solo el programa por ahora</button>
             </div>
 
-            <!-- Sub-pregunta A -->
-            <div class="sub-question" id="subA" hidden>
+            <!-- Sub-pregunta: proyectos que continúan -->
+            <div class="sub-question" id="subActivos" hidden>
               <p class="sub-question__label">¿Cuántos proyectos estimas que continuarán?</p>
               <div class="pill-group" id="pillsActivos">
                 <button type="button" class="pill" data-value="1-3">1 a 3</button>
@@ -671,8 +682,19 @@
               <p class="edu-text" id="eduActivos" hidden>Spherical opera como intermediario tecnológico: la empresa contrata un plan mensual único que cubre todos los proyectos activos. No hay tarjetas individuales ni contratos separados por equipo — el área de innovación administra el uso desde un solo contrato.</p>
             </div>
 
-            <!-- Sub-pregunta B -->
-            <div class="sub-question" id="subB" hidden>
+            <!-- Sub-pregunta: complejidad — afecta el precio del plan mensual -->
+            <div class="sub-question" id="subComplejidad" hidden>
+              <p class="sub-question__label">¿Qué tan compleja esperas que sea la herramienta?</p>
+              <div class="pill-group" id="pillsComplejidad">
+                <button type="button" class="pill" data-value="basica">Básica — asistente o chatbot simple</button>
+                <button type="button" class="pill" data-value="intermedia">Intermedia — automatiza un proceso, 1-2 sistemas</button>
+                <button type="button" class="pill" data-value="avanzada">Avanzada — flujo multi-sistema, agentes</button>
+              </div>
+              <p class="edu-text" id="eduComplejidad" hidden>La complejidad determina cuánto tiempo de ingeniería y soporte requiere cada proyecto al mes — un asistente simple y un flujo multi-sistema no cuestan lo mismo de mantener.</p>
+            </div>
+
+            <!-- Sub-pregunta: duración del contrato -->
+            <div class="sub-question" id="subMeses" hidden>
               <p class="sub-question__label">¿Por cuántos meses estimas el contrato inicial?</p>
               <div class="pill-group" id="pillsMeses">
                 <button type="button" class="pill" data-value="3">3 meses</button>
@@ -732,15 +754,6 @@
             <!-- Contexto adicional — no afecta el rango, ayuda a afinar la propuesta -->
             <div class="extra-context">
               <p class="extra-context__title">Un poco más de contexto <span class="extra-context__optional">(opcional — nos ayuda a afinar tu propuesta)</span></p>
-
-              <div class="extra-context__row">
-                <p class="extra-context__label">Modalidad</p>
-                <div class="pill-group" id="pillsModalidad">
-                  <button type="button" class="pill pill--sm" data-value="presencial">Presencial</button>
-                  <button type="button" class="pill pill--sm" data-value="remoto">Remoto</button>
-                  <button type="button" class="pill pill--sm" data-value="hibrido">Híbrido</button>
-                </div>
-              </div>
 
               <div class="extra-context__row">
                 <p class="extra-context__label">¿Cuándo te gustaría correrlo?</p>
@@ -834,6 +847,7 @@
             <input type="hidden" id="origen" name="origen" value="Hackathon">
             <input type="hidden" id="configResumen" name="configuracion" value="">
             <input type="hidden" id="modalidad" name="modalidad" value="">
+            <input type="hidden" id="complejidad" name="complejidad" value="">
             <input type="hidden" id="timing" name="timing" value="">
             <input type="hidden" id="madurez" name="madurez" value="">
 
@@ -872,7 +886,7 @@
             <ul class="footer__links">
               <li><a href="ecosistemas-digitales.html">Ecosistemas Digitales</a></li>
               <li><a href="ia-empresarial-v2.html">Desarrollo Tecnológico</a></li>
-              <li><a href="hackathon.html">Hackathon Corporativo</a></li>
+              <li><a href="hackathon.html">AI Innovation Sprint</a></li>
             </ul>
           </div>
           <div>
@@ -967,17 +981,37 @@
         'no-se': { range: null, label: 'aún por definir',     note: 'lo definimos juntos en la propuesta formal' }
       };
 
-      var MODALIDAD = { presencial: 'Presencial', remoto: 'Remoto', hibrido: 'Híbrido' };
+      // Modalidad y complejidad ajustan el rango mostrado (multiplicador sobre
+      // el precio base) — ambas confirmadas como drivers reales de costo.
+      var MODALIDAD = {
+        'remoto':          { mult: 0.85, label: 'Remoto' },
+        'presencial-scl':  { mult: 1,    label: 'Presencial en Santiago' },
+        'presencial-otra': { mult: 1.2,  label: 'Presencial fuera de Santiago' }
+      };
+      var COMPLEJIDAD = {
+        'basica':     { mult: 0.75, label: 'Básica — asistente o chatbot simple' },
+        'intermedia': { mult: 1,    label: 'Intermedia — automatiza un proceso, 1-2 sistemas' },
+        'avanzada':   { mult: 1.4,  label: 'Avanzada — flujo multi-sistema, agentes' }
+      };
+      // Preguntas de contexto opcionales — no afectan el rango mostrado.
       var TIMING = { '1mes': 'En el próximo mes', '1-3meses': 'En 1 a 3 meses', explorando: 'Aún explorando fechas' };
       var MADUREZ = { definidos: 'Ya los tenemos definidos', 'idea-general': 'Tenemos una idea general', 'necesitamos-ayuda': 'Necesitamos ayuda para definirlos' };
 
       var state = {
-        proyectos: null, continuidad: null, activos: null, meses: null,
-        modalidad: null, timing: null, madurez: null
+        proyectos: null, modalidad: null, continuidad: null, activos: null, complejidad: null, meses: null,
+        timing: null, madurez: null
       };
 
       function fmt(n) { return 'CLP ' + n.toLocaleString('es-CL'); }
       function rangeText(range) { return fmt(range[0]) + ' – ' + fmt(range[1]); }
+      function applyMult(range, mult) {
+        if (!range) return null;
+        var step = 10000; // redondea a CLP 10.000 más cercano
+        return [
+          Math.round(range[0] * mult / step) * step,
+          Math.round(range[1] * mult / step) * step
+        ];
+      }
 
       function selectPill(group, value) {
         group.querySelectorAll('.pill').forEach(function (p) {
@@ -995,6 +1029,7 @@
 
       var pillsProyectos = document.getElementById('pillsProyectos');
       var eduProyectos = document.getElementById('eduProyectos');
+      var subModalidad = document.getElementById('subModalidad');
       var step2 = document.getElementById('step2');
 
       pillsProyectos.addEventListener('click', function (e) {
@@ -1004,13 +1039,29 @@
         selectPill(pillsProyectos, state.proyectos);
         eduProyectos.textContent = PROGRAMA[state.proyectos].edu;
         reveal(eduProyectos);
+        reveal(subModalidad);
+        renderResult();
+      });
+
+      var pillsModalidad = document.getElementById('pillsModalidad');
+      var eduModalidad = document.getElementById('eduModalidad');
+      var modalidadField = document.getElementById('modalidad');
+
+      pillsModalidad.addEventListener('click', function (e) {
+        var btn = e.target.closest('.pill');
+        if (!btn) return;
+        state.modalidad = btn.dataset.value;
+        selectPill(pillsModalidad, state.modalidad);
+        modalidadField.value = MODALIDAD[state.modalidad].label;
+        reveal(eduModalidad);
         reveal(step2);
         renderResult();
       });
 
       var pillsContinuidad = document.getElementById('pillsContinuidad');
-      var subA = document.getElementById('subA');
-      var subB = document.getElementById('subB');
+      var subActivos = document.getElementById('subActivos');
+      var subComplejidad = document.getElementById('subComplejidad');
+      var subMeses = document.getElementById('subMeses');
 
       pillsContinuidad.addEventListener('click', function (e) {
         var btn = e.target.closest('.pill');
@@ -1019,12 +1070,15 @@
         selectPill(pillsContinuidad, state.continuidad);
 
         if (state.continuidad === 'si') {
-          reveal(subA);
-          reveal(subB);
+          reveal(subActivos);
+          reveal(subComplejidad);
+          reveal(subMeses);
         } else {
-          subA.hidden = true;
-          subB.hidden = true;
+          subActivos.hidden = true;
+          subComplejidad.hidden = true;
+          subMeses.hidden = true;
           state.activos = null;
+          state.complejidad = null;
           state.meses = null;
         }
         renderResult();
@@ -1039,6 +1093,20 @@
         state.activos = btn.dataset.value;
         selectPill(pillsActivos, state.activos);
         reveal(eduActivos);
+        renderResult();
+      });
+
+      var pillsComplejidad = document.getElementById('pillsComplejidad');
+      var eduComplejidad = document.getElementById('eduComplejidad');
+      var complejidadField = document.getElementById('complejidad');
+
+      pillsComplejidad.addEventListener('click', function (e) {
+        var btn = e.target.closest('.pill');
+        if (!btn) return;
+        state.complejidad = btn.dataset.value;
+        selectPill(pillsComplejidad, state.complejidad);
+        complejidadField.value = COMPLEJIDAD[state.complejidad].label;
+        reveal(eduComplejidad);
         renderResult();
       });
 
@@ -1081,24 +1149,26 @@
       var formSumTotal = document.getElementById('formSumTotal');
       var configResumenField = document.getElementById('configResumen');
 
-      // Preguntas requeridas según las respuestas ya dadas — crece de 2 a 4
+      // Preguntas requeridas según las respuestas ya dadas — crece de 3 a 6
       // en cuanto el usuario elige que sí quiere continuidad.
       function requiredSteps() {
-        return state.continuidad === 'si' ? 4 : 2;
+        return state.continuidad === 'si' ? 6 : 3;
       }
       function answeredSteps() {
         var n = 0;
         if (state.proyectos) n++;
+        if (state.modalidad) n++;
         if (state.continuidad !== null) n++;
         if (state.continuidad === 'si') {
           if (state.activos) n++;
+          if (state.complejidad) n++;
           if (state.meses) n++;
         }
         return n;
       }
       function isComplete() {
-        if (!state.proyectos || state.continuidad === null) return false;
-        if (state.continuidad === 'si') return !!state.activos && !!state.meses;
+        if (!state.proyectos || !state.modalidad || state.continuidad === null) return false;
+        if (state.continuidad === 'si') return !!state.activos && !!state.complejidad && !!state.meses;
         return true;
       }
 
@@ -1110,19 +1180,18 @@
         progressLabel.textContent = pct >= 100 ? 'Estimación lista ✓' : (pct + '% completado');
       }
 
-      // Texto que viaja al backend — incluye el contexto opcional (modalidad,
-      // timing, madurez) cuando está disponible, sin afectar el rango mostrado.
+      // Texto que viaja al backend — modalidad y complejidad van siempre
+      // (son las que fijan el precio); timing/madurez solo si se respondieron.
       function buildResumen() {
-        if (!state.proyectos) return '';
+        if (!state.proyectos || !state.modalidad) return '';
         var programa = PROGRAMA[state.proyectos];
-        var resumen = 'Hackathon ' + programa.label;
-        if (state.continuidad === 'si' && state.activos && state.meses) {
-          resumen += ' + continuidad ' + MENSUAL[state.activos].label + ' / ' + state.meses + ' meses';
+        var resumen = 'AI Innovation Sprint ' + programa.label + ' · ' + MODALIDAD[state.modalidad].label;
+        if (state.continuidad === 'si' && state.activos && state.complejidad && state.meses) {
+          resumen += ' + continuidad ' + MENSUAL[state.activos].label + ' (' + COMPLEJIDAD[state.complejidad].label + ') / ' + state.meses + ' meses';
         } else if (state.continuidad === 'no') {
           resumen += ' (sin continuidad)';
         }
         var extras = [];
-        if (state.modalidad) extras.push('modalidad: ' + MODALIDAD[state.modalidad]);
         if (state.timing) extras.push('timing: ' + TIMING[state.timing]);
         if (state.madurez) extras.push('madurez de proyectos: ' + MADUREZ[state.madurez]);
         if (extras.length) resumen += ' · ' + extras.join(' · ');
@@ -1144,31 +1213,34 @@
         if (!isComplete()) {
           resultWrap.hidden = true;
           formConfigSummary.hidden = true;
-          pendingHint.hidden = state.continuidad === null; // solo avisa una vez iniciado el paso 2
-          if (!pendingHint.hidden) {
-            var faltan = requiredSteps() - answeredSteps();
-            pendingHintText.textContent = faltan > 1
-              ? 'Responde las ' + faltan + ' preguntas restantes para desbloquear tu estimación de inversión personalizada.'
-              : 'Responde la pregunta restante para desbloquear tu estimación de inversión personalizada.';
-          }
+          pendingHint.hidden = false;
+          var faltan = requiredSteps() - answeredSteps();
+          pendingHintText.textContent = faltan > 1
+            ? 'Responde las ' + faltan + ' preguntas restantes para desbloquear tu estimación de inversión personalizada.'
+            : 'Responde la pregunta restante para desbloquear tu estimación de inversión personalizada.';
           return;
         }
 
         pendingHint.hidden = true;
 
-        var programa = PROGRAMA[state.proyectos];
-        var programaText = programa.range ? rangeText(programa.range) : 'Cotización personalizada';
+        var programaBase = PROGRAMA[state.proyectos];
+        var modalidadMult = MODALIDAD[state.modalidad].mult;
+        var programaRange = applyMult(programaBase.range, modalidadMult);
+        var programaText = programaRange ? rangeText(programaRange) : 'Cotización personalizada';
 
         priceProgramaEl.textContent = programaText;
-        priceProgramaNote.textContent = programa.range ? 'neto + IVA' : (programa.note || 'se cotiza a medida');
+        priceProgramaNote.textContent = programaRange ? 'neto + IVA · ' + MODALIDAD[state.modalidad].label : (programaBase.note || 'se cotiza a medida');
 
-        formSumProyectos.textContent = programa.label;
+        formSumProyectos.textContent = programaBase.label + ' · ' + MODALIDAD[state.modalidad].label;
         formSumPrograma.textContent = programaText;
 
         var mostrarContinuidad = state.continuidad === 'si';
 
         if (mostrarContinuidad) {
-          var mensual = MENSUAL[state.activos];
+          var mensualBase = MENSUAL[state.activos];
+          var complejidadMult = COMPLEJIDAD[state.complejidad].mult;
+          var mensualRange = applyMult(mensualBase.range, complejidadMult);
+
           cardMensual.hidden = false;
           summaryBlock.hidden = false;
           sumPrograma.textContent = programaText;
@@ -1176,21 +1248,21 @@
 
           var meses = parseInt(state.meses, 10);
 
-          if (mensual.range) {
-            priceMensualEl.textContent = rangeText(mensual.range);
-            priceMensualNote.textContent = 'neto + IVA / mes';
+          if (mensualRange) {
+            priceMensualEl.textContent = rangeText(mensualRange);
+            priceMensualNote.textContent = 'neto + IVA / mes · ' + COMPLEJIDAD[state.complejidad].label.split(' — ')[0];
             sumMensualLabel.textContent = 'Plan mensual × ' + meses + ' meses';
-            sumMensual.textContent = fmt(mensual.range[0] * meses) + ' – ' + fmt(mensual.range[1] * meses);
+            sumMensual.textContent = fmt(mensualRange[0] * meses) + ' – ' + fmt(mensualRange[1] * meses);
           } else {
             priceMensualEl.textContent = 'Cotización personalizada';
-            priceMensualNote.textContent = mensual.note || 'a definir en la propuesta formal';
-            sumMensualLabel.textContent = 'Plan mensual (' + (mensual.note || 'cotización personalizada') + ')';
+            priceMensualNote.textContent = mensualBase.note || 'a definir en la propuesta formal';
+            sumMensualLabel.textContent = 'Plan mensual (' + (mensualBase.note || 'cotización personalizada') + ')';
             sumMensual.textContent = '—';
           }
 
-          if (programa.range && mensual.range) {
-            var totalLow = programa.range[0] + mensual.range[0] * meses;
-            var totalHigh = programa.range[1] + mensual.range[1] * meses;
+          if (programaRange && mensualRange) {
+            var totalLow = programaRange[0] + mensualRange[0] * meses;
+            var totalHigh = programaRange[1] + mensualRange[1] * meses;
             sumTotal.textContent = fmt(totalLow) + ' – ' + fmt(totalHigh);
           } else {
             sumTotal.textContent = 'Depende de cotización personalizada';
@@ -1218,8 +1290,8 @@
         resultWrap.classList.add('animate-in');
       }
 
-      // Contexto adicional opcional — no afecta el rango, solo enriquece
-      // el resumen que viaja al backend.
+      // Contexto adicional opcional (timing, madurez) — no afecta el rango,
+      // solo enriquece el resumen que viaja al backend.
       function bindExtraPills(groupId, fieldId, stateKey, labels) {
         var group = document.getElementById(groupId);
         var field = document.getElementById(fieldId);
@@ -1232,7 +1304,6 @@
           if (configResumenField) configResumenField.value = buildResumen();
         });
       }
-      bindExtraPills('pillsModalidad', 'modalidad', 'modalidad', MODALIDAD);
       bindExtraPills('pillsTiming', 'timing', 'timing', TIMING);
       bindExtraPills('pillsMadurez', 'madurez', 'madurez', MADUREZ);
 
@@ -1371,6 +1442,7 @@
           mensaje: mensaje,
           configuracion: form.configuracion.value,
           modalidad: form.modalidad.value,
+          complejidad: form.complejidad.value,
           timing: form.timing.value,
           madurez: form.madurez.value,
           origen: form.origen.value,
