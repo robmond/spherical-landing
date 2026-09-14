@@ -6,21 +6,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="color-scheme" content="dark">
-  <title>AI Innovation Sprint — Spherical</title>
-  <meta name="description" content="AI Innovation Sprint: el hackathon corporativo de IA de Spherical — de la idea al prototipo funcional en un día, con continuidad real post-hackathon. Configura tu caso y obtén un rango de inversión.">
+  <title>Sprint de Innovación Corporativa — Spherical</title>
+  <meta name="description" content="Sprint de Innovación Corporativa de Spherical — un hackathon de un día para llevar tus propias soluciones de IA de la idea al prototipo funcional, con acompañamiento después del sprint. Configura tu caso y obtén un rango de inversión.">
 
   <link rel="canonical" href="https://spherical.cl/hackathon.html">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://spherical.cl/hackathon.html">
-  <meta property="og:title" content="AI Innovation Sprint — Spherical">
-  <meta property="og:description" content="De la idea al prototipo funcional en un día. El AI Innovation Sprint de Spherical: un hackathon corporativo con continuidad real post-hackathon.">
+  <meta property="og:title" content="Sprint de Innovación Corporativa — Spherical">
+  <meta property="og:description" content="De la idea al prototipo funcional en un día. El Sprint de Innovación Corporativa de Spherical, con acompañamiento después del sprint.">
   <meta property="og:image" content="https://spherical.cl/assets/og-image.jpg">
   <meta property="og:locale" content="es_CL">
   <meta property="og:site_name" content="Spherical">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Innovation Sprint — Spherical">
+  <meta name="twitter:title" content="Sprint de Innovación Corporativa — Spherical">
   <meta name="twitter:description" content="De la idea al prototipo funcional en un día. Configura tu caso y obtén un rango de inversión personalizado.">
   <meta name="twitter:image" content="https://spherical.cl/assets/og-image.jpg">
 
@@ -295,6 +295,25 @@
     .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl) }
     .phase-card__icon { font-size: 1.8rem; margin-bottom: var(--space-md) }
 
+    /* ═══ LA OPORTUNIDAD (break destacado) ═══ */
+    .highlight-quote {
+      padding: var(--space-3xl) var(--space-2xl);
+      border-radius: var(--radius-2xl);
+      text-align: center;
+      backdrop-filter: var(--blur-lg); -webkit-backdrop-filter: var(--blur-lg);
+      background: linear-gradient(135deg, rgba(93,202,165,0.12), rgba(180,144,245,0.1));
+      border: 1px solid rgba(93,202,165,0.28);
+      box-shadow: var(--shadow-glass);
+    }
+    .highlight-quote__eyebrow { font-size: var(--text-2xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-aqua); margin-bottom: var(--space-md) }
+    .highlight-quote__text {
+      font-family: var(--font-display); font-weight: 900;
+      font-size: clamp(1.5rem, 3.6vw, 2.6rem); line-height: 1.35;
+      max-width: 780px; margin-inline: auto;
+      background: linear-gradient(135deg, #fff 25%, var(--spherical-teal) 60%, var(--accent-violet) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
     /* ═══ DIFERENCIAL (2x2) ═══ */
     .feature-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-top: var(--space-2xl) }
     .feature-card { border-radius: var(--radius-xl); padding: var(--space-lg) var(--space-xl) }
@@ -471,7 +490,8 @@
     [data-theme="light"] .scene__blob { opacity: 0.25 }
     [data-theme="light"] .hero__title { background: linear-gradient(135deg, #0f172a 20%, #0a8a6a 55%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
     [data-theme="light"] .cta-section__title { background: linear-gradient(135deg, #0f172a 20%, #0a8a6a 60%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
-    [data-theme="light"] .section__eyebrow { color: #0891b2 }
+    [data-theme="light"] .highlight-quote__text { background: linear-gradient(135deg, #0f172a 25%, #0a8a6a 60%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    [data-theme="light"] .section__eyebrow, [data-theme="light"] .highlight-quote__eyebrow { color: #0891b2 }
     [data-theme="light"] .glass-card__body, [data-theme="light"] .feature-card__body { color: rgba(15, 23, 42, 0.7); opacity: 1 }
     [data-theme="light"] .hero__sub, [data-theme="light"] .section__desc, [data-theme="light"] .cta-section__sub { color: rgba(15, 23, 42, 0.6); opacity: 1 }
     [data-theme="light"] .footer__tagline { color: rgba(15, 23, 42, 0.45); opacity: 1 }
@@ -539,9 +559,9 @@
 
     <!-- ═══ HERO ═══ -->
     <section class="hero">
-      <p class="hero__kicker animate-in d1">AI Innovation Sprint · Spherical</p>
+      <p class="hero__kicker animate-in d1">Sprint de Innovación Corporativa · Spherical</p>
       <h1 class="hero__title animate-in d2">De la idea al prototipo funcional — en un día.</h1>
-      <p class="hero__sub animate-in d3">Un programa diseñado para que los equipos de tu empresa construyan herramientas de IA propias, con acompañamiento experto y continuidad real post-hackathon.</p>
+      <p class="hero__sub animate-in d3">Un programa diseñado para que los equipos de tu empresa construyan herramientas de IA propias, con acompañamiento experto y continuidad después del sprint.</p>
       <div class="hero__cta animate-in d4">
         <a href="#programa" class="btn btn--primary btn--lg">Conoce el programa ↓</a>
         <a href="#configurador" class="btn btn--ghost btn--lg">Ver estimación de inversión ↓</a>
@@ -553,20 +573,20 @@
       <div class="container">
         <p class="section__eyebrow animate-in d1">Cómo funciona</p>
         <h2 class="section__title animate-in d2">Un programa en tres fases</h2>
-        <p class="section__desc animate-in d3">Cada etapa está diseñada para que los equipos lleguen al hackathon con claridad, construyan con velocidad, y continúen con soporte.</p>
+        <p class="section__desc animate-in d3">Cada etapa está diseñada para que los equipos lleguen al sprint con claridad, construyan con velocidad, y continúen con soporte.</p>
 
         <div class="phase-grid">
           <div class="glass-card animate-in d3">
             <span class="badge badge--aqua">Diseño y preparación</span>
             <div class="phase-card__icon">🧭</div>
             <h3 class="glass-card__title">Fundamentos de IA y Producto</h3>
-            <p class="glass-card__body">Un workshop general para todo el equipo — sin tecnicismos. Cada proyecto completa un documento de descripción de su solución antes de la mentoría individual previa al hackathon. El objetivo es que nadie llegue sin dirección.</p>
+            <p class="glass-card__body">Un workshop general para todo el equipo — sin tecnicismos. Cada proyecto completa un documento de descripción de su solución antes de la mentoría individual previa al sprint. El objetivo es que nadie llegue sin dirección.</p>
           </div>
 
           <div class="glass-card animate-in d4">
             <span class="badge badge--violet">Facilitación del workshop</span>
             <div class="phase-card__icon">⚡</div>
-            <h3 class="glass-card__title">Hackathon + Demo Day</h3>
+            <h3 class="glass-card__title">Sprint + Demo Day</h3>
             <p class="glass-card__body">Los equipos construyen con herramientas de IA real, acompañados por facilitadores especializados durante toda la jornada. Al final del día, cada equipo presenta su solución o pitch deck. Los proyectos con potencial de continuidad se identifican ese mismo día.</p>
           </div>
 
@@ -576,6 +596,18 @@
             <h3 class="glass-card__title">Consultoría y soporte continuo</h3>
             <p class="glass-card__body">Los proyectos que continúan cuentan con consultoría y soporte del equipo Spherical, con la profundidad que cada caso necesite. No definimos el alcance de antemano — al cerrar el Demo Day ya sabes qué construiste, y ahí definimos juntos herramientas, horas y plazos.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ LA OPORTUNIDAD (break) ═══ -->
+    <section class="section" style="padding-top:0;padding-bottom:0">
+      <div class="container">
+        <div class="highlight-quote animate-in d2">
+          <p class="highlight-quote__eyebrow">La oportunidad</p>
+          <p class="highlight-quote__text">Nadie conoce un problema como quien lo vive todos los días. Hoy, por primera vez, ese equipo puede construir la solución — no pedirla.</p>
         </div>
       </div>
     </section>
@@ -608,7 +640,7 @@
           <div class="glass feature-card animate-in d6">
             <div class="feature-card__icon">📈</div>
             <div class="feature-card__title">Continuidad estructurada</div>
-            <p class="feature-card__body">El post-hackathon está diseñado desde antes del hackathon. Los proyectos no mueren después del demo day.</p>
+            <p class="feature-card__body">La continuidad está diseñada desde antes del sprint. Los proyectos no mueren después del demo day.</p>
           </div>
           <div class="glass feature-card feature-card--wide animate-in d7">
             <div class="feature-card__icon">📊</div>
@@ -632,7 +664,7 @@
 
           <!-- Pregunta — El programa -->
           <div class="config-step" id="step1">
-            <p class="config-question"><span class="config-step__num">1</span>¿Cuántos proyectos o equipos participarán en el hackathon?</p>
+            <p class="config-question"><span class="config-step__num">1</span>¿Cuántos proyectos o equipos participarán en el sprint?</p>
             <div class="pill-group" id="pillsProyectos">
               <button type="button" class="pill" data-value="1-15">1 a 15 proyectos</button>
               <button type="button" class="pill" data-value="16+">Más de 15 proyectos</button>
@@ -658,9 +690,9 @@
                 <li>Preparación y diseño del proceso</li>
                 <li>Mentorías de validación individuales por proyecto</li>
                 <li>Mentorías de IA</li>
-                <li>Facilitación del workshop presencial (hackathon + demo day)</li>
+                <li>Facilitación del workshop presencial (sprint + demo day)</li>
                 <li>Producción audiovisual del evento</li>
-                <li>Mentores del hackathon</li>
+                <li>Mentores del sprint</li>
                 <li>Jurado</li>
               </ul>
 
@@ -676,8 +708,8 @@
 
             <!-- Continuidad — pregunta secundaria, no tiene precio fijo -->
             <div class="config-step" id="stepContinuidad">
-              <p class="config-question"><span class="config-step__num">2</span>¿Te interesa que los proyectos continúen activos después del hackathon?</p>
-              <p class="config-question__hint">Un buen proyecto no debería quedar solo en el hackathon: con continuidad, el equipo puede acompañarlo con el tiempo y la profundidad que cada caso necesite.</p>
+              <p class="config-question"><span class="config-step__num">2</span>¿Te interesa que los proyectos continúen activos después del sprint?</p>
+              <p class="config-question__hint">Un buen proyecto no debería quedar solo en el sprint: con continuidad, el equipo puede acompañarlo con el tiempo y la profundidad que cada caso necesite.</p>
               <div class="pill-group" id="pillsContinuidad">
                 <button type="button" class="pill" data-value="si">Sí, nos interesa</button>
                 <button type="button" class="pill" data-value="no">Solo el programa por ahora</button>
@@ -686,19 +718,19 @@
 
             <!-- Nota de continuidad — sin precio fijo, se define después del demo day -->
             <div class="glass continuity-note" id="continuityNote" hidden>
-              <p class="continuity-note__eyebrow">¿Qué pasa después del hackathon?</p>
-              <h3 class="continuity-note__title">La hackathon es el punto de partida, no el destino.</h3>
+              <p class="continuity-note__eyebrow">¿Qué pasa después del sprint?</p>
+              <h3 class="continuity-note__title">El sprint es el punto de partida, no el destino.</h3>
               <p class="continuity-note__body">El formato está diseñado para que tu empresa viva en un día lo que normalmente toma meses: identificar oportunidades reales de IA, movilizar a los equipos y ver prototipos funcionando.</p>
-              <p class="continuity-note__body">Pero lo que ocurre después depende de lo que encuentras adentro. Cada empresa es distinta — en un mismo hackathon pueden surgir proyectos de muy distinta complejidad:</p>
+              <p class="continuity-note__body">Pero lo que ocurre después depende de lo que encuentras adentro. Cada empresa es distinta — en un mismo sprint pueden surgir proyectos de muy distinta complejidad:</p>
               <ul class="continuity-note__list">
                 <li><strong>Un chatbot de atención interna</strong> — implementación rápida, bajo costo</li>
                 <li><strong>Automatización de un proceso operativo</strong> — integración con sistemas existentes</li>
                 <li><strong>Procesamiento de datos no estructurados</strong> — arquitectura más robusta</li>
                 <li><strong>Integración con APIs externas o ERPs</strong> — desarrollo técnico especializado</li>
               </ul>
-              <p class="continuity-note__body">Por eso el acompañamiento post-hackathon no tiene un precio fijo de antemano. Una vez que conocemos los proyectos que tu equipo quiere llevar adelante, definimos juntos qué requiere cada uno: herramientas, horas, perfiles y plazos.</p>
+              <p class="continuity-note__body">Por eso este acompañamiento no tiene un precio fijo de antemano. Una vez que conocemos los proyectos que tu equipo quiere llevar adelante, definimos juntos qué requiere cada uno: herramientas, horas, perfiles y plazos.</p>
               <p class="continuity-note__body">Esa conversación ocurre naturalmente al terminar el Demo Day, cuando ya sabes exactamente qué tienes entre manos y qué quieres priorizar.</p>
-              <p class="continuity-note__closing">La barrera de entrada es la hackathon. Lo que viene después lo construimos contigo.</p>
+              <p class="continuity-note__closing">La barrera de entrada es el sprint. Lo que viene después lo construimos contigo.</p>
             </div>
 
             <!-- Contexto adicional — no afecta el rango, ayuda a afinar la propuesta -->
@@ -758,9 +790,9 @@
 
           <div class="glass summary-block" id="formConfigSummary" style="max-width:620px;margin-inline:auto;margin-bottom:var(--space-xl);" hidden>
             <div class="summary-block__title">Tu configuración</div>
-            <div class="summary-row"><span>Proyectos del hackathon</span><span id="formSumProyectos"></span></div>
-            <div class="summary-row"><span>Programa hackathon</span><span id="formSumPrograma"></span></div>
-            <div class="summary-row" id="formSumContinuidadRow" hidden><span>Continuidad post-hackathon</span><span id="formSumContinuidad"></span></div>
+            <div class="summary-row"><span>Proyectos del sprint</span><span id="formSumProyectos"></span></div>
+            <div class="summary-row"><span>Programa del sprint</span><span id="formSumPrograma"></span></div>
+            <div class="summary-row" id="formSumContinuidadRow" hidden><span>Continuidad post-sprint</span><span id="formSumContinuidad"></span></div>
             <p class="summary-note">Este resumen se incluye en tu solicitud. Puedes precisar cualquier detalle en el campo de abajo.</p>
           </div>
 
@@ -802,7 +834,7 @@
               </div>
             </div>
 
-            <input type="hidden" id="origen" name="origen" value="Hackathon">
+            <input type="hidden" id="origen" name="origen" value="Sprint de Innovación Corporativa">
             <input type="hidden" id="configResumen" name="configuracion" value="">
             <input type="hidden" id="modalidad" name="modalidad" value="">
             <input type="hidden" id="timing" name="timing" value="">
@@ -843,7 +875,7 @@
             <ul class="footer__links">
               <li><a href="ecosistemas-digitales.html">Ecosistemas Digitales</a></li>
               <li><a href="ia-empresarial-v2.html">Desarrollo Tecnológico</a></li>
-              <li><a href="hackathon.html">AI Innovation Sprint</a></li>
+              <li><a href="hackathon.html">Sprint de Innovación Corporativa</a></li>
             </ul>
           </div>
           <div>
@@ -977,9 +1009,9 @@
       function buildResumen() {
         if (!state.proyectos) return '';
         var programa = PROGRAMA[state.proyectos];
-        var resumen = 'AI Innovation Sprint ' + programa.label;
+        var resumen = 'Sprint de Innovación Corporativa ' + programa.label;
         if (state.continuidad === 'si') {
-          resumen += ' + interés en continuidad post-hackathon (se define en el Demo Day)';
+          resumen += ' + interés en continuidad post-sprint (se define en el Demo Day)';
         } else if (state.continuidad === 'no') {
           resumen += ' (sin continuidad por ahora)';
         }
@@ -1221,13 +1253,13 @@
         })
           .then(function () {
             if (typeof gtag === 'function') {
-              gtag('event', 'generate_lead', { event_category: 'Lead', event_label: 'Formulario Hackathon', value: 1 });
+              gtag('event', 'generate_lead', { event_category: 'Lead', event_label: 'Formulario Sprint Innovacion Corporativa', value: 1 });
             }
             setTimeout(function () { window.location.href = './gracias.html'; }, 400);
           })
           .catch(function () {
             if (typeof gtag === 'function') {
-              gtag('event', 'generate_lead', { event_category: 'Lead', event_label: 'Formulario Hackathon', value: 1 });
+              gtag('event', 'generate_lead', { event_category: 'Lead', event_label: 'Formulario Sprint Innovacion Corporativa', value: 1 });
             }
             setTimeout(function () { window.location.href = './gracias.html'; }, 400);
           });
