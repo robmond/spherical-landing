@@ -319,31 +319,10 @@
     .pill:hover { background: var(--glass-white-md); transform: translateY(-2px) }
     .pill.is-selected { border-color: rgba(93,202,165,0.65); background: rgba(93,202,165,0.15); color: var(--spherical-teal-bright); box-shadow: 0 0 16px rgba(93,202,165,0.22) }
     .edu-text { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; line-height: 1.65; max-width: 620px }
-    .sub-question { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 1px solid var(--glass-border-subtle) }
-    .sub-question__label { font-size: var(--text-base); font-weight: 500; margin-bottom: var(--space-md) }
-
-    /* ═══ PROGRESO DEL CONFIGURADOR ═══ */
-    .config-progress-wrap { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-2xl) }
-    .config-progress-track { flex: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.08); overflow: hidden }
-    .config-progress-fill { height: 100%; border-radius: 3px; width: 0%; background: linear-gradient(90deg, var(--spherical-teal), var(--accent-aqua)); transition: width 0.5s var(--ease-smooth) }
-    .config-progress-label { font-size: var(--text-xs); letter-spacing: 0.04em; opacity: 0.5; white-space: nowrap; min-width: 128px; text-align: right }
-
-    /* ═══ ESTIMACIÓN PENDIENTE ═══ */
-    .pending-hint {
-      margin-top: var(--space-2xl); padding-top: var(--space-2xl); border-top: 1px solid var(--glass-border-subtle);
-      align-items: center; gap: var(--space-md);
-    }
-    .pending-hint:not([hidden]) { display: flex }
-    .pending-hint__icon {
-      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-      background: var(--glass-white); border: 1px solid var(--glass-border);
-    }
-    .pending-hint__text { font-size: var(--text-sm); line-height: 1.6; opacity: 0.6; max-width: 480px }
 
     .result-wrap { margin-top: var(--space-2xl); padding-top: var(--space-2xl); border-top: 1px solid var(--glass-border-subtle) }
-    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg) }
     .result-card { border-radius: var(--radius-xl); padding: var(--space-xl) }
+    .result-card--solo { max-width: 560px; margin-inline: auto }
     .result-card__title { font-family: var(--font-display); font-weight: 900; font-size: 1.25rem; margin-bottom: 2px }
     .result-card__sub { font-size: var(--text-xs); opacity: 0.5; margin-bottom: var(--space-lg) }
     .result-card__price { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.1; background: linear-gradient(135deg, var(--spherical-teal), var(--accent-aqua)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
@@ -351,6 +330,26 @@
     .result-card__list { list-style: none; display: flex; flex-direction: column; gap: var(--space-sm) }
     .result-card__list li { font-size: var(--text-sm); opacity: 0.8; padding-left: 24px; position: relative; line-height: 1.55 }
     .result-card__list li::before { content: "✓"; position: absolute; left: 0; color: var(--spherical-teal); font-weight: 700 }
+
+    .price-breakdown { margin: var(--space-lg) 0; padding: var(--space-md) 0; border-top: 1px solid var(--glass-border-subtle); border-bottom: 1px solid var(--glass-border-subtle); display: flex; flex-direction: column; gap: 6px }
+    .price-breakdown__row { display: flex; justify-content: space-between; gap: var(--space-md); font-size: var(--text-sm); opacity: 0.75 }
+
+    .result-card__exclude { margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--glass-border-subtle) }
+    .result-card__exclude-title { font-size: var(--text-sm); font-weight: 500; opacity: 0.7; margin-bottom: var(--space-sm) }
+    .result-card__exclude-note { font-weight: 400; opacity: 0.5; font-size: var(--text-xs) }
+    .result-card__exclude-list { list-style: none; display: flex; flex-direction: column; gap: 6px }
+    .result-card__exclude-list li { font-size: var(--text-sm); opacity: 0.5; padding-left: 20px; position: relative }
+    .result-card__exclude-list li::before { content: "–"; position: absolute; left: 0; opacity: 0.6 }
+
+    /* ═══ NOTA DE CONTINUIDAD (sin precio fijo) ═══ */
+    .continuity-note { margin-top: var(--space-2xl); padding: var(--space-2xl); border-radius: var(--radius-xl) }
+    .continuity-note__eyebrow { font-size: var(--text-2xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-aqua); margin-bottom: var(--space-sm) }
+    .continuity-note__title { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; line-height: 1.25; margin-bottom: var(--space-md) }
+    .continuity-note__body { font-size: var(--text-sm); line-height: 1.7; opacity: 0.75; margin-bottom: var(--space-md) }
+    .continuity-note__list { list-style: none; display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0 var(--space-lg) }
+    .continuity-note__list li { font-size: var(--text-sm); line-height: 1.6; opacity: 0.8; padding-left: 22px; position: relative }
+    .continuity-note__list li::before { content: "→"; position: absolute; left: 0; color: var(--spherical-teal) }
+    .continuity-note__closing { font-family: var(--font-display); font-weight: 900; font-size: 1.05rem; opacity: 1; margin-top: var(--space-lg) }
 
     .summary-block { margin-top: var(--space-xl); border-radius: var(--radius-xl); padding: var(--space-xl); border: 1px solid rgba(93,202,165,0.3); background: rgba(93,202,165,0.06); text-align: left }
     .summary-block__title { font-family: var(--font-display); font-weight: 900; font-size: 1.1rem; margin-bottom: var(--space-md) }
@@ -432,7 +431,6 @@
       .navbar__hamburger { display: flex }
       .phase-grid { grid-template-columns: 1fr }
       .feature-grid-2 { grid-template-columns: 1fr }
-      .result-grid { grid-template-columns: 1fr }
       .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg) }
     }
     @media(max-width:640px) {
@@ -576,7 +574,7 @@
             <span class="badge badge--amber">Post-hackathon</span>
             <div class="phase-card__icon">🔁</div>
             <h3 class="glass-card__title">Consultoría y soporte continuo</h3>
-            <p class="glass-card__body">Los proyectos que continúan cuentan con consultoría y soporte permanente del equipo Spherical, con la profundidad que cada caso necesite. La empresa no gestiona contratos ni proveedores por separado — Spherical centraliza el acompañamiento de todos los proyectos activos bajo un solo contrato mensual.</p>
+            <p class="glass-card__body">Los proyectos que continúan cuentan con consultoría y soporte del equipo Spherical, con la profundidad que cada caso necesite. No definimos el alcance de antemano — al cerrar el Demo Day ya sabes qué construiste, y ahí definimos juntos herramientas, horas y plazos.</p>
           </div>
         </div>
       </div>
@@ -628,132 +626,93 @@
       <div class="container">
         <p class="section__eyebrow animate-in d1">Estimación personalizada</p>
         <h2 class="section__title animate-in d2">¿Cuánto representa esta inversión para tu empresa?</h2>
-        <p class="section__desc animate-in d3">Responde tres preguntas y obtén un rango de inversión en tiempo real. No es un precio final — es un punto de partida para conversar.</p>
+        <p class="section__desc animate-in d3">Responde una pregunta y obtén tu rango de inversión al instante. No es un precio final — es un punto de partida para conversar.</p>
 
         <div class="glass configurator-card animate-in d4">
 
-          <div class="config-progress-wrap">
-            <div class="config-progress-track"><div class="config-progress-fill" id="configProgressFill"></div></div>
-            <span class="config-progress-label" id="configProgressLabel">0% completado</span>
-          </div>
-
-          <!-- Paso 1 — El programa -->
+          <!-- Pregunta — El programa -->
           <div class="config-step" id="step1">
             <p class="config-question"><span class="config-step__num">1</span>¿Cuántos proyectos o equipos participarán en el hackathon?</p>
             <div class="pill-group" id="pillsProyectos">
-              <button type="button" class="pill" data-value="1-5">1 a 5 proyectos</button>
-              <button type="button" class="pill" data-value="6-15">6 a 15 proyectos</button>
-              <button type="button" class="pill" data-value="16-30">16 a 30 proyectos</button>
-              <button type="button" class="pill" data-value="31+">31 o más proyectos</button>
+              <button type="button" class="pill" data-value="1-15">1 a 15 proyectos</button>
+              <button type="button" class="pill" data-value="16+">Más de 15 proyectos</button>
             </div>
             <p class="edu-text" id="eduProyectos" hidden></p>
-
-            <!-- Sub-pregunta: modalidad — afecta el precio del programa -->
-            <div class="sub-question" id="subModalidad" hidden>
-              <p class="sub-question__label">¿En qué modalidad?</p>
-              <div class="pill-group" id="pillsModalidad">
-                <button type="button" class="pill" data-value="remoto">Remoto</button>
-                <button type="button" class="pill" data-value="presencial-scl">Presencial en Santiago</button>
-                <button type="button" class="pill" data-value="presencial-otra">Presencial fuera de Santiago</button>
-              </div>
-              <p class="edu-text" id="eduModalidad" hidden>La modalidad remota reduce costos de logística y traslado. Presencial fuera de Santiago incluye viáticos y coordinación de facilitadores en terreno.</p>
-            </div>
           </div>
 
-          <!-- Paso 2 — Continuidad -->
-          <div class="config-step" id="step2" hidden>
-            <p class="config-question"><span class="config-step__num">2</span>¿Quieres que los proyectos continúen activos después del hackathon?</p>
-            <p class="config-question__hint">Un buen proyecto no debería quedar solo en el hackathon: con continuidad, el equipo puede acompañarlo con el tiempo y la profundidad que cada caso necesite.</p>
-            <div class="pill-group" id="pillsContinuidad">
-              <button type="button" class="pill" data-value="si">Sí, queremos continuidad</button>
-              <button type="button" class="pill" data-value="no">Solo el programa por ahora</button>
-            </div>
-
-            <!-- Sub-pregunta: proyectos que continúan -->
-            <div class="sub-question" id="subActivos" hidden>
-              <p class="sub-question__label">¿Cuántos proyectos estimas que continuarán?</p>
-              <div class="pill-group" id="pillsActivos">
-                <button type="button" class="pill" data-value="1-3">1 a 3</button>
-                <button type="button" class="pill" data-value="4-6">4 a 6</button>
-                <button type="button" class="pill" data-value="7-10">7 a 10</button>
-                <button type="button" class="pill" data-value="10+">más de 10</button>
-                <button type="button" class="pill" data-value="no-se">Aún no lo sé</button>
-              </div>
-              <p class="edu-text" id="eduActivos" hidden>Spherical opera como intermediario tecnológico: la empresa contrata un plan mensual único que cubre todos los proyectos activos. No hay tarjetas individuales ni contratos separados por equipo — el área de innovación administra el uso desde un solo contrato.</p>
-            </div>
-
-            <!-- Sub-pregunta: complejidad — afecta el precio del plan mensual -->
-            <div class="sub-question" id="subComplejidad" hidden>
-              <p class="sub-question__label">¿Qué tan compleja esperas que sea la herramienta?</p>
-              <div class="pill-group" id="pillsComplejidad">
-                <button type="button" class="pill" data-value="basica">Básica — asistente o chatbot simple</button>
-                <button type="button" class="pill" data-value="intermedia">Intermedia — automatiza un proceso, 1-2 sistemas</button>
-                <button type="button" class="pill" data-value="avanzada">Avanzada — flujo multi-sistema, agentes</button>
-              </div>
-              <p class="edu-text" id="eduComplejidad" hidden>La complejidad determina cuánto tiempo de ingeniería y soporte requiere cada proyecto al mes — un asistente simple y un flujo multi-sistema no cuestan lo mismo de mantener.</p>
-            </div>
-
-            <!-- Sub-pregunta: duración del contrato -->
-            <div class="sub-question" id="subMeses" hidden>
-              <p class="sub-question__label">¿Por cuántos meses estimas el contrato inicial?</p>
-              <div class="pill-group" id="pillsMeses">
-                <button type="button" class="pill" data-value="3">3 meses</button>
-                <button type="button" class="pill" data-value="6">6 meses</button>
-                <button type="button" class="pill" data-value="12">12 meses</button>
-              </div>
-              <p class="edu-text" id="eduMeses" hidden>Muchos de nuestros clientes eligen partir con un contrato de 3 a 6 meses para validar resultados, y luego deciden la continuidad de largo plazo con más información. El contrato mínimo es de 3 meses.</p>
-            </div>
-          </div>
-
-          <!-- Estado pendiente: faltan respuestas para ver la estimación -->
-          <div class="pending-hint" id="pendingHint" hidden>
-            <span class="pending-hint__icon">🔒</span>
-            <p class="pending-hint__text" id="pendingHintText">Responde la pregunta restante para desbloquear tu estimación de inversión personalizada.</p>
-          </div>
-
-          <!-- Paso 3 — Resultado -->
+          <!-- Resultado — aparece de inmediato al responder -->
           <div class="result-wrap" id="resultWrap" hidden>
-            <div class="result-grid">
-              <div class="glass result-card" id="cardPrograma">
-                <div class="result-card__title">Inversión del programa</div>
-                <div class="result-card__sub">Pago único · incluye todas las fases</div>
-                <div class="result-card__price" id="priceProgramaEl"></div>
-                <div class="result-card__price-note" id="priceProgramaNote">neto + IVA</div>
-                <ul class="result-card__list">
-                  <li>Workshop "Fundamentos de IA y Producto"</li>
-                  <li>Revisión de documentos por proyecto</li>
-                  <li>Mentoría individual por proyecto (25 min)</li>
-                  <li>Facilitadores en sala durante todo el hackathon</li>
-                  <li>Coordinación del hackathon y demo day</li>
-                </ul>
+
+            <div class="glass result-card result-card--solo" id="cardPrograma">
+              <div class="result-card__title">Inversión del programa</div>
+              <div class="result-card__sub">Pago único · incluye todas las fases</div>
+              <div class="result-card__price" id="priceProgramaEl"></div>
+              <div class="result-card__price-note" id="priceProgramaNote">neto + IVA</div>
+
+              <div class="price-breakdown" id="priceBreakdown">
+                <div class="price-breakdown__row"><span>Diseño y preparación previa</span><span>~CLP 2.000.000</span></div>
+                <div class="price-breakdown__row"><span>Facilitación del workshop presencial</span><span>~CLP 1.000.000</span></div>
               </div>
 
-              <div class="glass result-card" id="cardMensual" hidden>
-                <div class="result-card__title">Inversión mensual estimada</div>
-                <div class="result-card__sub">Contrato único por todos los proyectos activos</div>
-                <div class="result-card__price" id="priceMensualEl"></div>
-                <div class="result-card__price-note" id="priceMensualNote">neto + IVA</div>
-                <ul class="result-card__list">
-                  <li>Consultoría y soporte técnico continuo</li>
-                  <li>Límite de uso mensual por proyecto (sin sorpresas de facturación)</li>
-                  <li>Mínimo 2 usuarios por proyecto activo</li>
-                  <li>Sesión mensual de acompañamiento estratégico con el área de innovación</li>
-                  <li>Horas de soporte reactivo incluidas en el pool del contrato</li>
+              <ul class="result-card__list">
+                <li>Preparación y diseño del proceso</li>
+                <li>Mentorías de validación individuales por proyecto</li>
+                <li>Mentorías de IA</li>
+                <li>Facilitación del workshop presencial (hackathon + demo day)</li>
+                <li>Producción audiovisual del evento</li>
+                <li>Mentores del hackathon</li>
+                <li>Jurado</li>
+              </ul>
+
+              <div class="result-card__exclude">
+                <p class="result-card__exclude-title">No incluye <span class="result-card__exclude-note">(lo gestiona la empresa)</span></p>
+                <ul class="result-card__exclude-list">
+                  <li>Venue / sala</li>
+                  <li>Catering / coffee</li>
+                  <li>Logística de traslado</li>
                 </ul>
               </div>
             </div>
 
-            <div class="glass summary-block" id="summaryBlock" hidden>
-              <div class="summary-block__title">Estimación total año 1</div>
-              <div class="summary-row"><span>Programa hackathon</span><span id="sumPrograma"></span></div>
-              <div class="summary-row" id="sumMensualRow"><span id="sumMensualLabel">Plan mensual</span><span id="sumMensual"></span></div>
-              <div class="summary-row summary-row--total"><span>Total estimado año 1</span><span id="sumTotal"></span></div>
-              <p class="summary-note">Valores referenciales en CLP neto + IVA — el precio final varía según la complejidad y el alcance de cada proyecto. La propuesta formal incluye el desglose exacto según tus condiciones específicas.</p>
+            <!-- Continuidad — pregunta secundaria, no tiene precio fijo -->
+            <div class="config-step" id="stepContinuidad">
+              <p class="config-question"><span class="config-step__num">2</span>¿Te interesa que los proyectos continúen activos después del hackathon?</p>
+              <p class="config-question__hint">Un buen proyecto no debería quedar solo en el hackathon: con continuidad, el equipo puede acompañarlo con el tiempo y la profundidad que cada caso necesite.</p>
+              <div class="pill-group" id="pillsContinuidad">
+                <button type="button" class="pill" data-value="si">Sí, nos interesa</button>
+                <button type="button" class="pill" data-value="no">Solo el programa por ahora</button>
+              </div>
+            </div>
+
+            <!-- Nota de continuidad — sin precio fijo, se define después del demo day -->
+            <div class="glass continuity-note" id="continuityNote" hidden>
+              <p class="continuity-note__eyebrow">¿Qué pasa después del hackathon?</p>
+              <h3 class="continuity-note__title">La hackathon es el punto de partida, no el destino.</h3>
+              <p class="continuity-note__body">El formato está diseñado para que tu empresa viva en un día lo que normalmente toma meses: identificar oportunidades reales de IA, movilizar a los equipos y ver prototipos funcionando.</p>
+              <p class="continuity-note__body">Pero lo que ocurre después depende de lo que encuentras adentro. Cada empresa es distinta — en un mismo hackathon pueden surgir proyectos de muy distinta complejidad:</p>
+              <ul class="continuity-note__list">
+                <li><strong>Un chatbot de atención interna</strong> — implementación rápida, bajo costo</li>
+                <li><strong>Automatización de un proceso operativo</strong> — integración con sistemas existentes</li>
+                <li><strong>Procesamiento de datos no estructurados</strong> — arquitectura más robusta</li>
+                <li><strong>Integración con APIs externas o ERPs</strong> — desarrollo técnico especializado</li>
+              </ul>
+              <p class="continuity-note__body">Por eso el acompañamiento post-hackathon no tiene un precio fijo de antemano. Una vez que conocemos los proyectos que tu equipo quiere llevar adelante, definimos juntos qué requiere cada uno: herramientas, horas, perfiles y plazos.</p>
+              <p class="continuity-note__body">Esa conversación ocurre naturalmente al terminar el Demo Day, cuando ya sabes exactamente qué tienes entre manos y qué quieres priorizar.</p>
+              <p class="continuity-note__closing">La barrera de entrada es la hackathon. Lo que viene después lo construimos contigo.</p>
             </div>
 
             <!-- Contexto adicional — no afecta el rango, ayuda a afinar la propuesta -->
             <div class="extra-context">
               <p class="extra-context__title">Un poco más de contexto <span class="extra-context__optional">(opcional — nos ayuda a afinar tu propuesta)</span></p>
+
+              <div class="extra-context__row">
+                <p class="extra-context__label">Modalidad</p>
+                <div class="pill-group" id="pillsModalidad">
+                  <button type="button" class="pill pill--sm" data-value="remoto">Remoto</button>
+                  <button type="button" class="pill pill--sm" data-value="presencial-scl">Presencial en Santiago</button>
+                  <button type="button" class="pill pill--sm" data-value="presencial-otra">Presencial fuera de Santiago</button>
+                </div>
+              </div>
 
               <div class="extra-context__row">
                 <p class="extra-context__label">¿Cuándo te gustaría correrlo?</p>
@@ -801,8 +760,7 @@
             <div class="summary-block__title">Tu configuración</div>
             <div class="summary-row"><span>Proyectos del hackathon</span><span id="formSumProyectos"></span></div>
             <div class="summary-row"><span>Programa hackathon</span><span id="formSumPrograma"></span></div>
-            <div class="summary-row" id="formSumMensualRow" hidden><span id="formSumMensualLabel">Plan mensual</span><span id="formSumMensual"></span></div>
-            <div class="summary-row summary-row--total" id="formSumTotalRow" hidden><span>Total estimado año 1</span><span id="formSumTotal"></span></div>
+            <div class="summary-row" id="formSumContinuidadRow" hidden><span>Continuidad post-hackathon</span><span id="formSumContinuidad"></span></div>
             <p class="summary-note">Este resumen se incluye en tu solicitud. Puedes precisar cualquier detalle en el campo de abajo.</p>
           </div>
 
@@ -847,7 +805,6 @@
             <input type="hidden" id="origen" name="origen" value="Hackathon">
             <input type="hidden" id="configResumen" name="configuracion" value="">
             <input type="hidden" id="modalidad" name="modalidad" value="">
-            <input type="hidden" id="complejidad" name="complejidad" value="">
             <input type="hidden" id="timing" name="timing" value="">
             <input type="hidden" id="madurez" name="madurez" value="">
 
@@ -967,51 +924,27 @@
   <!-- ═══ CONFIGURADOR DE INVERSIÓN ═══ -->
   <script>
     (function () {
+      // Precio plano del programa — confirmado en llamada: no escala por
+      // cantidad de proyectos dentro de un rango razonable de un día.
+      // Sobre el umbral definido, se cotiza a medida.
       var PROGRAMA = {
-        '1-5':   { range: [1200000, 1800000], label: '1 a 5 proyectos',    edu: 'Formato ideal para equipos que están dando sus primeros pasos en innovación con IA, con acompañamiento cercano en cada etapa.' },
-        '6-15':  { range: [2500000, 3800000], label: '6 a 15 proyectos',   edu: 'El formato más común en empresas medianas que quieren involucrar a varias áreas a la vez, con acompañamiento dedicado durante todo el programa.' },
-        '16-30': { range: [4200000, 6000000], label: '16 a 30 proyectos',  edu: 'Para organizaciones con programas de intraemprendimiento consolidados — como el hackathon realizado junto a Eurofarma. Requiere coordinación extendida para sostener el ritmo de todos los equipos.' },
-        '31+':   { range: null,               label: '31 proyectos o más', edu: 'Para programas corporativos a gran escala. Diseñamos el formato de acompañamiento y coordinación a la medida de tu organización.', note: 'programa de gran escala — se cotiza a medida' }
-      };
-      var MENSUAL = {
-        '1-3':   { range: [1150000, 1650000], label: '1 a 3 proyectos' },
-        '4-6':   { range: [1650000, 2700000], label: '4 a 6 proyectos' },
-        '7-10':  { range: [2650000, 4100000], label: '7 a 10 proyectos' },
-        '10+':   { range: null, label: 'más de 10 proyectos', note: 'más de 10 proyectos activos — se cotiza a medida' },
-        'no-se': { range: null, label: 'aún por definir',     note: 'lo definimos juntos en la propuesta formal' }
+        '1-15': { range: [2500000, 3000000], label: '1 a 15 proyectos',   edu: 'Un facilitador, una jornada. El precio es el mismo para equipos chicos o programas medianos — la inversión no escala por cantidad de proyectos dentro de este rango.' },
+        '16+':  { range: null,               label: 'más de 15 proyectos', edu: 'Sobre 15 proyectos se necesita más de un facilitador y coordinación extendida — dejamos de operar como una jornada estándar.', note: 'programa de mayor escala — se cotiza a medida' }
       };
 
-      // Modalidad y complejidad ajustan el rango mostrado (multiplicador sobre
-      // el precio base) — ambas confirmadas como drivers reales de costo.
-      var MODALIDAD = {
-        'remoto':          { mult: 0.85, label: 'Remoto' },
-        'presencial-scl':  { mult: 1,    label: 'Presencial en Santiago' },
-        'presencial-otra': { mult: 1.2,  label: 'Presencial fuera de Santiago' }
-      };
-      var COMPLEJIDAD = {
-        'basica':     { mult: 0.75, label: 'Básica — asistente o chatbot simple' },
-        'intermedia': { mult: 1,    label: 'Intermedia — automatiza un proceso, 1-2 sistemas' },
-        'avanzada':   { mult: 1.4,  label: 'Avanzada — flujo multi-sistema, agentes' }
-      };
-      // Preguntas de contexto opcionales — no afectan el rango mostrado.
+      // Modalidad, timing y madurez son contexto opcional — no afectan el
+      // rango mostrado (viáticos y logística los gestiona la empresa).
+      var MODALIDAD = { remoto: 'Remoto', 'presencial-scl': 'Presencial en Santiago', 'presencial-otra': 'Presencial fuera de Santiago' };
       var TIMING = { '1mes': 'En el próximo mes', '1-3meses': 'En 1 a 3 meses', explorando: 'Aún explorando fechas' };
       var MADUREZ = { definidos: 'Ya los tenemos definidos', 'idea-general': 'Tenemos una idea general', 'necesitamos-ayuda': 'Necesitamos ayuda para definirlos' };
 
       var state = {
-        proyectos: null, modalidad: null, continuidad: null, activos: null, complejidad: null, meses: null,
-        timing: null, madurez: null
+        proyectos: null, continuidad: null,
+        modalidad: null, timing: null, madurez: null
       };
 
       function fmt(n) { return 'CLP ' + n.toLocaleString('es-CL'); }
       function rangeText(range) { return fmt(range[0]) + ' – ' + fmt(range[1]); }
-      function applyMult(range, mult) {
-        if (!range) return null;
-        var step = 10000; // redondea a CLP 10.000 más cercano
-        return [
-          Math.round(range[0] * mult / step) * step,
-          Math.round(range[1] * mult / step) * step
-        ];
-      }
 
       function selectPill(group, value) {
         group.querySelectorAll('.pill').forEach(function (p) {
@@ -1027,259 +960,55 @@
         el.classList.add('animate-in');
       }
 
-      var pillsProyectos = document.getElementById('pillsProyectos');
-      var eduProyectos = document.getElementById('eduProyectos');
-      var subModalidad = document.getElementById('subModalidad');
-      var step2 = document.getElementById('step2');
-
-      pillsProyectos.addEventListener('click', function (e) {
-        var btn = e.target.closest('.pill');
-        if (!btn) return;
-        state.proyectos = btn.dataset.value;
-        selectPill(pillsProyectos, state.proyectos);
-        eduProyectos.textContent = PROGRAMA[state.proyectos].edu;
-        reveal(eduProyectos);
-        reveal(subModalidad);
-        renderResult();
-      });
-
-      var pillsModalidad = document.getElementById('pillsModalidad');
-      var eduModalidad = document.getElementById('eduModalidad');
-      var modalidadField = document.getElementById('modalidad');
-
-      pillsModalidad.addEventListener('click', function (e) {
-        var btn = e.target.closest('.pill');
-        if (!btn) return;
-        state.modalidad = btn.dataset.value;
-        selectPill(pillsModalidad, state.modalidad);
-        modalidadField.value = MODALIDAD[state.modalidad].label;
-        reveal(eduModalidad);
-        reveal(step2);
-        renderResult();
-      });
-
-      var pillsContinuidad = document.getElementById('pillsContinuidad');
-      var subActivos = document.getElementById('subActivos');
-      var subComplejidad = document.getElementById('subComplejidad');
-      var subMeses = document.getElementById('subMeses');
-
-      pillsContinuidad.addEventListener('click', function (e) {
-        var btn = e.target.closest('.pill');
-        if (!btn) return;
-        state.continuidad = btn.dataset.value;
-        selectPill(pillsContinuidad, state.continuidad);
-
-        if (state.continuidad === 'si') {
-          reveal(subActivos);
-          reveal(subComplejidad);
-          reveal(subMeses);
-        } else {
-          subActivos.hidden = true;
-          subComplejidad.hidden = true;
-          subMeses.hidden = true;
-          state.activos = null;
-          state.complejidad = null;
-          state.meses = null;
-        }
-        renderResult();
-      });
-
-      var pillsActivos = document.getElementById('pillsActivos');
-      var eduActivos = document.getElementById('eduActivos');
-
-      pillsActivos.addEventListener('click', function (e) {
-        var btn = e.target.closest('.pill');
-        if (!btn) return;
-        state.activos = btn.dataset.value;
-        selectPill(pillsActivos, state.activos);
-        reveal(eduActivos);
-        renderResult();
-      });
-
-      var pillsComplejidad = document.getElementById('pillsComplejidad');
-      var eduComplejidad = document.getElementById('eduComplejidad');
-      var complejidadField = document.getElementById('complejidad');
-
-      pillsComplejidad.addEventListener('click', function (e) {
-        var btn = e.target.closest('.pill');
-        if (!btn) return;
-        state.complejidad = btn.dataset.value;
-        selectPill(pillsComplejidad, state.complejidad);
-        complejidadField.value = COMPLEJIDAD[state.complejidad].label;
-        reveal(eduComplejidad);
-        renderResult();
-      });
-
-      var pillsMeses = document.getElementById('pillsMeses');
-      var eduMeses = document.getElementById('eduMeses');
-
-      pillsMeses.addEventListener('click', function (e) {
-        var btn = e.target.closest('.pill');
-        if (!btn) return;
-        state.meses = btn.dataset.value;
-        selectPill(pillsMeses, state.meses);
-        reveal(eduMeses);
-        renderResult();
-      });
-
       var resultWrap = document.getElementById('resultWrap');
-      var cardMensual = document.getElementById('cardMensual');
-      var summaryBlock = document.getElementById('summaryBlock');
       var priceProgramaEl = document.getElementById('priceProgramaEl');
       var priceProgramaNote = document.getElementById('priceProgramaNote');
-      var priceMensualEl = document.getElementById('priceMensualEl');
-      var priceMensualNote = document.getElementById('priceMensualNote');
-      var sumPrograma = document.getElementById('sumPrograma');
-      var sumMensualRow = document.getElementById('sumMensualRow');
-      var sumMensualLabel = document.getElementById('sumMensualLabel');
-      var sumMensual = document.getElementById('sumMensual');
-      var sumTotal = document.getElementById('sumTotal');
-      var pendingHint = document.getElementById('pendingHint');
-      var pendingHintText = document.getElementById('pendingHintText');
-      var progressFill = document.getElementById('configProgressFill');
-      var progressLabel = document.getElementById('configProgressLabel');
+      var priceBreakdown = document.getElementById('priceBreakdown');
+      var continuityNote = document.getElementById('continuityNote');
 
       var formConfigSummary = document.getElementById('formConfigSummary');
       var formSumProyectos = document.getElementById('formSumProyectos');
       var formSumPrograma = document.getElementById('formSumPrograma');
-      var formSumMensualRow = document.getElementById('formSumMensualRow');
-      var formSumMensualLabel = document.getElementById('formSumMensualLabel');
-      var formSumMensual = document.getElementById('formSumMensual');
-      var formSumTotalRow = document.getElementById('formSumTotalRow');
-      var formSumTotal = document.getElementById('formSumTotal');
+      var formSumContinuidadRow = document.getElementById('formSumContinuidadRow');
+      var formSumContinuidad = document.getElementById('formSumContinuidad');
       var configResumenField = document.getElementById('configResumen');
 
-      // Preguntas requeridas según las respuestas ya dadas — crece de 3 a 6
-      // en cuanto el usuario elige que sí quiere continuidad.
-      function requiredSteps() {
-        return state.continuidad === 'si' ? 6 : 3;
-      }
-      function answeredSteps() {
-        var n = 0;
-        if (state.proyectos) n++;
-        if (state.modalidad) n++;
-        if (state.continuidad !== null) n++;
-        if (state.continuidad === 'si') {
-          if (state.activos) n++;
-          if (state.complejidad) n++;
-          if (state.meses) n++;
-        }
-        return n;
-      }
-      function isComplete() {
-        if (!state.proyectos || !state.modalidad || state.continuidad === null) return false;
-        if (state.continuidad === 'si') return !!state.activos && !!state.complejidad && !!state.meses;
-        return true;
-      }
-
-      function updateProgress() {
-        var total = requiredSteps();
-        var done = answeredSteps();
-        var pct = Math.round((done / total) * 100);
-        progressFill.style.width = pct + '%';
-        progressLabel.textContent = pct >= 100 ? 'Estimación lista ✓' : (pct + '% completado');
-      }
-
-      // Texto que viaja al backend — modalidad y complejidad van siempre
-      // (son las que fijan el precio); timing/madurez solo si se respondieron.
+      // Texto que viaja al backend.
       function buildResumen() {
-        if (!state.proyectos || !state.modalidad) return '';
+        if (!state.proyectos) return '';
         var programa = PROGRAMA[state.proyectos];
-        var resumen = 'AI Innovation Sprint ' + programa.label + ' · ' + MODALIDAD[state.modalidad].label;
-        if (state.continuidad === 'si' && state.activos && state.complejidad && state.meses) {
-          resumen += ' + continuidad ' + MENSUAL[state.activos].label + ' (' + COMPLEJIDAD[state.complejidad].label + ') / ' + state.meses + ' meses';
+        var resumen = 'AI Innovation Sprint ' + programa.label;
+        if (state.continuidad === 'si') {
+          resumen += ' + interés en continuidad post-hackathon (se define en el Demo Day)';
         } else if (state.continuidad === 'no') {
-          resumen += ' (sin continuidad)';
+          resumen += ' (sin continuidad por ahora)';
         }
         var extras = [];
+        if (state.modalidad) extras.push('modalidad: ' + MODALIDAD[state.modalidad]);
         if (state.timing) extras.push('timing: ' + TIMING[state.timing]);
         if (state.madurez) extras.push('madurez de proyectos: ' + MADUREZ[state.madurez]);
         if (extras.length) resumen += ' · ' + extras.join(' · ');
         return resumen;
       }
 
-      // El valor NUNCA se muestra hasta que se responden todas las preguntas
-      // necesarias — antes de eso solo avanzan las preguntas y el progreso.
+      // El rango aparece apenas se responde la única pregunta que lo
+      // determina — no hay nada más que gatillar el precio del programa.
       function renderResult() {
-        updateProgress();
-
         if (!state.proyectos) {
           resultWrap.hidden = true;
-          pendingHint.hidden = true;
           formConfigSummary.hidden = true;
           return;
         }
 
-        if (!isComplete()) {
-          resultWrap.hidden = true;
-          formConfigSummary.hidden = true;
-          pendingHint.hidden = false;
-          var faltan = requiredSteps() - answeredSteps();
-          pendingHintText.textContent = faltan > 1
-            ? 'Responde las ' + faltan + ' preguntas restantes para desbloquear tu estimación de inversión personalizada.'
-            : 'Responde la pregunta restante para desbloquear tu estimación de inversión personalizada.';
-          return;
-        }
-
-        pendingHint.hidden = true;
-
-        var programaBase = PROGRAMA[state.proyectos];
-        var modalidadMult = MODALIDAD[state.modalidad].mult;
-        var programaRange = applyMult(programaBase.range, modalidadMult);
-        var programaText = programaRange ? rangeText(programaRange) : 'Cotización personalizada';
+        var programa = PROGRAMA[state.proyectos];
+        var programaText = programa.range ? rangeText(programa.range) : 'Cotización personalizada';
 
         priceProgramaEl.textContent = programaText;
-        priceProgramaNote.textContent = programaRange ? 'neto + IVA · ' + MODALIDAD[state.modalidad].label : (programaBase.note || 'se cotiza a medida');
+        priceProgramaNote.textContent = programa.range ? 'neto + IVA' : (programa.note || 'se cotiza a medida');
+        priceBreakdown.hidden = !programa.range;
 
-        formSumProyectos.textContent = programaBase.label + ' · ' + MODALIDAD[state.modalidad].label;
+        formSumProyectos.textContent = programa.label;
         formSumPrograma.textContent = programaText;
-
-        var mostrarContinuidad = state.continuidad === 'si';
-
-        if (mostrarContinuidad) {
-          var mensualBase = MENSUAL[state.activos];
-          var complejidadMult = COMPLEJIDAD[state.complejidad].mult;
-          var mensualRange = applyMult(mensualBase.range, complejidadMult);
-
-          cardMensual.hidden = false;
-          summaryBlock.hidden = false;
-          sumPrograma.textContent = programaText;
-          sumMensualRow.hidden = false;
-
-          var meses = parseInt(state.meses, 10);
-
-          if (mensualRange) {
-            priceMensualEl.textContent = rangeText(mensualRange);
-            priceMensualNote.textContent = 'neto + IVA / mes · ' + COMPLEJIDAD[state.complejidad].label.split(' — ')[0];
-            sumMensualLabel.textContent = 'Plan mensual × ' + meses + ' meses';
-            sumMensual.textContent = fmt(mensualRange[0] * meses) + ' – ' + fmt(mensualRange[1] * meses);
-          } else {
-            priceMensualEl.textContent = 'Cotización personalizada';
-            priceMensualNote.textContent = mensualBase.note || 'a definir en la propuesta formal';
-            sumMensualLabel.textContent = 'Plan mensual (' + (mensualBase.note || 'cotización personalizada') + ')';
-            sumMensual.textContent = '—';
-          }
-
-          if (programaRange && mensualRange) {
-            var totalLow = programaRange[0] + mensualRange[0] * meses;
-            var totalHigh = programaRange[1] + mensualRange[1] * meses;
-            sumTotal.textContent = fmt(totalLow) + ' – ' + fmt(totalHigh);
-          } else {
-            sumTotal.textContent = 'Depende de cotización personalizada';
-          }
-
-          formSumMensualRow.hidden = false;
-          formSumMensualLabel.textContent = sumMensualLabel.textContent;
-          formSumMensual.textContent = sumMensual.textContent;
-          formSumTotalRow.hidden = false;
-          formSumTotal.textContent = sumTotal.textContent;
-        } else {
-          cardMensual.hidden = true;
-          summaryBlock.hidden = true;
-          formSumMensualRow.hidden = true;
-          formSumTotalRow.hidden = true;
-        }
-
         formConfigSummary.hidden = false;
 
         if (configResumenField) configResumenField.value = buildResumen();
@@ -1290,8 +1019,43 @@
         resultWrap.classList.add('animate-in');
       }
 
-      // Contexto adicional opcional (timing, madurez) — no afecta el rango,
-      // solo enriquece el resumen que viaja al backend.
+      var pillsProyectos = document.getElementById('pillsProyectos');
+      var eduProyectos = document.getElementById('eduProyectos');
+
+      pillsProyectos.addEventListener('click', function (e) {
+        var btn = e.target.closest('.pill');
+        if (!btn) return;
+        state.proyectos = btn.dataset.value;
+        selectPill(pillsProyectos, state.proyectos);
+        eduProyectos.textContent = PROGRAMA[state.proyectos].edu;
+        reveal(eduProyectos);
+        renderResult();
+      });
+
+      // Continuidad — pregunta secundaria, sin precio: solo revela la nota
+      // explicando que el acompañamiento se define después del Demo Day.
+      var pillsContinuidad = document.getElementById('pillsContinuidad');
+
+      pillsContinuidad.addEventListener('click', function (e) {
+        var btn = e.target.closest('.pill');
+        if (!btn) return;
+        state.continuidad = btn.dataset.value;
+        selectPill(pillsContinuidad, state.continuidad);
+
+        if (state.continuidad === 'si') {
+          reveal(continuityNote);
+        } else {
+          continuityNote.hidden = true;
+        }
+
+        formSumContinuidadRow.hidden = false;
+        formSumContinuidad.textContent = state.continuidad === 'si' ? 'Sí — se define en el Demo Day' : 'Por ahora no';
+
+        if (configResumenField) configResumenField.value = buildResumen();
+      });
+
+      // Contexto adicional opcional (modalidad, timing, madurez) — no afecta
+      // el rango, solo enriquece el resumen que viaja al backend.
       function bindExtraPills(groupId, fieldId, stateKey, labels) {
         var group = document.getElementById(groupId);
         var field = document.getElementById(fieldId);
@@ -1304,6 +1068,7 @@
           if (configResumenField) configResumenField.value = buildResumen();
         });
       }
+      bindExtraPills('pillsModalidad', 'modalidad', 'modalidad', MODALIDAD);
       bindExtraPills('pillsTiming', 'timing', 'timing', TIMING);
       bindExtraPills('pillsMadurez', 'madurez', 'madurez', MADUREZ);
 
@@ -1442,7 +1207,6 @@
           mensaje: mensaje,
           configuracion: form.configuracion.value,
           modalidad: form.modalidad.value,
-          complejidad: form.complejidad.value,
           timing: form.timing.value,
           madurez: form.madurez.value,
           origen: form.origen.value,
