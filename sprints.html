@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Sprint de Innovación Corporativa — Spherical</title>
+  <meta name="description" content="Sprint de Innovación Corporativa de Spherical — un programa en tres etapas para llevar tus propias soluciones de IA de la idea al prototipo funcional, con acompañamiento después del sprint. Conoce cómo funciona y solicita tu propuesta formal.">
+
+  <link rel="canonical" href="https://spherical.cl/sprints.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spherical.cl/sprints.html">
+  <meta property="og:title" content="Sprint de Innovación Corporativa — Spherical">
+  <meta property="og:description" content="De la idea al prototipo funcional, en tres etapas. El Sprint de Innovación Corporativa de Spherical, con acompañamiento después del sprint.">
+  <meta property="og:image" content="https://spherical.cl/assets/og-image.jpg">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Spherical">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sprint de Innovación Corporativa — Spherical">
+  <meta name="twitter:description" content="De la idea al prototipo funcional, en tres etapas. Conoce cómo funciona y solicita tu propuesta formal.">
+  <meta name="twitter:image" content="https://spherical.cl/assets/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:wght@300;400;500;600&display=swap"></noscript>
+
+  <style>
+    /* ═══ DESIGN TOKENS ═══ */
+    :root {
+      color-scheme: dark;
+      --glass-white: rgba(255, 255, 255, 0.12);
+      --glass-white-md: rgba(255, 255, 255, 0.2);
+      --glass-white-lg: rgba(255, 255, 255, 0.3);
+      --glass-dark: rgba(0, 0, 0, 0.18);
+      --glass-dark-md: rgba(0, 0, 0, 0.28);
+      --glass-border: rgba(255, 255, 255, 0.25);
+      --glass-border-subtle: rgba(255, 255, 255, 0.12);
+      --glass-border-bright: rgba(255, 255, 255, 0.5);
+      --blur-sm: blur(8px);
+      --blur-md: blur(18px);
+      --blur-lg: blur(32px);
+      --blur-xl: blur(60px);
+      --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+      --shadow-glow: 0 0 40px rgba(94, 231, 223, 0.35);
+      --reflection-top: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%);
+      --reflection-inner: inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+      --accent-aqua: #5ee7df;
+      --accent-violet: #b490f5;
+      --accent-rose: #f7a8c4;
+      --accent-amber: #ffd27f;
+      --accent-lime: #a8f08a;
+      --spherical-teal: #5DCAA5;
+      --spherical-teal-bright: #7EEDC5;
+      --color-bg: #0b0e1a;
+      --color-surface: rgba(255, 255, 255, 0.04);
+      --color-text: #ffffff;
+      --color-text-muted: rgba(255, 255, 255, 0.55);
+      --color-text-subtle: rgba(255, 255, 255, 0.35);
+      --space-2xs: 4px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --text-2xs: 0.68rem;
+      --text-xs: 0.75rem;
+      --text-sm: 0.82rem;
+      --text-md: 0.9rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.3rem;
+      --text-2xl: 1.6rem;
+      --text-3xl: 2rem;
+      --text-4xl: 2.8rem;
+      --radius-xs: 6px;
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --radius-full: 9999px;
+      --ease-glass: cubic-bezier(0.22, 0.68, 0, 1.2);
+      --ease-liquid: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --dur-fast: 180ms;
+      --dur-mid: 360ms;
+      --dur-slow: 600ms;
+      --font-display: "Italiana", serif;
+      --font-body: "DM Sans", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased }
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+      min-height: 100vh;
+      transition: background .36s ease, color .36s ease
+    }
+    a { color: inherit; text-decoration: none }
+
+    @media(prefers-reduced-motion:reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important }
+      .scene__blob { animation: none !important }
+    }
+
+    /* ═══ ANIMATED BACKGROUND ═══ */
+    .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none }
+    .scene__blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; animation: blob-drift var(--dur, 18s) ease-in-out infinite alternate }
+    .scene__blob--1 { width: 700px; height: 700px; background: radial-gradient(circle, #5DCAA5, #3b82f6); top: -200px; left: -150px; --dur: 22s }
+    .scene__blob--2 { width: 600px; height: 600px; background: radial-gradient(circle, #b490f5, #ec4899); bottom: -200px; right: -100px; --dur: 17s; animation-delay: -8s }
+    .scene__blob--3 { width: 400px; height: 400px; background: radial-gradient(circle, #5ee7df, #5DCAA5); top: 40%; left: 50%; --dur: 25s; animation-delay: -13s }
+    .scene__blob--4 { width: 500px; height: 500px; background: radial-gradient(circle, #ffd27f, #f7a8c4); top: 70%; left: 10%; --dur: 20s; animation-delay: -5s; opacity: 0.3 }
+
+    @keyframes blob-drift {
+      0% { transform: translate(0, 0) scale(1) }
+      33% { transform: translate(60px, -40px) scale(1.08) }
+      66% { transform: translate(-40px, 60px) scale(0.94) }
+      100% { transform: translate(30px, 30px) scale(1.04) }
+    }
+
+    /* ═══ GLASS UTILITIES ═══ */
+    .glass {
+      backdrop-filter: var(--blur-md);
+      -webkit-backdrop-filter: var(--blur-md);
+      background: var(--glass-white);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-glass);
+      position: relative; overflow: hidden
+    }
+    .glass::before { content: ""; position: absolute; inset: 0; background: var(--reflection-top); pointer-events: none; border-radius: inherit; z-index: 1 }
+
+    /* ═══ LAYOUT ═══ */
+    .page { position: relative; z-index: 10 }
+    .container { width: min(1100px, 92vw); margin-inline: auto }
+    .section { padding: var(--space-4xl) 0 }
+    .section__eyebrow { font-size: var(--text-2xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-aqua); margin-bottom: var(--space-sm) }
+    .section__title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; margin-bottom: var(--space-md) }
+    .section__desc { font-size: var(--text-base); line-height: 1.7; opacity: 0.65; max-width: 640px }
+
+    /* ═══ ANIMATIONS ═══ */
+    @keyframes cascade-in {
+      0% { opacity: 0; transform: translateY(24px) scale(0.97); filter: blur(8px) }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0) }
+    }
+    .animate-in { animation: cascade-in var(--dur-slow) var(--ease-glass) both }
+    .d1 { animation-delay: 0.1s } .d2 { animation-delay: 0.2s } .d3 { animation-delay: 0.3s }
+    .d4 { animation-delay: 0.4s } .d5 { animation-delay: 0.5s } .d6 { animation-delay: 0.6s } .d7 { animation-delay: 0.7s }
+
+    /* ═══ NAVBAR ═══ */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      padding: var(--space-sm) 5%; display: flex; align-items: center; gap: 12px;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: #ffffff;
+      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease;
+    }
+    .navbar.navbar--at-top { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom-color: transparent }
+    .navbar__brand { font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; padding: 8px 20px; letter-spacing: 0.02em; margin-right: auto }
+    .navbar__link { padding: 9px 20px; border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 400; color: rgba(255,255,255,0.9); cursor: pointer; transition: background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid) }
+    .navbar__link:hover { opacity: 1; transform: translateY(-1px); background: var(--glass-white) }
+    .navbar__cta {
+      display: inline-flex; align-items: center; gap: var(--space-xs);
+      padding: 9px 22px; border-radius: var(--radius-full); border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.04em; color: #fff;
+      background: linear-gradient(135deg, rgba(93, 202, 165, 0.5) 0%, rgba(59, 130, 246, 0.5) 100%);
+      border: 1px solid rgba(93, 202, 165, 0.45);
+      box-shadow: 0 4px 24px rgba(93, 202, 165, 0.3), var(--reflection-inner);
+      transition: transform var(--dur-fast) var(--ease-liquid), box-shadow var(--dur-fast);
+      position: relative; overflow: hidden
+    }
+    .navbar__cta::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--reflection-top); pointer-events: none }
+    .navbar__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(93, 202, 165, 0.5), var(--reflection-inner) }
+
+    .navbar__dropdown { position: relative; display: flex; align-items: center }
+    .navbar__dropdown-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 400; color: rgba(255,255,255,0.9);
+      padding: 9px 20px; border-radius: var(--radius-full);
+      display: flex; align-items: center; gap: 5px;
+      transition: background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid);
+    }
+    .navbar__dropdown-btn:hover { background: var(--glass-white) }
+    .navbar__chevron { font-size: 0.7em; opacity: 0.7; transition: transform 0.2s ease; display: inline-block }
+    .navbar__dropdown:hover .navbar__chevron { transform: rotate(180deg) }
+    .navbar__dropdown-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-6px);
+      background: rgba(11,14,26,0.96);
+      backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 8px; padding-top: 14px; min-width: 210px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s ease 0.12s, transform 0.2s ease 0.12s;
+      z-index: 200;
+    }
+    .navbar__dropdown:hover .navbar__dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); transition: opacity 0.15s ease 0s, transform 0.15s ease 0s }
+    .navbar__dropdown-item { display: block; padding: 11px 16px; border-radius: 8px; font-size: var(--text-sm); color: rgba(255,255,255,0.85); transition: background 0.15s, color 0.15s }
+    .navbar__dropdown-item:hover { background: rgba(255,255,255,0.08); color: #fff }
+
+    .navbar__hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto }
+    .navbar__hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.9); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease }
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg) }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0) }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) }
+
+    .nav-mobile {
+      position: fixed; top: 56px; left: 0; width: 100%;
+      background: rgba(0,0,0,0.96);
+      backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 5% 24px; display: flex; flex-direction: column; gap: 2px; z-index: 98;
+      opacity: 0; pointer-events: none; transform: translateY(-8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .nav-mobile.open { opacity: 1; pointer-events: auto; transform: translateY(0) }
+    .nav-mobile__link { display: block; padding: 14px 8px; color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 400; border-bottom: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: color 0.2s }
+    .nav-mobile__link:hover { color: #fff }
+    .nav-mobile__cta {
+      display: block; margin-top: 12px; padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(93,202,165,0.55), rgba(59,130,246,0.55));
+      border: 1px solid rgba(93,202,165,0.45); border-radius: 50px; color: #fff;
+      text-align: center; font-weight: 500; font-size: 1rem; text-decoration: none;
+    }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      min-height: 92vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 130px 24px 70px; gap: var(--space-lg); position: relative;
+    }
+    .hero__kicker { font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.55; animation: cascade-in .7s var(--ease-glass) .1s both }
+    .hero__title {
+      font-family: var(--font-display); font-weight: 900; font-size: clamp(2.4rem, 6.5vw, 4.6rem); line-height: 1.1; letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 20%, var(--spherical-teal) 55%, var(--accent-violet) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: cascade-in .8s var(--ease-glass) .2s both; max-width: 880px;
+    }
+    .hero__sub { max-width: 600px; line-height: 1.7; opacity: 0.85; font-size: var(--text-xl); font-weight: 400; animation: cascade-in .8s var(--ease-glass) .3s both }
+    .hero__cta { display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center; animation: cascade-in .8s var(--ease-glass) .4s both }
+
+    /* ═══ BUTTONS ═══ */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.04em; color: var(--color-text); text-decoration: none;
+      transition: transform var(--dur-fast) var(--ease-liquid), box-shadow var(--dur-fast), background var(--dur-fast);
+      position: relative; overflow: hidden;
+    }
+    .btn::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--reflection-top); pointer-events: none }
+    .btn:active { transform: scale(0.96) }
+    .btn--primary { background: linear-gradient(135deg, rgba(93, 202, 165, 0.5) 0%, rgba(59, 130, 246, 0.5) 100%); border: 1px solid rgba(93, 202, 165, 0.45); box-shadow: 0 4px 24px rgba(93, 202, 165, 0.3), var(--reflection-inner) }
+    .btn--primary:hover { background: linear-gradient(135deg, rgba(93, 202, 165, 0.7) 0%, rgba(59, 130, 246, 0.7) 100%); box-shadow: 0 8px 36px rgba(93, 202, 165, 0.5), var(--reflection-inner); transform: translateY(-2px) }
+    .btn--ghost { background: var(--glass-white); border: 1px solid var(--glass-border); box-shadow: var(--shadow-glass) }
+    .btn--ghost:hover { background: var(--glass-white-md); transform: translateY(-2px) }
+    .btn--lg { padding: var(--space-md) var(--space-xl); font-size: var(--text-base) }
+    .btn[disabled] { opacity: 0.6; cursor: not-allowed; transform: none !important }
+
+    /* ═══ CARDS ═══ */
+    .glass-card {
+      border-radius: var(--radius-xl); padding: var(--space-xl);
+      transition: transform var(--dur-mid) var(--ease-glass), box-shadow var(--dur-mid) var(--ease-glass), background var(--dur-mid);
+    }
+    .glass-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-float); background: var(--glass-white-md) }
+    .glass-card::after {
+      content: ""; position: absolute; inset: -1px; border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.08) 100%);
+      opacity: 0; transition: opacity var(--dur-mid); pointer-events: none; z-index: 2;
+    }
+    .glass-card:hover::after { opacity: 1 }
+    .glass-card__icon { width: 48px; height: 48px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: var(--space-md); border: 1px solid var(--glass-border); background: var(--glass-white) }
+    .glass-card__title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.15; color: #fff; letter-spacing: -0.01em; margin-bottom: var(--space-sm) }
+    .glass-card__body { font-size: var(--text-md); line-height: 1.65; opacity: 0.75 }
+
+    /* ═══ BADGE ═══ */
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: var(--radius-full); font-size: var(--text-2xs); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-md) }
+    .badge--aqua { background: rgba(93, 202, 165, 0.2); border: 1px solid rgba(93, 202, 165, 0.4); color: var(--spherical-teal); box-shadow: 0 0 12px rgba(93, 202, 165, 0.18) }
+    .badge--violet { background: rgba(180, 144, 245, 0.2); border: 1px solid rgba(180, 144, 245, 0.4); color: var(--accent-violet); box-shadow: 0 0 12px rgba(180, 144, 245, 0.18) }
+    .badge--amber { background: rgba(255, 210, 127, 0.2); border: 1px solid rgba(255, 210, 127, 0.4); color: var(--accent-amber) }
+
+    /* ═══ FASES (programa) ═══ */
+    .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl) }
+    .phase-card__icon { font-size: 1.8rem; margin-bottom: var(--space-md) }
+
+    /* ═══ LA OPORTUNIDAD (break destacado) ═══ */
+    .highlight-quote {
+      padding: var(--space-3xl) var(--space-2xl);
+      border-radius: var(--radius-2xl);
+      text-align: center;
+      backdrop-filter: var(--blur-lg); -webkit-backdrop-filter: var(--blur-lg);
+      background: linear-gradient(135deg, rgba(93,202,165,0.12), rgba(180,144,245,0.1));
+      border: 1px solid rgba(93,202,165,0.28);
+      box-shadow: var(--shadow-glass);
+    }
+    .highlight-quote__eyebrow { font-size: var(--text-2xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-aqua); margin-bottom: var(--space-md) }
+    .highlight-quote__text {
+      font-family: var(--font-display); font-weight: 900;
+      font-size: clamp(1.5rem, 3.6vw, 2.6rem); line-height: 1.35;
+      max-width: 780px; margin-inline: auto;
+      background: linear-gradient(135deg, #fff 25%, var(--spherical-teal) 60%, var(--accent-violet) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* ═══ DIFERENCIAL (2x2) ═══ */
+    .feature-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-top: var(--space-2xl) }
+    .feature-card { border-radius: var(--radius-xl); padding: var(--space-lg) var(--space-xl) }
+    .feature-card--wide { grid-column: 1 / -1 }
+    .feature-card__icon { font-size: 1.5rem; margin-bottom: var(--space-sm) }
+    .feature-card__title { font-weight: 500; font-size: var(--text-base); margin-bottom: var(--space-xs) }
+    .feature-card__body { font-size: var(--text-sm); opacity: 0.68; line-height: 1.65 }
+
+    /* ═══ ROI (glass-card informativas, sin hover) ═══ */
+    .roi-card:hover { transform: none; box-shadow: var(--shadow-glass); background: var(--glass-white) }
+    .roi-card:hover::after { opacity: 0 }
+
+    /* ═══ FAQ ═══ */
+    .faq-list { display: flex; flex-direction: column; gap: var(--space-sm) }
+    .faq-item { border-radius: var(--radius-xl); padding: 0; overflow: hidden; transition: box-shadow var(--dur-mid) }
+    .faq-item[open] { box-shadow: var(--shadow-glass) }
+    .faq-q {
+      list-style: none; cursor: pointer; padding: var(--space-lg) var(--space-xl);
+      font-size: var(--text-md); font-weight: 500; display: flex; justify-content: space-between;
+      align-items: center; gap: var(--space-md); user-select: none; transition: color var(--dur-fast);
+    }
+    .faq-q::-webkit-details-marker { display: none }
+    .faq-q::after { content: "+"; font-size: 1.4rem; font-weight: 300; color: var(--spherical-teal); flex-shrink: 0; transition: transform var(--dur-fast) var(--ease-liquid) }
+    .faq-item[open] .faq-q::after { transform: rotate(45deg) }
+    .faq-item[open] .faq-q { color: var(--spherical-teal) }
+    .faq-a { padding: 0 var(--space-xl) var(--space-lg); font-size: var(--text-sm); line-height: 1.8; opacity: 0.72 }
+
+    /* ═══ ARTÍCULOS RELACIONADOS ═══ */
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md) }
+    .related-card { display: block; border: 1px solid var(--glass-border-subtle); border-radius: var(--radius-lg); padding: var(--space-lg); transition: transform var(--dur-mid) var(--ease-glass), border-color var(--dur-mid); background: rgba(255,255,255,0.03) }
+    .related-card:hover { transform: translateY(-4px); border-color: rgba(93,202,165,0.3); background: rgba(93,202,165,0.05) }
+    .related-card__img { height: 160px; background-size: cover; background-position: center; margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-md); border-radius: var(--radius-lg) var(--radius-lg) 0 0 }
+    .related-card__badge { margin-bottom: var(--space-sm) }
+    .related-card__title { font-family: var(--font-body); font-weight: 700; font-size: var(--text-lg); line-height: 1.3; margin-bottom: var(--space-xs) }
+    .related-card__excerpt { font-size: var(--text-sm); opacity: 0.55; line-height: 1.6 }
+    .related-card__link { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--spherical-teal); font-weight: 500 }
+
+    /* ═══ CTA / FORM SECTION ═══ */
+    .cta-section {
+      text-align: center; padding: var(--space-4xl) 0;
+      background: linear-gradient(135deg, rgba(180,144,245,0.12) 0%, rgba(11,14,26,0.0) 40%, rgba(93,202,165,0.08) 100%);
+      border-top: 1px solid rgba(255,255,255,0.07); position: relative; overflow: hidden;
+    }
+    .cta-section::before { content: ""; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(180,144,245,0.15) 0%, transparent 70%); pointer-events: none }
+    .cta-section__title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: var(--space-md); background: linear-gradient(135deg, #fff 20%, var(--spherical-teal) 60%, var(--accent-violet) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    .cta-section__sub { font-size: var(--text-base); opacity: 0.65; margin-bottom: var(--space-xl); max-width: 620px; margin-inline: auto; line-height: 1.75 }
+
+    .contact-form { max-width: 620px; margin-inline: auto; margin-top: var(--space-2xl); display: flex; flex-direction: column; gap: var(--space-md) }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md) }
+    .form-field { display: flex; flex-direction: column; gap: var(--space-xs); text-align: left }
+    .form-field label { font-size: var(--text-xs); opacity: 0.55; letter-spacing: 0.06em; text-transform: uppercase }
+    .form-field input, .form-field select, .form-field textarea {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-md);
+      padding: 12px 16px; font-family: var(--font-body); font-size: var(--text-sm); color: #fff; outline: none;
+      transition: border-color var(--dur-fast), background var(--dur-fast); width: 100%; -webkit-appearance: none;
+    }
+    .form-field select option { background: #0f1424; color: #fff }
+    .form-field input::placeholder, .form-field textarea::placeholder { opacity: 0.35 }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: rgba(93,202,165,0.5); background: rgba(93,202,165,0.06) }
+    .form-field input.field-error, .form-field select.field-error, .form-field textarea.field-error { border-color: rgba(255,100,100,0.7); background: rgba(255,60,60,0.06) }
+    .field-error-msg { font-size: var(--text-xs); color: #ff6b6b; margin-top: 4px; display: flex; align-items: center; gap: 5px }
+    .form-field textarea { resize: vertical; min-height: 100px }
+    .mensaje-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px }
+    .chip-suggestion {
+      font-family: var(--font-body); font-size: var(--text-xs); padding: 6px 14px; border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border); background: var(--glass-white); color: var(--color-text-muted); cursor: pointer;
+      transition: background var(--dur-fast), color var(--dur-fast);
+    }
+    .chip-suggestion:hover { background: var(--glass-white-md); color: var(--color-text) }
+    .hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none }
+    .form-submit { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); margin-top: var(--space-xs) }
+    .form-submit .btn { width: 100%; justify-content: center }
+    .form-submit__micro { font-size: var(--text-xs); opacity: 0.35; letter-spacing: 0.04em }
+    .form-success { display: none; text-align: center; padding: var(--space-2xl); border-radius: var(--radius-xl); background: rgba(93,202,165,0.08); border: 1px solid rgba(93,202,165,0.25) }
+    .form-success__icon { font-size: 2.5rem; margin-bottom: var(--space-md) }
+    .form-success__title { font-family: var(--font-display); font-weight: 900; font-size: var(--text-2xl); margin-bottom: var(--space-sm) }
+    .form-success__desc { opacity: 0.65; font-size: var(--text-sm); line-height: 1.7 }
+
+    /* ═══ FOOTER ═══ */
+    .footer { border-top: 1px solid var(--glass-border-subtle); padding: var(--space-2xl) 0 var(--space-xl) }
+    .footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: var(--space-xl) }
+    .footer__brand { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; margin-bottom: var(--space-sm) }
+    .footer__tagline { font-size: var(--text-sm); opacity: 0.4; line-height: 1.6 }
+    .footer__heading { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.4; margin-bottom: var(--space-md) }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs) }
+    .footer__links a { font-size: var(--text-sm); opacity: 0.6; transition: opacity var(--dur-fast) }
+    .footer__links a:hover { opacity: 1 }
+    .footer__copy { text-align: center; font-size: var(--text-xs); opacity: 0.3; margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--glass-border-subtle) }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--glass-border-subtle), transparent); margin: var(--space-xl) 0 }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:900px) {
+      .navbar__link, .navbar__dropdown { display: none }
+      .navbar__cta { display: none }
+      .navbar__hamburger { display: flex }
+      .phase-grid { grid-template-columns: 1fr }
+      .feature-grid-2 { grid-template-columns: 1fr }
+      .related-grid { grid-template-columns: 1fr }
+      .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg) }
+    }
+    @media(max-width:640px) {
+      .form-row { grid-template-columns: 1fr }
+      .footer__inner { grid-template-columns: 1fr }
+      .hero { padding: 110px 20px 50px }
+    }
+
+    /* ═══ LIGHT THEME ═══ */
+    [data-theme="light"] {
+      --glass-white: rgba(255, 255, 255, 0.62);
+      --glass-white-md: rgba(255, 255, 255, 0.78);
+      --glass-white-lg: rgba(255, 255, 255, 0.9);
+      --glass-dark: rgba(0, 0, 0, 0.06);
+      --glass-dark-md: rgba(15, 23, 42, 0.08);
+      --glass-border: rgba(15, 23, 42, 0.14);
+      --glass-border-subtle: rgba(15, 23, 42, 0.09);
+      --glass-border-bright: rgba(15, 23, 42, 0.22);
+      --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.08);
+      --color-bg: #e8f0fa;
+      --color-surface: rgba(255, 255, 255, 0.55);
+      --color-text: #0f172a;
+      --color-text-muted: rgba(15, 23, 42, 0.58);
+      --color-text-subtle: rgba(15, 23, 42, 0.38);
+      --reflection-top: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 50%);
+      --reflection-inner: inset 0 1px 1px rgba(255, 255, 255, 0.95), inset 0 -1px 1px rgba(0, 0, 0, 0.04);
+      --accent-aqua: #0891b2;
+      --accent-violet: #6d28d9;
+      --accent-rose: #be185d;
+      --accent-amber: #b45309;
+      --spherical-teal: #0a8a6a;
+      --spherical-teal-bright: #0d9e7a;
+    }
+    [data-theme="light"] .scene__blob { opacity: 0.25 }
+    [data-theme="light"] .hero__title { background: linear-gradient(135deg, #0f172a 20%, #0a8a6a 55%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    [data-theme="light"] .cta-section__title { background: linear-gradient(135deg, #0f172a 20%, #0a8a6a 60%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    [data-theme="light"] .highlight-quote__text { background: linear-gradient(135deg, #0f172a 25%, #0a8a6a 60%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    [data-theme="light"] .section__eyebrow, [data-theme="light"] .highlight-quote__eyebrow { color: #0891b2 }
+    [data-theme="light"] .glass-card__body, [data-theme="light"] .feature-card__body { color: rgba(15, 23, 42, 0.7); opacity: 1 }
+    [data-theme="light"] .hero__sub, [data-theme="light"] .section__desc, [data-theme="light"] .cta-section__sub { color: rgba(15, 23, 42, 0.6); opacity: 1 }
+    [data-theme="light"] .footer__tagline { color: rgba(15, 23, 42, 0.45); opacity: 1 }
+    [data-theme="light"] .badge--aqua { background: rgba(10, 138, 106, 0.12); border-color: rgba(10, 138, 106, 0.35); color: #0a8a6a }
+    [data-theme="light"] .badge--violet { background: rgba(109, 40, 217, 0.1); border-color: rgba(109, 40, 217, 0.3); color: #6d28d9 }
+    [data-theme="light"] .badge--amber { background: rgba(180, 83, 9, 0.12); border-color: rgba(180, 83, 9, 0.3); color: #b45309 }
+    [data-theme="light"] .btn--primary { background: linear-gradient(135deg, rgba(10, 138, 106, 0.55) 0%, rgba(37, 99, 235, 0.55) 100%); border-color: rgba(10, 138, 106, 0.5); color: #fff }
+    [data-theme="light"] .btn--primary:hover { background: linear-gradient(135deg, rgba(10, 138, 106, 0.75) 0%, rgba(37, 99, 235, 0.75) 100%) }
+    [data-theme="light"] .btn--ghost { background: rgba(255, 255, 255, 0.65); border-color: rgba(15, 23, 42, 0.18); color: #0f172a }
+    [data-theme="light"] .btn--ghost:hover { background: rgba(255, 255, 255, 0.84) }
+    [data-theme="light"] .navbar__cta { background: linear-gradient(135deg, rgba(10, 138, 106, 0.55) 0%, rgba(37, 99, 235, 0.55) 100%); border-color: rgba(10, 138, 106, 0.5); color: #fff }
+    [data-theme="light"] .navbar__link, [data-theme="light"] .navbar__dropdown-btn { color: #0f172a }
+    [data-theme="light"] .navbar__brand img { filter: brightness(0) !important }
+    [data-theme="light"] .footer__brand img { filter: brightness(0.2) }
+    [data-theme="light"] .footer__links a { color: rgba(15, 23, 42, 0.6) }
+    [data-theme="light"] .footer__copy { color: rgba(15, 23, 42, 0.3) }
+    [data-theme="light"] .divider { background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.14), transparent) }
+    [data-theme="light"] .pill.is-selected { color: #0a8a6a }
+    [data-theme="light"] .result-card__price { background: linear-gradient(135deg, #0a8a6a, #0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMYYL0SP14"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EMYYL0SP14');
+  </script>
+</head>
+
+<body>
+
+  <div class="scene" aria-hidden="true">
+    <div class="scene__blob scene__blob--1"></div>
+    <div class="scene__blob scene__blob--2"></div>
+    <div class="scene__blob scene__blob--3"></div>
+    <div class="scene__blob scene__blob--4"></div>
+  </div>
+
+  <div class="page">
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar navbar--at-top">
+      <a href="index.html" class="navbar__brand"><img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
+      <div class="navbar__dropdown">
+        <button class="navbar__dropdown-btn">Servicios <span class="navbar__chevron">▾</span></button>
+        <div class="navbar__dropdown-menu">
+          <a href="ecosistemas-digitales.html" class="navbar__dropdown-item">Growth Marketing</a>
+          <a href="ia-empresarial-v2.html" class="navbar__dropdown-item">IA Empresarial</a>
+        </div>
+      </div>
+      <a href="blog/index.html" class="navbar__link">Blog</a>
+      <a href="#faq" class="navbar__cta">Preguntas frecuentes</a>
+      <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="ecosistemas-digitales.html" class="nav-mobile__link">Growth Marketing</a>
+      <a href="ia-empresarial-v2.html" class="nav-mobile__link">IA Empresarial</a>
+      <a href="blog/index.html" class="nav-mobile__link">Blog</a>
+      <a href="#faq" class="nav-mobile__cta">Preguntas frecuentes</a>
+    </div>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+      <p class="hero__kicker animate-in d1">Sprint de Innovación Corporativa · Spherical</p>
+      <h1 class="hero__title animate-in d2">De la idea al prototipo funcional — en tres etapas.</h1>
+      <p class="hero__sub animate-in d3">Un programa diseñado para que los equipos de tu empresa construyan herramientas de IA propias, con acompañamiento experto y continuidad después del sprint.</p>
+      <div class="hero__cta animate-in d4">
+        <a href="#programa" class="btn btn--primary btn--lg">Conoce el programa ↓</a>
+        <a href="#faq" class="btn btn--ghost btn--lg">Ver preguntas frecuentes ↓</a>
+      </div>
+    </section>
+
+    <!-- ═══ EL PROGRAMA ═══ -->
+    <section class="section" id="programa">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">Cómo funciona</p>
+        <h2 class="section__title animate-in d2">Un programa en tres fases</h2>
+        <p class="section__desc animate-in d3">Cada etapa está diseñada para que los equipos lleguen al sprint con claridad, construyan con velocidad, y continúen con soporte.</p>
+
+        <div class="phase-grid">
+          <div class="glass-card animate-in d3">
+            <span class="badge badge--aqua">Diseño y preparación</span>
+            <div class="phase-card__icon">🧭</div>
+            <h3 class="glass-card__title">Fundamentos de IA y Producto</h3>
+            <p class="glass-card__body">Un workshop general para todo el equipo — sin tecnicismos. Cada proyecto completa un documento de descripción de su solución antes de la mentoría individual previa al sprint. El objetivo es que nadie llegue sin dirección.</p>
+          </div>
+
+          <div class="glass-card animate-in d4">
+            <span class="badge badge--violet">Facilitación del workshop</span>
+            <div class="phase-card__icon">⚡</div>
+            <h3 class="glass-card__title">Sprint + Demo Day</h3>
+            <p class="glass-card__body">Los equipos construyen con herramientas de IA real, acompañados por facilitadores especializados durante toda la jornada. Al final del día, cada equipo presenta su solución o pitch deck. Los proyectos con potencial de continuidad se identifican ese mismo día.</p>
+          </div>
+
+          <div class="glass-card animate-in d5">
+            <span class="badge badge--amber">Continuidad y soporte</span>
+            <div class="phase-card__icon">🔁</div>
+            <h3 class="glass-card__title">Consultoría y soporte continuo</h3>
+            <p class="glass-card__body">Los proyectos que continúan pueden operar sobre la infraestructura de la empresa o bajo la cuenta de Spherical según lo que defina el área de TI. En ambos casos, los datos nunca salen del perímetro corporativo. El acompañamiento cubre desde ajustes técnicos hasta sesiones estratégicas con el área de innovación — con la profundidad que cada proyecto necesite.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ LA OPORTUNIDAD (break) ═══ -->
+    <section class="section" style="padding-top:0;padding-bottom:0">
+      <div class="container">
+        <div class="highlight-quote animate-in d2">
+          <p class="highlight-quote__eyebrow">La oportunidad</p>
+          <p class="highlight-quote__text">Nadie conoce un problema como quien lo vive todos los días. Hoy, por primera vez, ese equipo puede construir la solución.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ POR QUÉ SPHERICAL ═══ -->
+    <section class="section" id="diferencial">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">El diferencial</p>
+        <h2 class="section__title animate-in d2">Las herramientas quedan en manos de tu equipo</h2>
+        <p class="section__desc animate-in d3">Construimos junto a tus equipos herramientas que son de la empresa — con total gobernanza y autonomía de tu equipo sobre lo que desarrolla, sin lock-in ni dependencia de un proveedor externo.</p>
+
+        <div class="feature-grid-2">
+          <div class="glass feature-card animate-in d3">
+            <div class="feature-card__icon">🏛️</div>
+            <div class="feature-card__title">Consultoría, no SaaS</div>
+            <p class="feature-card__body">El benchmark de precio es una boutique de transformación digital, no una suscripción. El valor está en el acompañamiento y el conocimiento que queda en los equipos.</p>
+          </div>
+          <div class="glass feature-card animate-in d4">
+            <div class="feature-card__icon">🔐</div>
+            <div class="feature-card__title">Sin fricción con TI</div>
+            <p class="feature-card__body">La empresa no necesita gestionar APIs, contratos con proveedores ni credenciales por equipo. Spherical centraliza todo bajo un único contrato.</p>
+          </div>
+          <div class="glass feature-card animate-in d5">
+            <div class="feature-card__icon">🧠</div>
+            <div class="feature-card__title">Hecho a medida</div>
+            <p class="feature-card__body">Cada solución refleja el proceso real de la empresa. No hay plantillas genéricas ni demos que no aplican al negocio.</p>
+          </div>
+          <div class="glass feature-card animate-in d6">
+            <div class="feature-card__icon">📈</div>
+            <div class="feature-card__title">Continuidad estructurada</div>
+            <p class="feature-card__body">La continuidad está diseñada desde antes del sprint. Los proyectos no mueren después del demo day.</p>
+          </div>
+          <div class="glass feature-card feature-card--wide animate-in d7">
+            <div class="feature-card__icon">📊</div>
+            <div class="feature-card__title">Transparencia total</div>
+            <p class="feature-card__body">Compartimos un informe de uso con cada responsable de proyecto, para que el área de innovación tenga una vista centralizada del esfuerzo y el avance de todas las iniciativas activas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ ROI ═══ -->
+    <section class="section" id="roi">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">El retorno sobre la inversión</p>
+        <h2 class="section__title animate-in d2">Cada hora de trabajo repetitivo tiene un costo. Ahora tiene solución.</h2>
+        <p class="section__desc animate-in d3">En la mayoría de las empresas, entre el 30% y el 50% del tiempo de los equipos se destina a tareas que pueden automatizarse — procesar documentos, completar formularios, escalar solicitudes, consolidar datos de distintas fuentes. El Sprint de Innovación Corporativa está diseñado para que los propios equipos identifiquen esas tareas y construyan las herramientas para eliminarlas. En una jornada.</p>
+
+        <div class="phase-grid">
+          <div class="glass-card roi-card animate-in d3">
+            <div class="phase-card__icon">⏱</div>
+            <h3 class="glass-card__title">De horas a minutos</h3>
+            <p class="glass-card__body">Las automatizaciones más comunes en estos sprints reducen entre 20% y 50% el tiempo dedicado a tareas repetitivas. Ese tiempo no desaparece — vuelve a los equipos para trabajo de mayor valor.</p>
+          </div>
+          <div class="glass-card roi-card animate-in d4">
+            <div class="phase-card__icon">📈</div>
+            <h3 class="glass-card__title">Herramientas que se siguen usando</h3>
+            <p class="glass-card__body">La diferencia entre un workshop y un sprint es que al final del día hay prototipos funcionando. Los equipos salen con algo construido por ellos — lo que cambia completamente la tasa de adopción posterior.</p>
+          </div>
+          <div class="glass-card roi-card animate-in d5">
+            <div class="phase-card__icon">🏛️</div>
+            <h3 class="glass-card__title">Conocimiento que queda en la empresa</h3>
+            <p class="glass-card__body">Al terminar el programa, los equipos saben usar herramientas de IA para sus propios procesos. No dependen de un proveedor para hacer ajustes — esa capacidad quedó instalada adentro.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ EL CAMBIO QUE QUEDA (break) ═══ -->
+    <section class="section" style="padding-top:0;padding-bottom:0">
+      <div class="container">
+        <div class="highlight-quote animate-in d2">
+          <p class="highlight-quote__eyebrow">Lo que queda después</p>
+          <p class="highlight-quote__text">Los equipos que participan en construir su propia solución no vuelven a pensar igual. Desde ese día, tienen herramientas que van a usar en su trabajo diario — y esa forma nueva de pensar, multiplicada por cada persona, es lo que termina haciendo ganar a la empresa.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section" id="faq">
+      <div class="container" style="max-width:780px;">
+        <p class="section__eyebrow animate-in d1">Preguntas frecuentes</p>
+        <h2 class="section__title animate-in d2">Lo que los equipos de innovación suelen preguntar</h2>
+        <div class="faq-list animate-in d3" style="margin-top:var(--space-2xl);">
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Cuánto cuesta el programa?</summary>
+            <p class="faq-a">El programa se cotiza de forma personalizada según el tamaño del grupo y las etapas que incluye. Como referencia, los programas para grupos de hasta 15 proyectos parten desde CLP 2.900.000. La cotización formal incluye el desglose por etapa, el calendario propuesto y los próximos pasos — sin compromiso.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Qué pasa con los datos de nuestra empresa?</summary>
+            <p class="faq-a">Las herramientas que construye el equipo durante el sprint pueden configurarse para correr completamente dentro del perímetro de la empresa — sin que los datos operacionales salgan a servidores externos. La tendencia en empresas que están madurando en IA va exactamente en esa dirección: capacidad propia, datos propios, sin dependencia de un SaaS externo que procesa tu información. Spherical puede acompañar ese modelo o uno más flexible según lo que defina el área de TI.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Necesitamos equipos con conocimiento técnico?</summary>
+            <p class="faq-a">No. El sprint está diseñado para intraemprendedores sin background técnico. Las herramientas que usamos durante el día permiten construir prototipos funcionales sin escribir código. Eso es precisamente lo que hace que este formato funcione en equipos de operaciones, marketing, finanzas o logística.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Qué pasa si queremos continuar con un proyecto después del sprint?</summary>
+            <p class="faq-a">Es esperable que varios proyectos no queden 100% terminados al cierre del Demo Day — construir en una jornada tiene ese límite natural. Lo que sí tienen es una base funcional y claridad sobre qué falta para que opere de forma continua. Desde ahí, el equipo de Spherical puede acompañar para llevar cada proyecto a un estado maduro con el tiempo, con distintos niveles de soporte — desde asesoría puntual hasta gestión operativa del proyecto. Esa conversación ocurre naturalmente al cierre del evento, cuando el equipo ya tiene claridad sobre lo que quiere priorizar.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Quién de nuestra empresa tiene que estar involucrado?</summary>
+            <p class="faq-a">El programa funciona mejor cuando hay un referente ejecutivo que co-define los desafíos antes del sprint y está presente en el Demo Day. No tiene que ser el CEO — puede ser el gerente de innovación, el director de operaciones o quien lidera la iniciativa internamente. Ese rol marca la diferencia entre un evento que genera entusiasmo y uno que genera resultados.</p>
+          </details>
+
+          <details class="faq-item glass">
+            <summary class="faq-q">¿Qué experiencia tiene Spherical para acompañarnos en esto?</summary>
+            <p class="faq-a">Spherical lleva ocho años dedicado a servicios tecnológicos a medida. En vez de un equipo fijo con una sola forma de trabajar, somos una red de profesionales que aplica distintas metodologías de diseño de servicios y diseño de producto — validadas con el tiempo junto a empresas de industrias tan distintas como banca, salud, minería y educación. Esa variedad es la que permite adaptar el sprint al contexto real de cada empresa, en vez de aplicar una fórmula genérica.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ ARTÍCULOS RELACIONADOS ═══ -->
+    <section class="section" id="relacionados">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">Ver también</p>
+        <h2 class="section__title animate-in d2">Artículos relacionados</h2>
+        <div class="related-grid animate-in d3" style="margin-top:var(--space-2xl);">
+
+          <a href="blog/intraemprendimiento-ia-empresas.html" class="related-card">
+            <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&fit=crop&auto=format')"></div>
+            <div class="related-card__badge"><span class="badge badge--aqua">Innovación con IA</span></div>
+            <div class="related-card__title">Intraemprendimiento y Tecnología</div>
+            <div class="related-card__excerpt">Las empresas más avanzadas no contratan consultores externos para identificar sus ineficiencias — capacitan a sus propios equipos para resolverlas con IA.</div>
+            <span class="related-card__link">Leer artículo →</span>
+          </a>
+
+          <a href="blog/mentoria-innovacion-uc.html" class="related-card">
+            <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80&fit=crop&auto=format')"></div>
+            <div class="related-card__badge"><span class="badge badge--violet">Innovación</span></div>
+            <div class="related-card__title">Mentoreando la Innovación</div>
+            <div class="related-card__excerpt">Cómo Spherical colaboró con el Centro de Innovación UC para enseñar a construir MVPs más rápido con diseño UX y herramientas low/no-code.</div>
+            <span class="related-card__link">Leer artículo →</span>
+          </a>
+
+          <a href="blog/la-tecnologia-no-es-el-problema.html" class="related-card">
+            <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80&fit=crop&auto=format')"></div>
+            <div class="related-card__badge"><span class="badge badge--violet">Transformación Digital</span></div>
+            <div class="related-card__title">La tecnología no es el problema</div>
+            <div class="related-card__excerpt">Por qué la mayoría de las transformaciones digitales fallan antes de ver resultados, y qué hacer diferente desde el primer día.</div>
+            <span class="related-card__link">Leer artículo →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FORMULARIO ═══ -->
+    <section class="cta-section" id="contacto">
+      <div class="container">
+        <h2 class="cta-section__title animate-in d1">Solicita tu propuesta formal</h2>
+        <p class="cta-section__sub animate-in d2">El configurador te da el rango. La propuesta formal tiene el desglose exacto, el calendario y los próximos pasos.</p>
+
+        <div class="animate-in d3">
+          <div class="form-success" id="formSuccess">
+            <div class="form-success__icon">✅</div>
+            <h3 class="form-success__title">¡Solicitud recibida!</h3>
+            <p class="form-success__desc">Revisaremos tu caso y te contactaremos en menos de 24 horas hábiles.<br>Si tienes urgencia, escríbenos directamente a <strong>info@spherical.cl</strong></p>
+          </div>
+
+          <form class="contact-form glass" id="contactForm" style="padding:var(--space-2xl);border-radius:var(--radius-2xl);" novalidate>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-field">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="email@empresa.cl" required>
+              </div>
+              <div class="form-field">
+                <label for="tamano">Tamaño de empresa</label>
+                <select id="tamano" name="tamano" required>
+                  <option value="" disabled selected>Selecciona</option>
+                  <option value="50-200">50 – 200 empleados</option>
+                  <option value="200-1000">200 – 1.000 empleados</option>
+                  <option value="+1000">Más de 1.000 empleados</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="mensaje">Desafío o contexto</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos el contexto de tu área de innovación — o dinos si todavía no lo tienes claro." required></textarea>
+              <div class="mensaje-chips">
+                <button type="button" class="chip-suggestion" data-text="Todavía no lo sé con certeza.">Todavía no lo sé</button>
+                <button type="button" class="chip-suggestion" data-text="Prefiero precisarlo más adelante, en la conversación.">Prefiero precisarlo después</button>
+              </div>
+            </div>
+
+            <input type="hidden" id="origen" name="origen" value="Sprint de Innovación Corporativa">
+
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
+                <span id="submitText">Solicitar propuesta formal →</span>
+                <span id="submitLoading" style="display:none;">Enviando...</span>
+              </button>
+              <p class="form-submit__micro">Sin compromiso · Respondemos en menos de 24 horas hábiles</p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div>
+            <div class="footer__brand">
+              <img src="assets/logo-spherical.svg" alt="Spherical" style="height:24px;width:auto;">
+            </div>
+            <p class="footer__tagline">Impulsando la nueva generación de empresas conectadas al futuro.
+              Santiago, Chile.
+            </p>
+          </div>
+          <div>
+            <div class="footer__heading">Servicios</div>
+            <ul class="footer__links">
+              <li><a href="ecosistemas-digitales.html">Ecosistemas Digitales</a></li>
+              <li><a href="ia-empresarial-v2.html">Desarrollo Tecnológico</a></li>
+              <li><a href="sprints.html">Sprint de Innovación Corporativa</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Empresa</div>
+            <ul class="footer__links">
+              <li><a href="index.html#clientes">Clientes</a></li>
+              <li><a href="blog/index.html">Blog</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contacto</div>
+            <ul class="footer__links">
+              <li><a href="mailto:info@spherical.cl">info@spherical.cl</a></li>
+              <li><a href="index.html">www.spherical.cl</a></li>
+              <li><a>Apoquindo 2930, Piso 2</a></li>
+              <li><a>Las Condes, Santiago</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__copy">&copy; 2026 Spherical. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+  </div><!-- .page -->
+
+  <!-- ═══ SCROLL ANIMATIONS + NAVBAR ═══ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.style.animationPlayState = 'running';
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.animate-in').forEach(function (el) {
+        if (el.closest('.hero')) return;
+        el.style.animationPlayState = 'paused';
+        obs.observe(el);
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var t = document.querySelector(a.getAttribute('href'));
+          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+
+      var navbar = document.querySelector('.navbar');
+      var updateNavbar = function () {
+        if (window.scrollY < 80) { navbar.classList.add('navbar--at-top'); }
+        else { navbar.classList.remove('navbar--at-top'); }
+      };
+      window.addEventListener('scroll', updateNavbar, { passive: true });
+      updateNavbar();
+
+      var hamburger = document.getElementById('navHamburger');
+      var navMobile = document.getElementById('navMobile');
+      if (hamburger && navMobile) {
+        hamburger.addEventListener('click', function () {
+          var isOpen = navMobile.classList.toggle('open');
+          hamburger.classList.toggle('open', isOpen);
+        });
+        navMobile.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            navMobile.classList.remove('open');
+            hamburger.classList.remove('open');
+          });
+        });
+      }
+    });
+  </script>
+
+  <!-- ═══ FORMULARIO DE CONTACTO ═══ -->
+  <script>
+    (function () {
+      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXUdsivt3p2QwVbFK4Yi5k9o4dyYaIeTg_G6B7NnRbtBexDd5PdnJaPmY6JJMj7XUI/exec';
+
+      var form = document.getElementById('contactForm');
+      var success = document.getElementById('formSuccess');
+      var submitBtn = document.getElementById('submitBtn');
+      var submitText = document.getElementById('submitText');
+      var submitLoading = document.getElementById('submitLoading');
+
+      if (!form) return;
+
+      function validateField(el, value) {
+        var existing = el.parentNode.querySelector('.field-error-msg');
+        if (!value) {
+          el.classList.add('field-error');
+          if (!existing) {
+            var msg = document.createElement('span');
+            msg.className = 'field-error-msg';
+            msg.innerHTML = '⚠ Este campo es obligatorio';
+            el.parentNode.appendChild(msg);
+          }
+          return false;
+        } else {
+          el.classList.remove('field-error');
+          if (existing) existing.remove();
+          return true;
+        }
+      }
+
+      function validateEmail(el, value) {
+        var existing = el.parentNode.querySelector('.field-error-msg');
+        var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        if (!value) {
+          el.classList.add('field-error');
+          if (!existing) {
+            var msg = document.createElement('span');
+            msg.className = 'field-error-msg';
+            msg.innerHTML = '⚠ Este campo es obligatorio';
+            el.parentNode.appendChild(msg);
+          }
+          return false;
+        } else if (!isEmail) {
+          el.classList.add('field-error');
+          if (existing) existing.remove();
+          var msg2 = document.createElement('span');
+          msg2.className = 'field-error-msg';
+          msg2.innerHTML = '⚠ Ingresa un email válido';
+          el.parentNode.appendChild(msg2);
+          return false;
+        } else {
+          el.classList.remove('field-error');
+          if (existing) existing.remove();
+          return true;
+        }
+      }
+
+      ['nombre', 'empresa', 'tamano', 'mensaje'].forEach(function (name) {
+        var el = form[name];
+        if (el) el.addEventListener('input', function () { validateField(el, el.value.trim()); });
+        if (el) el.addEventListener('change', function () { validateField(el, el.value.trim()); });
+      });
+      var emailEl = form['email'];
+      if (emailEl) {
+        emailEl.addEventListener('input', function () { validateEmail(emailEl, emailEl.value.trim()); });
+        emailEl.addEventListener('change', function () { validateEmail(emailEl, emailEl.value.trim()); });
+      }
+
+      var _formLoadTime = Date.now();
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        function _silentPass() {
+          setTimeout(function () { window.location.href = './gracias.html'; }, 400);
+        }
+        if (form.website && form.website.value !== '') { _silentPass(); return; }
+        if (Date.now() - _formLoadTime < 3000) { _silentPass(); return; }
+        var _suspiciousRe = /https?:\/\/|www\.|<[^>]+>/i;
+        var _textFields = [form.nombre.value, form.empresa.value, (form.mensaje ? form.mensaje.value : '')];
+        if (_textFields.some(function (v) { return _suspiciousRe.test(v); })) { _silentPass(); return; }
+
+        var nombre = form.nombre.value.trim();
+        var empresa = form.empresa.value.trim();
+        var email = form.email.value.trim();
+        var tamano = form.tamano.value;
+        var mensaje = form.mensaje.value.trim();
+
+        var valid = true;
+        valid = validateField(form.nombre, nombre) && valid;
+        valid = validateField(form.empresa, empresa) && valid;
+        valid = validateField(form.tamano, tamano) && valid;
+        valid = validateField(form.mensaje, mensaje) && valid;
+        valid = validateEmail(form.email, email) && valid;
+
+        if (!valid) {
+          form.querySelector('.field-error').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitText.style.display = 'none';
+        submitLoading.style.display = 'inline';
+
+        var data = {
+          nombre: nombre,
+          empresa: empresa,
+          tamano: tamano,
+          email: email,
+          mensaje: mensaje,
+          origen: form.origen.value,
+          fecha: new Date().toLocaleString('es-CL')
+        };
+
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(data)
+        })
+          .then(function () {
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', { event_category: 'Lead', event_label: 'Formulario Sprint Innovacion Corporativa', value: 1 });
+            }
+            setTimeout(function () { window.location.href = './gracias.html'; }, 400);
+          })
+          .catch(function () {
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', { event_category: 'Lead', event_label: 'Formulario Sprint Innovacion Corporativa', value: 1 });
+            }
+            setTimeout(function () { window.location.href = './gracias.html'; }, 400);
+          });
+      });
+    })();
+  </script>
+
+  <!-- FAQ accordion: solo una abierta a la vez -->
+  <script>
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      item.addEventListener('toggle', function() {
+        if (item.open) {
+          document.querySelectorAll('.faq-item').forEach(function(other) {
+            if (other !== item && other.open) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+  </script>
+
+  <script src="https://maslead.cl/widget.js" data-token="cmnp5pcwn00023aua5ndyl891" async></script>
+
+</body>
+
+</html>
