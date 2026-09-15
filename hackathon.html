@@ -341,6 +341,16 @@
     .faq-item[open] .faq-q { color: var(--spherical-teal) }
     .faq-a { padding: 0 var(--space-xl) var(--space-lg); font-size: var(--text-sm); line-height: 1.8; opacity: 0.72 }
 
+    /* ═══ ARTÍCULOS RELACIONADOS ═══ */
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md) }
+    .related-card { display: block; border: 1px solid var(--glass-border-subtle); border-radius: var(--radius-lg); padding: var(--space-lg); transition: transform var(--dur-mid) var(--ease-glass), border-color var(--dur-mid); background: rgba(255,255,255,0.03) }
+    .related-card:hover { transform: translateY(-4px); border-color: rgba(93,202,165,0.3); background: rgba(93,202,165,0.05) }
+    .related-card__img { height: 160px; background-size: cover; background-position: center; margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-md); border-radius: var(--radius-lg) var(--radius-lg) 0 0 }
+    .related-card__badge { margin-bottom: var(--space-sm) }
+    .related-card__title { font-family: var(--font-body); font-weight: 700; font-size: var(--text-lg); line-height: 1.3; margin-bottom: var(--space-xs) }
+    .related-card__excerpt { font-size: var(--text-sm); opacity: 0.55; line-height: 1.6 }
+    .related-card__link { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--spherical-teal); font-weight: 500 }
+
     /* ═══ CTA / FORM SECTION ═══ */
     .cta-section {
       text-align: center; padding: var(--space-4xl) 0;
@@ -401,6 +411,7 @@
       .navbar__hamburger { display: flex }
       .phase-grid { grid-template-columns: 1fr }
       .feature-grid-2 { grid-template-columns: 1fr }
+      .related-grid { grid-template-columns: 1fr }
       .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg) }
     }
     @media(max-width:640px) {
@@ -661,6 +672,43 @@
             <summary class="faq-q">¿Quién de nuestra empresa tiene que estar involucrado?</summary>
             <p class="faq-a">El programa funciona mejor cuando hay un referente ejecutivo que co-define los desafíos antes del sprint y está presente en el Demo Day. No tiene que ser el CEO — puede ser el gerente de innovación, el director de operaciones o quien lidera la iniciativa internamente. Ese rol marca la diferencia entre un evento que genera entusiasmo y uno que genera resultados.</p>
           </details>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ ARTÍCULOS RELACIONADOS ═══ -->
+    <section class="section" id="relacionados">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">Ver también</p>
+        <h2 class="section__title animate-in d2">Artículos relacionados</h2>
+        <div class="related-grid animate-in d3" style="margin-top:var(--space-2xl);">
+
+          <a href="blog/intraemprendimiento-ia-empresas.html" class="related-card">
+            <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&fit=crop&auto=format')"></div>
+            <div class="related-card__badge"><span class="badge badge--aqua">Innovación con IA</span></div>
+            <div class="related-card__title">Intraemprendimiento y Tecnología</div>
+            <div class="related-card__excerpt">Las empresas más avanzadas no contratan consultores externos para identificar sus ineficiencias — capacitan a sus propios equipos para resolverlas con IA.</div>
+            <span class="related-card__link">Leer artículo →</span>
+          </a>
+
+          <a href="blog/mentoria-innovacion-uc.html" class="related-card">
+            <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80&fit=crop&auto=format')"></div>
+            <div class="related-card__badge"><span class="badge badge--violet">Innovación</span></div>
+            <div class="related-card__title">Mentoreando la Innovación</div>
+            <div class="related-card__excerpt">Cómo Spherical colaboró con el Centro de Innovación UC para enseñar a construir MVPs más rápido con diseño UX y herramientas low/no-code.</div>
+            <span class="related-card__link">Leer artículo →</span>
+          </a>
+
+          <a href="blog/la-tecnologia-no-es-el-problema.html" class="related-card">
+            <div class="related-card__img" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80&fit=crop&auto=format')"></div>
+            <div class="related-card__badge"><span class="badge badge--violet">Transformación Digital</span></div>
+            <div class="related-card__title">La tecnología no es el problema</div>
+            <div class="related-card__excerpt">Por qué la mayoría de las transformaciones digitales fallan antes de ver resultados, y qué hacer diferente desde el primer día.</div>
+            <span class="related-card__link">Leer artículo →</span>
+          </a>
 
         </div>
       </div>
