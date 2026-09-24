@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 
 <head>
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -7,21 +7,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="color-scheme" content="dark">
   <title>Sprint de Innovación Corporativa — Spherical</title>
-  <meta name="description" content="Sprint de Innovación Corporativa de Spherical — un programa en tres etapas para llevar tus propias soluciones de IA de la idea al prototipo funcional, con acompañamiento después del sprint. Conoce cómo funciona y solicita tu propuesta formal.">
+  <meta name="description" content="Sprint de Innovación Corporativa de Spherical — un programa en cuatro etapas para llevar tus propias soluciones de IA de la idea al prototipo funcional, con acompañamiento después del sprint. Conoce cómo funciona y solicita tu propuesta formal.">
 
   <link rel="canonical" href="https://spherical.cl/sprints.html">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://spherical.cl/sprints.html">
   <meta property="og:title" content="Sprint de Innovación Corporativa — Spherical">
-  <meta property="og:description" content="De la idea al prototipo funcional, en tres etapas. El Sprint de Innovación Corporativa de Spherical, con acompañamiento después del sprint.">
+  <meta property="og:description" content="De la idea al prototipo funcional, en cuatro etapas. El Sprint de Innovación Corporativa de Spherical, con acompañamiento después del sprint.">
   <meta property="og:image" content="https://spherical.cl/assets/og-image.jpg">
   <meta property="og:locale" content="es_CL">
   <meta property="og:site_name" content="Spherical">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sprint de Innovación Corporativa — Spherical">
-  <meta name="twitter:description" content="De la idea al prototipo funcional, en tres etapas. Conoce cómo funciona y solicita tu propuesta formal.">
+  <meta name="twitter:description" content="De la idea al prototipo funcional, en cuatro etapas. Conoce cómo funciona y solicita tu propuesta formal.">
   <meta name="twitter:image" content="https://spherical.cl/assets/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -295,6 +295,59 @@
     .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl) }
     .phase-card__icon { font-size: 1.8rem; margin-bottom: var(--space-md) }
 
+    /* ═══ ETAPAS DEL SPRINT (misma lógica de hover que .card en ecosistemas-digitales) ═══ */
+    .etapas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl) }
+    .etapa {
+      position: relative; overflow: hidden; border-radius: 10px; background: #070707;
+      cursor: pointer; min-height: 560px; display: flex; text-align: left;
+    }
+    .etapa:focus-visible { outline: 2px solid var(--spherical-teal); outline-offset: 3px }
+    .etapa__media {
+      position: absolute; top: 0; bottom: 0; left: -10px; right: -10px;
+      background: var(--etapa-img, var(--etapa-placeholder)) center / cover no-repeat;
+      transform: translate3d(-10px, 0, 0); transition: opacity 0.35s, transform 0.35s; backface-visibility: hidden;
+    }
+    .etapa:hover .etapa__media, .etapa:focus-visible .etapa__media { transform: translate3d(0, 0, 0) }
+    .etapa__desc {
+      position: relative; width: 100%; padding: 24px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 100%);
+      display: flex; flex-direction: column; justify-content: flex-end; isolation: isolate;
+    }
+    .etapa__desc::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.35s; pointer-events: none }
+    .etapa:hover .etapa__desc::before, .etapa:focus-visible .etapa__desc::before { opacity: 1 }
+    .etapa__num { font-family: var(--font-display); font-weight: 900; font-size: var(--text-2xl); line-height: 1; color: var(--spherical-teal); margin-bottom: var(--space-xs) }
+    .etapa__title {
+      position: relative; overflow: hidden; padding: 5px 0 10px;
+      color: #fff; font-size: 22px; font-family: var(--font-display); font-weight: 900;
+    }
+    .etapa__title::after {
+      content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+      background: linear-gradient(to right, var(--spherical-teal), var(--accent-violet));
+      transform: translate3d(-101%, 0, 0); transition: transform 0.35s;
+    }
+    .etapa:hover .etapa__title::after, .etapa:focus-visible .etapa__title::after { transform: translate3d(0, 0, 0) }
+    .etapa__lead { padding-top: 12px; color: rgba(255,255,255,0.92); font-size: 15px; line-height: 1.6 }
+    .etapa__more { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows 0.35s }
+    .etapa__more-inner { min-height: 0; overflow: hidden }
+    .etapa:hover .etapa__more, .etapa:focus-visible .etapa__more { grid-template-rows: 1fr }
+    .etapa__hover, .etapa__text, .etapa__gain {
+      padding-top: 12px; color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.6;
+      opacity: 0; transform: translate3d(100%, 0, 0); transition: opacity 0.35s, transform 0.35s;
+    }
+    .etapa__hover { color: var(--spherical-teal); font-weight: 500 }
+    .etapa__gain strong { font-weight: 500; color: #fff }
+    .etapa:hover .etapa__hover, .etapa:hover .etapa__text, .etapa:hover .etapa__gain,
+    .etapa:focus-visible .etapa__hover, .etapa:focus-visible .etapa__text, .etapa:focus-visible .etapa__gain { opacity: 1; transform: translate3d(0, 0, 0) }
+    @media (hover: none) {
+      .etapa { cursor: default }
+      .etapa__more { grid-template-rows: 1fr }
+      .etapa__hover, .etapa__text, .etapa__gain { opacity: 1; transform: none }
+      .etapa__media { transform: none }
+      .etapa__desc::before { opacity: 1 }
+    }
+    @media (max-width: 1100px) { .etapas-grid { grid-template-columns: repeat(2, 1fr) } .etapa { min-height: 480px } }
+    @media (max-width: 640px) { .etapas-grid { grid-template-columns: 1fr } .etapa { min-height: 440px } }
+
     /* ═══ LA OPORTUNIDAD (break destacado) ═══ */
     .highlight-quote {
       padding: var(--space-3xl) var(--space-2xl);
@@ -457,16 +510,23 @@
     [data-theme="light"] .badge--aqua { background: rgba(10, 138, 106, 0.12); border-color: rgba(10, 138, 106, 0.35); color: #0a8a6a }
     [data-theme="light"] .badge--violet { background: rgba(109, 40, 217, 0.1); border-color: rgba(109, 40, 217, 0.3); color: #6d28d9 }
     [data-theme="light"] .badge--amber { background: rgba(180, 83, 9, 0.12); border-color: rgba(180, 83, 9, 0.3); color: #b45309 }
-    [data-theme="light"] .btn--primary { background: linear-gradient(135deg, rgba(10, 138, 106, 0.55) 0%, rgba(37, 99, 235, 0.55) 100%); border-color: rgba(10, 138, 106, 0.5); color: #fff }
-    [data-theme="light"] .btn--primary:hover { background: linear-gradient(135deg, rgba(10, 138, 106, 0.75) 0%, rgba(37, 99, 235, 0.75) 100%) }
+    [data-theme="light"] .btn--primary { background: linear-gradient(135deg, rgba(10, 138, 106, 0.92) 0%, rgba(37, 99, 235, 0.92) 100%); border-color: rgba(10, 138, 106, 0.6); color: #fff }
+    [data-theme="light"] .btn--primary:hover { background: linear-gradient(135deg, rgba(10, 138, 106, 1) 0%, rgba(37, 99, 235, 1) 100%) }
     [data-theme="light"] .btn--ghost { background: rgba(255, 255, 255, 0.65); border-color: rgba(15, 23, 42, 0.18); color: #0f172a }
     [data-theme="light"] .btn--ghost:hover { background: rgba(255, 255, 255, 0.84) }
-    [data-theme="light"] .navbar__cta { background: linear-gradient(135deg, rgba(10, 138, 106, 0.55) 0%, rgba(37, 99, 235, 0.55) 100%); border-color: rgba(10, 138, 106, 0.5); color: #fff }
+    [data-theme="light"] .navbar__cta { background: linear-gradient(135deg, rgba(10, 138, 106, 0.92) 0%, rgba(37, 99, 235, 0.92) 100%); border-color: rgba(10, 138, 106, 0.6); color: #fff }
     [data-theme="light"] .navbar__link, [data-theme="light"] .navbar__dropdown-btn { color: #0f172a }
+    [data-theme="light"] .navbar:not(.navbar--at-top) { background: rgba(255,255,255,0.85); border-bottom-color: rgba(15,23,42,0.08); color: #0f172a }
+    [data-theme="light"] .navbar__hamburger span { background: #0f172a }
+    [data-theme="light"] .glass > * { position: relative; z-index: 2 }
+    [data-theme="light"] .glass-card__title { color: #0f172a }
+    [data-theme="light"] .form-field input, [data-theme="light"] .form-field select, [data-theme="light"] .form-field textarea { color: #0f172a; background: rgba(255,255,255,0.75); border-color: rgba(15,23,42,0.18) }
+    [data-theme="light"] .form-field input:focus, [data-theme="light"] .form-field select:focus, [data-theme="light"] .form-field textarea:focus { background: #fff; border-color: rgba(10,138,106,0.6) }
+    [data-theme="light"] .form-field select option { background: #fff; color: #0f172a }
     [data-theme="light"] .navbar__brand img { filter: brightness(0) !important }
     [data-theme="light"] .footer__brand img { filter: brightness(0.2) }
-    [data-theme="light"] .footer__links a { color: rgba(15, 23, 42, 0.6) }
-    [data-theme="light"] .footer__copy { color: rgba(15, 23, 42, 0.3) }
+    [data-theme="light"] .footer__links a { color: rgba(15, 23, 42, 0.72); opacity: 1 }
+    [data-theme="light"] .footer__copy { color: rgba(15, 23, 42, 0.5); opacity: 1 }
     [data-theme="light"] .divider { background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.14), transparent) }
     [data-theme="light"] .pill.is-selected { color: #0a8a6a }
     [data-theme="light"] .result-card__price { background: linear-gradient(135deg, #0a8a6a, #0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
@@ -522,39 +582,75 @@
       <h1 class="hero__title animate-in d2">De la idea al prototipo funcional.</h1>
       <p class="hero__sub animate-in d3">Un programa diseñado para que los equipos de tu empresa construyan herramientas de IA propias, con acompañamiento experto y continuidad después del sprint.</p>
       <div class="hero__cta animate-in d4">
-        <a href="#programa" class="btn btn--primary btn--lg">Conoce el programa ↓</a>
+        <a href="#etapas" class="btn btn--primary btn--lg">Conoce el programa ↓</a>
         <a href="#faq" class="btn btn--ghost btn--lg">Ver preguntas frecuentes ↓</a>
       </div>
     </section>
 
-    <!-- ═══ EL PROGRAMA ═══ -->
-    <section class="section" id="programa">
+    <!-- ═══ ETAPAS DEL SPRINT (hover cards, misma lógica que .card de ecosistemas-digitales) ═══ -->
+    <!-- Para cambiar una imagen: en el style de la tarjeta agrega --etapa-img:url('assets/tu-imagen.webp'); -->
+    <section class="section" id="etapas">
       <div class="container">
-        <p class="section__eyebrow animate-in d1">Cómo funciona</p>
-        <h2 class="section__title animate-in d2">Un programa en tres fases</h2>
-        <p class="section__desc animate-in d3">Cada etapa está diseñada para que los equipos lleguen al sprint con claridad, construyan con velocidad, y continúen con soporte.</p>
+        <h2 class="section__title animate-in d2">Cómo funciona un Sprint</h2>
 
-        <div class="phase-grid">
-          <div class="glass-card animate-in d3">
-            <span class="badge badge--aqua">Diseño y preparación</span>
-            <div class="phase-card__icon">🧭</div>
-            <h3 class="glass-card__title">Fundamentos de IA y Producto</h3>
-            <p class="glass-card__body">Un workshop general para todo el equipo — sin tecnicismos. Cada proyecto completa un documento de descripción de su solución antes de la mentoría individual previa al sprint. El objetivo es que nadie llegue sin dirección.</p>
-          </div>
+        <div class="etapas-grid">
 
-          <div class="glass-card animate-in d4">
-            <span class="badge badge--violet">Facilitación del workshop</span>
-            <div class="phase-card__icon">⚡</div>
-            <h3 class="glass-card__title">Sprint + Demo Day</h3>
-            <p class="glass-card__body">Los equipos construyen con herramientas de IA real, acompañados por facilitadores especializados durante toda la jornada. Al final del día, cada equipo presenta su solución o pitch deck. Los proyectos con potencial de continuidad se identifican ese mismo día.</p>
-          </div>
+          <article class="etapa animate-in d3" tabindex="0" style="--etapa-img: url('assets/etapa-1-descubrir.webp'); --etapa-placeholder: radial-gradient(circle at 25% 20%, rgba(93,202,165,0.55), transparent 60%), radial-gradient(circle at 80% 85%, rgba(59,130,246,0.5), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">01</span>
+              <h3 class="etapa__title">Descubrir</h3>
+              <p class="etapa__lead">Encontramos los problemas que vale la pena resolver.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Antes de hablar de IA, hablamos de tu operación.</p>
+                <p class="etapa__text">Levantamos con tus equipos los procesos que hoy consumen más tiempo, generan errores o frenan decisiones. Priorizamos por impacto y viabilidad, y definimos cómo vamos a medir el éxito.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> una cartera de proyectos priorizados y equipos listos para trabajar.</p>
+              </div></div>
+            </div>
+          </article>
 
-          <div class="glass-card animate-in d5">
-            <span class="badge badge--amber">Continuidad y soporte</span>
-            <div class="phase-card__icon">🔁</div>
-            <h3 class="glass-card__title">Consultoría y soporte continuo</h3>
-            <p class="glass-card__body">Los proyectos que continúan pueden operar sobre la infraestructura de la empresa o bajo la cuenta de Spherical según lo que defina el área de TI. En ambos casos, los datos nunca salen del perímetro corporativo. El acompañamiento cubre desde ajustes técnicos hasta sesiones estratégicas con el área de innovación — con la profundidad que cada proyecto necesite.</p>
-          </div>
+          <article class="etapa animate-in d4" tabindex="0" style="--etapa-img: url('assets/etapa-2-crear.webp'); --etapa-placeholder: radial-gradient(circle at 75% 20%, rgba(180,144,245,0.55), transparent 60%), radial-gradient(circle at 20% 85%, rgba(247,168,196,0.4), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">02</span>
+              <h3 class="etapa__title">Crear</h3>
+              <p class="etapa__lead">Tus equipos construyen prototipos funcionales con IA.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Sin programar y con acompañamiento experto.</p>
+                <p class="etapa__text">Capacitamos a los participantes en IA y en un método de desarrollo de producto, acompañamos cada proyecto con mentorías y cerramos con una jornada intensiva de construcción y un Demo Day ante la dirección.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> prototipos que funcionan y una decisión clara sobre cuáles continúan.</p>
+              </div></div>
+            </div>
+          </article>
+
+          <article class="etapa animate-in d5" tabindex="0" style="--etapa-img: url('assets/etapa-3-implementar.webp'); --etapa-placeholder: radial-gradient(circle at 25% 80%, rgba(94,231,223,0.5), transparent 60%), radial-gradient(circle at 80% 20%, rgba(93,202,165,0.5), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">03</span>
+              <h3 class="etapa__title">Implementar</h3>
+              <p class="etapa__lead">Llevamos lo que funciona a la operación real.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Aquí es donde la mayoría de los proyectos de IA se detiene.</p>
+                <p class="etapa__text">Probamos el prototipo con datos y usuarios reales, lo integramos con tus sistemas y aseguramos seguridad, trazabilidad y cumplimiento regulatorio. Acompañamos la salida a producción hasta que opere de forma estable.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> una solución en uso, validada y documentada.</p>
+              </div></div>
+            </div>
+          </article>
+
+          <article class="etapa animate-in d6" tabindex="0" style="--etapa-img: url('assets/etapa-4-evolucionar.webp'); --etapa-placeholder: radial-gradient(circle at 80% 80%, rgba(255,210,127,0.45), transparent 60%), radial-gradient(circle at 20% 20%, rgba(247,168,196,0.45), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">04</span>
+              <h3 class="etapa__title">Evolucionar</h3>
+              <p class="etapa__lead">La solución mejora con el uso, y tu equipo también.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Un ciclo que se repite, no un evento aislado.</p>
+                <p class="etapa__text">Monitoreamos el desempeño, ajustamos y sumamos nuevas funcionalidades. En paralelo, formamos personas clave dentro de tu organización para que el próximo sprint dependa cada vez menos de nosotros.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> soluciones que se mantienen vigentes y capacidad instalada en tu equipo.</p>
+              </div></div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -659,11 +755,6 @@
         <p class="section__eyebrow animate-in d1">Preguntas frecuentes</p>
         <h2 class="section__title animate-in d2">Lo que los equipos de innovación suelen preguntar</h2>
         <div class="faq-list animate-in d3" style="margin-top:var(--space-2xl);">
-
-          <details class="faq-item glass">
-            <summary class="faq-q">¿Cuánto cuesta el programa?</summary>
-            <p class="faq-a">El programa se cotiza de forma personalizada según el tamaño del grupo y las etapas que incluye. Como referencia, los programas para grupos de hasta 15 proyectos parten desde CLP 2.900.000. La cotización formal incluye el desglose por etapa, el calendario propuesto y los próximos pasos — sin compromiso.</p>
-          </details>
 
           <details class="faq-item glass">
             <summary class="faq-q">¿Qué pasa con los datos de nuestra empresa?</summary>
