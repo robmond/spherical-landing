@@ -1600,9 +1600,9 @@
       }
     }
 
-    /* ═══ BANNER INNOVACIÓN CORPORATIVA (misma dinámica de hover que .scard) ═══ */
+    /* ═══ BANNER INNOVACIÓN CORPORATIVA ═══ */
     .sprint-banner {
-      position: relative; overflow: hidden; display: flex; align-items: flex-end;
+      position: relative; overflow: hidden; display: flex; align-items: center;
       min-height: 460px; border-radius: var(--radius-lg);
       background: #0a1220; border: 1px solid var(--glass-border);
       box-shadow: var(--shadow-glass); cursor: pointer;
@@ -1617,57 +1617,41 @@
     }
     .sprint-banner__overlay {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      background: linear-gradient(to left, rgba(5,16,26,0.88) 0%, rgba(5,16,26,0.72) 32%, rgba(5,16,26,0) 62%);
+      background: linear-gradient(to left, rgba(5,16,26,0.9) 0%, rgba(5,16,26,0.76) 38%, rgba(5,16,26,0) 68%);
     }
     .sprint-banner__content {
       position: relative; z-index: 2; margin-left: auto;
-      width: 40%; padding: var(--space-xl) var(--space-2xl) var(--space-xl) 0;
+      width: 46%; padding: var(--space-xl) var(--space-2xl) var(--space-xl) 0;
       display: flex; flex-direction: column; align-items: flex-start; text-align: left;
     }
     .sprint-banner__badge {
-      display: inline-flex; align-self: flex-start; margin-bottom: var(--space-md);
+      display: inline-flex; margin-bottom: var(--space-md);
       font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase;
       padding: 5px 14px; border-radius: var(--radius-full);
       border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      opacity: 0; transform: translate3d(0, -8px, 0);
-      transition: opacity 0.4s, transform 0.4s;
     }
-    .sprint-banner:hover .sprint-banner__badge, .sprint-banner:focus-visible .sprint-banner__badge { opacity: 1; transform: translate3d(0, 0, 0); }
     .sprint-banner__title {
-      position: relative; overflow: hidden; padding-bottom: 12px; margin-bottom: var(--space-xs);
       font-family: var(--font-display); font-weight: 900;
-      font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.1; letter-spacing: -0.01em; color: #fff;
+      font-size: clamp(1.5rem, 2.9vw, 2.4rem); line-height: 1.15; letter-spacing: -0.01em; color: #fff;
+      margin-bottom: var(--space-md);
     }
-    .sprint-banner__title::after {
-      content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
-      background: linear-gradient(to right, var(--spherical-teal), var(--accent-violet));
-      transform: translate3d(-101%, 0, 0); transition: transform 0.4s;
+    .sprint-banner__sub {
+      font-size: var(--text-base); line-height: 1.6; color: rgba(255,255,255,0.75);
+      margin-bottom: var(--space-lg);
     }
-    .sprint-banner:hover .sprint-banner__title::after, .sprint-banner:focus-visible .sprint-banner__title::after { transform: translate3d(0, 0, 0); }
-    .sprint-banner__body {
-      padding-top: var(--space-sm); font-size: var(--text-sm); line-height: 1.65; color: rgba(255,255,255,0.8);
-      opacity: 0; transform: translate3d(0, 16px, 0);
-      transition: opacity 0.4s, transform 0.4s;
-    }
-    .sprint-banner:hover .sprint-banner__body, .sprint-banner:focus-visible .sprint-banner__body { opacity: 1; transform: translate3d(0, 0, 0); }
     .sprint-banner__cta {
-      display: inline-flex; align-items: center; gap: 6px; margin-top: var(--space-md);
+      display: inline-flex; align-items: center; gap: 8px;
       font-size: var(--text-sm); font-weight: 500; color: var(--spherical-teal);
-      opacity: 0; transform: translate3d(0, 12px, 0);
-      transition: opacity 0.4s 0.05s, transform 0.4s 0.05s;
+      transition: gap 0.25s ease;
     }
-    .sprint-banner:hover .sprint-banner__cta, .sprint-banner:focus-visible .sprint-banner__cta { opacity: 1; transform: translate3d(0, 0, 0); }
-    @media (hover: none), (max-width: 1000px) {
-      .sprint-banner__badge { opacity: 1; transform: none; }
-      .sprint-banner__body { opacity: 0.8; transform: none; }
-      .sprint-banner__cta { opacity: 1; transform: none; }
-    }
+    .sprint-banner:hover .sprint-banner__cta, .sprint-banner:focus-visible .sprint-banner__cta { gap: 14px; }
     @media (max-width: 1000px) {
       .sprint-banner { flex-direction: column; align-items: stretch; min-height: 0; }
       .sprint-banner__img { position: relative; inset: auto; height: auto; aspect-ratio: 2.36 / 1; }
       .sprint-banner__overlay { display: none; }
       .sprint-banner__content { width: 100%; margin-left: 0; padding: var(--space-xl) var(--space-xl) var(--space-2xl); }
+      .sprint-banner__title { font-size: clamp(1.5rem, 4.6vw, 2rem); }
     }
     @media (max-width: 640px) {
       .sprint-banner__img { aspect-ratio: auto; height: 240px; object-position: 40% center; }
@@ -2804,11 +2788,28 @@
           <div class="sprint-banner__overlay"></div>
           <div class="sprint-banner__content">
             <span class="sprint-banner__badge">Innovación corporativa</span>
-            <h2 class="sprint-banner__title">Durante años construimos tecnología a medida para nuestros clientes.</h2>
-            <p class="sprint-banner__body">Ahora acompañamos a tu equipo a implementar sus propias soluciones con Inteligencia Artificial.</p>
-            <span class="sprint-banner__cta">Conoce cómo funciona →</span>
+            <h2 class="sprint-banner__title">Acompañamos a tu equipo a implementar sus propias soluciones con Inteligencia Artificial.</h2>
+            <p class="sprint-banner__sub">Durante años construimos tecnología a medida para nuestros clientes.</p>
+            <span class="sprint-banner__cta">Conoce cómo funciona <span aria-hidden="true">→</span></span>
           </div>
         </a>
+      </div>
+    </section>
+
+    <!-- ═══ CASO DE CLIENTE ═══ -->
+    <section class="section">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">Cómo ayudamos a nuestros clientes</p>
+        <div class="caso-banner animate-in d2">
+          <img src="assets/hackphoto.webp" alt="Equipo construyendo un prototipo en el Sprint de Innovación Corporativa" class="caso-banner__img" loading="lazy">
+          <div class="caso-banner__overlay"></div>
+          <div class="caso-banner__content">
+            <span class="caso-banner__badge">Caso Eurofarma</span>
+            <h2 class="caso-banner__title">Capacitamos a tus propios equipos para resolver sus problemas con IA.</h2>
+            <p class="caso-banner__desc">Así funciona el Sprint de Innovación Corporativa: identificar, construir y validar soluciones desde dentro de la empresa.</p>
+            <a href="blog/intraemprendimiento-ia-empresas.html" class="caso-banner__link">Leer artículo completo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2909,23 +2910,6 @@
             <p class="alianza-card__body">TodoLegal, firma especializada en derecho digital, guía a empresas chilenas en su adecuación a la Ley 21.719 de Protección de Datos Personales. Juntos combinamos nuestra mirada tecnológica con su expertise jurídico, ofreciendo a nuestros clientes un acompañamiento integral, legal y tecnológico, frente al nuevo marco normativo.</p>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ CASO DE CLIENTE ═══ -->
-    <section class="section">
-      <div class="container">
-        <p class="section__eyebrow animate-in d1">Cómo ayudamos a nuestros clientes</p>
-        <div class="caso-banner animate-in d2">
-          <img src="assets/hackphoto.webp" alt="Equipo construyendo un prototipo en el Sprint de Innovación Corporativa" class="caso-banner__img" loading="lazy">
-          <div class="caso-banner__overlay"></div>
-          <div class="caso-banner__content">
-            <span class="caso-banner__badge">Caso Eurofarma</span>
-            <h2 class="caso-banner__title">Capacitamos a tus propios equipos para resolver sus problemas con IA.</h2>
-            <p class="caso-banner__desc">Así funciona el Sprint de Innovación Corporativa: identificar, construir y validar soluciones desde dentro de la empresa.</p>
-            <a href="blog/intraemprendimiento-ia-empresas.html" class="caso-banner__link">Leer artículo completo <span aria-hidden="true">→</span></a>
-          </div>
         </div>
       </div>
     </section>
