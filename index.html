@@ -158,6 +158,7 @@
       border-radius: 50%;
       filter: blur(80px);
       opacity: 0.5;
+      will-change: transform;
       animation: blob-drift var(--dur, 18s) ease-in-out infinite alternate
     }
 
@@ -293,14 +294,12 @@
     @keyframes cascade-in {
       0% {
         opacity: 0;
-        transform: translateY(24px) scale(0.97);
-        filter: blur(8px)
+        transform: translateY(24px) scale(0.97)
       }
 
       100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0)
+        transform: translateY(0) scale(1)
       }
     }
 
@@ -2067,6 +2066,8 @@
         min-height: 100svh;
         padding-bottom: 90px;
       }
+      /* Ocultar video en mobile — mejora LCP significativamente */
+      .hero__video-bg { display: none }
 
       /* Logo carousel — 3 visible on mobile */
       .logo-item {
