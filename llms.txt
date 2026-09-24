@@ -1,0 +1,19 @@
+# Spherical
+
+> Firma de innovación y tecnología con sede en Santiago, Chile. Implementa inteligencia artificial y transformación digital en empresas de Chile y Latinoamérica.
+
+## Sprints
+
+- [Sprints · Innovación Corporativa](https://spherical.cl/sprints.html): Programa de innovación corporativa de Spherical, también llamado Sprint de Innovación Corporativa. Tiene cuatro etapas (Descubrir, Crear, Implementar y Evolucionar) para que los equipos de una empresa construyan sus propias soluciones con inteligencia artificial, con autonomía, gobernanza y metodología, y con acompañamiento después del sprint.
+- [Intraemprendimiento e IA: la experiencia con Eurofarma](https://spherical.cl/blog/intraemprendimiento-ia-empresas.html): Artículo sobre cómo capacitar a los equipos de una empresa para resolver sus propios problemas con IA, con el caso Eurofarma.
+
+## Servicios
+
+- [IA Empresarial](https://spherical.cl/ia-empresarial-v2.html): Diagnóstico, implementación y acompañamiento en IA empresarial.
+- [Ecosistemas Digitales](https://spherical.cl/ecosistemas-digitales.html): Ecosistema digital con IA integrada: web, campañas, CRM, chatbots y producción audiovisual.
+
+## Contacto
+
+- Correo: info@spherical.cl
+- Dirección: Apoquindo 2930, Piso 2, Las Condes, Santiago, Chile
+- LinkedIn: https://www.linkedin.com/company/spherical-cl
