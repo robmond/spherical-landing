@@ -304,12 +304,11 @@
     }
     .etapa:focus-visible { outline: 2px solid var(--spherical-teal); outline-offset: 3px }
     .etapa__media {
-      position: absolute; top: 0; bottom: var(--etapa-media-bottom, 0); left: -10px; right: -10px;
-      background: var(--etapa-img, var(--etapa-placeholder)) 50% var(--etapa-pos-y, 50%) / var(--etapa-size, cover) no-repeat;
+      position: absolute; top: 0; bottom: 0; left: -10px; right: -10px;
+      background: var(--etapa-img, var(--etapa-placeholder)) center / cover no-repeat;
       transform: translate3d(-10px, 0, 0); transition: opacity 0.35s, transform 0.35s; backface-visibility: hidden;
     }
     .etapa:hover .etapa__media, .etapa:focus-visible .etapa__media { transform: translate3d(0, 0, 0) }
-    .etapa--zoom .etapa__media { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 18px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 18px), transparent) }
     .etapa__desc {
       position: relative; width: 100%; padding: 24px;
       background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 100%);
@@ -781,7 +780,7 @@
 
         <div class="etapas-grid">
 
-          <article class="etapa etapa--zoom animate-in d3" tabindex="0" style="--etapa-img: url('assets/etapa-1-descubrir.webp'); --etapa-size: auto 1000px; --etapa-pos-y: 100%; --etapa-media-bottom: 200px; --etapa-placeholder: radial-gradient(circle at 25% 20%, rgba(93,202,165,0.55), transparent 60%), radial-gradient(circle at 80% 85%, rgba(59,130,246,0.5), transparent 60%), #0b0e1a;">
+          <article class="etapa animate-in d3" tabindex="0" style="--etapa-img: url('assets/etapa-1-descubrir.webp'); --etapa-placeholder: radial-gradient(circle at 25% 20%, rgba(93,202,165,0.55), transparent 60%), radial-gradient(circle at 80% 85%, rgba(59,130,246,0.5), transparent 60%), #0b0e1a;">
             <div class="etapa__media"></div>
             <div class="etapa__desc">
               <span class="etapa__num">01</span>
