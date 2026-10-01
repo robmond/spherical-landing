@@ -1597,7 +1597,11 @@
       padding: 5px 14px; border-radius: var(--radius-full);
       border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      opacity: 0; transform: translate3d(0, -8px, 0);
+      transition: opacity 0.4s, transform 0.4s;
     }
+    .sprint-banner:hover .sprint-banner__badge,
+    .sprint-banner:focus-visible .sprint-banner__badge { opacity: 1; transform: translate3d(0, 0, 0); }
     .sprint-banner__title {
       font-family: var(--font-display); font-weight: 900;
       font-size: clamp(1.5rem, 2.9vw, 2.4rem); line-height: 1.15; letter-spacing: -0.01em; color: #fff;
@@ -1606,13 +1610,22 @@
     .sprint-banner__sub {
       font-size: var(--text-base); line-height: 1.6; color: rgba(255,255,255,0.75);
       margin-bottom: var(--space-lg);
+      opacity: 0; transform: translate3d(0, 8px, 0);
+      transition: opacity 0.4s 0.05s, transform 0.4s 0.05s;
     }
+    .sprint-banner:hover .sprint-banner__sub,
+    .sprint-banner:focus-visible .sprint-banner__sub { opacity: 1; transform: translate3d(0, 0, 0); }
     .sprint-banner__cta {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: var(--text-sm); font-weight: 500; color: var(--spherical-teal);
-      transition: gap 0.25s ease;
+      opacity: 0; transform: translate3d(0, 8px, 0);
+      transition: opacity 0.4s 0.1s, transform 0.4s 0.1s, gap 0.25s;
     }
-    .sprint-banner:hover .sprint-banner__cta, .sprint-banner:focus-visible .sprint-banner__cta { gap: 14px; }
+    .sprint-banner:hover .sprint-banner__cta,
+    .sprint-banner:focus-visible .sprint-banner__cta { opacity: 1; transform: translate3d(0, 0, 0); gap: 14px; }
+    @media (hover: none) {
+      .sprint-banner__badge, .sprint-banner__sub, .sprint-banner__cta { opacity: 1; transform: none; }
+    }
     @media (max-width: 1000px) {
       .sprint-banner { flex-direction: column; align-items: stretch; min-height: 0; }
       .sprint-banner__img { position: relative; inset: auto; height: auto; aspect-ratio: 2.36 / 1; }
@@ -2737,6 +2750,7 @@
           <div class="sprint-banner__content">
             <span class="sprint-banner__badge">Innovación corporativa</span>
             <h2 class="sprint-banner__title">Acompañamos a tu equipo a implementar sus propias soluciones con Inteligencia Artificial.</h2>
+            <p class="sprint-banner__sub">Durante años construimos tecnología a medida para nuestros clientes.</p>
             <span class="sprint-banner__cta">Conoce cómo funciona <span aria-hidden="true">→</span></span>
           </div>
         </a>
