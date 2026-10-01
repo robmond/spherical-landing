@@ -1360,6 +1360,16 @@
       background: radial-gradient(circle, rgba(180,144,245,0.22) 0%, transparent 70%);
       pointer-events: none;
     }
+    /* Imagen de fondo de tarjeta */
+    .scard__img {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      transition: opacity 0.5s ease;
+    }
+    .scard:hover .scard__img { opacity: 0.28; }
     /* Patrón de puntos */
     .scard::after {
       content: "";
@@ -2741,6 +2751,7 @@
 
           <!-- Card Marketing Digital -->
           <a href="ecosistemas-digitales.html" class="scard animate-in d4">
+            <div class="scard__img" style="background-image:url('assets/monochromatic-urban-minimal-landscape.webp')"></div>
             <div class="scard__overlay">
               <span class="scard__badge">Marketing Digital</span>
               <p class="scard__question" style="font-weight:900">¿Cómo te ve el mundo?</p>
@@ -2752,6 +2763,7 @@
 
           <!-- Card IA Empresarial -->
           <a href="ia-empresarial-v2.html" class="scard animate-in d5">
+            <div class="scard__img" style="background-image:url('assets/minimal-amazing-interior-design.webp')"></div>
             <div class="scard__overlay">
               <span class="scard__badge" style="border-color:rgba(180,144,245,0.5);background:rgba(180,144,245,0.15);">Desarrollo Tecnológico</span>
               <p class="scard__question" style="font-weight:900">¿Cómo operas por dentro?</p>
