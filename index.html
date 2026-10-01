@@ -1325,27 +1325,22 @@
       text-decoration: none;
       color: inherit;
     }
-    /* Orbs eliminados — imagen ocupa todo el fondo */
-    .scard:nth-child(1)::before,
-    .scard:nth-child(2)::before { display: none }
-    /* Imagen full-bleed — desliza al centro en hover */
+    /* Imagen full-bleed — se oscurece en hover */
     .scard__img {
       position: absolute;
-      top: 0; bottom: 0; left: -10px; right: -10px;
+      inset: 0;
       background-size: cover;
-      background-position: center;
-      opacity: 1;
-      transform: translate3d(-10px, 0, 0);
-      transition: transform 0.4s ease;
-      backface-visibility: hidden;
+      background-position: center 30%;
+      filter: brightness(0.85);
+      transition: filter 0.4s ease;
     }
-    .scard:hover .scard__img { transform: translate3d(0, 0, 0) }
-    /* Gradiente oscuro sobre la imagen */
+    .scard:hover .scard__img { filter: brightness(0.5) }
+    /* Gradiente protector base — ligero para que la imagen sea visible */
     .scard::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.92) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.78) 100%);
       pointer-events: none;
       z-index: 1;
     }
@@ -1429,7 +1424,7 @@
     .scard:hover .scard__cta { opacity: 1; transform: translate3d(0, 0, 0) }
     /* Touch devices — mostrar todo el contenido sin hover */
     @media (hover: none) {
-      .scard__img { transform: none }
+      .scard__img { filter: brightness(0.5) }
       .scard__badge, .scard__body, .scard__cta { opacity: 1; transform: none }
     }
     @media (max-width: 680px) {
@@ -1580,15 +1575,13 @@
     }
     .sprint-banner:focus-visible { outline: 2px solid var(--spherical-teal); outline-offset: 3px; }
     .sprint-banner__img {
-      position: absolute; top: 0; bottom: 0; left: -10px; right: -10px;
-      width: auto; height: 100%;
+      position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; object-position: 30% center;
-      transform: translate3d(-10px, 0, 0);
-      transition: transform 0.4s ease;
-      backface-visibility: hidden;
+      filter: brightness(0.85);
+      transition: filter 0.4s ease;
     }
     .sprint-banner:hover .sprint-banner__img,
-    .sprint-banner:focus-visible .sprint-banner__img { transform: translate3d(0, 0, 0); }
+    .sprint-banner:focus-visible .sprint-banner__img { filter: brightness(0.5); }
     .sprint-banner__overlay {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
       background: linear-gradient(to left, rgba(5,16,26,0.9) 0%, rgba(5,16,26,0.76) 38%, rgba(5,16,26,0) 68%);
@@ -2744,7 +2737,6 @@
           <div class="sprint-banner__content">
             <span class="sprint-banner__badge">Innovación corporativa</span>
             <h2 class="sprint-banner__title">Acompañamos a tu equipo a implementar sus propias soluciones con Inteligencia Artificial.</h2>
-            <p class="sprint-banner__sub">Durante años construimos tecnología a medida para nuestros clientes.</p>
             <span class="sprint-banner__cta">Conoce cómo funciona <span aria-hidden="true">→</span></span>
           </div>
         </a>
