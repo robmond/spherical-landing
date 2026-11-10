@@ -1110,6 +1110,7 @@
   }
   </script>
   <link rel="canonical" href="https://spherical.cl/ia-empresarial-v2.html">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -1653,6 +1654,7 @@
               <label for="website">Website</label>
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
             </div>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAF7uB8ddcw-C98Pe" data-language="es" style="margin-bottom:var(--space-md);"></div>
 <div class="form-submit">
               <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
                 <span id="submitText">Solicitar sesión exploratoria →</span>
@@ -1797,6 +1799,13 @@
         }
       }
 
+      var FREE_MAIL_DOMAINS = ['gmail.com','googlemail.com','hotmail.com','hotmail.cl','hotmail.es','outlook.com','outlook.cl','outlook.es','live.com','live.cl','msn.com','yahoo.com','yahoo.es','yahoo.cl','ymail.com','icloud.com','me.com','aol.com','proton.me','protonmail.com','gmx.com','mail.com','yandex.com'];
+      function isFreeMail(v) {
+        var d = (v.split('@')[1] || '').toLowerCase().trim();
+        return v.indexOf('@') !== -1 && FREE_MAIL_DOMAINS.indexOf(d) !== -1;
+      }
+      var FREE_MAIL_MSG = '⚠ Ingresa tu correo de empresa (no aceptamos Gmail, Hotmail ni similares)';
+
       function validateEmail(el, value) {
         var existing = el.parentNode.querySelector('.field-error-msg');
         var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -1817,6 +1826,14 @@
           msg.className = 'field-error-msg';
           msg.innerHTML = '⚠ Ingresa un email o WhatsApp válido';
           el.parentNode.appendChild(msg);
+          return false;
+        } else if (isFreeMail(value)) {
+          el.classList.add('field-error');
+          if (existing) existing.remove();
+          var msg4 = document.createElement('span');
+          msg4.className = 'field-error-msg';
+          msg4.innerHTML = FREE_MAIL_MSG;
+          el.parentNode.appendChild(msg4);
           return false;
         } else {
           el.classList.remove('field-error');
@@ -1875,11 +1892,16 @@ form.addEventListener('submit', function (e) {
         }
 
         // Estado loading
+        var tsEl = form.querySelector('[name="cf-turnstile-response"]');
+        var tsToken = tsEl ? tsEl.value : '';
+        if (!tsToken) { alert('Por favor completa la verificación de seguridad antes de enviar.'); return; }
+
         submitBtn.disabled = true;
         submitText.style.display = 'none';
         submitLoading.style.display = 'inline';
 
         var data = {
+          turnstile: tsToken,
           nombre: nombre,
           empresa: empresa,
           tamano: tamano,
