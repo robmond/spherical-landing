@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Partner de Innovación Fraccional — Spherical</title>
+  <meta name="description" content="Spherical actúa como el área de innovación que tu empresa necesita sin tener que armarla: estrategia, tecnología, personas y ejecución sobre los procesos que más importan.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spherical.cl/partner-innovacion-fraccional.html">
+  <meta property="og:title" content="Partner de Innovación Fraccional — Spherical">
+  <meta property="og:description" content="Spherical actúa como el área de innovación que tu empresa necesita sin tener que armarla: estrategia, tecnología, personas y ejecución sobre los procesos que más importan.">
+  <meta property="og:image" content="https://spherical.cl/assets/hackphoto.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Partner de Innovación Fraccional — Spherical">
+  <meta name="twitter:description" content="Spherical actúa como el área de innovación que tu empresa necesita sin tener que armarla.">
+  <meta name="twitter:image" content="https://spherical.cl/assets/hackphoto.webp">
+
+  <link rel="canonical" href="https://spherical.cl/partner-innovacion-fraccional.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══ DESIGN TOKENS ═══ */
+    :root {
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+
+      --spherical-teal: #5DCAA5;
+      --spherical-teal-bright: #6ddbb5;
+      --accent-aqua: #22d3ee;
+      --accent-violet: #b490f5;
+      --accent-rose: #f7a8c4;
+      --accent-amber: #ffd27f;
+
+      --color-bg: #0b0e1a;
+      --color-surface: rgba(255,255,255,0.04);
+      --color-text: #ffffff;
+      --color-text-muted: rgba(255,255,255,0.65);
+      --color-text-subtle: rgba(255,255,255,0.4);
+
+      --glass-white: rgba(255,255,255,0.08);
+      --glass-white-md: rgba(255,255,255,0.14);
+      --glass-white-lg: rgba(255,255,255,0.22);
+      --glass-dark: rgba(0,0,0,0.3);
+      --glass-dark-md: rgba(0,0,0,0.5);
+      --glass-border: rgba(255,255,255,0.14);
+      --glass-border-subtle: rgba(255,255,255,0.08);
+      --glass-border-bright: rgba(255,255,255,0.28);
+      --shadow-glass: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+      --shadow-float: 0 20px 60px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.3);
+      --reflection-top: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 50%);
+      --reflection-inner: inset 0 1px 1px rgba(255,255,255,0.1), inset 0 -1px 1px rgba(0,0,0,0.2);
+
+      --blur-sm: blur(8px) saturate(140%);
+      --blur-md: blur(16px) saturate(160%);
+      --blur-lg: blur(24px) saturate(180%);
+
+      --space-2xs: 4px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+
+      --text-2xs: 0.65rem;
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-md: 0.9375rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --radius-2xl: 28px;
+      --radius-full: 999px;
+
+      --dur-fast: 0.18s;
+      --dur-mid: 0.3s;
+      --dur-slow: 0.6s;
+      --ease-smooth: cubic-bezier(0.4,0,0.2,1);
+      --ease-glass: cubic-bezier(0.22,1,0.36,1);
+      --ease-liquid: cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased }
+    body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); min-height: 100vh; overflow-x: hidden }
+    a { text-decoration: none; color: inherit }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important } }
+
+    /* ═══ ANIMATED BACKGROUND ═══ */
+    .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none }
+    .scene__blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; animation: blob-drift var(--dur, 18s) ease-in-out infinite alternate }
+    .scene__blob--1 { width: 700px; height: 700px; background: radial-gradient(circle, #5DCAA5, #3b82f6); top: -200px; left: -150px; --dur: 22s }
+    .scene__blob--2 { width: 600px; height: 600px; background: radial-gradient(circle, #b490f5, #ec4899); bottom: -200px; right: -100px; --dur: 17s; animation-delay: -8s }
+    .scene__blob--3 { width: 400px; height: 400px; background: radial-gradient(circle, #5ee7df, #5DCAA5); top: 40%; left: 50%; --dur: 25s; animation-delay: -13s }
+    .scene__blob--4 { width: 500px; height: 500px; background: radial-gradient(circle, #ffd27f, #f7a8c4); top: 70%; left: 10%; --dur: 20s; animation-delay: -5s; opacity: 0.3 }
+    @keyframes blob-drift {
+      0% { transform: translate(0,0) scale(1) }
+      33% { transform: translate(60px,-40px) scale(1.08) }
+      66% { transform: translate(-40px,60px) scale(0.94) }
+      100% { transform: translate(30px,30px) scale(1.04) }
+    }
+
+    /* ═══ GLASS UTILITIES ═══ */
+    .glass {
+      backdrop-filter: var(--blur-md); -webkit-backdrop-filter: var(--blur-md);
+      background: var(--glass-white); border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-glass); position: relative; overflow: hidden;
+    }
+    .glass::before { content: ""; position: absolute; inset: 0; background: var(--reflection-top); pointer-events: none; border-radius: inherit; z-index: 1 }
+
+    /* ═══ LAYOUT ═══ */
+    .page { position: relative; z-index: 10 }
+    .container { width: min(1100px, 92vw); margin-inline: auto }
+    .section { padding: var(--space-4xl) 0 }
+    .section__eyebrow { font-size: var(--text-2xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-aqua); margin-bottom: var(--space-sm) }
+    .section__title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; margin-bottom: var(--space-md) }
+    .section__desc { font-size: var(--text-base); line-height: 1.7; opacity: 0.65; max-width: 640px }
+
+    /* ═══ ANIMATIONS ═══ */
+    @keyframes cascade-in {
+      0% { opacity: 0; transform: translateY(24px) scale(0.97); filter: blur(8px) }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0) }
+    }
+    .animate-in { animation: cascade-in var(--dur-slow) var(--ease-glass) both }
+    .d1 { animation-delay: 0.1s } .d2 { animation-delay: 0.2s } .d3 { animation-delay: 0.3s }
+    .d4 { animation-delay: 0.4s } .d5 { animation-delay: 0.5s } .d6 { animation-delay: 0.6s } .d7 { animation-delay: 0.7s }
+
+    /* ═══ NAVBAR ═══ */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      padding: var(--space-sm) 5%; display: flex; align-items: center; gap: 12px;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid rgba(255,255,255,0.06); color: #ffffff;
+      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth), background 0.5s ease, border-color 0.5s ease;
+    }
+    .navbar.navbar--at-top { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom-color: transparent }
+    .navbar__brand { font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; padding: 8px 20px; letter-spacing: 0.02em; margin-right: auto }
+    .navbar__link { padding: 9px 20px; border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 400; color: rgba(255,255,255,0.9); cursor: pointer; transition: background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid) }
+    .navbar__link:hover { opacity: 1; transform: translateY(-1px); background: var(--glass-white) }
+    .navbar__cta {
+      display: inline-flex; align-items: center; gap: var(--space-xs);
+      padding: 9px 22px; border-radius: var(--radius-full); border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.04em; color: #fff;
+      background: linear-gradient(135deg, rgba(93,202,165,0.5) 0%, rgba(59,130,246,0.5) 100%);
+      border: 1px solid rgba(93,202,165,0.45); box-shadow: 0 4px 24px rgba(93,202,165,0.3), var(--reflection-inner);
+      transition: transform var(--dur-fast) var(--ease-liquid), box-shadow var(--dur-fast); position: relative; overflow: hidden;
+    }
+    .navbar__cta::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--reflection-top); pointer-events: none }
+    .navbar__cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(93,202,165,0.5), var(--reflection-inner) }
+    .navbar__dropdown { position: relative; display: flex; align-items: center }
+    .navbar__dropdown-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 400; color: rgba(255,255,255,0.9);
+      padding: 9px 20px; border-radius: var(--radius-full); display: flex; align-items: center; gap: 5px;
+      transition: background var(--dur-fast), opacity var(--dur-fast), transform var(--dur-fast) var(--ease-liquid);
+    }
+    .navbar__dropdown-btn:hover { background: var(--glass-white) }
+    .navbar__chevron { font-size: 0.7em; opacity: 0.7; transition: transform 0.2s ease; display: inline-block }
+    .navbar__dropdown:hover .navbar__chevron { transform: rotate(180deg) }
+    .navbar__dropdown-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-6px);
+      background: rgba(11,14,26,0.96); backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 8px; padding-top: 14px; min-width: 210px;
+      opacity: 0; pointer-events: none; transition: opacity 0.2s ease 0.12s, transform 0.2s ease 0.12s; z-index: 200;
+    }
+    .navbar__dropdown:hover .navbar__dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); transition: opacity 0.15s ease 0s, transform 0.15s ease 0s }
+    .navbar__dropdown-item { display: block; padding: 11px 16px; border-radius: 8px; font-size: var(--text-sm); color: rgba(255,255,255,0.85); transition: background 0.15s, color 0.15s }
+    .navbar__dropdown-item:hover { background: rgba(255,255,255,0.08); color: #fff }
+    .navbar__hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto }
+    .navbar__hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.9); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease }
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg) }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0) }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) }
+    .nav-mobile {
+      position: fixed; top: 56px; left: 0; width: 100%;
+      background: rgba(0,0,0,0.96); backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 5% 24px; display: flex; flex-direction: column; gap: 2px; z-index: 98;
+      opacity: 0; pointer-events: none; transform: translateY(-8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .nav-mobile.open { opacity: 1; pointer-events: auto; transform: translateY(0) }
+    .nav-mobile__link { display: block; padding: 14px 8px; color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 400; border-bottom: 1px solid rgba(255,255,255,0.07); text-decoration: none; transition: color 0.2s }
+    .nav-mobile__link:hover { color: #fff }
+    .nav-mobile__cta {
+      display: block; margin-top: 12px; padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(93,202,165,0.55), rgba(59,130,246,0.55));
+      border: 1px solid rgba(93,202,165,0.45); border-radius: 50px; color: #fff;
+      text-align: center; font-weight: 500; font-size: 1rem; text-decoration: none;
+    }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      min-height: 92vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 130px 24px 70px; gap: var(--space-lg); position: relative;
+    }
+    .hero__kicker { font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.55; animation: cascade-in .7s var(--ease-glass) .1s both }
+    .hero__title {
+      font-family: var(--font-display); font-weight: 900; font-size: clamp(2.4rem, 6.5vw, 4.6rem); line-height: 1.1; letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 20%, var(--spherical-teal) 55%, var(--accent-violet) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: cascade-in .8s var(--ease-glass) .2s both; max-width: 880px;
+    }
+    .hero__sub { max-width: 600px; line-height: 1.7; opacity: 0.85; font-size: var(--text-xl); font-weight: 400; animation: cascade-in .8s var(--ease-glass) .3s both }
+    .hero__cta { display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center; animation: cascade-in .8s var(--ease-glass) .4s both }
+
+    /* ═══ BUTTONS ═══ */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.04em; color: var(--color-text); text-decoration: none;
+      transition: transform var(--dur-fast) var(--ease-liquid), box-shadow var(--dur-fast), background var(--dur-fast);
+      position: relative; overflow: hidden;
+    }
+    .btn::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--reflection-top); pointer-events: none }
+    .btn:active { transform: scale(0.96) }
+    .btn--primary { background: linear-gradient(135deg, rgba(93,202,165,0.5) 0%, rgba(59,130,246,0.5) 100%); border: 1px solid rgba(93,202,165,0.45); box-shadow: 0 4px 24px rgba(93,202,165,0.3), var(--reflection-inner) }
+    .btn--primary:hover { background: linear-gradient(135deg, rgba(93,202,165,0.7) 0%, rgba(59,130,246,0.7) 100%); box-shadow: 0 8px 36px rgba(93,202,165,0.5), var(--reflection-inner); transform: translateY(-2px) }
+    .btn--ghost { background: var(--glass-white); border: 1px solid var(--glass-border); box-shadow: var(--shadow-glass) }
+    .btn--ghost:hover { background: var(--glass-white-md); transform: translateY(-2px) }
+    .btn--lg { padding: var(--space-md) var(--space-xl); font-size: var(--text-base) }
+    .btn[disabled] { opacity: 0.6; cursor: not-allowed; transform: none !important }
+
+    /* ═══ CARDS ═══ */
+    .glass-card {
+      border-radius: var(--radius-xl); padding: var(--space-xl);
+      transition: transform var(--dur-mid) var(--ease-glass), box-shadow var(--dur-mid) var(--ease-glass), background var(--dur-mid);
+    }
+    .glass-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-float); background: var(--glass-white-md) }
+    .glass-card::after {
+      content: ""; position: absolute; inset: -1px; border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.08) 100%);
+      opacity: 0; transition: opacity var(--dur-mid); pointer-events: none; z-index: 2;
+    }
+    .glass-card:hover::after { opacity: 1 }
+    .glass-card__icon { width: 48px; height: 48px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: var(--space-md); border: 1px solid var(--glass-border); background: var(--glass-white) }
+    .glass-card__title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.15; color: #fff; letter-spacing: -0.01em; margin-bottom: var(--space-sm) }
+    .glass-card__body { font-size: var(--text-md); line-height: 1.65; opacity: 0.75 }
+
+    /* ═══ BADGE ═══ */
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: var(--radius-full); font-size: var(--text-2xs); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-md) }
+    .badge--aqua { background: rgba(93,202,165,0.2); border: 1px solid rgba(93,202,165,0.4); color: var(--spherical-teal); box-shadow: 0 0 12px rgba(93,202,165,0.18) }
+    .badge--violet { background: rgba(180,144,245,0.2); border: 1px solid rgba(180,144,245,0.4); color: var(--accent-violet); box-shadow: 0 0 12px rgba(180,144,245,0.18) }
+    .badge--amber { background: rgba(255,210,127,0.2); border: 1px solid rgba(255,210,127,0.4); color: var(--accent-amber) }
+
+    /* ═══ ETAPAS ═══ */
+    .etapas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl) }
+    .etapa {
+      position: relative; overflow: hidden; border-radius: 10px; background: #070707;
+      cursor: pointer; min-height: 560px; display: flex; text-align: left;
+    }
+    .etapa:focus-visible { outline: 2px solid var(--spherical-teal); outline-offset: 3px }
+    .etapa__media {
+      position: absolute; top: 0; bottom: 0; left: -10px; right: -10px;
+      background: var(--etapa-img, var(--etapa-placeholder)) center / cover no-repeat;
+      transform: translate3d(-10px, 0, 0); transition: opacity 0.35s, transform 0.35s; backface-visibility: hidden;
+    }
+    .etapa:hover .etapa__media, .etapa:focus-visible .etapa__media { transform: translate3d(0, 0, 0) }
+    .etapa__desc {
+      position: relative; width: 100%; padding: 24px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 100%);
+      display: flex; flex-direction: column; justify-content: flex-end; isolation: isolate;
+    }
+    .etapa__desc::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.35s; pointer-events: none }
+    .etapa:hover .etapa__desc::before, .etapa:focus-visible .etapa__desc::before { opacity: 1 }
+    .etapa__num { font-family: var(--font-display); font-weight: 900; font-size: var(--text-2xl); line-height: 1; color: var(--spherical-teal); margin-bottom: var(--space-xs) }
+    .etapa__title {
+      position: relative; overflow: hidden; padding: 5px 0 10px;
+      color: #fff; font-size: 22px; font-family: var(--font-display); font-weight: 900;
+    }
+    .etapa__title::after {
+      content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+      background: linear-gradient(to right, var(--spherical-teal), var(--accent-violet));
+      transform: translate3d(-101%, 0, 0); transition: transform 0.35s;
+    }
+    .etapa:hover .etapa__title::after, .etapa:focus-visible .etapa__title::after { transform: translate3d(0, 0, 0) }
+    .etapa__lead { padding-top: 12px; color: rgba(255,255,255,0.92); font-size: 15px; line-height: 1.6 }
+    .etapa__more { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows 0.35s }
+    .etapa__more-inner { min-height: 0; overflow: hidden }
+    .etapa:hover .etapa__more, .etapa:focus-visible .etapa__more { grid-template-rows: 1fr }
+    .etapa__hover, .etapa__text, .etapa__gain {
+      padding-top: 12px; color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.6;
+      opacity: 0; transform: translate3d(100%, 0, 0); transition: opacity 0.35s, transform 0.35s;
+    }
+    .etapa__hover { color: var(--spherical-teal); font-weight: 500 }
+    .etapa__gain strong { font-weight: 500; color: #fff }
+    .etapa:hover .etapa__hover, .etapa:hover .etapa__text, .etapa:hover .etapa__gain,
+    .etapa:focus-visible .etapa__hover, .etapa:focus-visible .etapa__text, .etapa:focus-visible .etapa__gain { opacity: 1; transform: translate3d(0, 0, 0) }
+    @media (hover: none) {
+      .etapa { cursor: default }
+      .etapa__more { grid-template-rows: 1fr }
+      .etapa__hover, .etapa__text, .etapa__gain { opacity: 1; transform: none }
+      .etapa__media { transform: none }
+      .etapa__desc::before { opacity: 1 }
+    }
+    @media (max-width: 1100px) { .etapas-grid { grid-template-columns: repeat(2, 1fr) } .etapa { min-height: 480px } }
+    @media (max-width: 640px) { .etapas-grid { grid-template-columns: 1fr } .etapa { min-height: 440px } }
+
+    /* ═══ FEATURE GRID ═══ */
+    .feature-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin-top: var(--space-2xl) }
+    .feature-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-top: var(--space-2xl) }
+    .feature-card { border-radius: var(--radius-xl); padding: var(--space-lg) var(--space-xl) }
+    .feature-card--wide { grid-column: 1 / -1 }
+    .feature-card__icon { font-size: 1.5rem; margin-bottom: var(--space-sm) }
+    .feature-card__title { font-weight: 500; font-size: var(--text-base); margin-bottom: var(--space-xs) }
+    .feature-card__body { font-size: var(--text-sm); opacity: 0.68; line-height: 1.65 }
+    @media (max-width: 900px) { .feature-grid-3, .feature-grid-2 { grid-template-columns: 1fr } }
+
+    /* ═══ PROBLEMA — bloque de pain points ═══ */
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin-top: var(--space-2xl) }
+    @media (max-width: 900px) { .problem-grid { grid-template-columns: 1fr } }
+    .problem-card { border-radius: var(--radius-xl); padding: var(--space-xl) }
+    .problem-card__num { font-family: var(--font-display); font-weight: 900; font-size: 2rem; color: var(--spherical-teal); opacity: 0.3; margin-bottom: var(--space-sm); line-height: 1 }
+    .problem-card__title { font-weight: 600; font-size: var(--text-lg); margin-bottom: var(--space-sm); line-height: 1.3 }
+    .problem-card__body { font-size: var(--text-sm); opacity: 0.65; line-height: 1.7 }
+
+    /* ═══ HIGHLIGHT QUOTE ═══ */
+    .highlight-quote {
+      padding: var(--space-3xl) var(--space-2xl); border-radius: var(--radius-2xl); text-align: center;
+      backdrop-filter: var(--blur-lg); -webkit-backdrop-filter: var(--blur-lg);
+      background: linear-gradient(135deg, rgba(93,202,165,0.12), rgba(180,144,245,0.1));
+      border: 1px solid rgba(93,202,165,0.28); box-shadow: var(--shadow-glass);
+    }
+    .highlight-quote__eyebrow { font-size: var(--text-2xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-aqua); margin-bottom: var(--space-md) }
+    .highlight-quote__text {
+      font-family: var(--font-display); font-weight: 900;
+      font-size: clamp(1.5rem, 3.6vw, 2.6rem); line-height: 1.35; max-width: 780px; margin-inline: auto;
+      background: linear-gradient(135deg, #fff 25%, var(--spherical-teal) 60%, var(--accent-violet) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* ═══ PARA PROFUNDIZAR ═══ */
+    .article-link-card {
+      display: flex; align-items: center; gap: var(--space-xl);
+      border-radius: var(--radius-xl); padding: var(--space-xl) var(--space-2xl);
+      border: 1px solid var(--glass-border-subtle); background: rgba(255,255,255,0.03);
+      transition: transform var(--dur-mid) var(--ease-glass), border-color var(--dur-mid), background var(--dur-mid);
+      text-decoration: none; color: inherit;
+    }
+    .article-link-card:hover { transform: translateY(-4px); border-color: rgba(93,202,165,0.3); background: rgba(93,202,165,0.05) }
+    .article-link-card__icon { font-size: 2.5rem; flex-shrink: 0 }
+    .article-link-card__content { flex: 1 }
+    .article-link-card__eyebrow { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; margin-bottom: var(--space-xs) }
+    .article-link-card__title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-xl); line-height: 1.3; margin-bottom: var(--space-xs) }
+    .article-link-card__excerpt { font-size: var(--text-sm); opacity: 0.6; line-height: 1.6 }
+    .article-link-card__arrow { font-size: var(--text-xl); color: var(--spherical-teal); flex-shrink: 0; transition: transform var(--dur-fast) }
+    .article-link-card:hover .article-link-card__arrow { transform: translateX(6px) }
+    @media (max-width: 640px) {
+      .article-link-card { flex-direction: column; align-items: flex-start }
+      .article-link-card__arrow { display: none }
+    }
+
+    /* ═══ CTA / FORM SECTION ═══ */
+    .cta-section {
+      text-align: center; padding: var(--space-4xl) 0;
+      background: linear-gradient(135deg, rgba(180,144,245,0.12) 0%, rgba(11,14,26,0.0) 40%, rgba(93,202,165,0.08) 100%);
+      border-top: 1px solid rgba(255,255,255,0.07); position: relative; overflow: hidden;
+    }
+    .cta-section::before { content: ""; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(180,144,245,0.15) 0%, transparent 70%); pointer-events: none }
+    .cta-section__title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: var(--space-md); background: linear-gradient(135deg, #fff 20%, var(--spherical-teal) 60%, var(--accent-violet) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    .cta-section__sub { font-size: var(--text-base); opacity: 0.65; margin-bottom: var(--space-xl); max-width: 620px; margin-inline: auto; line-height: 1.75 }
+
+    .contact-form { max-width: 620px; margin-inline: auto; margin-top: var(--space-2xl); display: flex; flex-direction: column; gap: var(--space-md) }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md) }
+    .form-field { display: flex; flex-direction: column; gap: var(--space-xs); text-align: left }
+    .form-field label { font-size: var(--text-xs); opacity: 0.55; letter-spacing: 0.06em; text-transform: uppercase }
+    .form-field input, .form-field select, .form-field textarea {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-md);
+      padding: 12px 16px; font-family: var(--font-body); font-size: var(--text-sm); color: #fff; outline: none;
+      transition: border-color var(--dur-fast), background var(--dur-fast); width: 100%; -webkit-appearance: none;
+    }
+    .form-field select option { background: #0f1424; color: #fff }
+    .form-field input::placeholder, .form-field textarea::placeholder { opacity: 0.35 }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: rgba(93,202,165,0.5); background: rgba(93,202,165,0.06) }
+    .form-field input.field-error, .form-field select.field-error, .form-field textarea.field-error { border-color: rgba(255,100,100,0.7); background: rgba(255,60,60,0.06) }
+    .field-error-msg { font-size: var(--text-xs); color: #ff6b6b; margin-top: 4px; display: flex; align-items: center; gap: 5px }
+    .form-field textarea { resize: vertical; min-height: 100px }
+    .mensaje-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px }
+    .chip-suggestion {
+      font-family: var(--font-body); font-size: var(--text-xs); padding: 6px 14px; border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border); background: var(--glass-white); color: var(--color-text-muted); cursor: pointer;
+      transition: background var(--dur-fast), color var(--dur-fast);
+    }
+    .chip-suggestion:hover { background: var(--glass-white-md); color: var(--color-text) }
+    .hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none }
+    .form-submit { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); margin-top: var(--space-xs) }
+    .form-submit .btn { width: 100%; justify-content: center }
+    .form-submit__micro { font-size: var(--text-xs); opacity: 0.35; letter-spacing: 0.04em }
+    .form-success { display: none; text-align: center; padding: var(--space-2xl); border-radius: var(--radius-xl); background: rgba(93,202,165,0.08); border: 1px solid rgba(93,202,165,0.25) }
+    .form-success__icon { font-size: 2.5rem; margin-bottom: var(--space-md) }
+    .form-success__title { font-family: var(--font-display); font-weight: 900; font-size: var(--text-2xl); margin-bottom: var(--space-sm) }
+    .form-success__desc { opacity: 0.65; font-size: var(--text-sm); line-height: 1.7 }
+    .form-error { display: none; text-align: center; padding: var(--space-lg); border-radius: var(--radius-xl); background: rgba(255,60,60,0.08); border: 1px solid rgba(255,100,100,0.3); margin-top: var(--space-sm) }
+    .form-error__text { font-size: var(--text-sm); color: #ff8080; line-height: 1.6 }
+
+    /* ═══ FOOTER ═══ */
+    .footer { border-top: 1px solid var(--glass-border-subtle); padding: var(--space-2xl) 0 var(--space-xl) }
+    .footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: var(--space-xl) }
+    .footer__brand { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; margin-bottom: var(--space-sm) }
+    .footer__tagline { font-size: var(--text-sm); opacity: 0.4; line-height: 1.6 }
+    .footer__heading { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.4; margin-bottom: var(--space-md) }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs) }
+    .footer__links a { font-size: var(--text-sm); opacity: 0.6; transition: opacity var(--dur-fast) }
+    .footer__links a:hover { opacity: 1 }
+    .footer__copy { text-align: center; font-size: var(--text-xs); opacity: 0.3; margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--glass-border-subtle) }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--glass-border-subtle), transparent); margin: var(--space-xl) 0 }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 900px) {
+      .navbar__link, .navbar__dropdown { display: none }
+      .navbar__cta { display: none }
+      .navbar__hamburger { display: flex }
+      .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg) }
+    }
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr }
+      .footer__inner { grid-template-columns: 1fr }
+      .hero { padding: 110px 20px 50px }
+    }
+
+    /* ═══ LIGHT THEME ═══ */
+    [data-theme="light"] {
+      --glass-white: rgba(255,255,255,0.62);
+      --glass-white-md: rgba(255,255,255,0.78);
+      --glass-white-lg: rgba(255,255,255,0.9);
+      --glass-dark: rgba(0,0,0,0.06);
+      --glass-dark-md: rgba(15,23,42,0.08);
+      --glass-border: rgba(15,23,42,0.14);
+      --glass-border-subtle: rgba(15,23,42,0.09);
+      --glass-border-bright: rgba(15,23,42,0.22);
+      --shadow-glass: 0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9);
+      --shadow-float: 0 20px 60px rgba(0,0,0,0.16), 0 4px 16px rgba(0,0,0,0.08);
+      --color-bg: #e8f0fa;
+      --color-surface: rgba(255,255,255,0.55);
+      --color-text: #0f172a;
+      --color-text-muted: rgba(15,23,42,0.58);
+      --color-text-subtle: rgba(15,23,42,0.38);
+      --reflection-top: linear-gradient(135deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 50%);
+      --reflection-inner: inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -1px 1px rgba(0,0,0,0.04);
+      --accent-aqua: #0891b2;
+      --accent-violet: #6d28d9;
+      --accent-rose: #be185d;
+      --accent-amber: #b45309;
+      --spherical-teal: #0a8a6a;
+      --spherical-teal-bright: #0d9e7a;
+    }
+    [data-theme="light"] .scene__blob { opacity: 0.25 }
+    [data-theme="light"] .hero__title { background: linear-gradient(135deg, #0f172a 20%, #0a8a6a 55%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    [data-theme="light"] .cta-section__title { background: linear-gradient(135deg, #0f172a 20%, #0a8a6a 60%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    [data-theme="light"] .highlight-quote__text { background: linear-gradient(135deg, #0f172a 25%, #0a8a6a 60%, #6d28d9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+    [data-theme="light"] .section__eyebrow, [data-theme="light"] .highlight-quote__eyebrow { color: #0891b2 }
+    [data-theme="light"] .glass-card__body, [data-theme="light"] .feature-card__body { color: rgba(15,23,42,0.7); opacity: 1 }
+    [data-theme="light"] .hero__sub, [data-theme="light"] .section__desc, [data-theme="light"] .cta-section__sub { color: rgba(15,23,42,0.6); opacity: 1 }
+    [data-theme="light"] .footer__tagline { color: rgba(15,23,42,0.45); opacity: 1 }
+    [data-theme="light"] .badge--aqua { background: rgba(10,138,106,0.12); border-color: rgba(10,138,106,0.35); color: #0a8a6a }
+    [data-theme="light"] .badge--violet { background: rgba(109,40,217,0.1); border-color: rgba(109,40,217,0.3); color: #6d28d9 }
+    [data-theme="light"] .btn--primary { background: linear-gradient(135deg, rgba(10,138,106,0.92) 0%, rgba(37,99,235,0.92) 100%); border-color: rgba(10,138,106,0.6); color: #fff }
+    [data-theme="light"] .btn--primary:hover { background: linear-gradient(135deg, rgba(10,138,106,1) 0%, rgba(37,99,235,1) 100%) }
+    [data-theme="light"] .btn--ghost { background: rgba(255,255,255,0.65); border-color: rgba(15,23,42,0.18); color: #0f172a }
+    [data-theme="light"] .btn--ghost:hover { background: rgba(255,255,255,0.84) }
+    [data-theme="light"] .navbar__cta { background: linear-gradient(135deg, rgba(10,138,106,0.92) 0%, rgba(37,99,235,0.92) 100%); border-color: rgba(10,138,106,0.6); color: #fff }
+    [data-theme="light"] .navbar__link, [data-theme="light"] .navbar__dropdown-btn { color: #0f172a }
+    [data-theme="light"] .navbar:not(.navbar--at-top) { background: rgba(255,255,255,0.85); border-bottom-color: rgba(15,23,42,0.08); color: #0f172a }
+    [data-theme="light"] .navbar__hamburger span { background: #0f172a }
+    [data-theme="light"] .glass > * { position: relative; z-index: 2 }
+    [data-theme="light"] .glass-card__title { color: #0f172a }
+    [data-theme="light"] .form-field input, [data-theme="light"] .form-field select, [data-theme="light"] .form-field textarea { color: #0f172a; background: rgba(255,255,255,0.75); border-color: rgba(15,23,42,0.18) }
+    [data-theme="light"] .form-field input:focus, [data-theme="light"] .form-field select:focus, [data-theme="light"] .form-field textarea:focus { background: #fff; border-color: rgba(10,138,106,0.6) }
+    [data-theme="light"] .form-field select option { background: #fff; color: #0f172a }
+    [data-theme="light"] .navbar__brand img { filter: brightness(0) !important }
+    [data-theme="light"] .footer__brand img { filter: brightness(0.2) }
+    [data-theme="light"] .footer__links a { color: rgba(15,23,42,0.72); opacity: 1 }
+    [data-theme="light"] .footer__copy { color: rgba(15,23,42,0.5); opacity: 1 }
+    [data-theme="light"] .divider { background: linear-gradient(90deg, transparent, rgba(15,23,42,0.14), transparent) }
+    [data-theme="light"] .problem-card__body { opacity: 1; color: rgba(15,23,42,0.65) }
+    [data-theme="light"] .article-link-card { border-color: rgba(15,23,42,0.1); background: rgba(255,255,255,0.4) }
+    [data-theme="light"] .article-link-card:hover { border-color: rgba(10,138,106,0.3); background: rgba(10,138,106,0.05) }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMYYL0SP14"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EMYYL0SP14');
+  </script>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+
+<body>
+
+  <div class="scene" aria-hidden="true">
+    <div class="scene__blob scene__blob--1"></div>
+    <div class="scene__blob scene__blob--2"></div>
+    <div class="scene__blob scene__blob--3"></div>
+    <div class="scene__blob scene__blob--4"></div>
+  </div>
+
+  <div class="page">
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar navbar--at-top">
+      <a href="index.html" class="navbar__brand"><img src="assets/logo-spherical.svg" alt="Spherical" style="height:32px;width:auto;"></a>
+      <div class="navbar__dropdown">
+        <button class="navbar__dropdown-btn">Servicios <span class="navbar__chevron">▾</span></button>
+        <div class="navbar__dropdown-menu">
+          <a href="ecosistemas-digitales.html" class="navbar__dropdown-item">Marketing Digital</a>
+          <a href="ia-empresarial-v2.html" class="navbar__dropdown-item">IA Empresarial</a>
+          <a href="sprints.html" class="navbar__dropdown-item">Sprints</a>
+        </div>
+      </div>
+      <a href="blog/index.html" class="navbar__link">Blog</a>
+      <a href="#contacto" class="navbar__cta">Conversemos</a>
+      <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="ecosistemas-digitales.html" class="nav-mobile__link">Marketing Digital</a>
+      <a href="ia-empresarial-v2.html" class="nav-mobile__link">IA Empresarial</a>
+      <a href="sprints.html" class="nav-mobile__link">Sprints</a>
+      <a href="blog/index.html" class="nav-mobile__link">Blog</a>
+      <a href="#contacto" class="nav-mobile__cta">Conversemos</a>
+    </div>
+
+    <main id="contenido">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+      <p class="hero__kicker animate-in d1">Innovación Fraccional</p>
+      <h1 class="hero__title animate-in d2">El área de innovación que tu empresa necesita, sin tener que armarla.</h1>
+      <p class="hero__sub animate-in d3">Estrategia, tecnología, personas y ejecución sobre los procesos que más importan. Desde el primer proyecto acotado hasta la capacidad instalada en tu equipo.</p>
+      <div class="hero__cta animate-in d4">
+        <a href="#contacto" class="btn btn--primary btn--lg">Pedir una conversación →</a>
+        <a href="#como-trabajamos" class="btn btn--ghost btn--lg">Cómo trabajamos ↓</a>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ EL PROBLEMA ═══ -->
+    <section class="section" id="el-problema">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">El desafío</p>
+        <h2 class="section__title animate-in d2">Innovar con continuidad es difícil cuando el equipo ya tiene un trabajo principal.</h2>
+        <p class="section__desc animate-in d3">Muchas empresas grandes tienen la intención de innovar. Lo que les cuesta es sostenerlo: sin un método claro, sin tiempo dedicado y sin tecnología que se integre de verdad con la operación, los proyectos no pasan del piloto.</p>
+
+        <div class="problem-grid">
+          <div class="problem-card glass animate-in d3">
+            <div class="problem-card__num">01</div>
+            <div class="problem-card__title">Proyectos que no salen del piloto</div>
+            <p class="problem-card__body">Las iniciativas generan entusiasmo en el lanzamiento, pero pierden tracción cuando la operación diaria presiona. Sin un responsable dedicado y un ciclo de continuidad, la mayoría queda a mitad de camino.</p>
+          </div>
+          <div class="problem-card glass animate-in d4">
+            <div class="problem-card__num">02</div>
+            <div class="problem-card__title">Áreas sin tiempo ni método</div>
+            <p class="problem-card__body">Innovar requiere disciplina de producto: descubrir, priorizar, construir y medir. Pocos equipos pueden sostener ese ciclo con sus propios recursos, sin ayuda externa y sin una metodología que lo estructure.</p>
+          </div>
+          <div class="problem-card glass animate-in d5">
+            <div class="problem-card__num">03</div>
+            <div class="problem-card__title">Tecnología que no se integra</div>
+            <p class="problem-card__body">Adquirir herramientas de IA no garantiza que se usen. La diferencia está en la implementación, en las personas que las operan y en la gobernanza que permite escalarlas sin perder control.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ CÓMO TRABAJAMOS ═══ -->
+    <section class="section" id="como-trabajamos">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">El método</p>
+        <h2 class="section__title animate-in d2">Cuatro etapas, un avance continuo.</h2>
+        <p class="section__desc animate-in d3">El primer proyecto acotado abre la relación. La etapa de Evolucionar es donde nace el modelo de partner fraccional: Spherical acompaña al equipo a medida que desarrolla autonomía y agrega nuevos proyectos al ciclo.</p>
+
+        <div class="etapas-grid">
+
+          <article class="etapa animate-in d3" tabindex="0" style="--etapa-img: url('assets/etapa-1-descubrir.webp'); --etapa-placeholder: radial-gradient(circle at 25% 20%, rgba(93,202,165,0.55), transparent 60%), radial-gradient(circle at 80% 85%, rgba(59,130,246,0.5), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">01</span>
+              <h3 class="etapa__title">Descubrir</h3>
+              <p class="etapa__lead">Encontramos los problemas que vale la pena resolver.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Antes de hablar de IA, hablamos de tu operación.</p>
+                <p class="etapa__text">Levantamos con tus equipos los procesos que hoy consumen más tiempo, generan errores o frenan decisiones. Priorizamos por impacto y viabilidad, y definimos cómo vamos a medir el éxito.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> una cartera de proyectos priorizados y equipos listos para trabajar.</p>
+              </div></div>
+            </div>
+          </article>
+
+          <article class="etapa animate-in d4" tabindex="0" style="--etapa-img: url('assets/etapa-2-crear.webp'); --etapa-placeholder: radial-gradient(circle at 75% 20%, rgba(180,144,245,0.55), transparent 60%), radial-gradient(circle at 20% 85%, rgba(247,168,196,0.4), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">02</span>
+              <h3 class="etapa__title">Crear</h3>
+              <p class="etapa__lead">Tus equipos construyen prototipos funcionales con IA.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Sin programar y con acompañamiento experto.</p>
+                <p class="etapa__text">Capacitamos a los participantes en IA y en un método de desarrollo de producto, acompañamos cada proyecto con mentorías y cerramos con una jornada intensiva de construcción y un Demo Day ante la dirección.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> prototipos que funcionan y una decisión clara sobre cuáles continúan.</p>
+              </div></div>
+            </div>
+          </article>
+
+          <article class="etapa animate-in d5" tabindex="0" style="--etapa-img: url('assets/etapa-3-implementar.webp'); --etapa-placeholder: radial-gradient(circle at 25% 80%, rgba(94,231,223,0.5), transparent 60%), radial-gradient(circle at 80% 20%, rgba(93,202,165,0.5), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">03</span>
+              <h3 class="etapa__title">Implementar</h3>
+              <p class="etapa__lead">Llevamos lo que funciona a la operación real.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Aquí es donde la mayoría de los proyectos de IA se detiene.</p>
+                <p class="etapa__text">Probamos el prototipo con datos y usuarios reales, lo integramos con tus sistemas y aseguramos seguridad, trazabilidad y cumplimiento regulatorio. Acompañamos la salida a producción hasta que opere de forma estable.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> una solución en uso, validada y documentada.</p>
+              </div></div>
+            </div>
+          </article>
+
+          <article class="etapa animate-in d6" tabindex="0" style="--etapa-img: url('assets/etapa-4-evolucionar.webp'); --etapa-placeholder: radial-gradient(circle at 80% 80%, rgba(255,210,127,0.45), transparent 60%), radial-gradient(circle at 20% 20%, rgba(247,168,196,0.45), transparent 60%), #0b0e1a;">
+            <div class="etapa__media"></div>
+            <div class="etapa__desc">
+              <span class="etapa__num">04</span>
+              <h3 class="etapa__title">Evolucionar</h3>
+              <p class="etapa__lead">La solución mejora con el uso, y tu equipo también.</p>
+              <div class="etapa__more"><div class="etapa__more-inner">
+                <p class="etapa__hover">Un ciclo que se repite, no un evento aislado.</p>
+                <p class="etapa__text">Monitoreamos el desempeño, ajustamos y sumamos nuevas funcionalidades. En paralelo, formamos personas clave dentro de tu organización para que el próximo sprint dependa cada vez menos de nosotros.</p>
+                <p class="etapa__gain"><strong>Obtienes:</strong> soluciones que se mantienen vigentes y capacidad instalada en tu equipo.</p>
+              </div></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ QUÉ CUBRE EL PARTNER FRACCIONAL ═══ -->
+    <section class="section" id="que-cubre">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">Qué incluye</p>
+        <h2 class="section__title animate-in d2">No es solo marketing, web ni IA genérica.</h2>
+        <p class="section__desc animate-in d3">El rol fraccional cubre tres dimensiones que necesitan funcionar juntas. Sin las tres, los proyectos de innovación quedan a mitad de camino.</p>
+
+        <div class="feature-grid-3" style="margin-top: var(--space-2xl)">
+
+          <div class="feature-card glass animate-in d3">
+            <div class="feature-card__icon">🗺</div>
+            <div class="feature-card__title">Estrategia</div>
+            <p class="feature-card__body">¿Qué vale la pena construir y en qué orden? Diagnóstico del estado actual, definición de objetivos y priorización de proyectos con criterios de impacto real y viabilidad técnica.</p>
+          </div>
+
+          <div class="feature-card glass animate-in d4">
+            <div class="feature-card__icon">⚙️</div>
+            <div class="feature-card__title">Tecnología</div>
+            <p class="feature-card__body">Desde el prototipo hasta la producción. Desarrollo, integración con los sistemas de la empresa y gobernanza de los datos y los modelos — sin dependencias innecesarias de proveedores externos.</p>
+          </div>
+
+          <div class="feature-card glass animate-in d5">
+            <div class="feature-card__icon">🤝</div>
+            <div class="feature-card__title">Personas</div>
+            <p class="feature-card__body">La capacidad que queda en la organización. Metodología transferible, formación de referentes internos y acompañamiento para que el equipo pueda operar con cada vez más autonomía.</p>
+          </div>
+
+        </div>
+
+        <div style="margin-top: var(--space-3xl)">
+          <div class="highlight-quote animate-in d2">
+            <p class="highlight-quote__eyebrow">Por qué fraccional</p>
+            <p class="highlight-quote__text">Una empresa del tamaño de las que nos interesan no necesita un área de innovación de tiempo completo desde el día uno. Necesita acceso a la capacidad correcta, en el momento correcto, con resultados que justifiquen cada paso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ PARA PROFUNDIZAR ═══ -->
+    <section class="section" style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl)">
+      <div class="container">
+        <p class="section__eyebrow animate-in d1">Para profundizar</p>
+        <h2 class="section__title animate-in d2" style="margin-bottom: var(--space-xl)">El concepto detrás del modelo.</h2>
+        <a href="https://spherical.cl/blog/partner-innovacion-fraccional.html" class="article-link-card animate-in d3" target="_blank" rel="noopener">
+          <div class="article-link-card__icon">📖</div>
+          <div class="article-link-card__content">
+            <p class="article-link-card__eyebrow">Artículo · Blog Spherical</p>
+            <p class="article-link-card__title">¿Qué es un partner de innovación fraccional?</p>
+            <p class="article-link-card__excerpt">El modelo fraccional en innovación, por qué tiene sentido para empresas medianas y grandes, y cómo se diferencia de una consultoría puntual o de armar el área desde cero.</p>
+          </div>
+          <div class="article-link-card__arrow">→</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ═══ FORMULARIO ═══ -->
+    <section class="cta-section" id="contacto">
+      <div class="container" style="position: relative; z-index: 1">
+        <h2 class="cta-section__title animate-in d1">Pide una conversación.</h2>
+        <p class="cta-section__sub animate-in d2">Si tu empresa necesita avanzar en innovación con más método y menos incertidumbre, conversemos. Sin compromiso.</p>
+
+        <div class="contact-form animate-in d3">
+          <div id="formSuccess" class="form-success">
+            <div class="form-success__icon">✅</div>
+            <div class="form-success__title">Mensaje recibido</div>
+            <p class="form-success__desc">Gracias por escribirnos. Revisaremos tu consulta y te contactaremos en los próximos días hábiles.</p>
+          </div>
+          <div id="formError" class="form-error">
+            <p class="form-error__text">No pudimos enviar el formulario por un problema de red. Por favor intenta de nuevo en unos momentos. Si el problema persiste, escríbenos a <a href="mailto:info@spherical.cl" style="color: var(--spherical-teal)">info@spherical.cl</a>.</p>
+          </div>
+
+          <form id="contactForm" novalidate autocomplete="off">
+
+            <!-- Campos ocultos de trazabilidad -->
+            <input type="hidden" name="origen" id="origen" value="Partner de Innovación Fraccional">
+            <input type="hidden" name="landing_path" id="landing_path">
+            <input type="hidden" name="ts_load" id="ts_load">
+            <input type="hidden" name="utm_source" id="utm_source">
+            <input type="hidden" name="utm_medium" id="utm_medium">
+            <input type="hidden" name="utm_campaign" id="utm_campaign">
+            <input type="hidden" name="utm_content" id="utm_content">
+            <input type="hidden" name="utm_term" id="utm_term">
+            <input type="hidden" name="gclid" id="gclid">
+            <input type="hidden" name="gbraid" id="gbraid">
+            <input type="hidden" name="wbraid" id="wbraid">
+
+            <!-- Honeypot anti-spam -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Sitio web</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="off">
+              </div>
+              <div class="form-field">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Correo corporativo</label>
+                <input type="email" id="email" name="email" placeholder="tu@empresa.cl" autocomplete="off">
+              </div>
+              <div class="form-field">
+                <label for="tamano">Tamaño de la empresa</label>
+                <select id="tamano" name="tamano">
+                  <option value="" disabled selected>Selecciona</option>
+                  <option value="50-200">50 – 200 personas</option>
+                  <option value="200-1000">200 – 1.000 personas</option>
+                  <option value="1000+">Más de 1.000 personas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="mensaje">¿Qué quieres explorar?</label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente en qué área están enfocados o qué tipo de proyecto tienen en mente."></textarea>
+              <div class="mensaje-chips">
+                <button type="button" class="chip-suggestion">Estrategia de innovación</button>
+                <button type="button" class="chip-suggestion">Proyectos con IA</button>
+                <button type="button" class="chip-suggestion">Capacitación de equipos</button>
+                <button type="button" class="chip-suggestion">Integración tecnológica</button>
+              </div>
+            </div>
+
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAF7uB8ddcw-C98Pe" data-language="es"></div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
+                <span id="submitText">Enviar mensaje</span>
+                <span id="submitLoading" style="display:none">Enviando…</span>
+              </button>
+              <p class="form-submit__micro">Solo correos corporativos · Sin spam</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div>
+            <div class="footer__brand">
+              <img src="assets/logo-spherical.svg" alt="Spherical" style="height:24px;width:auto;">
+            </div>
+            <p class="footer__tagline">Impulsando la nueva generación de empresas conectadas al futuro. Santiago, Chile.</p>
+          </div>
+          <div>
+            <div class="footer__heading">Servicios</div>
+            <ul class="footer__links">
+              <li><a href="ecosistemas-digitales.html">Marketing Digital</a></li>
+              <li><a href="ia-empresarial-v2.html">Desarrollo Tecnológico</a></li>
+              <li><a href="sprints.html">Sprints</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Empresa</div>
+            <ul class="footer__links">
+              <li><a href="index.html#clientes">Clientes</a></li>
+              <li><a href="blog/index.html">Blog</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contacto</div>
+            <ul class="footer__links">
+              <li><a href="mailto:info@spherical.cl">info@spherical.cl</a></li>
+              <li><a href="index.html">www.spherical.cl</a></li>
+              <li><a>Av. Pdte. Kennedy 4420, Piso 5</a></li>
+              <li><a>Vitacura, Santiago</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__copy">&copy; 2026 Spherical. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+  </div><!-- .page -->
+
+  <!-- ═══ SCROLL ANIMATIONS + NAVBAR ═══ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.style.animationPlayState = 'running';
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.animate-in').forEach(function (el) {
+        if (el.closest('.hero')) return;
+        el.style.animationPlayState = 'paused';
+        obs.observe(el);
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var t = document.querySelector(a.getAttribute('href'));
+          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+
+      var navbar = document.querySelector('.navbar');
+      var updateNavbar = function () {
+        if (window.scrollY < 80) { navbar.classList.add('navbar--at-top'); }
+        else { navbar.classList.remove('navbar--at-top'); }
+      };
+      window.addEventListener('scroll', updateNavbar, { passive: true });
+      updateNavbar();
+
+      var hamburger = document.getElementById('navHamburger');
+      var navMobile = document.getElementById('navMobile');
+      if (hamburger && navMobile) {
+        hamburger.addEventListener('click', function () {
+          var isOpen = navMobile.classList.toggle('open');
+          hamburger.classList.toggle('open', isOpen);
+        });
+        navMobile.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            navMobile.classList.remove('open');
+            hamburger.classList.remove('open');
+          });
+        });
+      }
+
+      /* Chips de sugerencia para el mensaje */
+      document.querySelectorAll('.chip-suggestion').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var textarea = document.getElementById('mensaje');
+          var current = textarea.value.trim();
+          textarea.value = current ? current + ' — ' + chip.textContent : chip.textContent;
+          textarea.focus();
+        });
+      });
+    });
+  </script>
+
+  <!-- ═══ UTM / GCLID: captura y persistencia ═══ -->
+  <script>
+    (function () {
+      var TRACKING_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','gbraid','wbraid'];
+      var SESSION_KEY = 'spherical_tracking';
+
+      function getParams() {
+        var params = {};
+        var search = window.location.search;
+        if (!search) return params;
+        search.slice(1).split('&').forEach(function (pair) {
+          var parts = pair.split('=');
+          var key = decodeURIComponent(parts[0] || '');
+          var val = decodeURIComponent(parts[1] || '');
+          if (TRACKING_KEYS.indexOf(key) !== -1 && val) params[key] = val;
+        });
+        return params;
+      }
+
+      var stored = {};
+      try { stored = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '{}'); } catch (e) {}
+
+      var fromUrl = getParams();
+      var merged = {};
+      TRACKING_KEYS.forEach(function (k) { merged[k] = fromUrl[k] || stored[k] || ''; });
+
+      try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(merged)); } catch (e) {}
+
+      document.addEventListener('DOMContentLoaded', function () {
+        TRACKING_KEYS.forEach(function (k) {
+          var el = document.getElementById(k);
+          if (el) el.value = merged[k];
+        });
+        var lp = document.getElementById('landing_path');
+        if (lp) lp.value = window.location.pathname + window.location.search;
+        var ts = document.getElementById('ts_load');
+        if (ts) ts.value = new Date().toISOString();
+      });
+    })();
+  </script>
+
+  <!-- ═══ FORMULARIO DE CONTACTO ═══ -->
+  <script>
+    (function () {
+      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXUdsivt3p2QwVbFK4Yi5k9o4dyYaIeTg_G6B7NnRbtBexDd5PdnJaPmY6JJMj7XUI/exec';
+
+      var form = document.getElementById('contactForm');
+      var success = document.getElementById('formSuccess');
+      var errorBox = document.getElementById('formError');
+      var submitBtn = document.getElementById('submitBtn');
+      var submitText = document.getElementById('submitText');
+      var submitLoading = document.getElementById('submitLoading');
+
+      if (!form) return;
+
+      function validateField(el, value) {
+        var existing = el.parentNode.querySelector('.field-error-msg');
+        if (!value) {
+          el.classList.add('field-error');
+          if (!existing) {
+            var msg = document.createElement('span');
+            msg.className = 'field-error-msg';
+            msg.innerHTML = '⚠ Este campo es obligatorio';
+            el.parentNode.appendChild(msg);
+          }
+          return false;
+        } else {
+          el.classList.remove('field-error');
+          if (existing) existing.remove();
+          return true;
+        }
+      }
+
+      var FREE_MAIL_DOMAINS = ['gmail.com','googlemail.com','hotmail.com','hotmail.cl','hotmail.es','outlook.com','outlook.cl','outlook.es','live.com','live.cl','msn.com','yahoo.com','yahoo.es','yahoo.cl','ymail.com','icloud.com','me.com','aol.com','proton.me','protonmail.com','gmx.com','mail.com','yandex.com'];
+      function isFreeMail(v) {
+        var d = (v.split('@')[1] || '').toLowerCase().trim();
+        return v.indexOf('@') !== -1 && FREE_MAIL_DOMAINS.indexOf(d) !== -1;
+      }
+
+      function validateEmail(el, value) {
+        var existing = el.parentNode.querySelector('.field-error-msg');
+        var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        if (!value) {
+          el.classList.add('field-error');
+          if (!existing) {
+            var msg = document.createElement('span');
+            msg.className = 'field-error-msg';
+            msg.innerHTML = '⚠ Este campo es obligatorio';
+            el.parentNode.appendChild(msg);
+          }
+          return false;
+        } else if (!isEmail) {
+          el.classList.add('field-error');
+          if (existing) existing.remove();
+          var msg2 = document.createElement('span');
+          msg2.className = 'field-error-msg';
+          msg2.innerHTML = '⚠ Ingresa un email válido';
+          el.parentNode.appendChild(msg2);
+          return false;
+        } else if (isFreeMail(value)) {
+          el.classList.add('field-error');
+          if (existing) existing.remove();
+          var msg3 = document.createElement('span');
+          msg3.className = 'field-error-msg';
+          msg3.innerHTML = '⚠ Ingresa tu correo de empresa (no aceptamos Gmail, Hotmail ni similares)';
+          el.parentNode.appendChild(msg3);
+          return false;
+        } else {
+          el.classList.remove('field-error');
+          if (existing) existing.remove();
+          return true;
+        }
+      }
+
+      ['nombre', 'empresa', 'tamano', 'mensaje'].forEach(function (name) {
+        var el = form[name];
+        if (el) el.addEventListener('input', function () { validateField(el, el.value.trim()); });
+        if (el) el.addEventListener('change', function () { validateField(el, el.value.trim()); });
+      });
+      var emailEl = form['email'];
+      if (emailEl) {
+        emailEl.addEventListener('input', function () { validateEmail(emailEl, emailEl.value.trim()); });
+        emailEl.addEventListener('change', function () { validateEmail(emailEl, emailEl.value.trim()); });
+      }
+
+      var _formLoadTime = Date.now();
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        function _silentPass() {
+          setTimeout(function () { window.location.href = './gracias.html'; }, 400);
+        }
+        if (form.website && form.website.value !== '') { _silentPass(); return; }
+        if (Date.now() - _formLoadTime < 3000) { _silentPass(); return; }
+        var _suspiciousRe = /https?:\/\/|www\.|<[^>]+>/i;
+        var _textFields = [form.nombre.value, form.empresa.value, (form.mensaje ? form.mensaje.value : '')];
+        if (_textFields.some(function (v) { return _suspiciousRe.test(v); })) { _silentPass(); return; }
+
+        var nombre = form.nombre.value.trim();
+        var empresa = form.empresa.value.trim();
+        var email = form.email.value.trim();
+        var tamano = form.tamano.value;
+        var mensaje = form.mensaje.value.trim();
+
+        var valid = true;
+        valid = validateField(form.nombre, nombre) && valid;
+        valid = validateField(form.empresa, empresa) && valid;
+        valid = validateField(form.tamano, tamano) && valid;
+        valid = validateField(form.mensaje, mensaje) && valid;
+        valid = validateEmail(form.email, email) && valid;
+
+        if (!valid) {
+          form.querySelector('.field-error').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        var tsEl = form.querySelector('[name="cf-turnstile-response"]');
+        var tsToken = tsEl ? tsEl.value : '';
+        if (!tsToken) { alert('Por favor completa la verificación de seguridad antes de enviar.'); return; }
+
+        submitBtn.disabled = true;
+        submitText.style.display = 'none';
+        submitLoading.style.display = 'inline';
+        if (errorBox) errorBox.style.display = 'none';
+
+        var data = {
+          turnstile: tsToken,
+          nombre: nombre,
+          empresa: empresa,
+          tamano: tamano,
+          email: email,
+          mensaje: mensaje,
+          origen: form.origen.value,
+          fecha: new Date().toLocaleString('es-CL'),
+          landing_path: form.landing_path ? form.landing_path.value : '',
+          ts_load: form.ts_load ? form.ts_load.value : '',
+          utm_source: form.utm_source ? form.utm_source.value : '',
+          utm_medium: form.utm_medium ? form.utm_medium.value : '',
+          utm_campaign: form.utm_campaign ? form.utm_campaign.value : '',
+          utm_content: form.utm_content ? form.utm_content.value : '',
+          utm_term: form.utm_term ? form.utm_term.value : '',
+          gclid: form.gclid ? form.gclid.value : '',
+          gbraid: form.gbraid ? form.gbraid.value : '',
+          wbraid: form.wbraid ? form.wbraid.value : ''
+        };
+
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(data)
+        })
+          .then(function () {
+            /* Éxito de red: se dispara generate_lead y se redirige */
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                event_category: 'Lead',
+                event_label: 'Formulario Partner Innovacion Fraccional',
+                value: 1
+              });
+            }
+            setTimeout(function () { window.location.href = './gracias.html'; }, 400);
+          })
+          .catch(function () {
+            /* Error de red: NO se dispara generate_lead, se muestra mensaje de error */
+            submitBtn.disabled = false;
+            submitText.style.display = '';
+            submitLoading.style.display = 'none';
+            if (errorBox) {
+              errorBox.style.display = 'block';
+              errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
+<!--
+═══════════════════════════════════════════════════════════════════
+NOTA DE ENTREGA — partner-innovacion-fraccional.html
+Estado: propuesta para revisión. No publicar sin aprobación de Roberto.
+No enlazada desde ningún menú ni pie de página.
+═══════════════════════════════════════════════════════════════════
+
+COMPONENTES REUTILIZADOS DE sprints.html
+────────────────────────────────────────
+- Design tokens completos (:root + light theme overrides)
+- Navbar + mobile nav (misma estructura)
+- Hero (.hero, .hero__kicker, .hero__title, .hero__sub, .hero__cta)
+- Animated background blobs (.scene)
+- Glass utilities (.glass, .glass-card)
+- Buttons (.btn, .btn--primary, .btn--ghost, .btn--lg)
+- Badge (.badge, .badge--aqua, .badge--violet, .badge--amber)
+- Etapas completas (4 tarjetas hover, mismos textos e imágenes)
+- Highlight quote (.highlight-quote)
+- CTA/form section (.cta-section)
+- Form base (validación, Turnstile, honeypot, correo corporativo)
+- Footer (mismo contenido)
+- JS: scroll animations, navbar, hamburger
+
+CAMPOS NUEVOS EN EL FORMULARIO
+────────────────────────────────────────
+Campos ocultos agregados (no existían en sprints.html):
+  - landing_path   : window.location.pathname + search al cargar la página
+  - ts_load        : ISO timestamp del momento de carga
+  - utm_source     : parámetro UTM de la URL (persiste en sessionStorage)
+  - utm_medium     : ídem
+  - utm_campaign   : ídem
+  - utm_content    : ídem
+  - utm_term       : ídem
+  - gclid          : parámetro de Google Ads (persiste en sessionStorage)
+  - gbraid         : ídem
+  - wbraid         : ídem
+
+origen = "Partner de Innovación Fraccional" (distinto de sprints.html)
+
+CAMBIOS REQUERIDOS EN EL APPS SCRIPT
+────────────────────────────────────────
+El Apps Script actual (mismo URL que sprints.html) debe actualizarse para:
+
+1. Leer y registrar los campos nuevos:
+   landing_path, ts_load, utm_source, utm_medium, utm_campaign,
+   utm_content, utm_term, gclid, gbraid, wbraid
+
+2. Incluir el campo "origen" en el asunto del correo de notificación
+   (hoy el asunto probablemente no incluye origen).
+
+3. Registrar todos los intentos con estado y motivo:
+   - válido (enviado correctamente)
+   - Turnstile (token inválido o expirado)
+   - dominio (correo gratuito rechazado)
+   - spam (honeypot activado o heurística)
+   - prueba (tiempo < 3 s, campo honeypot, etc.)
+
+   Para ello el script debe devolver JSON con al menos { status, reason }
+   en el body. Con el modo no-cors actual esto no es legible desde
+   el cliente; si se migra a un proxy con CORS, se podrá leer la
+   respuesta y disparar generate_lead solo cuando status === "ok".
+
+CORRECCIÓN EN EL CLIENTE VS sprints.html
+────────────────────────────────────────
+- generate_lead se dispara SOLO en .then() (éxito de red).
+  En sprints.html se disparaba también en .catch(), lo que
+  generaba leads falsos cuando la solicitud fallaba.
+- En .catch() se muestra el div #formError en lugar de redirigir.
+  El formulario queda activo para que el usuario pueda reintentar.
+
+═══════════════════════════════════════════════════════════════════
+-->
